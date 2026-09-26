@@ -18,7 +18,7 @@
     --white:#fff;
 
     --lavender:#e7e0f8;
-    --lavender-light:#eee9fa;
+    --lavender-light:#f2effa;
 
     --purple:#7c3aed;
     --purple-dark:#6428c7;
@@ -29,7 +29,7 @@
     --text:#10131a;
     --muted:#687386;
 
-    --border:rgba(20,20,30,.13);
+    --border:rgba(20,20,30,.12);
 
     --max:1460px;
 }
@@ -56,14 +56,22 @@ a{
     text-decoration:none;
 }
 
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
 .container{
     width:min(calc(100% - 90px),var(--max));
     margin:auto;
 }
 
-/* =========================
-NAV
-========================= */
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
 .nav{
     position:fixed;
@@ -76,10 +84,11 @@ NAV
 }
 
 .nav.scrolled{
-    background:rgba(255,255,255,.86);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(0,0,0,.08);
     padding:14px 0;
+    background:rgba(255,255,255,.88);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(0,0,0,.08);
 }
 
 .nav-inner{
@@ -113,8 +122,8 @@ NAV
 .nav-links a:not(.nav-cta)::after{
     content:"";
     position:absolute;
-    bottom:-7px;
     left:0;
+    bottom:-7px;
     width:0;
     height:2px;
     background:var(--purple);
@@ -126,7 +135,7 @@ NAV
 }
 
 .nav-cta{
-    padding:12px 20px;
+    padding:12px 21px;
     border-radius:100px;
     background:var(--black);
     color:#fff;
@@ -138,9 +147,10 @@ NAV
     transform:translateY(-2px);
 }
 
-/* =========================
-HERO
-========================= */
+
+/* =====================================================
+   HERO
+===================================================== */
 
 .about-hero{
     min-height:88vh;
@@ -152,8 +162,8 @@ HERO
     background:
         radial-gradient(
             circle at 83% 30%,
-            rgba(124,58,237,.13),
-            transparent 27%
+            rgba(124,58,237,.14),
+            transparent 28%
         ),
         linear-gradient(
             135deg,
@@ -167,11 +177,11 @@ HERO
     content:"";
     position:absolute;
 
-    width:650px;
-    height:650px;
+    width:680px;
+    height:680px;
 
-    right:-270px;
-    top:8%;
+    right:-290px;
+    top:7%;
 
     border-radius:50%;
 
@@ -179,7 +189,22 @@ HERO
 
     box-shadow:
         0 0 0 85px rgba(124,58,237,.025),
-        0 0 0 170px rgba(124,58,237,.015);
+        0 0 0 170px rgba(124,58,237,.015),
+        0 0 0 255px rgba(124,58,237,.01);
+}
+
+.about-hero::after{
+    content:"ABOUT";
+    position:absolute;
+    right:-25px;
+    bottom:-65px;
+
+    font-size:clamp(160px,23vw,350px);
+    line-height:1;
+    font-weight:800;
+    letter-spacing:-.11em;
+
+    color:rgba(124,58,237,.035);
 }
 
 .hero-content{
@@ -223,9 +248,10 @@ HERO
     line-height:1.7;
 }
 
-/* =========================
-INTRO
-========================= */
+
+/* =====================================================
+   COMMON SECTION
+===================================================== */
 
 .section{
     padding:125px 0;
@@ -259,19 +285,18 @@ INTRO
 
 .section-intro{
     align-self:end;
-
     max-width:680px;
 
     color:#5f6a7c;
 
     font-size:20px;
-
     line-height:1.7;
 }
 
-/* =========================
-ABOUT INTRO
-========================= */
+
+/* =====================================================
+   WHO WE ARE
+===================================================== */
 
 .about-intro{
     display:grid;
@@ -290,6 +315,11 @@ ABOUT INTRO
 .about-copy p:last-child{
     margin-bottom:0;
 }
+
+
+/* =====================================================
+   VISUAL
+===================================================== */
 
 .about-visual{
     min-height:510px;
@@ -325,16 +355,20 @@ ABOUT INTRO
 .about-visual::before{
     width:410px;
     height:410px;
+
     left:50%;
     top:50%;
+
     transform:translate(-50%,-50%);
 }
 
 .about-visual::after{
     width:285px;
     height:285px;
+
     left:50%;
     top:50%;
+
     transform:translate(-50%,-50%);
 }
 
@@ -403,13 +437,18 @@ ABOUT INTRO
     right:13%;
 }
 
-/* =========================
-WHAT WE BELIEVE
-========================= */
+
+/* =====================================================
+   APPROACH
+===================================================== */
 
 .beliefs{
     background:var(--dark);
     color:#fff;
+}
+
+.beliefs .section-intro{
+    color:#9ca6b5;
 }
 
 .beliefs-grid{
@@ -445,7 +484,9 @@ WHAT WE BELIEVE
 
 .belief-number{
     font-family:"DM Mono",monospace;
+
     color:var(--lime);
+
     font-size:13px;
 }
 
@@ -471,9 +512,10 @@ WHAT WE BELIEVE
     color:#fff;
 }
 
-/* =========================
-FOUNDERS
-========================= */
+
+/* =====================================================
+   FOUNDERS
+===================================================== */
 
 .founders{
     background:#fff;
@@ -482,19 +524,47 @@ FOUNDERS
 .founder-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:20px;
+    gap:22px;
 }
 
 .founder{
-    padding:45px;
+    position:relative;
+
+    padding:42px;
 
     border:1px solid var(--border);
 
     border-radius:30px;
 
-    background:#f7f7f8;
+    background:#f8f8fa;
 
-    transition:.4s ease;
+    overflow:hidden;
+
+    transition:
+        transform .4s ease,
+        background .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
+}
+
+.founder::before{
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+    height:250px;
+
+    right:-120px;
+    top:-120px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(124,58,237,.10);
+
+    box-shadow:
+        0 0 0 35px rgba(124,58,237,.025),
+        0 0 0 70px rgba(124,58,237,.018);
 }
 
 .founder:hover{
@@ -507,19 +577,25 @@ FOUNDERS
     border-color:var(--purple);
 
     box-shadow:
-        0 25px 55px rgba(124,58,237,.18);
+        0 25px 60px rgba(124,58,237,.2);
 }
 
 .founder-top{
+    position:relative;
+    z-index:2;
+
     display:flex;
     justify-content:space-between;
     align-items:flex-start;
-    gap:20px;
 }
 
 .founder-number{
     font-family:"DM Mono",monospace;
-    font-size:13px;
+
+    font-size:12px;
+
+    letter-spacing:.08em;
+
     color:var(--purple);
 }
 
@@ -527,20 +603,28 @@ FOUNDERS
     color:#dfd2ff;
 }
 
-.founder h3{
-    margin-top:60px;
+.founder-name{
+    position:relative;
+    z-index:2;
 
-    font-size:43px;
+    margin-top:65px;
 
-    letter-spacing:-.06em;
+    font-size:clamp(38px,4vw,54px);
+
+    line-height:.95;
+
+    letter-spacing:-.065em;
 }
 
 .founder-role{
-    margin-top:8px;
+    position:relative;
+    z-index:2;
+
+    margin-top:12px;
 
     font-family:"DM Mono",monospace;
 
-    font-size:12px;
+    font-size:11px;
 
     color:var(--purple);
 
@@ -554,13 +638,18 @@ FOUNDERS
 }
 
 .founder-description{
+    position:relative;
+    z-index:2;
+
     margin-top:28px;
+
+    max-width:600px;
 
     color:#687386;
 
-    font-size:17px;
+    font-size:16px;
 
-    line-height:1.7;
+    line-height:1.75;
 }
 
 .founder:hover .founder-description{
@@ -568,6 +657,9 @@ FOUNDERS
 }
 
 .founder-skills{
+    position:relative;
+    z-index:2;
+
     display:flex;
     flex-wrap:wrap;
     gap:8px;
@@ -585,15 +677,22 @@ FOUNDERS
     font-size:12px;
 
     font-weight:600;
+
+    background:#fff;
+
+    transition:.3s;
 }
 
 .founder:hover .skill{
+    color:#fff;
+    background:rgba(255,255,255,.08);
     border-color:rgba(255,255,255,.35);
 }
 
-/* =========================
-CAPABILITIES
-========================= */
+
+/* =====================================================
+   CAPABILITIES
+===================================================== */
 
 .capabilities{
     background:var(--lavender);
@@ -622,6 +721,7 @@ CAPABILITIES
 .capability:hover{
     padding-left:20px;
     padding-right:20px;
+
     background:rgba(255,255,255,.3);
 }
 
@@ -647,9 +747,10 @@ CAPABILITIES
     line-height:1.65;
 }
 
-/* =========================
-NUMBERS
-========================= */
+
+/* =====================================================
+   WHAT WE DO
+===================================================== */
 
 .numbers{
     background:#fff;
@@ -699,9 +800,10 @@ NUMBERS
     line-height:1.5;
 }
 
-/* =========================
-CTA
-========================= */
+
+/* =====================================================
+   CTA
+===================================================== */
 
 .cta{
     padding:135px 0;
@@ -767,9 +869,10 @@ CTA
     transform:translateY(-3px);
 }
 
-/* =========================
-FOOTER
-========================= */
+
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer{
     background:var(--dark);
@@ -786,6 +889,8 @@ footer{
 
     justify-content:space-between;
 
+    align-items:center;
+
     gap:20px;
 
     color:#8f99a8;
@@ -795,17 +900,19 @@ footer{
 
 .footer-brand{
     color:#fff;
+
     font-weight:700;
 }
 
-/* =========================
-REVEAL
-========================= */
+
+/* =====================================================
+   REVEAL
+===================================================== */
 
 .reveal{
     opacity:0;
 
-    transform:translateY(45px);
+    transform:translateY(38px);
 
     transition:
         opacity .75s ease,
@@ -814,12 +921,14 @@ REVEAL
 
 .reveal.active{
     opacity:1;
+
     transform:none;
 }
 
-/* =========================
-MOBILE
-========================= */
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:900px){
 
@@ -827,16 +936,20 @@ MOBILE
         width:min(calc(100% - 38px),var(--max));
     }
 
+    .nav{
+        padding:18px 0;
+    }
+
     .nav-links{
         display:none;
     }
 
-    .hero-content{
-        padding:130px 0 75px;
-    }
-
     .about-hero{
         min-height:82vh;
+    }
+
+    .hero-content{
+        padding:130px 0 70px;
     }
 
     .about-hero h1{
@@ -845,6 +958,7 @@ MOBILE
 
     .hero-description{
         font-size:17px;
+        line-height:1.65;
     }
 
     .section{
@@ -854,10 +968,13 @@ MOBILE
     .section-head{
         grid-template-columns:1fr;
         gap:30px;
+
+        margin-bottom:50px;
     }
 
     .section-intro{
         font-size:17px;
+        line-height:1.65;
     }
 
     .about-intro{
@@ -865,35 +982,85 @@ MOBILE
         gap:40px;
     }
 
-    .about-visual{
-        min-height:380px;
+    .about-copy p{
+        font-size:17px;
+        line-height:1.75;
     }
 
-    .beliefs-grid,
-    .founder-grid{
+    .about-visual{
+        min-height:380px;
+        border-radius:26px;
+    }
+
+    .about-visual::before{
+        width:300px;
+        height:300px;
+    }
+
+    .about-visual::after{
+        width:210px;
+        height:210px;
+    }
+
+    .visual-center{
+        width:120px;
+        height:120px;
+        font-size:17px;
+    }
+
+    .beliefs-grid{
         grid-template-columns:1fr;
     }
 
     .belief{
-        min-height:270px;
+        min-height:260px;
+        padding:30px;
+        border-radius:24px;
     }
 
     .belief h3{
-        margin-top:65px;
+        margin-top:60px;
         font-size:27px;
     }
 
-    .founder h3{
-        font-size:36px;
+    .belief p{
+        font-size:16px;
+    }
+
+    .founder-grid{
+        grid-template-columns:1fr;
+        gap:16px;
+    }
+
+    .founder{
+        padding:30px;
+        border-radius:25px;
+    }
+
+    .founder-name{
+        margin-top:55px;
+        font-size:39px;
+    }
+
+    .founder-description{
+        font-size:16px;
     }
 
     .capability{
         grid-template-columns:55px 1fr;
+
         gap:15px 20px;
+
+        padding:28px 0;
+    }
+
+    .capability h3{
+        font-size:23px;
     }
 
     .capability p{
         grid-column:2;
+        font-size:16px;
     }
 
     .number-grid{
@@ -901,15 +1068,24 @@ MOBILE
     }
 
     .number{
-        border-bottom:1px solid var(--border);
+        padding:40px 20px;
     }
 
     .number:nth-child(2){
         border-right:0;
     }
 
+    .number:nth-child(3),
+    .number:nth-child(4){
+        border-top:1px solid var(--border);
+    }
+
     .number strong{
         font-size:48px;
+    }
+
+    .cta{
+        padding:100px 0;
     }
 
     .cta-inner{
@@ -921,8 +1097,106 @@ MOBILE
         font-size:clamp(50px,13vw,76px);
     }
 
+    .cta p{
+        font-size:17px;
+    }
+
     .footer-inner{
         flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media(max-width:520px){
+
+    .container{
+        width:calc(100% - 30px);
+    }
+
+    .about-hero h1{
+        font-size:clamp(45px,13vw,66px);
+    }
+
+    .hero-description{
+        font-size:16px;
+    }
+
+    .section{
+        padding:75px 0;
+    }
+
+    .section h2{
+        font-size:clamp(40px,12vw,60px);
+    }
+
+    .about-visual{
+        min-height:330px;
+    }
+
+    .label-one{
+        left:10%;
+    }
+
+    .label-two{
+        right:9%;
+    }
+
+    .label-three{
+        left:10%;
+    }
+
+    .label-four{
+        right:8%;
+    }
+
+    .founder{
+        padding:27px;
+    }
+
+    .founder-name{
+        font-size:36px;
+    }
+
+    .founder-skills{
+        gap:7px;
+    }
+
+    .skill{
+        font-size:11px;
+        padding:8px 11px;
+    }
+
+    .capability{
+        grid-template-columns:42px 1fr;
+        gap:12px 14px;
+    }
+
+    .capability h3{
+        font-size:21px;
+    }
+
+    .capability p{
+        grid-column:2;
+        font-size:15px;
+    }
+
+    .number{
+        padding:35px 15px;
+    }
+
+    .number strong{
+        font-size:42px;
+    }
+
+    .number span{
+        font-size:13px;
     }
 
 }
@@ -934,9 +1208,9 @@ MOBILE
 <body>
 
 
-<!-- =========================
-NAV
-========================= -->
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
 
 <header class="nav" id="nav">
 
@@ -972,9 +1246,9 @@ Let's Talk
 <main>
 
 
-<!-- =========================
-ABOUT HERO
-========================= -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="about-hero">
 
@@ -990,11 +1264,9 @@ We build digital experiences with a
 </h1>
 
 <p class="hero-description">
-
 We combine digital marketing and website development
 to help businesses build a stronger, clearer and more
 effective digital presence.
-
 </p>
 
 </div>
@@ -1002,9 +1274,9 @@ effective digital presence.
 </section>
 
 
-<!-- =========================
-WHO WE ARE
-========================= -->
+<!-- =====================================================
+     WHO WE ARE
+===================================================== -->
 
 <section class="section">
 
@@ -1025,12 +1297,10 @@ Digital thinking. Business focus.
 </div>
 
 <p class="section-intro">
-
 We are a digital marketing and web development team focused
 on creating digital work that has a clear business purpose —
 from building a website to generating the traffic, enquiries
 and visibility that make it valuable.
-
 </p>
 
 </div>
@@ -1086,7 +1356,6 @@ GROWTH
 
 </div>
 
-
 </div>
 
 </div>
@@ -1094,9 +1363,9 @@ GROWTH
 </section>
 
 
-<!-- =========================
-BELIEFS
-========================= -->
+<!-- =====================================================
+     OUR APPROACH
+===================================================== -->
 
 <section class="section beliefs">
 
@@ -1116,11 +1385,9 @@ The way we think about digital work.
 
 </div>
 
-<p class="section-intro" style="color:#9ca6b5">
-
+<p class="section-intro">
 Good digital work starts with understanding the business,
 not simply choosing a design or launching a campaign.
-
 </p>
 
 </div>
@@ -1208,9 +1475,9 @@ testing and optimisation to keep improving the experience.
 </section>
 
 
-<!-- =========================
-FOUNDERS
-========================= -->
+<!-- =====================================================
+     FOUNDERS
+===================================================== -->
 
 <section class="section founders">
 
@@ -1231,11 +1498,9 @@ The people behind the work.
 </div>
 
 <p class="section-intro">
-
 A hands-on approach to digital marketing and website
 development, with a focus on practical execution and
 business growth.
-
 </p>
 
 </div>
@@ -1244,7 +1509,7 @@ business growth.
 <div class="founder-grid">
 
 
-<!-- SHAILesh -->
+<!-- SHAILESH -->
 
 <article class="founder reveal">
 
@@ -1256,7 +1521,7 @@ business growth.
 
 </div>
 
-<h3>
+<h3 class="founder-name">
 Shailesh
 </h3>
 
@@ -1265,24 +1530,32 @@ Digital Marketing & Web Development
 </div>
 
 <p class="founder-description">
-
 Focused on digital marketing, website development,
 SEO, paid advertising and creating digital experiences
 that connect marketing with business goals.
-
 </p>
 
 <div class="founder-skills">
 
-<span class="skill">Digital Marketing</span>
+<span class="skill">
+Digital Marketing
+</span>
 
-<span class="skill">SEO</span>
+<span class="skill">
+SEO
+</span>
 
-<span class="skill">Google Ads</span>
+<span class="skill">
+Google Ads
+</span>
 
-<span class="skill">Meta Ads</span>
+<span class="skill">
+Meta Ads
+</span>
 
-<span class="skill">Web Development</span>
+<span class="skill">
+Web Development
+</span>
 
 </div>
 
@@ -1301,7 +1574,7 @@ that connect marketing with business goals.
 
 </div>
 
-<h3>
+<h3 class="founder-name">
 Aman
 </h3>
 
@@ -1310,24 +1583,32 @@ Digital Marketing & Web Development
 </div>
 
 <p class="founder-description">
-
 Focused on digital strategy, website development,
 marketing execution and building practical digital
 solutions around the needs of businesses.
-
 </p>
 
 <div class="founder-skills">
 
-<span class="skill">Digital Marketing</span>
+<span class="skill">
+Digital Marketing
+</span>
 
-<span class="skill">Web Development</span>
+<span class="skill">
+Web Development
+</span>
 
-<span class="skill">Social Media</span>
+<span class="skill">
+Social Media
+</span>
 
-<span class="skill">Lead Generation</span>
+<span class="skill">
+Lead Generation
+</span>
 
-<span class="skill">Digital Strategy</span>
+<span class="skill">
+Digital Strategy
+</span>
 
 </div>
 
@@ -1341,9 +1622,9 @@ solutions around the needs of businesses.
 </section>
 
 
-<!-- =========================
-CAPABILITIES
-========================= -->
+<!-- =====================================================
+     CAPABILITIES
+===================================================== -->
 
 <section class="section capabilities">
 
@@ -1364,10 +1645,8 @@ What we bring together.
 </div>
 
 <p class="section-intro">
-
 Our capabilities cover both sides of the digital journey:
 building the platform and bringing the right people to it.
-
 </p>
 
 </div>
@@ -1473,9 +1752,9 @@ with relevant customers and potential clients.
 </section>
 
 
-<!-- =========================
-NUMBERS
-========================= -->
+<!-- =====================================================
+     WHAT WE DO
+===================================================== -->
 
 <section class="section numbers">
 
@@ -1496,10 +1775,8 @@ One team. Multiple digital needs.
 </div>
 
 <p class="section-intro">
-
 From the first website structure to the next marketing
 campaign, we work across the digital journey.
-
 </p>
 
 </div>
@@ -1510,7 +1787,9 @@ campaign, we work across the digital journey.
 
 <div class="number reveal">
 
-<strong>01</strong>
+<strong>
+01
+</strong>
 
 <span>
 Digital Strategy
@@ -1521,7 +1800,9 @@ Digital Strategy
 
 <div class="number reveal">
 
-<strong>02</strong>
+<strong>
+02
+</strong>
 
 <span>
 Website Development
@@ -1532,7 +1813,9 @@ Website Development
 
 <div class="number reveal">
 
-<strong>03</strong>
+<strong>
+03
+</strong>
 
 <span>
 Digital Marketing
@@ -1543,7 +1826,9 @@ Digital Marketing
 
 <div class="number reveal">
 
-<strong>04</strong>
+<strong>
+04
+</strong>
 
 <span>
 Growth & Optimisation
@@ -1559,9 +1844,9 @@ Growth & Optimisation
 </section>
 
 
-<!-- =========================
-CTA
-========================= -->
+<!-- =====================================================
+     CTA
+===================================================== -->
 
 <section class="cta">
 
@@ -1584,11 +1869,9 @@ Have a project in mind?
 <div class="reveal">
 
 <p>
-
 Whether you need a new website, stronger digital visibility
 or a complete marketing setup, let's talk about what you want
 to build.
-
 </p>
 
 <a href="contact.html" class="btn btn-purple">
@@ -1606,9 +1889,9 @@ Start a project →
 </main>
 
 
-<!-- =========================
-FOOTER
-========================= -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
@@ -1633,11 +1916,13 @@ Web Development · Digital Marketing · SEO · Paid Ads
 
 <script>
 
-/* NAVIGATION */
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
 const nav = document.getElementById("nav");
 
-window.addEventListener("scroll",()=>{
+function updateNavigation(){
 
     if(window.scrollY > 30){
 
@@ -1649,12 +1934,22 @@ window.addEventListener("scroll",()=>{
 
     }
 
-});
+}
+
+window.addEventListener(
+    "scroll",
+    updateNavigation,
+    {passive:true}
+);
+
+updateNavigation();
 
 
-/* SCROLL REVEAL */
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
 
-const observer = new IntersectionObserver(
+const revealObserver = new IntersectionObserver(
 
 (entries)=>{
 
@@ -1663,11 +1958,11 @@ const observer = new IntersectionObserver(
         if(entry.isIntersecting){
 
             entry.target.style.transitionDelay =
-                Math.min(index,5)*70+"ms";
+                Math.min(index,5) * 65 + "ms";
 
             entry.target.classList.add("active");
 
-            observer.unobserve(entry.target);
+            revealObserver.unobserve(entry.target);
 
         }
 
@@ -1676,7 +1971,7 @@ const observer = new IntersectionObserver(
 },
 
 {
-    threshold:.12
+    threshold:.10
 }
 
 );
@@ -1684,26 +1979,40 @@ const observer = new IntersectionObserver(
 
 document
 .querySelectorAll(".reveal")
-.forEach(el=>observer.observe(el));
+.forEach(function(element){
+
+    revealObserver.observe(element);
+
+});
 
 
-/* TOUCH FEEL */
+/* =====================================================
+   MOBILE TOUCH EFFECT
+===================================================== */
 
 document
 .querySelectorAll(".belief,.founder")
-.forEach(card=>{
+.forEach(function(card){
 
-    card.addEventListener("touchstart",()=>{
+    card.addEventListener(
+        "touchstart",
+        function(){
 
-        card.style.transform="translateY(-6px)";
+            card.classList.add("touch-active");
 
-    },{passive:true});
+        },
+        {passive:true}
+    );
 
-    card.addEventListener("touchend",()=>{
+    card.addEventListener(
+        "touchend",
+        function(){
 
-        card.style.transform="";
+            card.classList.remove("touch-active");
 
-    },{passive:true});
+        },
+        {passive:true}
+    );
 
 });
 
