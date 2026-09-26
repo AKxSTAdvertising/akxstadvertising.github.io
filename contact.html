@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact — AK × ST</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --black:#080b12;
+    --dark:#0c121c;
+    --white:#fff;
+    --lavender:#e7e0f8;
+    --lavender2:#eee9fa;
+    --purple:#7c3aed;
+    --purple-dark:#6428c7;
+    --purple-light:#d8c9ff;
+    --lime:#c7ff29;
+    --text:#10131a;
+    --muted:#697386;
+    --line:rgba(15,18,28,.12);
+    --max:1460px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Manrope",sans-serif;
+    color:var(--text);
+    background:#fff;
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.container{
+    width:min(calc(100% - 90px),var(--max));
+    margin:auto;
+}
+
+
+/* =========================
+   NAV
+========================= */
+
+.nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    padding:22px 0;
+    transition:.35s ease;
+}
+
+.nav.scrolled{
+    padding:14px 0;
+    background:rgba(255,255,255,.88);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(0,0,0,.08);
+}
+
+.nav-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:23px;
+    font-weight:800;
+    letter-spacing:-.06em;
+}
+
+.logo span{
+    color:var(--purple);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:30px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.nav-links a{
+    position:relative;
+}
+
+.nav-links a:not(.nav-cta)::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-7px;
+    width:0;
+    height:2px;
+    background:var(--purple);
+    transition:.3s;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+.nav-cta{
+    padding:12px 21px;
+    border-radius:100px;
+    background:var(--black);
+    color:#fff;
+    transition:.3s;
+}
+
+.nav-cta:hover{
+    background:var(--purple);
+    transform:translateY(-2px);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:82vh;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 85% 25%,
+            rgba(124,58,237,.18),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #fff 0%,
+            #faf9ff 52%,
+            var(--lavender) 100%
+        );
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:720px;
+    height:720px;
+    right:-330px;
+    top:-20px;
+    border-radius:50%;
+    border:1px solid rgba(124,58,237,.17);
+
+    box-shadow:
+        0 0 0 80px rgba(124,58,237,.025),
+        0 0 0 160px rgba(124,58,237,.018),
+        0 0 0 240px rgba(124,58,237,.012);
+}
+
+.hero::after{
+    content:"TALK";
+    position:absolute;
+    right:-20px;
+    bottom:-70px;
+    font-size:clamp(170px,24vw,360px);
+    line-height:1;
+    font-weight:800;
+    letter-spacing:-.1em;
+    color:rgba(124,58,237,.035);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    padding:150px 0 90px;
+}
+
+.eyebrow{
+    font-family:"DM Mono",monospace;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--purple);
+    margin-bottom:25px;
+}
+
+.hero h1{
+    max-width:1050px;
+    font-size:clamp(58px,8vw,118px);
+    line-height:.87;
+    letter-spacing:-.078em;
+}
+
+.hero h1 span{
+    color:var(--purple);
+}
+
+.hero-text{
+    max-width:720px;
+    margin-top:38px;
+    color:#5e697b;
+    font-size:20px;
+    line-height:1.7;
+}
+
+
+/* =========================
+   CONTACT SECTION
+========================= */
+
+.contact-section{
+    padding:125px 0;
+    background:#fff;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1.15fr;
+    gap:80px;
+    align-items:start;
+}
+
+
+/* LEFT */
+
+.contact-label{
+    font-family:"DM Mono",monospace;
+    font-size:12px;
+    letter-spacing:.17em;
+    text-transform:uppercase;
+    color:var(--purple);
+    margin-bottom:22px;
+}
+
+.contact-left h2{
+    max-width:650px;
+    font-size:clamp(45px,5.8vw,78px);
+    line-height:.94;
+    letter-spacing:-.07em;
+}
+
+.contact-left h2 span{
+    color:var(--purple);
+}
+
+.contact-description{
+    max-width:570px;
+    margin-top:30px;
+    color:#687386;
+    font-size:18px;
+    line-height:1.75;
+}
+
+.contact-details{
+    margin-top:55px;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
+
+.detail{
+    display:flex;
+    align-items:flex-start;
+    gap:18px;
+}
+
+.detail-icon{
+    width:44px;
+    height:44px;
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:var(--lavender);
+    color:var(--purple);
+    font-weight:800;
+}
+
+.detail-text small{
+    display:block;
+    font-family:"DM Mono",monospace;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.13em;
+    color:#8992a1;
+    margin-bottom:5px;
+}
+
+.detail-text a,
+.detail-text strong{
+    font-size:16px;
+    font-weight:700;
+}
+
+.detail-text a:hover{
+    color:var(--purple);
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.form-box{
+    position:relative;
+    padding:45px;
+    border-radius:32px;
+    background:var(--lavender2);
+    border:1px solid rgba(124,58,237,.1);
+    overflow:hidden;
+}
+
+.form-box::before{
+    content:"";
+    position:absolute;
+    width:360px;
+    height:360px;
+    right:-180px;
+    top:-180px;
+    border-radius:50%;
+    border:1px solid rgba(124,58,237,.12);
+    box-shadow:
+        0 0 0 50px rgba(124,58,237,.025),
+        0 0 0 100px rgba(124,58,237,.018);
+}
+
+.form-title{
+    position:relative;
+    z-index:2;
+    font-size:31px;
+    letter-spacing:-.055em;
+    margin-bottom:30px;
+}
+
+.form{
+    position:relative;
+    z-index:2;
+}
+
+.field{
+    margin-bottom:21px;
+}
+
+.field label{
+    display:block;
+    margin-bottom:8px;
+    font-family:"DM Mono",monospace;
+    font-size:10px;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+    color:#70798a;
+}
+
+.field input,
+.field textarea,
+.field select{
+    width:100%;
+    border:none;
+    outline:none;
+    padding:16px 17px;
+    border-radius:13px;
+    background:#fff;
+    border:1px solid rgba(20,20,30,.09);
+    color:var(--text);
+    font-family:"Manrope",sans-serif;
+    font-size:14px;
+    transition:.3s;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+    border-color:var(--purple);
+    box-shadow:0 0 0 4px rgba(124,58,237,.08);
+}
+
+.field textarea{
+    min-height:145px;
+    resize:vertical;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.submit{
+    width:100%;
+    border:none;
+    cursor:pointer;
+    padding:17px 22px;
+    border-radius:100px;
+    background:var(--black);
+    color:#fff;
+    font-family:"Manrope",sans-serif;
+    font-size:14px;
+    font-weight:800;
+    transition:.35s;
+}
+
+.submit:hover{
+    background:var(--purple);
+    transform:translateY(-3px);
+    box-shadow:0 18px 35px rgba(124,58,237,.2);
+}
+
+
+/* =========================
+   SERVICES STRIP
+========================= */
+
+.services-strip{
+    padding:90px 0;
+    background:var(--dark);
+    color:#fff;
+}
+
+.strip-title{
+    max-width:800px;
+    font-size:clamp(42px,5vw,70px);
+    line-height:.95;
+    letter-spacing:-.065em;
+}
+
+.strip-title span{
+    color:var(--lime);
+}
+
+.service-grid{
+    margin-top:55px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.service-card{
+    min-height:190px;
+    padding:28px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:22px;
+    background:rgba(255,255,255,.025);
+    transition:.4s;
+}
+
+.service-card:hover{
+    background:var(--purple);
+    transform:translateY(-8px);
+    border-color:var(--purple);
+}
+
+.service-number{
+    font-family:"DM Mono",monospace;
+    font-size:11px;
+    color:var(--lime);
+}
+
+.service-card h3{
+    margin-top:60px;
+    font-size:23px;
+    letter-spacing:-.045em;
+}
+
+
+/* =========================
+   FINAL CTA
+========================= */
+
+.final-cta{
+    position:relative;
+    overflow:hidden;
+    padding:140px 0 160px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e7e0f8,
+            #f0ecfa 55%,
+            #ddd2f4
+        );
+}
+
+.final-cta::before{
+    content:"";
+    position:absolute;
+    width:620px;
+    height:620px;
+    right:-280px;
+    top:-160px;
+    border-radius:50%;
+    border:1px solid rgba(124,58,237,.2);
+
+    box-shadow:
+        0 0 0 70px rgba(124,58,237,.035),
+        0 0 0 140px rgba(124,58,237,.025);
+}
+
+.final-cta-content{
+    position:relative;
+    z-index:2;
+}
+
+.cta-label{
+    font-family:"DM Mono",monospace;
+    color:var(--purple);
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    margin-bottom:24px;
+}
+
+.final-cta h2{
+    max-width:1100px;
+    font-size:clamp(58px,8vw,120px);
+    line-height:.87;
+    letter-spacing:-.08em;
+}
+
+.final-cta h2 span{
+    color:var(--purple);
+}
+
+.cta-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:40px;
+    margin-top:50px;
+}
+
+.cta-bottom p{
+    max-width:620px;
+    color:#5f6979;
+    font-size:18px;
+    line-height:1.7;
+}
+
+.cta-button{
+    flex-shrink:0;
+    padding:17px 25px;
+    border-radius:100px;
+    background:var(--black);
+    color:#fff;
+    font-size:14px;
+    font-weight:800;
+    transition:.35s;
+}
+
+.cta-button:hover{
+    background:var(--purple);
+    transform:translateY(-4px);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:30px 0;
+    background:var(--dark);
+    color:#fff;
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    color:#929cab;
+    font-size:12px;
+}
+
+.footer-brand{
+    color:#fff;
+    font-size:16px;
+    font-weight:800;
+}
+
+
+/* =========================
+   REVEAL
+========================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(40px);
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    .container{
+        width:min(calc(100% - 38px),var(--max));
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        min-height:75vh;
+    }
+
+    .hero-content{
+        padding:130px 0 70px;
+    }
+
+    .hero h1{
+        font-size:clamp(54px,14vw,82px);
+    }
+
+    .hero-text{
+        font-size:17px;
+        margin-top:28px;
+    }
+
+    .contact-section{
+        padding:90px 0;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+        gap:60px;
+    }
+
+    .contact-left h2{
+        font-size:clamp(46px,12vw,70px);
+    }
+
+    .form-box{
+        padding:28px 22px;
+        border-radius:25px;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+        gap:0;
+    }
+
+    .service-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .final-cta{
+        padding:100px 0 120px;
+    }
+
+    .final-cta h2{
+        font-size:clamp(56px,14vw,85px);
+    }
+
+    .cta-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+}
+
+@media(max-width:520px){
+
+    .service-grid{
+        grid-template-columns:1fr;
+    }
+
+    .service-card{
+        min-height:145px;
+    }
+
+    .service-card h3{
+        margin-top:35px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAV
+========================= -->
+
+<header class="nav" id="nav">
+
+<div class="container nav-inner">
+
+<a href="index.html" class="logo">
+AK <span>×</span> ST
+</a>
+
+<nav class="nav-links">
+
+<a href="index.html">Home</a>
+
+<a href="about.html">About</a>
+
+<a href="services.html">Services</a>
+
+<a href="web-development.html">Web Development</a>
+
+<a href="work.html">Work</a>
+
+<a href="contact.html" class="nav-cta">
+Let's Talk
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<main>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<div class="container hero-content reveal">
+
+<div class="eyebrow">
+01 / CONTACT
+</div>
+
+<h1>
+Let's build something
+<span>worth talking about.</span>
+</h1>
+
+<p class="hero-text">
+Tell us what you're building, what you're trying to improve,
+or simply where you want to go next. We'll figure out the
+right digital direction together.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="contact-section">
+
+<div class="container contact-grid">
+
+
+<!-- LEFT -->
+
+<div class="contact-left reveal">
+
+<div class="contact-label">
+02 / GET IN TOUCH
+</div>
+
+<h2>
+Have a project
+<span>in mind?</span>
+</h2>
+
+<p class="contact-description">
+Whether you need a new website, a complete digital presence,
+paid advertising, SEO, social media management or a focused
+lead-generation campaign, let's talk about what your business
+actually needs.
+</p>
+
+
+<div class="contact-details">
+
+
+<div class="detail">
+
+<div class="detail-icon">
+@
+</div>
+
+<div class="detail-text">
+
+<small>Email</small>
+
+<a href="mailto:hello@akxst.com">
+hello@akxst.com
+</a>
+
+</div>
+
+</div>
+
+
+<div class="detail">
+
+<div class="detail-icon">
+→
+</div>
+
+<div class="detail-text">
+
+<small>Project Enquiries</small>
+
+<strong>
+Digital Marketing & Web Development
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="detail">
+
+<div class="detail-icon">
+↗
+</div>
+
+<div class="detail-text">
+
+<small>Response</small>
+
+<strong>
+Let's discuss your requirement
+</strong>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- FORM -->
+
+<div class="form-box reveal">
+
+<div class="form-title">
+Tell us about your project.
+</div>
+
+<form
+class="form"
+action="mailto:hello@akxst.com"
+method="post"
+enctype="text/plain"
+>
+
+
+<div class="form-row">
+
+<div class="field">
+
+<label>Name</label>
+
+<input
+type="text"
+name="Name"
+placeholder="Your name"
+required
+>
+
+</div>
+
+
+<div class="field">
+
+<label>Email</label>
+
+<input
+type="email"
+name="Email"
+placeholder="you@example.com"
+required
+>
+
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div class="field">
+
+<label>Company</label>
+
+<input
+type="text"
+name="Company"
+placeholder="Company name"
+>
+
+</div>
+
+
+<div class="field">
+
+<label>Service</label>
+
+<select name="Service">
+
+<option value="">
+Select a service
+</option>
+
+<option>
+Website Development
+</option>
+
+<option>
+Digital Marketing
+</option>
+
+<option>
+SEO
+</option>
+
+<option>
+Google Ads
+</option>
+
+<option>
+Meta Ads
+</option>
+
+<option>
+Social Media Management
+</option>
+
+<option>
+B2B Lead Generation
+</option>
+
+<option>
+Other
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div class="field">
+
+<label>Project Details</label>
+
+<textarea
+name="Project Details"
+placeholder="Tell us a little about what you want to build..."
+></textarea>
+
+</div>
+
+
+<button
+type="submit"
+class="submit"
+>
+Send Enquiry →
+</button>
+
+
+</form>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     SERVICES
+========================= -->
+
+<section class="services-strip">
+
+<div class="container">
+
+<div class="reveal">
+
+<div class="cta-label">
+03 / WHAT WE CAN HELP WITH
+</div>
+
+<h2 class="strip-title">
+One conversation.
+<span>Many ways to grow.</span>
+</h2>
+
+</div>
+
+
+<div class="service-grid">
+
+
+<div class="service-card reveal">
+
+<div class="service-number">
+01
+</div>
+
+<h3>
+Website Development
+</h3>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="service-number">
+02
+</div>
+
+<h3>
+Digital Marketing
+</h3>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="service-number">
+03
+</div>
+
+<h3>
+SEO & Visibility
+</h3>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="service-number">
+04
+</div>
+
+<h3>
+Paid Advertising
+</h3>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FINAL CTA
+========================= -->
+
+<section class="final-cta">
+
+<div class="container">
+
+<div class="final-cta-content reveal">
+
+<div class="cta-label">
+04 / START THE CONVERSATION
+</div>
+
+<h2>
+Your next digital move
+<span>starts here.</span>
+</h2>
+
+<div class="cta-bottom">
+
+<p>
+No complicated process. Just a clear conversation about
+your business, your goals and what needs to happen next.
+</p>
+
+<a
+href="mailto:hello@akxst.com"
+class="cta-button"
+>
+Start a Conversation →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="container footer-inner">
+
+<div class="footer-brand">
+AK × ST
+</div>
+
+<div>
+Digital Marketing · Web Development · SEO · Paid Ads
+</div>
+
+<div>
+© 2026
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* NAV */
+
+const nav = document.getElementById("nav");
+
+window.addEventListener("scroll",function(){
+
+    if(window.scrollY > 35){
+        nav.classList.add("scrolled");
+    }else{
+        nav.classList.remove("scrolled");
+    }
+
+});
+
+
+/* SCROLL REVEAL */
+
+const observer = new IntersectionObserver(
+
+(entries)=>{
+
+    entries.forEach((entry,index)=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.style.transitionDelay =
+                Math.min(index,5) * 65 + "ms";
+
+            entry.target.classList.add("active");
+
+            observer.unobserve(entry.target);
+
+        }
+
+    });
+
+},
+
+{
+    threshold:.10
+}
+
+);
+
+document
+.querySelectorAll(".reveal")
+.forEach(function(el){
+
+    observer.observe(el);
+
+});
+
+
+/* TOUCH FEEL */
+
+document
+.querySelectorAll(".service-card")
+.forEach(function(card){
+
+    card.addEventListener(
+        "touchstart",
+        function(){
+            card.style.transform="translateY(-7px)";
+        },
+        {passive:true}
+    );
+
+    card.addEventListener(
+        "touchend",
+        function(){
+            card.style.transform="";
+        },
+        {passive:true}
+    );
+
+});
+
+</script>
+
+</body>
+</html>
