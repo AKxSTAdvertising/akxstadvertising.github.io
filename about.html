@@ -12,13 +12,17 @@
 
 <style>
 
+/* =====================================================
+   ROOT
+===================================================== */
+
 :root{
     --black:#080b12;
     --dark:#0c121c;
-    --white:#fff;
+    --white:#ffffff;
 
     --lavender:#e7e0f8;
-    --lavender-light:#f2effa;
+    --lavender-light:#eee9fa;
 
     --purple:#7c3aed;
     --purple-dark:#6428c7;
@@ -29,10 +33,15 @@
     --text:#10131a;
     --muted:#687386;
 
-    --border:rgba(20,20,30,.12);
+    --border:rgba(20,20,30,.13);
 
     --max:1460px;
 }
+
+
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
     margin:0;
@@ -49,6 +58,10 @@ body{
     background:#fff;
     color:var(--text);
     overflow-x:hidden;
+}
+
+body.menu-open{
+    overflow:hidden;
 }
 
 a{
@@ -78,16 +91,24 @@ select{
     top:0;
     left:0;
     width:100%;
-    z-index:1000;
+    z-index:5000;
+
     padding:22px 0;
-    transition:.35s ease;
+
+    transition:
+        padding .35s ease,
+        background .35s ease,
+        box-shadow .35s ease;
 }
 
 .nav.scrolled{
     padding:14px 0;
+
     background:rgba(255,255,255,.88);
+
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
+
     border-bottom:1px solid rgba(0,0,0,.08);
 }
 
@@ -98,19 +119,30 @@ select{
 }
 
 .logo{
+    display:inline-flex;
+    align-items:center;
+
     font-size:23px;
     font-weight:800;
     letter-spacing:-.06em;
+
+    position:relative;
+    z-index:5100;
 }
 
 .logo span{
     color:var(--purple);
+    margin:0 2px;
 }
+
+
+/* DESKTOP LINKS */
 
 .nav-links{
     display:flex;
     align-items:center;
     gap:30px;
+
     font-size:14px;
     font-weight:600;
 }
@@ -121,25 +153,33 @@ select{
 
 .nav-links a:not(.nav-cta)::after{
     content:"";
+
     position:absolute;
+
     left:0;
     bottom:-7px;
+
     width:0;
     height:2px;
+
     background:var(--purple);
-    transition:.3s;
+
+    transition:.3s ease;
 }
 
-.nav-links a:hover::after{
+.nav-links a:not(.nav-cta):hover::after{
     width:100%;
 }
 
 .nav-cta{
     padding:12px 21px;
+
     border-radius:100px;
+
     background:var(--black);
     color:#fff;
-    transition:.3s;
+
+    transition:.3s ease;
 }
 
 .nav-cta:hover{
@@ -149,21 +189,187 @@ select{
 
 
 /* =====================================================
+   HAMBURGER
+===================================================== */
+
+.menu-toggle{
+    display:none;
+
+    width:44px;
+    height:44px;
+
+    border:1px solid rgba(0,0,0,.1);
+    border-radius:50%;
+
+    background:#fff;
+
+    cursor:pointer;
+
+    position:relative;
+    z-index:5100;
+
+    align-items:center;
+    justify-content:center;
+
+    flex-direction:column;
+    gap:5px;
+
+    transition:.3s ease;
+}
+
+.menu-toggle span{
+    display:block;
+
+    width:18px;
+    height:2px;
+
+    background:var(--black);
+
+    border-radius:5px;
+
+    transition:.3s ease;
+}
+
+.menu-toggle.active{
+    background:var(--black);
+}
+
+.menu-toggle.active span{
+    background:#fff;
+}
+
+.menu-toggle.active span:nth-child(1){
+    transform:translateY(3.5px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2){
+    opacity:0;
+}
+
+.menu-toggle.active span:nth-child(3){
+    transform:translateY(-3.5px) rotate(-45deg);
+}
+
+
+/* MOBILE MENU BACKDROP */
+
+.mobile-backdrop{
+    position:fixed;
+
+    inset:0;
+
+    z-index:4900;
+
+    background:rgba(5,8,14,.58);
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s ease;
+}
+
+.mobile-backdrop.active{
+    opacity:1;
+    visibility:visible;
+}
+
+
+/* MOBILE MENU */
+
+.mobile-menu{
+    position:fixed;
+
+    top:78px;
+    left:18px;
+    right:18px;
+
+    z-index:5050;
+
+    padding:12px;
+
+    border-radius:24px;
+
+    background:rgba(255,255,255,.97);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.22);
+
+    border:1px solid rgba(0,0,0,.08);
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateY(-15px) scale(.97);
+
+    transition:
+        opacity .3s ease,
+        visibility .3s ease,
+        transform .3s ease;
+}
+
+.mobile-menu.active{
+    opacity:1;
+    visibility:visible;
+
+    transform:translateY(0) scale(1);
+}
+
+.mobile-menu a{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:16px 17px;
+
+    border-radius:15px;
+
+    font-size:15px;
+    font-weight:700;
+
+    transition:.25s ease;
+}
+
+.mobile-menu a:hover{
+    background:var(--lavender);
+    color:var(--purple);
+}
+
+.mobile-menu a:last-child{
+    margin-top:6px;
+
+    justify-content:center;
+
+    background:var(--black);
+    color:#fff;
+}
+
+.mobile-menu a:last-child:hover{
+    background:var(--purple);
+    color:#fff;
+}
+
+
+/* =====================================================
    HERO
 ===================================================== */
 
 .about-hero{
     min-height:88vh;
+
     display:flex;
     align-items:center;
+
     position:relative;
     overflow:hidden;
 
     background:
         radial-gradient(
             circle at 83% 30%,
-            rgba(124,58,237,.14),
-            transparent 28%
+            rgba(124,58,237,.13),
+            transparent 27%
         ),
         linear-gradient(
             135deg,
@@ -175,13 +381,14 @@ select{
 
 .about-hero::before{
     content:"";
+
     position:absolute;
 
-    width:680px;
-    height:680px;
+    width:650px;
+    height:650px;
 
-    right:-290px;
-    top:7%;
+    right:-270px;
+    top:8%;
 
     border-radius:50%;
 
@@ -189,36 +396,27 @@ select{
 
     box-shadow:
         0 0 0 85px rgba(124,58,237,.025),
-        0 0 0 170px rgba(124,58,237,.015),
-        0 0 0 255px rgba(124,58,237,.01);
-}
-
-.about-hero::after{
-    content:"ABOUT";
-    position:absolute;
-    right:-25px;
-    bottom:-65px;
-
-    font-size:clamp(160px,23vw,350px);
-    line-height:1;
-    font-weight:800;
-    letter-spacing:-.11em;
-
-    color:rgba(124,58,237,.035);
+        0 0 0 170px rgba(124,58,237,.015);
 }
 
 .hero-content{
     position:relative;
     z-index:2;
+
     padding:150px 0 90px;
 }
 
 .eyebrow{
     font-family:"DM Mono",monospace;
+
     font-size:12px;
+
     color:var(--purple);
+
     letter-spacing:.18em;
+
     text-transform:uppercase;
+
     margin-bottom:25px;
 }
 
@@ -250,7 +448,7 @@ select{
 
 
 /* =====================================================
-   COMMON SECTION
+   GENERAL SECTION
 ===================================================== */
 
 .section{
@@ -263,52 +461,70 @@ select{
 
 .section-head{
     display:grid;
+
     grid-template-columns:1fr 1.15fr;
+
     gap:75px;
+
     margin-bottom:75px;
 }
 
 .kicker{
     font-family:"DM Mono",monospace;
+
     font-size:12px;
+
     color:var(--purple);
+
     letter-spacing:.18em;
+
     text-transform:uppercase;
+
     margin-bottom:22px;
 }
 
 .section h2{
     font-size:clamp(44px,5.8vw,82px);
+
     line-height:.94;
+
     letter-spacing:-.065em;
 }
 
 .section-intro{
     align-self:end;
+
     max-width:680px;
 
     color:#5f6a7c;
 
     font-size:20px;
+
     line-height:1.7;
 }
 
 
 /* =====================================================
-   WHO WE ARE
+   ABOUT INTRO
 ===================================================== */
 
 .about-intro{
     display:grid;
+
     grid-template-columns:1.05fr .95fr;
+
     gap:80px;
+
     align-items:center;
 }
 
 .about-copy p{
     color:#5f697a;
+
     font-size:18px;
+
     line-height:1.8;
+
     margin-bottom:25px;
 }
 
@@ -317,9 +533,7 @@ select{
 }
 
 
-/* =====================================================
-   VISUAL
-===================================================== */
+/* VISUAL */
 
 .about-visual{
     min-height:510px;
@@ -345,6 +559,7 @@ select{
 .about-visual::before,
 .about-visual::after{
     content:"";
+
     position:absolute;
 
     border:1px solid rgba(255,255,255,.24);
@@ -394,6 +609,7 @@ select{
     text-align:center;
 
     font-size:20px;
+
     font-weight:800;
 
     letter-spacing:-.05em;
@@ -439,21 +655,20 @@ select{
 
 
 /* =====================================================
-   APPROACH
+   BELIEFS
 ===================================================== */
 
 .beliefs{
     background:var(--dark);
-    color:#fff;
-}
 
-.beliefs .section-intro{
-    color:#9ca6b5;
+    color:#fff;
 }
 
 .beliefs-grid{
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
+
     gap:18px;
 }
 
@@ -523,48 +738,22 @@ select{
 
 .founder-grid{
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
-    gap:22px;
+
+    gap:20px;
 }
 
 .founder{
-    position:relative;
-
-    padding:42px;
+    padding:45px;
 
     border:1px solid var(--border);
 
     border-radius:30px;
 
-    background:#f8f8fa;
+    background:#f7f7f8;
 
-    overflow:hidden;
-
-    transition:
-        transform .4s ease,
-        background .4s ease,
-        border-color .4s ease,
-        box-shadow .4s ease;
-}
-
-.founder::before{
-    content:"";
-
-    position:absolute;
-
-    width:250px;
-    height:250px;
-
-    right:-120px;
-    top:-120px;
-
-    border-radius:50%;
-
-    border:1px solid rgba(124,58,237,.10);
-
-    box-shadow:
-        0 0 0 35px rgba(124,58,237,.025),
-        0 0 0 70px rgba(124,58,237,.018);
+    transition:.4s ease;
 }
 
 .founder:hover{
@@ -577,24 +766,23 @@ select{
     border-color:var(--purple);
 
     box-shadow:
-        0 25px 60px rgba(124,58,237,.2);
+        0 25px 55px rgba(124,58,237,.18);
 }
 
 .founder-top{
-    position:relative;
-    z-index:2;
-
     display:flex;
+
     justify-content:space-between;
+
     align-items:flex-start;
+
+    gap:20px;
 }
 
 .founder-number{
     font-family:"DM Mono",monospace;
 
-    font-size:12px;
-
-    letter-spacing:.08em;
+    font-size:13px;
 
     color:var(--purple);
 }
@@ -603,28 +791,20 @@ select{
     color:#dfd2ff;
 }
 
-.founder-name{
-    position:relative;
-    z-index:2;
+.founder h3{
+    margin-top:60px;
 
-    margin-top:65px;
+    font-size:43px;
 
-    font-size:clamp(38px,4vw,54px);
-
-    line-height:.95;
-
-    letter-spacing:-.065em;
+    letter-spacing:-.06em;
 }
 
 .founder-role{
-    position:relative;
-    z-index:2;
-
-    margin-top:12px;
+    margin-top:8px;
 
     font-family:"DM Mono",monospace;
 
-    font-size:11px;
+    font-size:12px;
 
     color:var(--purple);
 
@@ -638,18 +818,13 @@ select{
 }
 
 .founder-description{
-    position:relative;
-    z-index:2;
-
     margin-top:28px;
-
-    max-width:600px;
 
     color:#687386;
 
-    font-size:16px;
+    font-size:17px;
 
-    line-height:1.75;
+    line-height:1.7;
 }
 
 .founder:hover .founder-description{
@@ -657,11 +832,10 @@ select{
 }
 
 .founder-skills{
-    position:relative;
-    z-index:2;
-
     display:flex;
+
     flex-wrap:wrap;
+
     gap:8px;
 
     margin-top:28px;
@@ -677,15 +851,9 @@ select{
     font-size:12px;
 
     font-weight:600;
-
-    background:#fff;
-
-    transition:.3s;
 }
 
 .founder:hover .skill{
-    color:#fff;
-    background:rgba(255,255,255,.08);
     border-color:rgba(255,255,255,.35);
 }
 
@@ -720,6 +888,7 @@ select{
 
 .capability:hover{
     padding-left:20px;
+
     padding-right:20px;
 
     background:rgba(255,255,255,.3);
@@ -749,7 +918,7 @@ select{
 
 
 /* =====================================================
-   WHAT WE DO
+   NUMBERS
 ===================================================== */
 
 .numbers{
@@ -845,6 +1014,7 @@ select{
     display:inline-flex;
 
     align-items:center;
+
     justify-content:center;
 
     padding:16px 24px;
@@ -860,12 +1030,15 @@ select{
 
 .btn-purple{
     background:var(--purple);
+
     color:#fff;
 }
 
 .btn-purple:hover{
     background:#fff;
+
     color:var(--black);
+
     transform:translateY(-3px);
 }
 
@@ -912,7 +1085,7 @@ footer{
 .reveal{
     opacity:0;
 
-    transform:translateY(38px);
+    transform:translateY(45px);
 
     transition:
         opacity .75s ease,
@@ -936,20 +1109,32 @@ footer{
         width:min(calc(100% - 38px),var(--max));
     }
 
+    /* NAV */
+
     .nav{
-        padding:18px 0;
+        padding:17px 0;
+    }
+
+    .nav.scrolled{
+        padding:12px 0;
     }
 
     .nav-links{
         display:none;
     }
 
-    .about-hero{
-        min-height:82vh;
+    .menu-toggle{
+        display:flex;
     }
 
+    /* HERO */
+
     .hero-content{
-        padding:130px 0 70px;
+        padding:130px 0 75px;
+    }
+
+    .about-hero{
+        min-height:82vh;
     }
 
     .about-hero h1{
@@ -958,8 +1143,9 @@ footer{
 
     .hero-description{
         font-size:17px;
-        line-height:1.65;
     }
+
+    /* SECTIONS */
 
     .section{
         padding:90px 0;
@@ -967,29 +1153,28 @@ footer{
 
     .section-head{
         grid-template-columns:1fr;
+
         gap:30px;
 
-        margin-bottom:50px;
+        margin-bottom:55px;
     }
 
     .section-intro{
         font-size:17px;
-        line-height:1.65;
     }
+
+    /* ABOUT */
 
     .about-intro{
         grid-template-columns:1fr;
-        gap:40px;
-    }
 
-    .about-copy p{
-        font-size:17px;
-        line-height:1.75;
+        gap:40px;
     }
 
     .about-visual{
         min-height:380px;
-        border-radius:26px;
+
+        border-radius:25px;
     }
 
     .about-visual::before{
@@ -998,98 +1183,92 @@ footer{
     }
 
     .about-visual::after{
-        width:210px;
-        height:210px;
+        width:205px;
+        height:205px;
     }
 
     .visual-center{
-        width:120px;
-        height:120px;
-        font-size:17px;
+        width:115px;
+        height:115px;
+
+        font-size:16px;
     }
+
+    .visual-label{
+        font-size:9px;
+    }
+
+    /* BELIEFS */
 
     .beliefs-grid{
         grid-template-columns:1fr;
     }
 
     .belief{
-        min-height:260px;
-        padding:30px;
-        border-radius:24px;
+        min-height:270px;
     }
 
     .belief h3{
-        margin-top:60px;
+        margin-top:65px;
+
         font-size:27px;
     }
 
-    .belief p{
-        font-size:16px;
-    }
+    /* FOUNDERS */
 
     .founder-grid{
         grid-template-columns:1fr;
-        gap:16px;
     }
 
     .founder{
-        padding:30px;
-        border-radius:25px;
+        padding:32px 25px;
     }
 
-    .founder-name{
-        margin-top:55px;
-        font-size:39px;
+    .founder h3{
+        font-size:36px;
     }
 
-    .founder-description{
-        font-size:16px;
-    }
+    /* CAPABILITIES */
 
     .capability{
         grid-template-columns:55px 1fr;
 
         gap:15px 20px;
-
-        padding:28px 0;
-    }
-
-    .capability h3{
-        font-size:23px;
     }
 
     .capability p{
         grid-column:2;
-        font-size:16px;
     }
+
+    .capability h3{
+        font-size:24px;
+    }
+
+    /* NUMBERS */
 
     .number-grid{
         grid-template-columns:repeat(2,1fr);
     }
 
     .number{
-        padding:40px 20px;
+        border-bottom:1px solid var(--border);
+
+        padding:40px 22px;
     }
 
     .number:nth-child(2){
         border-right:0;
     }
 
-    .number:nth-child(3),
-    .number:nth-child(4){
-        border-top:1px solid var(--border);
-    }
-
     .number strong{
         font-size:48px;
     }
 
-    .cta{
-        padding:100px 0;
-    }
+    /* CTA */
 
     .cta-inner{
         grid-template-columns:1fr;
+
         gap:35px;
     }
 
@@ -1097,14 +1276,12 @@ footer{
         font-size:clamp(50px,13vw,76px);
     }
 
-    .cta p{
-        font-size:17px;
-    }
+    /* FOOTER */
 
     .footer-inner{
         flex-direction:column;
+
         align-items:flex-start;
-        gap:10px;
     }
 
 }
@@ -1120,24 +1297,32 @@ footer{
         width:calc(100% - 30px);
     }
 
+    .mobile-menu{
+        top:72px;
+
+        left:12px;
+        right:12px;
+    }
+
     .about-hero h1{
-        font-size:clamp(45px,13vw,66px);
+        font-size:50px;
     }
 
     .hero-description{
         font-size:16px;
+        line-height:1.65;
     }
 
-    .section{
-        padding:75px 0;
+    .service-grid{
+        grid-template-columns:1fr;
     }
 
-    .section h2{
-        font-size:clamp(40px,12vw,60px);
+    .founder{
+        border-radius:24px;
     }
 
     .about-visual{
-        min-height:330px;
+        min-height:340px;
     }
 
     .label-one{
@@ -1145,7 +1330,7 @@ footer{
     }
 
     .label-two{
-        right:9%;
+        right:10%;
     }
 
     .label-three{
@@ -1156,47 +1341,25 @@ footer{
         right:8%;
     }
 
-    .founder{
-        padding:27px;
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    html{
+        scroll-behavior:auto;
     }
 
-    .founder-name{
-        font-size:36px;
-    }
+    *,
+    *::before,
+    *::after{
+        animation:none !important;
 
-    .founder-skills{
-        gap:7px;
-    }
-
-    .skill{
-        font-size:11px;
-        padding:8px 11px;
-    }
-
-    .capability{
-        grid-template-columns:42px 1fr;
-        gap:12px 14px;
-    }
-
-    .capability h3{
-        font-size:21px;
-    }
-
-    .capability p{
-        grid-column:2;
-        font-size:15px;
-    }
-
-    .number{
-        padding:35px 15px;
-    }
-
-    .number strong{
-        font-size:42px;
-    }
-
-    .number span{
-        font-size:13px;
+        transition:none !important;
     }
 
 }
@@ -1209,36 +1372,120 @@ footer{
 
 
 <!-- =====================================================
+     MOBILE BACKDROP
+===================================================== -->
+
+<div
+    class="mobile-backdrop"
+    id="mobileBackdrop">
+</div>
+
+
+<!-- =====================================================
      NAVIGATION
 ===================================================== -->
 
-<header class="nav" id="nav">
+<header
+    class="nav"
+    id="nav">
 
-<div class="container nav-inner">
+    <div class="container nav-inner">
 
-<a href="index.html" class="logo">
-AK <span>×</span> ST
-</a>
+        <a
+            href="index.html"
+            class="logo">
+            AK <span>×</span> ST
+        </a>
 
-<nav class="nav-links">
 
-<a href="index.html">Home</a>
+        <!-- DESKTOP MENU -->
 
-<a href="about.html">About</a>
+        <nav class="nav-links">
 
-<a href="services.html">Services</a>
+            <a href="index.html">
+                Home
+            </a>
 
-<a href="web-development.html">Web Development</a>
+            <a href="about.html">
+                About
+            </a>
 
-<a href="work.html">Work</a>
+            <a href="services.html">
+                Services
+            </a>
 
-<a href="contact.html" class="nav-cta">
-Let's Talk
-</a>
+            <a href="web-development.html">
+                Web Development
+            </a>
 
-</nav>
+            <a href="work.html">
+                Work
+            </a>
 
-</div>
+            <a
+                href="contact.html"
+                class="nav-cta">
+                Let's Talk
+            </a>
+
+        </nav>
+
+
+        <!-- MOBILE BUTTON -->
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </div>
+
+
+    <!-- MOBILE MENU -->
+
+    <div
+        class="mobile-menu"
+        id="mobileMenu">
+
+        <a href="index.html">
+            Home
+            <span>→</span>
+        </a>
+
+        <a href="about.html">
+            About
+            <span>→</span>
+        </a>
+
+        <a href="services.html">
+            Services
+            <span>→</span>
+        </a>
+
+        <a href="web-development.html">
+            Web Development
+            <span>→</span>
+        </a>
+
+        <a href="work.html">
+            Work
+            <span>→</span>
+        </a>
+
+        <a href="contact.html">
+            Let's Talk
+            <span>→</span>
+        </a>
+
+    </div>
 
 </header>
 
@@ -1252,24 +1499,24 @@ Let's Talk
 
 <section class="about-hero">
 
-<div class="container hero-content reveal">
+    <div class="container hero-content reveal">
 
-<div class="eyebrow">
-01 / ABOUT US
-</div>
+        <div class="eyebrow">
+            01 / ABOUT US
+        </div>
 
-<h1>
-We build digital experiences with a
-<span>purpose.</span>
-</h1>
+        <h1>
+            We build digital experiences with a
+            <span>purpose.</span>
+        </h1>
 
-<p class="hero-description">
-We combine digital marketing and website development
-to help businesses build a stronger, clearer and more
-effective digital presence.
-</p>
+        <p class="hero-description">
+            We combine digital marketing and website development
+            to help businesses build a stronger, clearer and more
+            effective digital presence.
+        </p>
 
-</div>
+    </div>
 
 </section>
 
@@ -1280,85 +1527,89 @@ effective digital presence.
 
 <section class="section">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-head reveal">
+        <div class="section-head reveal">
 
-<div>
+            <div>
 
-<div class="kicker">
-02 / WHO WE ARE
-</div>
+                <div class="kicker">
+                    02 / WHO WE ARE
+                </div>
 
-<h2>
-Digital thinking. Business focus.
-</h2>
+                <h2>
+                    Digital thinking. Business focus.
+                </h2>
 
-</div>
+            </div>
 
-<p class="section-intro">
-We are a digital marketing and web development team focused
-on creating digital work that has a clear business purpose —
-from building a website to generating the traffic, enquiries
-and visibility that make it valuable.
-</p>
+            <p class="section-intro">
+                We are a digital marketing and web development team
+                focused on creating digital work that has a clear
+                business purpose — from building a website to
+                generating the traffic, enquiries and visibility
+                that make it valuable.
+            </p>
 
-</div>
-
-
-<div class="about-intro">
+        </div>
 
 
-<div class="about-copy reveal">
-
-<p>
-A website should not simply look good. It should communicate
-clearly, build trust and give customers a reason to take action.
-That is the approach we bring to every project.
-</p>
-
-<p>
-Our work combines website development, SEO, Google Ads,
-Meta Ads, social media management, B2B lead generation
-and digital optimisation.
-</p>
-
-<p>
-Instead of treating development and marketing as separate
-activities, we look at the complete digital journey and
-build each part around the business objective.
-</p>
-
-</div>
+        <div class="about-intro">
 
 
-<div class="about-visual reveal">
+            <div class="about-copy reveal">
 
-<div class="visual-center">
-DIGITAL<br>WORK
-</div>
+                <p>
+                    A website should not simply look good. It should
+                    communicate clearly, build trust and give customers
+                    a reason to take action. That is the approach we
+                    bring to every project.
+                </p>
 
-<div class="visual-label label-one">
-STRATEGY
-</div>
+                <p>
+                    Our work combines website development, SEO,
+                    Google Ads, Meta Ads, social media management,
+                    B2B lead generation and digital optimisation.
+                </p>
 
-<div class="visual-label label-two">
-DEVELOPMENT
-</div>
+                <p>
+                    Instead of treating development and marketing as
+                    separate activities, we look at the complete digital
+                    journey and build each part around the business
+                    objective.
+                </p>
 
-<div class="visual-label label-three">
-MARKETING
-</div>
+            </div>
 
-<div class="visual-label label-four">
-GROWTH
-</div>
 
-</div>
+            <div class="about-visual reveal">
 
-</div>
+                <div class="visual-center">
+                    DIGITAL<br>
+                    WORK
+                </div>
 
-</div>
+                <div class="visual-label label-one">
+                    STRATEGY
+                </div>
+
+                <div class="visual-label label-two">
+                    DEVELOPMENT
+                </div>
+
+                <div class="visual-label label-three">
+                    MARKETING
+                </div>
+
+                <div class="visual-label label-four">
+                    GROWTH
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -1369,108 +1620,119 @@ GROWTH
 
 <section class="section beliefs">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-head reveal">
+        <div class="section-head reveal">
 
-<div>
+            <div>
 
-<div class="kicker" style="color:var(--lime)">
-03 / OUR APPROACH
-</div>
+                <div
+                    class="kicker"
+                    style="color:var(--lime)">
+                    03 / OUR APPROACH
+                </div>
 
-<h2>
-The way we think about digital work.
-</h2>
+                <h2>
+                    The way we think about digital work.
+                </h2>
 
-</div>
+            </div>
 
-<p class="section-intro">
-Good digital work starts with understanding the business,
-not simply choosing a design or launching a campaign.
-</p>
+            <p
+                class="section-intro"
+                style="color:#9ca6b5">
 
-</div>
+                Good digital work starts with understanding the
+                business, not simply choosing a design or launching
+                a campaign.
 
+            </p>
 
-<div class="beliefs-grid">
-
-
-<article class="belief reveal">
-
-<div class="belief-number">
-01
-</div>
-
-<h3>
-Clarity before complexity.
-</h3>
-
-<p>
-Clear communication, clean design and focused digital
-experiences make it easier for people to understand a business.
-</p>
-
-</article>
+        </div>
 
 
-<article class="belief reveal">
-
-<div class="belief-number">
-02
-</div>
-
-<h3>
-Strategy behind execution.
-</h3>
-
-<p>
-Every website, campaign and piece of digital activity
-should connect back to a clear business objective.
-</p>
-
-</article>
+        <div class="beliefs-grid">
 
 
-<article class="belief reveal">
+            <article class="belief reveal">
 
-<div class="belief-number">
-03
-</div>
+                <div class="belief-number">
+                    01
+                </div>
 
-<h3>
-Built for real users.
-</h3>
+                <h3>
+                    Clarity before complexity.
+                </h3>
 
-<p>
-We think about how people discover, explore and interact
-with a business before deciding what to build.
-</p>
+                <p>
+                    Clear communication, clean design and focused
+                    digital experiences make it easier for people
+                    to understand a business.
+                </p>
 
-</article>
-
-
-<article class="belief reveal">
-
-<div class="belief-number">
-04
-</div>
-
-<h3>
-Improve continuously.
-</h3>
-
-<p>
-Digital performance changes over time. We use insights,
-testing and optimisation to keep improving the experience.
-</p>
-
-</article>
+            </article>
 
 
-</div>
+            <article class="belief reveal">
 
-</div>
+                <div class="belief-number">
+                    02
+                </div>
+
+                <h3>
+                    Strategy behind execution.
+                </h3>
+
+                <p>
+                    Every website, campaign and piece of digital
+                    activity should connect back to a clear
+                    business objective.
+                </p>
+
+            </article>
+
+
+            <article class="belief reveal">
+
+                <div class="belief-number">
+                    03
+                </div>
+
+                <h3>
+                    Built for real users.
+                </h3>
+
+                <p>
+                    We think about how people discover, explore
+                    and interact with a business before deciding
+                    what to build.
+                </p>
+
+            </article>
+
+
+            <article class="belief reveal">
+
+                <div class="belief-number">
+                    04
+                </div>
+
+                <h3>
+                    Improve continuously.
+                </h3>
+
+                <p>
+                    Digital performance changes over time. We use
+                    insights, testing and optimisation to keep
+                    improving the experience.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -1481,143 +1743,140 @@ testing and optimisation to keep improving the experience.
 
 <section class="section founders">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-head reveal">
+        <div class="section-head reveal">
 
-<div>
+            <div>
 
-<div class="kicker">
-04 / FOUNDERS
-</div>
+                <div class="kicker">
+                    04 / FOUNDERS
+                </div>
 
-<h2>
-The people behind the work.
-</h2>
+                <h2>
+                    The people behind the work.
+                </h2>
 
-</div>
+            </div>
 
-<p class="section-intro">
-A hands-on approach to digital marketing and website
-development, with a focus on practical execution and
-business growth.
-</p>
+            <p class="section-intro">
+                A hands-on approach to digital marketing and website
+                development, with a focus on practical execution
+                and business growth.
+            </p>
 
-</div>
-
-
-<div class="founder-grid">
+        </div>
 
 
-<!-- SHAILESH -->
-
-<article class="founder reveal">
-
-<div class="founder-top">
-
-<div class="founder-number">
-01 / FOUNDER
-</div>
-
-</div>
-
-<h3 class="founder-name">
-Shailesh
-</h3>
-
-<div class="founder-role">
-Digital Marketing & Web Development
-</div>
-
-<p class="founder-description">
-Focused on digital marketing, website development,
-SEO, paid advertising and creating digital experiences
-that connect marketing with business goals.
-</p>
-
-<div class="founder-skills">
-
-<span class="skill">
-Digital Marketing
-</span>
-
-<span class="skill">
-SEO
-</span>
-
-<span class="skill">
-Google Ads
-</span>
-
-<span class="skill">
-Meta Ads
-</span>
-
-<span class="skill">
-Web Development
-</span>
-
-</div>
-
-</article>
+        <div class="founder-grid">
 
 
-<!-- AMAN -->
+            <article class="founder reveal">
 
-<article class="founder reveal">
+                <div class="founder-top">
 
-<div class="founder-top">
+                    <div class="founder-number">
+                        01 / FOUNDER
+                    </div>
 
-<div class="founder-number">
-02 / FOUNDER
-</div>
+                </div>
 
-</div>
+                <h3>
+                    Shailesh
+                </h3>
 
-<h3 class="founder-name">
-Aman
-</h3>
+                <div class="founder-role">
+                    Digital Marketing & Web Development
+                </div>
 
-<div class="founder-role">
-Digital Marketing & Web Development
-</div>
+                <p class="founder-description">
+                    Focused on digital marketing, website development,
+                    SEO, paid advertising and creating digital
+                    experiences that connect marketing with business
+                    goals.
+                </p>
 
-<p class="founder-description">
-Focused on digital strategy, website development,
-marketing execution and building practical digital
-solutions around the needs of businesses.
-</p>
+                <div class="founder-skills">
 
-<div class="founder-skills">
+                    <span class="skill">
+                        Digital Marketing
+                    </span>
 
-<span class="skill">
-Digital Marketing
-</span>
+                    <span class="skill">
+                        SEO
+                    </span>
 
-<span class="skill">
-Web Development
-</span>
+                    <span class="skill">
+                        Google Ads
+                    </span>
 
-<span class="skill">
-Social Media
-</span>
+                    <span class="skill">
+                        Meta Ads
+                    </span>
 
-<span class="skill">
-Lead Generation
-</span>
+                    <span class="skill">
+                        Web Development
+                    </span>
 
-<span class="skill">
-Digital Strategy
-</span>
+                </div>
 
-</div>
-
-</article>
+            </article>
 
 
-</div>
+            <article class="founder reveal">
 
-</div>
+                <div class="founder-top">
+
+                    <div class="founder-number">
+                        02 / FOUNDER
+                    </div>
+
+                </div>
+
+                <h3>
+                    Aman
+                </h3>
+
+                <div class="founder-role">
+                    Digital Marketing & Web Development
+                </div>
+
+                <p class="founder-description">
+                    Focused on digital strategy, website development,
+                    marketing execution and building practical digital
+                    solutions around the needs of businesses.
+                </p>
+
+                <div class="founder-skills">
+
+                    <span class="skill">
+                        Digital Marketing
+                    </span>
+
+                    <span class="skill">
+                        Web Development
+                    </span>
+
+                    <span class="skill">
+                        Social Media
+                    </span>
+
+                    <span class="skill">
+                        Lead Generation
+                    </span>
+
+                    <span class="skill">
+                        Digital Strategy
+                    </span>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -1628,126 +1887,132 @@ Digital Strategy
 
 <section class="section capabilities">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-head reveal">
+        <div class="section-head reveal">
 
-<div>
+            <div>
 
-<div class="kicker">
-05 / CAPABILITIES
-</div>
+                <div class="kicker">
+                    05 / CAPABILITIES
+                </div>
 
-<h2>
-What we bring together.
-</h2>
+                <h2>
+                    What we bring together.
+                </h2>
 
-</div>
+            </div>
 
-<p class="section-intro">
-Our capabilities cover both sides of the digital journey:
-building the platform and bringing the right people to it.
-</p>
+            <p class="section-intro">
+                Our capabilities cover both sides of the digital
+                journey: building the platform and bringing the
+                right people to it.
+            </p>
 
-</div>
-
-
-<div class="capability-list">
+        </div>
 
 
-<div class="capability reveal">
-
-<div class="capability-number">
-01
-</div>
-
-<h3>
-Website Development
-</h3>
-
-<p>
-Business websites, WordPress development, landing pages,
-e-commerce experiences and website optimisation.
-</p>
-
-</div>
+        <div class="capability-list">
 
 
-<div class="capability reveal">
+            <div class="capability reveal">
 
-<div class="capability-number">
-02
-</div>
+                <div class="capability-number">
+                    01
+                </div>
 
-<h3>
-Search Engine Optimisation
-</h3>
+                <h3>
+                    Website Development
+                </h3>
 
-<p>
-Keyword research, on-page optimisation, content structure
-and technical improvements for better organic visibility.
-</p>
+                <p>
+                    Business websites, WordPress development,
+                    landing pages, e-commerce experiences and
+                    website optimisation.
+                </p>
 
-</div>
-
-
-<div class="capability reveal">
-
-<div class="capability-number">
-03
-</div>
-
-<h3>
-Paid Advertising
-</h3>
-
-<p>
-Google Ads and Meta Ads campaigns focused on visibility,
-traffic, enquiries and measurable business outcomes.
-</p>
-
-</div>
+            </div>
 
 
-<div class="capability reveal">
+            <div class="capability reveal">
 
-<div class="capability-number">
-04
-</div>
+                <div class="capability-number">
+                    02
+                </div>
 
-<h3>
-Social Media
-</h3>
+                <h3>
+                    Search Engine Optimisation
+                </h3>
 
-<p>
-Social media handling, content direction and consistent
-digital communication across relevant platforms.
-</p>
+                <p>
+                    Keyword research, on-page optimisation,
+                    content structure and technical improvements
+                    for better organic visibility.
+                </p>
 
-</div>
-
-
-<div class="capability reveal">
-
-<div class="capability-number">
-05
-</div>
-
-<h3>
-B2B Lead Generation
-</h3>
-
-<p>
-Digital systems and outreach designed to connect businesses
-with relevant customers and potential clients.
-</p>
-
-</div>
+            </div>
 
 
-</div>
+            <div class="capability reveal">
 
-</div>
+                <div class="capability-number">
+                    03
+                </div>
+
+                <h3>
+                    Paid Advertising
+                </h3>
+
+                <p>
+                    Google Ads and Meta Ads campaigns focused
+                    on visibility, traffic, enquiries and
+                    measurable business outcomes.
+                </p>
+
+            </div>
+
+
+            <div class="capability reveal">
+
+                <div class="capability-number">
+                    04
+                </div>
+
+                <h3>
+                    Social Media
+                </h3>
+
+                <p>
+                    Social media handling, content direction
+                    and consistent digital communication across
+                    relevant platforms.
+                </p>
+
+            </div>
+
+
+            <div class="capability reveal">
+
+                <div class="capability-number">
+                    05
+                </div>
+
+                <h3>
+                    B2B Lead Generation
+                </h3>
+
+                <p>
+                    Digital systems and outreach designed to
+                    connect businesses with relevant customers
+                    and potential clients.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -1758,88 +2023,89 @@ with relevant customers and potential clients.
 
 <section class="section numbers">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-head reveal">
+        <div class="section-head reveal">
 
-<div>
+            <div>
 
-<div class="kicker">
-06 / WHAT WE DO
-</div>
+                <div class="kicker">
+                    06 / WHAT WE DO
+                </div>
 
-<h2>
-One team. Multiple digital needs.
-</h2>
+                <h2>
+                    One team. Multiple digital needs.
+                </h2>
 
-</div>
+            </div>
 
-<p class="section-intro">
-From the first website structure to the next marketing
-campaign, we work across the digital journey.
-</p>
+            <p class="section-intro">
+                From the first website structure to the next
+                marketing campaign, we work across the digital
+                journey.
+            </p>
 
-</div>
-
-
-<div class="number-grid">
+        </div>
 
 
-<div class="number reveal">
-
-<strong>
-01
-</strong>
-
-<span>
-Digital Strategy
-</span>
-
-</div>
+        <div class="number-grid">
 
 
-<div class="number reveal">
+            <div class="number reveal">
 
-<strong>
-02
-</strong>
+                <strong>
+                    01
+                </strong>
 
-<span>
-Website Development
-</span>
+                <span>
+                    Digital Strategy
+                </span>
 
-</div>
-
-
-<div class="number reveal">
-
-<strong>
-03
-</strong>
-
-<span>
-Digital Marketing
-</span>
-
-</div>
+            </div>
 
 
-<div class="number reveal">
+            <div class="number reveal">
 
-<strong>
-04
-</strong>
+                <strong>
+                    02
+                </strong>
 
-<span>
-Growth & Optimisation
-</span>
+                <span>
+                    Website Development
+                </span>
 
-</div>
+            </div>
 
 
-</div>
+            <div class="number reveal">
 
-</div>
+                <strong>
+                    03
+                </strong>
+
+                <span>
+                    Digital Marketing
+                </span>
+
+            </div>
+
+
+            <div class="number reveal">
+
+                <strong>
+                    04
+                </strong>
+
+                <span>
+                    Growth & Optimisation
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -1850,38 +2116,42 @@ Growth & Optimisation
 
 <section class="cta">
 
-<div class="container cta-inner">
+    <div class="container cta-inner">
 
 
-<div class="reveal">
+        <div class="reveal">
 
-<div class="eyebrow" style="color:var(--lime)">
-07 / LET'S WORK
-</div>
+            <div
+                class="eyebrow"
+                style="color:var(--lime)">
+                07 / LET'S WORK
+            </div>
 
-<h2>
-Have a project in mind?
-</h2>
+            <h2>
+                Have a project in mind?
+            </h2>
 
-</div>
-
-
-<div class="reveal">
-
-<p>
-Whether you need a new website, stronger digital visibility
-or a complete marketing setup, let's talk about what you want
-to build.
-</p>
-
-<a href="contact.html" class="btn btn-purple">
-Start a project →
-</a>
-
-</div>
+        </div>
 
 
-</div>
+        <div class="reveal">
+
+            <p>
+                Whether you need a new website, stronger digital
+                visibility or a complete marketing setup, let's
+                talk about what you want to build.
+            </p>
+
+            <a
+                href="contact.html"
+                class="btn btn-purple">
+                Start a project →
+            </a>
+
+        </div>
+
+
+    </div>
 
 </section>
 
@@ -1895,21 +2165,21 @@ Start a project →
 
 <footer>
 
-<div class="container footer-inner">
+    <div class="container footer-inner">
 
-<div class="footer-brand">
-AK × ST
-</div>
+        <div class="footer-brand">
+            AK × ST
+        </div>
 
-<div>
-Web Development · Digital Marketing · SEO · Paid Ads
-</div>
+        <div>
+            Web Development · Digital Marketing · SEO · Paid Ads
+        </div>
 
-<div>
-© 2026
-</div>
+        <div>
+            © 2026
+        </div>
 
-</div>
+    </div>
 
 </footer>
 
@@ -1917,106 +2187,300 @@ Web Development · Digital Marketing · SEO · Paid Ads
 <script>
 
 /* =====================================================
-   NAVIGATION
+   NAV SCROLL
 ===================================================== */
 
-const nav = document.getElementById("nav");
+(function(){
 
-function updateNavigation(){
+    const nav = document.getElementById("nav");
 
-    if(window.scrollY > 30){
+    if(!nav){
+        return;
+    }
 
-        nav.classList.add("scrolled");
+    function updateNav(){
 
-    }else{
+        if(window.scrollY > 30){
 
-        nav.classList.remove("scrolled");
+            nav.classList.add("scrolled");
+
+        }else{
+
+            nav.classList.remove("scrolled");
+
+        }
 
     }
 
-}
+    updateNav();
 
-window.addEventListener(
-    "scroll",
-    updateNavigation,
-    {passive:true}
-);
+    window.addEventListener(
+        "scroll",
+        updateNav,
+        {passive:true}
+    );
 
-updateNavigation();
+})();
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+(function(){
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const mobileMenu =
+        document.getElementById("mobileMenu");
+
+    const mobileBackdrop =
+        document.getElementById("mobileBackdrop");
+
+    if(
+        !menuToggle ||
+        !mobileMenu ||
+        !mobileBackdrop
+    ){
+        return;
+    }
+
+
+    function openMenu(){
+
+        menuToggle.classList.add("active");
+
+        mobileMenu.classList.add("active");
+
+        mobileBackdrop.classList.add("active");
+
+        document.body.classList.add("menu-open");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+        menuToggle.setAttribute(
+            "aria-label",
+            "Close menu"
+        );
+
+    }
+
+
+    function closeMenu(){
+
+        menuToggle.classList.remove("active");
+
+        mobileMenu.classList.remove("active");
+
+        mobileBackdrop.classList.remove("active");
+
+        document.body.classList.remove("menu-open");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        menuToggle.setAttribute(
+            "aria-label",
+            "Open menu"
+        );
+
+    }
+
+
+    function toggleMenu(){
+
+        if(
+            mobileMenu.classList.contains("active")
+        ){
+
+            closeMenu();
+
+        }else{
+
+            openMenu();
+
+        }
+
+    }
+
+
+    menuToggle.addEventListener(
+        "click",
+        toggleMenu
+    );
+
+
+    mobileBackdrop.addEventListener(
+        "click",
+        closeMenu
+    );
+
+
+    mobileMenu
+        .querySelectorAll("a")
+        .forEach(function(link){
+
+            link.addEventListener(
+                "click",
+                closeMenu
+            );
+
+        });
+
+
+    document.addEventListener(
+        "keydown",
+        function(event){
+
+            if(event.key === "Escape"){
+
+                closeMenu();
+
+            }
+
+        }
+    );
+
+
+    window.addEventListener(
+        "resize",
+        function(){
+
+            if(window.innerWidth > 900){
+
+                closeMenu();
+
+            }
+
+        }
+    );
+
+})();
 
 
 /* =====================================================
    SCROLL REVEAL
 ===================================================== */
 
-const revealObserver = new IntersectionObserver(
+(function(){
 
-(entries)=>{
+    const revealElements =
+        document.querySelectorAll(".reveal");
 
-    entries.forEach((entry,index)=>{
 
-        if(entry.isIntersecting){
+    if(!revealElements.length){
+        return;
+    }
 
-            entry.target.style.transitionDelay =
-                Math.min(index,5) * 65 + "ms";
 
-            entry.target.classList.add("active");
+    if(
+        !("IntersectionObserver" in window)
+    ){
 
-            revealObserver.unobserve(entry.target);
+        revealElements.forEach(function(el){
+
+            el.classList.add("active");
+
+        });
+
+        return;
+
+    }
+
+
+    const observer =
+        new IntersectionObserver(
+
+            function(entries){
+
+                entries.forEach(
+                    function(entry){
+
+                        if(entry.isIntersecting){
+
+                            entry.target.classList.add(
+                                "active"
+                            );
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+            {
+                threshold:.10
+            }
+
+        );
+
+
+    revealElements.forEach(
+        function(el){
+
+            observer.observe(el);
 
         }
+    );
 
-    });
-
-},
-
-{
-    threshold:.10
-}
-
-);
-
-
-document
-.querySelectorAll(".reveal")
-.forEach(function(element){
-
-    revealObserver.observe(element);
-
-});
+})();
 
 
 /* =====================================================
-   MOBILE TOUCH EFFECT
+   TOUCH FEEL
 ===================================================== */
 
-document
-.querySelectorAll(".belief,.founder")
-.forEach(function(card){
+(function(){
 
-    card.addEventListener(
-        "touchstart",
-        function(){
+    const cards =
+        document.querySelectorAll(
+            ".belief, .founder"
+        );
 
-            card.classList.add("touch-active");
 
-        },
-        {passive:true}
-    );
+    cards.forEach(function(card){
 
-    card.addEventListener(
-        "touchend",
-        function(){
+        card.addEventListener(
+            "touchstart",
+            function(){
 
-            card.classList.remove("touch-active");
+                card.classList.add(
+                    "touch-active"
+                );
 
-        },
-        {passive:true}
-    );
+            },
+            {passive:true}
+        );
 
-});
+
+        card.addEventListener(
+            "touchend",
+            function(){
+
+                card.classList.remove(
+                    "touch-active"
+                );
+
+            },
+            {passive:true}
+        );
+
+    });
+
+})();
 
 </script>
+
 
 </body>
 </html>
