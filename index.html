@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AK × ST — Digital Marketing & Web Development</title>
+<title>Services — AK × ST</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,19 +15,18 @@
 :root{
     --black:#080b12;
     --dark:#0c121c;
-    --white:#ffffff;
+    --white:#fff;
 
-    /* Light background — slightly darker lavender */
-    --light:#e7e0f8;
-    --light2:#eee9fa;
+    --lavender:#e7e0f8;
+    --lavender-light:#eee9fa;
 
     --purple:#7c3aed;
     --purple-dark:#6428c7;
-    --purple-light:#cbb9ff;
+    --purple-light:#d7c7ff;
 
-    --green:#c7ff29;
+    --lime:#c7ff29;
 
-    --text:#11131a;
+    --text:#10131a;
     --muted:#687386;
 
     --border:rgba(20,20,30,.13);
@@ -50,6 +49,10 @@ body{
     color:var(--text);
     background:#fff;
     overflow-x:hidden;
+}
+
+body.menu-open{
+    overflow:hidden;
 }
 
 a{
@@ -77,16 +80,17 @@ a{
 }
 
 .nav.scrolled{
-    background:rgba(255,255,255,.86);
+    background:rgba(255,255,255,.88);
     backdrop-filter:blur(18px);
-    padding:14px 0;
+    -webkit-backdrop-filter:blur(18px);
     border-bottom:1px solid rgba(0,0,0,.08);
+    padding:14px 0;
 }
 
 .nav-inner{
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
 }
 
 .logo{
@@ -127,10 +131,10 @@ a{
 }
 
 .nav-cta{
-    background:var(--black);
-    color:#fff;
     padding:12px 20px;
     border-radius:100px;
+    background:var(--black);
+    color:#fff;
     transition:.3s;
 }
 
@@ -140,394 +144,476 @@ a{
 }
 
 /* =====================================================
+   HAMBURGER
+===================================================== */
+
+.menu-toggle{
+    display:none;
+
+    width:46px;
+    height:46px;
+
+    border:1px solid rgba(0,0,0,.12);
+    border-radius:50%;
+
+    background:rgba(255,255,255,.8);
+
+    cursor:pointer;
+
+    align-items:center;
+    justify-content:center;
+
+    flex-direction:column;
+    gap:5px;
+
+    position:relative;
+    z-index:1201;
+
+    transition:.3s;
+}
+
+.menu-toggle span{
+    width:19px;
+    height:2px;
+
+    background:#080b12;
+
+    border-radius:10px;
+
+    transition:.3s ease;
+}
+
+.menu-toggle.active{
+    background:#fff;
+}
+
+.menu-toggle.active span:nth-child(1){
+    transform:translateY(3.5px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2){
+    transform:translateY(-3.5px) rotate(-45deg);
+}
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+.mobile-menu{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:1100;
+
+    background:
+        radial-gradient(
+            circle at 80% 15%,
+            rgba(124,58,237,.25),
+            transparent 30%
+        ),
+        rgba(8,11,18,.96);
+
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateY(-15px);
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease,
+        transform .35s ease;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.mobile-menu.active{
+
+    opacity:1;
+    visibility:visible;
+
+    transform:none;
+}
+
+.mobile-menu-inner{
+
+    width:min(100% - 50px,520px);
+
+    padding-top:60px;
+}
+
+.mobile-menu-label{
+
+    font-family:"DM Mono",monospace;
+
+    color:var(--lime);
+
+    font-size:11px;
+
+    letter-spacing:.18em;
+
+    margin-bottom:35px;
+}
+
+.mobile-links{
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+.mobile-links a{
+
+    color:#fff;
+
+    font-size:clamp(32px,9vw,52px);
+
+    font-weight:700;
+
+    letter-spacing:-.055em;
+
+    line-height:1.08;
+
+    padding:12px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.1);
+
+    transition:.3s;
+}
+
+.mobile-links a:hover,
+.mobile-links a:active{
+
+    color:var(--lime);
+
+    padding-left:8px;
+}
+
+.mobile-links .mobile-cta{
+
+    color:var(--lime);
+
+    border-bottom:0;
+
+    margin-top:15px;
+
+    font-size:22px;
+
+    letter-spacing:-.02em;
+}
+
+/* =====================================================
    HERO
 ===================================================== */
 
 .hero{
-    min-height:100vh;
+    min-height:92vh;
+
     display:flex;
     align-items:center;
+
     position:relative;
+
     overflow:hidden;
 
     background:
         radial-gradient(
             circle at 83% 28%,
-            rgba(124,58,237,.12),
+            rgba(124,58,237,.13),
             transparent 28%
         ),
         linear-gradient(
             135deg,
             #fff 0%,
             #faf9ff 55%,
-            var(--light) 100%
+            var(--lavender) 100%
         );
 }
 
 .hero::before{
+
     content:"";
+
     position:absolute;
 
-    width:600px;
-    height:600px;
+    width:650px;
+    height:650px;
 
-    right:-240px;
-    top:8%;
+    right:-270px;
+    top:5%;
 
     border-radius:50%;
 
     border:1px solid rgba(124,58,237,.18);
 
     box-shadow:
-        0 0 0 80px rgba(124,58,237,.025),
-        0 0 0 160px rgba(124,58,237,.015);
+        0 0 0 85px rgba(124,58,237,.025),
+        0 0 0 170px rgba(124,58,237,.015);
 }
 
 .hero-content{
-    padding:145px 0 100px;
-    max-width:1100px;
+
     position:relative;
+
     z-index:2;
+
+    padding:155px 0 95px;
 }
 
 .eyebrow{
+
     font-family:"DM Mono",monospace;
+
     font-size:12px;
+
     color:var(--purple);
+
     letter-spacing:.18em;
+
     text-transform:uppercase;
+
     margin-bottom:25px;
 }
 
 .hero h1{
-    font-size:clamp(52px,7.5vw,112px);
-    line-height:.92;
-    letter-spacing:-.075em;
+
     max-width:1100px;
+
+    font-size:clamp(55px,7.5vw,112px);
+
+    line-height:.91;
+
+    letter-spacing:-.075em;
 }
 
 .hero h1 span{
     color:var(--purple);
 }
 
-.hero-copy{
-    margin-top:34px;
-    max-width:690px;
-    font-size:20px;
-    line-height:1.7;
+.hero-description{
+
+    max-width:720px;
+
+    margin-top:35px;
+
     color:#596477;
-}
 
-.hero-actions{
-    display:flex;
-    gap:14px;
-    margin-top:40px;
-}
+    font-size:20px;
 
-.btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:16px 24px;
-
-    border-radius:100px;
-
-    font-size:14px;
-    font-weight:700;
-
-    transition:.3s ease;
-}
-
-.btn-dark{
-    background:var(--black);
-    color:#fff;
-}
-
-.btn-dark:hover{
-    background:var(--purple);
-    transform:translateY(-3px);
-}
-
-.btn-light{
-    background:#fff;
-    border:1px solid #d1d5dd;
-}
-
-.btn-light:hover{
-    color:var(--purple);
-    border-color:var(--purple);
-    transform:translateY(-3px);
+    line-height:1.7;
 }
 
 /* =====================================================
-   GENERAL SECTION
+   GENERAL
 ===================================================== */
 
 .section{
-    padding:120px 0;
+    padding:125px 0;
 }
 
 .section-light{
-    background:var(--light);
+    background:var(--lavender);
 }
 
 .section-head{
+
     display:grid;
+
     grid-template-columns:1fr 1.1fr;
-    gap:70px;
-    margin-bottom:70px;
+
+    gap:75px;
+
+    margin-bottom:75px;
 }
 
 .kicker{
+
     font-family:"DM Mono",monospace;
+
     font-size:12px;
+
     color:var(--purple);
+
     letter-spacing:.18em;
+
     text-transform:uppercase;
+
     margin-bottom:22px;
 }
 
 .section h2{
-    font-size:clamp(43px,5.8vw,80px);
-    line-height:.95;
+
+    font-size:clamp(44px,5.8vw,82px);
+
+    line-height:.94;
+
     letter-spacing:-.065em;
 }
 
 .section-intro{
-    align-self:end;
-    max-width:660px;
 
-    color:#5e697b;
+    align-self:end;
+
+    max-width:680px;
+
+    color:#5f6a7c;
 
     font-size:20px;
+
     line-height:1.7;
 }
 
 /* =====================================================
-   CIRCULAR WORKFLOW
-   THIS IS THE IMPORTANT SECTION
+   MAIN SERVICES
 ===================================================== */
 
-.workflow{
-    background:var(--dark);
-    color:#fff;
+.services{
+    background:#fff;
+}
 
-    padding:135px 0 145px;
+.service-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:16px;
+}
+
+.service-card{
+
+    min-height:390px;
+
+    padding:40px;
+
+    border-radius:30px;
+
+    border:1px solid var(--border);
+
+    background:#f7f7f8;
+
+    position:relative;
 
     overflow:hidden;
-}
-
-.workflow-head{
-    display:grid;
-    grid-template-columns:1fr 1.1fr;
-
-    gap:70px;
-
-    margin-bottom:85px;
-}
-
-.workflow-head h2{
-    font-size:clamp(45px,5.8vw,80px);
-    line-height:.94;
-    letter-spacing:-.065em;
-}
-
-.workflow-head p{
-    align-self:end;
-
-    color:#9da7b7;
-
-    font-size:20px;
-    line-height:1.7;
-
-    max-width:670px;
-}
-
-/* CIRCLE CONTAINER */
-
-.workflow-track{
-    position:relative;
-
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-
-    gap:28px;
-
-    align-items:center;
-}
-
-/* CONNECTING LINE */
-
-.workflow-track::before{
-    content:"";
-
-    position:absolute;
-
-    left:9%;
-    right:9%;
-
-    top:50%;
-
-    height:2px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(199,255,41,.8) 10%,
-            rgba(199,255,41,.8) 90%,
-            transparent
-        );
-
-    z-index:0;
-}
-
-/* MOVING DOT */
-
-.workflow-track::after{
-    content:"";
-
-    position:absolute;
-
-    top:calc(50% - 5px);
-    left:10%;
-
-    width:10px;
-    height:10px;
-
-    border-radius:50%;
-
-    background:var(--green);
-
-    box-shadow:
-        0 0 15px var(--green),
-        0 0 30px rgba(199,255,41,.6);
-
-    animation:
-        moveDot 7s linear infinite;
-
-    z-index:1;
-}
-
-@keyframes moveDot{
-
-    0%{
-        left:9%;
-        opacity:0;
-    }
-
-    8%{
-        opacity:1;
-    }
-
-    92%{
-        opacity:1;
-    }
-
-    100%{
-        left:91%;
-        opacity:0;
-    }
-
-}
-
-/* CIRCLE */
-
-.workflow-card{
-
-    width:100%;
-    aspect-ratio:1;
-
-    border-radius:50%;
-
-    position:relative;
-
-    z-index:2;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    flex-direction:column;
-
-    text-align:center;
-
-    padding:35px;
-
-    background:
-        radial-gradient(
-            circle at 50% 35%,
-            #18212d,
-            #080d15 70%
-        );
-
-    border:1px solid rgba(255,255,255,.25);
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.35);
 
     transition:
         transform .45s ease,
-        border-color .45s ease,
+        background .45s ease,
+        color .45s ease,
         box-shadow .45s ease,
-        background .45s ease;
+        border-color .45s ease;
 }
 
-/* TOUCH / HOVER EXACT FEEL */
+.service-card::after{
 
-.workflow-card:hover{
+    content:"";
 
-    transform:
-        translateY(-12px)
-        scale(1.04);
+    position:absolute;
 
-    border-color:var(--green);
+    width:180px;
+    height:180px;
 
-    background:
-        radial-gradient(
-            circle at 50% 35%,
-            #202c39,
-            #090f17 70%
-        );
+    right:-70px;
+    bottom:-70px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(124,58,237,.15);
+
+    transition:.45s;
+}
+
+.service-card:hover{
+
+    transform:translateY(-9px);
+
+    background:var(--purple);
+
+    color:#fff;
+
+    border-color:var(--purple);
 
     box-shadow:
-        0 0 0 7px rgba(199,255,41,.05),
-        0 0 45px rgba(199,255,41,.14),
-        0 28px 60px rgba(0,0,0,.5);
+        0 28px 60px rgba(124,58,237,.20);
 }
 
-.workflow-number{
-    margin-top:13px;
+.service-card:hover::after{
 
-    color:var(--green);
+    width:270px;
+    height:270px;
+
+    border-color:rgba(255,255,255,.22);
+}
+
+.service-number{
 
     font-family:"DM Mono",monospace;
+
+    color:var(--purple);
+
+    font-size:13px;
+}
+
+.service-card:hover .service-number{
+    color:var(--purple-light);
+}
+
+.service-card h3{
+
+    margin-top:90px;
+
+    font-size:38px;
+
+    letter-spacing:-.055em;
+}
+
+.service-card p{
+
+    margin-top:17px;
+
+    max-width:590px;
+
+    color:#687386;
+
+    font-size:17px;
+
+    line-height:1.7;
+}
+
+.service-card:hover p{
+    color:#fff;
+}
+
+.service-link{
+
+    position:absolute;
+
+    right:40px;
+    bottom:38px;
 
     font-size:14px;
 
-    letter-spacing:.15em;
+    font-weight:700;
+
+    transition:.3s;
 }
 
-.workflow-title{
-    font-family:"DM Mono",monospace;
-
-    font-size:18px;
-
-    font-weight:500;
-
-    letter-spacing:.03em;
-
-    text-transform:uppercase;
+.service-card:hover .service-link{
+    transform:translateX(5px);
 }
 
 /* =====================================================
-   PROCESS SECTION
+   PROCESS
 ===================================================== */
 
 .process{
-    background:var(--light);
+    background:var(--lavender);
 }
 
 .process-list{
@@ -538,44 +624,48 @@ a{
 
     display:grid;
 
-    grid-template-columns:90px 1fr 1.5fr;
+    grid-template-columns:90px 1fr 1.35fr;
 
     gap:30px;
 
     align-items:center;
 
-    padding:40px 0;
+    padding:42px 0;
 
     border-bottom:1px solid var(--border);
 
-    transition:.35s;
+    transition:.35s ease;
 }
 
 .process-item:hover{
 
-    padding-left:20px;
-    padding-right:20px;
+    padding-left:22px;
+    padding-right:22px;
 
-    background:rgba(255,255,255,.32);
+    background:rgba(255,255,255,.30);
 }
 
 .process-number{
+
     font-family:"DM Mono",monospace;
 
-    font-size:14px;
-
     color:var(--purple);
+
+    font-size:13px;
 }
 
-.process-title{
-    font-size:29px;
-    letter-spacing:-.04em;
+.process-item h3{
+
+    font-size:30px;
+
+    letter-spacing:-.045em;
 }
 
-.process-content{
+.process-item p{
+
     color:#687386;
 
-    font-size:18px;
+    font-size:17px;
 
     line-height:1.7;
 }
@@ -584,105 +674,210 @@ a{
    DIGITAL MARKETING
 ===================================================== */
 
-.services{
-    background:#fff;
+.marketing{
+
+    background:var(--dark);
+
+    color:#fff;
 }
 
-.services-grid{
+.marketing .section-intro{
+    color:#9ca6b5;
+}
+
+.marketing-grid{
 
     display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(3,1fr);
 
-    border:1px solid var(--border);
-
-    border-radius:28px;
-
-    overflow:hidden;
+    gap:14px;
 }
 
-.service{
+.marketing-card{
 
-    min-height:330px;
+    min-height:300px;
 
-    padding:42px;
+    padding:32px;
 
-    background:#fff;
+    border-radius:25px;
 
-    border-right:1px solid var(--border);
-    border-bottom:1px solid var(--border);
+    background:#111923;
 
-    position:relative;
+    border:1px solid rgba(255,255,255,.11);
 
-    transition:
-        background .4s ease,
-        color .4s ease,
-        transform .4s ease,
-        box-shadow .4s ease;
+    transition:.4s ease;
 }
 
-.service:nth-child(2n){
-    border-right:0;
-}
+.marketing-card:hover{
 
-.service:nth-last-child(-n+2){
-    border-bottom:0;
-}
-
-/* Hover stays as existing style */
-.service:hover{
+    transform:translateY(-8px);
 
     background:var(--purple);
 
-    color:#fff;
-
-    transform:translateY(-5px);
+    border-color:var(--purple);
 
     box-shadow:
-        0 20px 50px rgba(124,58,237,.18);
-
+        0 25px 55px rgba(0,0,0,.35);
 }
 
-.service-number{
-
-    color:var(--purple);
+.marketing-number{
 
     font-family:"DM Mono",monospace;
 
-    font-size:14px;
+    color:var(--lime);
 
-    margin-bottom:85px;
-
+    font-size:13px;
 }
 
-.service:hover .service-number{
-    color:#dfd2ff;
+.marketing-card h3{
+
+    margin-top:72px;
+
+    font-size:28px;
+
+    letter-spacing:-.045em;
 }
 
-.service h3{
+.marketing-card p{
 
-    font-size:30px;
+    margin-top:15px;
 
-    letter-spacing:-.04em;
+    color:#929dad;
 
-    margin-bottom:15px;
+    font-size:16px;
 
+    line-height:1.65;
 }
 
-.service p{
+.marketing-card:hover p{
+    color:#fff;
+}
+
+/* =====================================================
+   WEBSITE DEVELOPMENT
+===================================================== */
+
+.web-development{
+    background:#fff;
+}
+
+.web-grid{
+
+    display:grid;
+
+    grid-template-columns:1.1fr .9fr;
+
+    gap:25px;
+}
+
+.web-card{
+
+    border-radius:30px;
+
+    min-height:460px;
+
+    padding:42px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:var(--lavender);
+
+    border:1px solid rgba(124,58,237,.14);
+
+    transition:.4s ease;
+}
+
+.web-card:hover{
+
+    transform:translateY(-8px);
+
+    background:#ddd2f5;
+
+    box-shadow:
+        0 25px 60px rgba(124,58,237,.12);
+}
+
+.web-card h3{
+
+    font-size:42px;
+
+    line-height:1;
+
+    letter-spacing:-.055em;
+
+    max-width:550px;
+}
+
+.web-card p{
+
+    margin-top:25px;
+
+    max-width:550px;
 
     color:#687386;
 
     font-size:17px;
 
-    line-height:1.65;
-
-    max-width:600px;
-
+    line-height:1.7;
 }
 
-.service:hover p{
-    color:#fff;
+.web-code{
+
+    position:absolute;
+
+    right:30px;
+    bottom:25px;
+
+    width:290px;
+    height:190px;
+
+    border-radius:20px;
+
+    background:#0b1018;
+
+    padding:22px;
+
+    box-shadow:0 25px 45px rgba(0,0,0,.20);
+
+    transform:rotate(-3deg);
+
+    transition:.4s;
+}
+
+.web-card:hover .web-code{
+    transform:rotate(0) translateY(-7px);
+}
+
+.code-line{
+
+    height:8px;
+
+    border-radius:10px;
+
+    background:#343d4b;
+
+    margin-bottom:13px;
+}
+
+.code-line.short{
+    width:48%;
+}
+
+.code-line.medium{
+    width:70%;
+}
+
+.code-line.purple{
+    background:#8b5cf6;
+    width:58%;
+}
+
+.code-line.lime{
+    background:var(--lime);
+    width:38%;
 }
 
 /* =====================================================
@@ -690,14 +885,7 @@ a{
 ===================================================== */
 
 .industries{
-
-    background:
-        linear-gradient(
-            135deg,
-            #e9e2f8,
-            #e3dcf4
-        );
-
+    background:var(--lavender);
 }
 
 .industry-grid{
@@ -707,20 +895,19 @@ a{
     grid-template-columns:repeat(3,1fr);
 
     gap:14px;
-
 }
 
 .industry{
 
-    min-height:235px;
+    min-height:230px;
 
     padding:30px;
 
-    border-radius:24px;
+    border-radius:25px;
 
-    background:rgba(255,255,255,.55);
+    background:rgba(255,255,255,.58);
 
-    border:1px solid rgba(124,58,237,.18);
+    border:1px solid rgba(124,58,237,.17);
 
     display:flex;
 
@@ -728,22 +915,16 @@ a{
 
     justify-content:space-between;
 
-    transition:
-        background .4s ease,
-        color .4s ease,
-        transform .4s ease,
-        box-shadow .4s ease;
-
+    transition:.4s ease;
 }
 
 .industry small{
 
+    color:var(--purple);
+
     font-family:"DM Mono",monospace;
 
     font-size:12px;
-
-    color:var(--purple);
-
 }
 
 .industry h3{
@@ -751,20 +932,16 @@ a{
     font-size:28px;
 
     letter-spacing:-.045em;
-
 }
 
 .industry p{
 
-    color:#697386;
+    color:#687386;
 
     font-size:16px;
 
     line-height:1.55;
-
 }
-
-/* Touch / hover purple state */
 
 .industry:hover{
 
@@ -776,7 +953,6 @@ a{
 
     box-shadow:
         0 22px 50px rgba(82,43,153,.22);
-
 }
 
 .industry:hover small,
@@ -785,165 +961,81 @@ a{
 }
 
 /* =====================================================
-   PROJECTS
-===================================================== */
-
-.projects{
-    background:#fff;
-}
-
-.project-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:18px;
-
-}
-
-.project{
-
-    min-height:390px;
-
-    padding:38px;
-
-    border-radius:26px;
-
-    background:#f4f4f6;
-
-    border:1px solid #dedfe4;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:space-between;
-
-    transition:.45s;
-
-}
-
-.project:hover{
-
-    background:var(--purple);
-
-    color:#fff;
-
-    border-color:var(--purple);
-
-    transform:translateY(-8px);
-
-}
-
-.project-tag{
-
-    color:var(--purple);
-
-    font-family:"DM Mono",monospace;
-
-    font-size:12px;
-
-}
-
-.project:hover .project-tag{
-    color:#dfd2ff;
-}
-
-.project h3{
-
-    font-size:37px;
-
-    letter-spacing:-.05em;
-
-    margin:18px 0;
-
-}
-
-.project p{
-
-    color:#687386;
-
-    font-size:17px;
-
-    line-height:1.6;
-
-}
-
-.project:hover p{
-    color:#fff;
-}
-
-.project-link{
-
-    font-weight:700;
-
-    margin-top:28px;
-
-}
-
-/* =====================================================
    CTA
 ===================================================== */
 
 .cta{
 
+    padding:135px 0;
+
     background:var(--dark);
 
     color:#fff;
-
-    padding:135px 0;
-
 }
 
 .cta-inner{
 
     display:grid;
 
-    grid-template-columns:1.4fr 1fr;
+    grid-template-columns:1.35fr 1fr;
 
     gap:70px;
 
     align-items:end;
-
 }
 
 .cta h2{
 
-    font-size:clamp(50px,6.8vw,100px);
+    font-size:clamp(52px,6.8vw,100px);
 
     line-height:.9;
 
     letter-spacing:-.07em;
-
 }
 
 .cta p{
 
-    color:#a4adbb;
+    color:#a3adbb;
 
     font-size:19px;
 
     line-height:1.7;
 
     margin-bottom:30px;
-
 }
 
-.cta .btn{
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:16px 24px;
+
+    border-radius:100px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.btn-purple{
 
     background:var(--purple);
 
     color:#fff;
-
 }
 
-.cta .btn:hover{
+.btn-purple:hover{
 
     background:#fff;
 
     color:var(--black);
 
+    transform:translateY(-3px);
 }
 
 /* =====================================================
@@ -959,7 +1051,6 @@ footer{
     border-top:1px solid rgba(255,255,255,.1);
 
     padding:30px 0;
-
 }
 
 .footer-inner{
@@ -973,7 +1064,6 @@ footer{
     color:#8f99a8;
 
     font-size:13px;
-
 }
 
 .footer-brand{
@@ -982,19 +1072,18 @@ footer{
 }
 
 /* =====================================================
-   SCROLL ANIMATION
+   REVEAL
 ===================================================== */
 
 .reveal{
 
     opacity:0;
 
-    transform:translateY(50px);
+    transform:translateY(45px);
 
     transition:
         opacity .75s ease,
         transform .75s cubic-bezier(.2,.8,.2,1);
-
 }
 
 .reveal.active{
@@ -1002,7 +1091,6 @@ footer{
     opacity:1;
 
     transform:none;
-
 }
 
 /* =====================================================
@@ -1015,113 +1103,224 @@ footer{
         width:min(calc(100% - 38px),var(--max));
     }
 
+    /* DESKTOP NAV HIDE */
+
     .nav-links{
         display:none;
     }
 
+    /* HAMBURGER SHOW */
+
+    .menu-toggle{
+        display:flex;
+    }
+
+    .nav{
+        padding:16px 0;
+    }
+
+    .nav.scrolled{
+        padding:12px 0;
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    /* HERO */
+
+    .hero{
+        min-height:100vh;
+    }
+
     .hero-content{
-        padding:130px 0 80px;
+        padding:125px 0 75px;
     }
 
     .hero h1{
-        font-size:clamp(48px,13vw,78px);
+        font-size:clamp(50px,13vw,78px);
     }
 
-    .hero-copy{
+    .hero-description{
         font-size:17px;
+        line-height:1.65;
     }
+
+    /* GENERAL */
 
     .section{
         padding:90px 0;
     }
 
-    .section-head,
-    .workflow-head,
-    .cta-inner{
+    .section-head{
         grid-template-columns:1fr;
         gap:30px;
+        margin-bottom:50px;
     }
 
-    .section-intro,
-    .workflow-head p{
+    .section-intro{
         font-size:17px;
     }
 
-    /* circles become 2 x 2 */
-    .workflow-track{
+    /* SERVICES */
 
-        grid-template-columns:repeat(2,1fr);
-
-        gap:25px;
-
+    .service-grid{
+        grid-template-columns:1fr;
     }
 
-    .workflow-track::before,
-    .workflow-track::after{
-        display:none;
+    .service-card{
+        min-height:340px;
+        padding:30px;
+        border-radius:24px;
     }
 
-    .workflow-card{
-        padding:20px;
+    .service-card h3{
+        margin-top:65px;
+        font-size:32px;
     }
 
-    .workflow-title{
-        font-size:14px;
+    .service-card p{
+        font-size:16px;
+        max-width:100%;
     }
+
+    .service-link{
+        right:30px;
+        bottom:28px;
+    }
+
+    /* PROCESS */
 
     .process-item{
 
         grid-template-columns:55px 1fr;
 
-        gap:12px 18px;
+        gap:14px 20px;
 
+        padding:32px 0;
     }
 
-    .process-content{
-
+    .process-item p{
         grid-column:2;
-
         font-size:16px;
-
     }
 
-    .process-title{
-        font-size:25px;
+    .process-item h3{
+        font-size:26px;
     }
 
-    .services-grid,
-    .project-grid{
+    /* MARKETING */
+
+    .marketing-grid{
         grid-template-columns:1fr;
     }
 
-    .service{
-
-        border-right:0!important;
-
-        border-bottom:1px solid var(--border)!important;
-
-        min-height:280px;
-
+    .marketing-card{
+        min-height:260px;
+        padding:30px;
     }
 
-    .service:last-child{
-        border-bottom:0!important;
+    .marketing-card h3{
+        margin-top:60px;
     }
+
+    /* WEB */
+
+    .web-grid{
+        grid-template-columns:1fr;
+    }
+
+    .web-card{
+        min-height:390px;
+        padding:32px;
+        border-radius:24px;
+    }
+
+    .web-card h3{
+        font-size:34px;
+    }
+
+    .web-code{
+        width:220px;
+        height:145px;
+        right:20px;
+        bottom:20px;
+    }
+
+    /* INDUSTRIES */
 
     .industry-grid{
         grid-template-columns:1fr;
     }
 
-    .project{
-        min-height:330px;
+    .industry{
+        min-height:210px;
+    }
+
+    /* CTA */
+
+    .cta{
+        padding:100px 0;
+    }
+
+    .cta-inner{
+        grid-template-columns:1fr;
+        gap:35px;
     }
 
     .cta h2{
-        font-size:clamp(48px,13vw,76px);
+        font-size:clamp(50px,13vw,76px);
     }
+
+    /* FOOTER */
 
     .footer-inner{
         flex-direction:column;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media(max-width:480px){
+
+    .container{
+        width:calc(100% - 30px);
+    }
+
+    .mobile-menu-inner{
+        width:calc(100% - 40px);
+    }
+
+    .mobile-links a{
+        font-size:34px;
+    }
+
+    .hero h1{
+        font-size:52px;
+    }
+
+    .hero-description{
+        font-size:16px;
+    }
+
+    .section h2{
+        font-size:44px;
+    }
+
+    .service-card{
+        min-height:350px;
+    }
+
+    .service-card h3{
+        font-size:29px;
+    }
+
+    .web-card h3{
+        font-size:30px;
     }
 
 }
@@ -1131,6 +1330,11 @@ footer{
 
 <body>
 
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
 <header class="nav" id="nav">
 
 <div class="container nav-inner">
@@ -1138,6 +1342,7 @@ footer{
 <a href="index.html" class="logo">
 AK <span>×</span> ST
 </a>
+
 
 <nav class="nav-links">
 
@@ -1157,12 +1362,74 @@ Let's Talk
 
 </nav>
 
+
+<!-- MOBILE HAMBURGER -->
+
+<button
+    class="menu-toggle"
+    id="menuToggle"
+    aria-label="Open menu"
+    aria-expanded="false"
+>
+
+<span></span>
+<span></span>
+
+</button>
+
 </div>
 
 </header>
 
 
+<!-- =====================================================
+     MOBILE MENU
+===================================================== -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+<div class="mobile-menu-inner">
+
+<div class="mobile-menu-label">
+AK × ST / MENU
+</div>
+
+
+<nav class="mobile-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="services.html">
+Services
+</a>
+
+<a href="web-development.html">
+Web Development
+</a>
+
+<a href="work.html">
+Work
+</a>
+
+<a href="contact.html" class="mobile-cta">
+Let's Talk →
+</a>
+
+</nav>
+
+</div>
+
+</div>
+
+
 <main>
+
 
 <!-- =====================================================
      HERO
@@ -1173,33 +1440,21 @@ Let's Talk
 <div class="container hero-content reveal">
 
 <div class="eyebrow">
-Digital marketing × web development
+01 / SERVICES
 </div>
 
 <h1>
-Build a digital presence that
-<span>works.</span>
+Digital solutions built to
+<span>move business forward.</span>
 </h1>
 
-<p class="hero-copy">
+<p class="hero-description">
 
-We bring website development, digital marketing, SEO,
-paid advertising and social media together to create
-a clear digital journey from first click to enquiry.
+From websites and e-commerce platforms to SEO, Google Ads,
+Meta Ads and social media, we connect development and
+marketing around one clear objective — growth.
 
 </p>
-
-<div class="hero-actions">
-
-<a href="contact.html" class="btn btn-dark">
-Start a project
-</a>
-
-<a href="work.html" class="btn btn-light">
-View our work
-</a>
-
-</div>
 
 </div>
 
@@ -1207,93 +1462,174 @@ View our work
 
 
 <!-- =====================================================
-     CIRCULAR SECTION
+     MAIN SERVICES
 ===================================================== -->
 
-<section class="workflow">
+<section class="section services">
 
 <div class="container">
 
-<div class="workflow-head reveal">
+<div class="section-head reveal">
 
 <div>
 
-<div class="eyebrow" style="color:var(--green)">
-01 / WHAT WE DO
+<div class="kicker">
+02 / WHAT WE DO
 </div>
 
 <h2>
-Digital work built around real business goals.
+Focused services. Clear outcomes.
 </h2>
 
 </div>
 
-<p>
+<p class="section-intro">
 
-A strong digital presence is more than a website or a collection
-of advertisements. We bring strategy, development and marketing
-together to create a consistent customer journey from discovery
-to enquiry.
+We don't add services just to make a list longer.
+Every capability exists to solve a practical digital
+business problem.
 
 </p>
 
 </div>
 
 
-<div class="workflow-track">
+<div class="service-grid">
 
-<!-- ONLY HEADINGS INSIDE CIRCLES -->
 
-<div class="workflow-card reveal">
+<article class="service-card reveal">
 
-<div class="workflow-title">
-Understand
+<div class="service-number">
+01 / DEVELOPMENT
 </div>
 
-<div class="workflow-number">
-01
+<h3>
+Website Development
+</h3>
+
+<p>
+Professional business websites, WordPress websites,
+landing pages and custom digital experiences designed
+around the business and its audience.
+</p>
+
+<a href="web-development.html" class="service-link">
+Explore →
+</a>
+
+</article>
+
+
+<article class="service-card reveal">
+
+<div class="service-number">
+02 / E-COMMERCE
 </div>
 
+<h3>
+E-commerce Development
+</h3>
+
+<p>
+E-commerce websites, product structures, product listings,
+user journeys and conversion-focused digital experiences.
+</p>
+
+<a href="web-development.html" class="service-link">
+Explore →
+</a>
+
+</article>
+
+
+<article class="service-card reveal">
+
+<div class="service-number">
+03 / SEO
 </div>
 
+<h3>
+Search Engine Optimisation
+</h3>
 
-<div class="workflow-card reveal">
+<p>
+Keyword research, on-page SEO, technical improvements,
+content structure and optimisation for stronger organic
+visibility.
+</p>
 
-<div class="workflow-title">
-Strategise
+<a href="contact.html" class="service-link">
+Discuss SEO →
+</a>
+
+</article>
+
+
+<article class="service-card reveal">
+
+<div class="service-number">
+04 / PAID MEDIA
 </div>
 
-<div class="workflow-number">
-02
+<h3>
+Google & Meta Ads
+</h3>
+
+<p>
+Performance-focused campaigns designed around relevant
+audiences, traffic, enquiries, leads and measurable outcomes.
+</p>
+
+<a href="contact.html" class="service-link">
+Start a campaign →
+</a>
+
+</article>
+
+
+<article class="service-card reveal">
+
+<div class="service-number">
+05 / SOCIAL
 </div>
 
+<h3>
+Social Media Management
+</h3>
+
+<p>
+Content planning, platform management, creative direction
+and consistent brand communication across social channels.
+</p>
+
+<a href="contact.html" class="service-link">
+Build presence →
+</a>
+
+</article>
+
+
+<article class="service-card reveal">
+
+<div class="service-number">
+06 / B2B
 </div>
 
+<h3>
+B2B Lead Generation
+</h3>
 
-<div class="workflow-card reveal">
+<p>
+Digital outreach, campaign systems and conversion journeys
+designed to connect businesses with relevant prospects.
+</p>
 
-<div class="workflow-title">
-Create
-</div>
+<a href="contact.html" class="service-link">
+Generate leads →
+</a>
 
-<div class="workflow-number">
-03
-</div>
+</article>
 
-</div>
-
-
-<div class="workflow-card reveal">
-
-<div class="workflow-title">
-Optimise
-</div>
-
-<div class="workflow-number">
-04
-</div>
-
-</div>
 
 </div>
 
@@ -1306,7 +1642,7 @@ Optimise
      PROCESS
 ===================================================== -->
 
-<section class="section process section-light">
+<section class="section process">
 
 <div class="container">
 
@@ -1315,19 +1651,20 @@ Optimise
 <div>
 
 <div class="kicker">
-02 / HOW WE WORK
+03 / PROCESS
 </div>
 
 <h2>
-From first click to customer.
+How we turn an idea into digital work.
 </h2>
 
 </div>
 
 <p class="section-intro">
 
-Every part of the digital experience should have a job —
-attract, communicate, convert and improve.
+The process stays simple: understand the business,
+define the direction, build the right solution and
+keep improving it.
 
 </p>
 
@@ -1343,17 +1680,14 @@ attract, communicate, convert and improve.
 01
 </div>
 
-<div class="process-title">
-Attract
-</div>
+<h3>
+Understand
+</h3>
 
-<div class="process-content">
-
-Reach the right audience through search,
-social media, paid advertising and focused
-digital campaigns.
-
-</div>
+<p>
+We start with the business, audience, current digital
+presence and the actual goal behind the project.
+</p>
 
 </div>
 
@@ -1364,16 +1698,14 @@ digital campaigns.
 02
 </div>
 
-<div class="process-title">
-Engage
-</div>
+<h3>
+Plan
+</h3>
 
-<div class="process-content">
-
-Use clear messaging, useful content and a strong
-digital presence to turn attention into genuine interest.
-
-</div>
+<p>
+We define the structure, content, marketing direction
+and priorities before moving into execution.
+</p>
 
 </div>
 
@@ -1384,16 +1716,14 @@ digital presence to turn attention into genuine interest.
 03
 </div>
 
-<div class="process-title">
-Convert
-</div>
+<h3>
+Build
+</h3>
 
-<div class="process-content">
-
-Build landing pages, websites and enquiry journeys
-that make it easier for prospects to take action.
-
-</div>
+<p>
+Websites, campaigns, content and digital systems are
+built around the strategy rather than separately from it.
+</p>
 
 </div>
 
@@ -1404,16 +1734,32 @@ that make it easier for prospects to take action.
 04
 </div>
 
-<div class="process-title">
-Improve
+<h3>
+Launch
+</h3>
+
+<p>
+The digital experience goes live with the right technical,
+marketing and tracking foundations in place.
+</p>
+
 </div>
 
-<div class="process-content">
 
-Measure performance, identify opportunities and keep
-improving the experience and campaign direction.
+<div class="process-item reveal">
 
+<div class="process-number">
+05
 </div>
+
+<h3>
+Optimise
+</h3>
+
+<p>
+We use performance data and real-world feedback to improve
+the experience and make the digital work more effective.
+</p>
 
 </div>
 
@@ -1429,7 +1775,7 @@ improving the experience and campaign direction.
      DIGITAL MARKETING
 ===================================================== -->
 
-<section class="section services">
+<section class="section marketing">
 
 <div class="container">
 
@@ -1437,51 +1783,33 @@ improving the experience and campaign direction.
 
 <div>
 
-<div class="kicker">
-03 / DIGITAL MARKETING
+<div class="kicker" style="color:var(--lime)">
+04 / DIGITAL MARKETING
 </div>
 
 <h2>
-Digital marketing, without the noise.
+Marketing that has a reason to exist.
 </h2>
 
 </div>
 
 <p class="section-intro">
 
-Focused digital activity built around visibility,
-qualified enquiries and measurable business growth.
+Visibility is useful only when it reaches the right people
+and leads them toward the right action.
 
 </p>
 
 </div>
 
 
-<div class="services-grid">
+<div class="marketing-grid">
 
 
-<article class="service reveal">
+<article class="marketing-card reveal">
 
-<div class="service-number">
+<div class="marketing-number">
 01
-</div>
-
-<h3>
-SEO
-</h3>
-
-<p>
-Keyword research, on-page optimisation, technical
-improvements, content direction and search visibility.
-</p>
-
-</article>
-
-
-<article class="service reveal">
-
-<div class="service-number">
-02
 </div>
 
 <h3>
@@ -1489,17 +1817,17 @@ Google Ads
 </h3>
 
 <p>
-Search and paid campaigns designed around relevant
-intent, enquiries, lead generation and measurable outcomes.
+Search campaigns, keyword targeting, landing page direction
+and lead-focused paid search activity.
 </p>
 
 </article>
 
 
-<article class="service reveal">
+<article class="marketing-card reveal">
 
-<div class="service-number">
-03
+<div class="marketing-number">
+02
 </div>
 
 <h3>
@@ -1507,16 +1835,34 @@ Meta Ads
 </h3>
 
 <p>
-Audience-focused campaigns for awareness, product promotion,
-enquiries and conversion-focused growth.
+Facebook and Instagram campaigns for awareness, products,
+services, enquiries and lead generation.
 </p>
 
 </article>
 
 
-<article class="service reveal">
+<article class="marketing-card reveal">
 
-<div class="service-number">
+<div class="marketing-number">
+03
+</div>
+
+<h3>
+SEO
+</h3>
+
+<p>
+Search visibility through keyword research, on-page
+optimisation and structured website improvements.
+</p>
+
+</article>
+
+
+<article class="marketing-card reveal">
+
+<div class="marketing-number">
 04
 </div>
 
@@ -1525,16 +1871,16 @@ Social Media
 </h3>
 
 <p>
-Content planning, social media handling, creative direction
-and consistent brand communication.
+Consistent content, profile management and communication
+designed around the brand.
 </p>
 
 </article>
 
 
-<article class="service reveal">
+<article class="marketing-card reveal">
 
-<div class="service-number">
+<div class="marketing-number">
 05
 </div>
 
@@ -1543,16 +1889,16 @@ B2B Lead Generation
 </h3>
 
 <p>
-Digital outreach and campaign systems designed to connect
-businesses with relevant prospects.
+Digital outreach and acquisition systems focused on
+relevant business prospects.
 </p>
 
 </article>
 
 
-<article class="service reveal">
+<article class="marketing-card reveal">
 
-<div class="service-number">
+<div class="marketing-number">
 06
 </div>
 
@@ -1561,9 +1907,100 @@ Digital Branding
 </h3>
 
 <p>
-A consistent online identity across websites, campaigns,
-social platforms and customer touchpoints.
+A consistent identity across websites, social channels,
+campaigns and customer touchpoints.
 </p>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     WEBSITE DEVELOPMENT
+===================================================== -->
+
+<section class="section web-development">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div>
+
+<div class="kicker">
+05 / WEB DEVELOPMENT
+</div>
+
+<h2>
+Websites designed to do more.
+</h2>
+
+</div>
+
+<p class="section-intro">
+
+A website is often the centre of the digital presence.
+We build it to communicate, build trust and create action.
+
+</p>
+
+</div>
+
+
+<div class="web-grid">
+
+
+<article class="web-card reveal">
+
+<h3>
+Business websites that look professional and work properly.
+</h3>
+
+<p>
+From company websites to landing pages, we focus on
+responsive layouts, clear content hierarchy, mobile
+experience, speed and conversion.
+</p>
+
+<div class="web-code">
+
+<div class="code-line purple"></div>
+<div class="code-line medium"></div>
+<div class="code-line short"></div>
+<div class="code-line lime"></div>
+<div class="code-line medium"></div>
+
+</div>
+
+</article>
+
+
+<article class="web-card reveal">
+
+<h3>
+E-commerce experiences built around the customer journey.
+</h3>
+
+<p>
+Product presentation, categories, listings, navigation
+and conversion-focused layouts are considered together.
+</p>
+
+<div class="web-code">
+
+<div class="code-line lime"></div>
+<div class="code-line medium"></div>
+<div class="code-line purple"></div>
+<div class="code-line short"></div>
+<div class="code-line medium"></div>
+
+</div>
 
 </article>
 
@@ -1588,19 +2025,20 @@ social platforms and customer touchpoints.
 <div>
 
 <div class="kicker">
-04 / INDUSTRIES
+06 / INDUSTRIES
 </div>
 
 <h2>
-Digital solutions across different industries.
+Different businesses. Different digital needs.
 </h2>
 
 </div>
 
 <p class="section-intro">
 
-Digital solutions adapted to the audience, offer
-and growth goals of each business.
+Our work can adapt to the business model, audience and
+customer journey rather than forcing every project into
+the same template.
 
 </p>
 
@@ -1619,7 +2057,7 @@ Hospitality
 </h3>
 
 <p>
-Digital visibility, enquiries, bookings and brand communication.
+Websites, bookings, paid media and digital visibility.
 </p>
 
 </article>
@@ -1634,7 +2072,7 @@ Real Estate
 </h3>
 
 <p>
-Lead generation, landing pages, paid campaigns and digital presence.
+Lead generation, websites and conversion-focused campaigns.
 </p>
 
 </article>
@@ -1649,7 +2087,7 @@ E-commerce
 </h3>
 
 <p>
-Product listings, website experiences, paid media and conversion support.
+Product listings, websites, social media and paid advertising.
 </p>
 
 </article>
@@ -1660,11 +2098,11 @@ Product listings, website experiences, paid media and conversion support.
 <small>04</small>
 
 <h3>
-Professional Services
+Recruitment
 </h3>
 
 <p>
-Authority-led websites, SEO and enquiry-focused digital journeys.
+Hiring websites, digital campaigns and candidate acquisition.
 </p>
 
 </article>
@@ -1675,11 +2113,11 @@ Authority-led websites, SEO and enquiry-focused digital journeys.
 <small>05</small>
 
 <h3>
-Recruitment
+Professional Services
 </h3>
 
 <p>
-Digital campaigns, lead generation, websites and candidate acquisition.
+Authority-led websites, SEO and enquiry generation.
 </p>
 
 </article>
@@ -1694,154 +2132,8 @@ Local Businesses
 </h3>
 
 <p>
-Google Business, social media, website optimisation and local visibility.
+Local search visibility, websites and digital presence.
 </p>
-
-</article>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     PROJECTS
-===================================================== -->
-
-<section class="section projects">
-
-<div class="container">
-
-<div class="section-head reveal">
-
-<div>
-
-<div class="kicker">
-05 / SELECTED WORK
-</div>
-
-<h2>
-Work created for real business needs.
-</h2>
-
-</div>
-
-<p class="section-intro">
-
-Website development and marketing work across hospitality,
-e-commerce, advertising and UAE-based businesses.
-
-</p>
-
-</div>
-
-
-<div class="project-grid">
-
-
-<article class="project reveal">
-
-<div>
-
-<div class="project-tag">
-WEB DEVELOPMENT + DIGITAL MARKETING
-</div>
-
-<h3>
-Fortune BTL Advertising
-</h3>
-
-<p>
-Website development, optimisation, social media handling
-and B2B digital lead generation.
-</p>
-
-</div>
-
-<a href="fortune-btl.html" class="project-link">
-More details →
-</a>
-
-</article>
-
-
-<article class="project reveal">
-
-<div>
-
-<div class="project-tag">
-WEB DEVELOPMENT + PAID MARKETING
-</div>
-
-<h3>
-Anup Gupta Studio
-</h3>
-
-<p>
-E-commerce website development, product listing,
-social media handling and Google Ads.
-</p>
-
-</div>
-
-<a href="anup-gupta-studio.html" class="project-link">
-More details →
-</a>
-
-</article>
-
-
-<article class="project reveal">
-
-<div>
-
-<div class="project-tag">
-DIGITAL MARKETING
-</div>
-
-<h3>
-Heritage Holiday Homes
-</h3>
-
-<p>
-Meta Ads, Booking.com lead generation, product listing
-and Google Business profile management.
-</p>
-
-</div>
-
-<a href="heritage-holiday-homes.html" class="project-link">
-More details →
-</a>
-
-</article>
-
-
-<article class="project reveal">
-
-<div>
-
-<div class="project-tag">
-RECRUITMENT + DIGITAL
-</div>
-
-<h3>
-Top Human Resource
-</h3>
-
-<p>
-Digital presence and hiring-focused website work
-for a UAE-based recruitment business.
-</p>
-
-</div>
-
-<a href="work.html" class="project-link">
-More details →
-</a>
 
 </article>
 
@@ -1863,25 +2155,24 @@ More details →
 
 <div class="reveal">
 
-<div class="eyebrow" style="color:var(--green)">
-06 / LET'S BUILD
+<div class="eyebrow" style="color:var(--lime)">
+07 / LET'S BUILD
 </div>
 
 <h2>
-Ready to build something that works?
+Need a digital solution?
 </h2>
 
 </div>
 
-
 <div class="reveal">
 
 <p>
-Tell us what you are building, what needs improving,
-or where you want to grow.
+Tell us what you are trying to build, improve or grow.
+We'll figure out the right digital direction together.
 </p>
 
-<a href="contact.html" class="btn">
+<a href="contact.html" class="btn btn-purple">
 Start a project →
 </a>
 
@@ -1891,19 +2182,24 @@ Start a project →
 
 </section>
 
+
 </main>
 
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
 <div class="container footer-inner">
 
 <div class="footer-brand">
-AK × ST Advertising
+AK × ST
 </div>
 
 <div>
-Web Development · Digital Marketing · SEO · Paid Ads · Growth
+Web Development · Digital Marketing · SEO · Paid Ads
 </div>
 
 <div>
@@ -1917,11 +2213,13 @@ Web Development · Digital Marketing · SEO · Paid Ads · Growth
 
 <script>
 
-/* NAV SCROLL */
+/* =====================================================
+   NAV SCROLL
+===================================================== */
 
 const nav = document.getElementById("nav");
 
-window.addEventListener("scroll",function(){
+window.addEventListener("scroll",()=>{
 
     if(window.scrollY > 30){
 
@@ -1936,7 +2234,98 @@ window.addEventListener("scroll",function(){
 });
 
 
-/* SCROLL REVEAL */
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+const menuToggle = document.getElementById("menuToggle");
+const mobileMenu = document.getElementById("mobileMenu");
+const mobileLinks = document.querySelectorAll(".mobile-links a");
+
+
+function openMenu(){
+
+    menuToggle.classList.add("active");
+
+    mobileMenu.classList.add("active");
+
+    menuToggle.setAttribute("aria-expanded","true");
+
+    document.body.classList.add("menu-open");
+
+}
+
+
+function closeMenu(){
+
+    menuToggle.classList.remove("active");
+
+    mobileMenu.classList.remove("active");
+
+    menuToggle.setAttribute("aria-expanded","false");
+
+    document.body.classList.remove("menu-open");
+
+}
+
+
+menuToggle.addEventListener("click",()=>{
+
+    if(mobileMenu.classList.contains("active")){
+
+        closeMenu();
+
+    }else{
+
+        openMenu();
+
+    }
+
+});
+
+
+/* CLOSE WHEN LINK IS CLICKED */
+
+mobileLinks.forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        closeMenu();
+
+    });
+
+});
+
+
+/* CLOSE WHEN CLICKING OUTSIDE MENU CONTENT */
+
+mobileMenu.addEventListener("click",(event)=>{
+
+    if(event.target === mobileMenu){
+
+        closeMenu();
+
+    }
+
+});
+
+
+/* CLOSE WITH ESCAPE */
+
+document.addEventListener("keydown",(event)=>{
+
+    if(event.key === "Escape"){
+
+        closeMenu();
+
+    }
+
+});
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
 
 const observer = new IntersectionObserver(
 
@@ -1947,7 +2336,7 @@ const observer = new IntersectionObserver(
         if(entry.isIntersecting){
 
             entry.target.style.transitionDelay =
-                Math.min(index,5) * 70 + "ms";
+                Math.min(index,5)*70+"ms";
 
             entry.target.classList.add("active");
 
@@ -1968,28 +2357,34 @@ const observer = new IntersectionObserver(
 
 document
 .querySelectorAll(".reveal")
-.forEach(element=>observer.observe(element));
+.forEach(el=>observer.observe(el));
 
 
-/* TOUCH FEEL FOR MOBILE */
+/* =====================================================
+   MOBILE TOUCH FEEL
+===================================================== */
 
 document
 .querySelectorAll(
-    ".workflow-card,.service,.industry,.project"
+    ".service-card,.marketing-card,.industry,.web-card"
 )
 .forEach(card=>{
 
-    card.addEventListener("touchstart",function(){
+    card.addEventListener(
+        "touchstart",
+        ()=>{
+            card.classList.add("touch-active");
+        },
+        {passive:true}
+    );
 
-        this.classList.add("touch-active");
-
-    },{passive:true});
-
-    card.addEventListener("touchend",function(){
-
-        this.classList.remove("touch-active");
-
-    },{passive:true});
+    card.addEventListener(
+        "touchend",
+        ()=>{
+            card.classList.remove("touch-active");
+        },
+        {passive:true}
+    );
 
 });
 
