@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -8,9 +9,19 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+<!-- GLOBAL CSS -->
+<link rel="stylesheet" href="global.css">
+
+
 <style>
+
+/* =====================================================
+   WORK PAGE ONLY
+   ===================================================== */
+
 :root{
     --black:#080b12;
     --dark:#0c121c;
@@ -27,110 +38,21 @@
     --max:1460px;
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
+.work-page{
     font-family:"Manrope",sans-serif;
     color:var(--text);
     background:#fff;
     overflow-x:hidden;
 }
 
-a{
+.work-page a{
     color:inherit;
     text-decoration:none;
 }
 
-.container{
+.work-container{
     width:min(calc(100% - 90px),var(--max));
     margin:auto;
-}
-
-
-/* =====================================================
-   NAV
-===================================================== */
-
-.nav{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    z-index:1000;
-    padding:22px 0;
-    transition:.35s ease;
-}
-
-.nav.scrolled{
-    padding:14px 0;
-    background:rgba(255,255,255,.88);
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(0,0,0,.08);
-}
-
-.nav-inner{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    font-size:23px;
-    font-weight:800;
-    letter-spacing:-.06em;
-}
-
-.logo span{
-    color:var(--purple);
-}
-
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:30px;
-    font-size:14px;
-    font-weight:600;
-}
-
-.nav-links a{
-    position:relative;
-}
-
-.nav-links a:not(.nav-cta)::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-7px;
-    width:0;
-    height:2px;
-    background:var(--purple);
-    transition:.3s;
-}
-
-.nav-links a:hover::after{
-    width:100%;
-}
-
-.nav-cta{
-    padding:12px 21px;
-    border-radius:100px;
-    background:var(--black);
-    color:#fff;
-    transition:.3s;
-}
-
-.nav-cta:hover{
-    background:var(--purple);
-    transform:translateY(-2px);
 }
 
 
@@ -676,7 +598,7 @@ a{
    FOOTER
 ===================================================== */
 
-footer{
+.work-footer{
     background:var(--dark);
     color:#fff;
     padding:30px 0;
@@ -717,17 +639,13 @@ footer{
 
 
 /* =====================================================
-   MOBILE
+   MOBILE WORK PAGE
 ===================================================== */
 
 @media(max-width:900px){
 
-    .container{
+    .work-container{
         width:min(calc(100% - 38px),var(--max));
-    }
-
-    .nav-links{
-        display:none;
     }
 
     .hero{
@@ -851,45 +769,18 @@ footer{
 }
 
 </style>
+
 </head>
 
 
-<body>
+<body class="work-page">
 
 
 <!-- =====================================================
-     NAVIGATION
+     CENTRAL NAVBAR
 ===================================================== -->
 
-<header class="nav" id="nav">
-
-<div class="container nav-inner">
-
-<a href="index.html" class="logo">
-AK <span>×</span> ST
-</a>
-
-<nav class="nav-links">
-
-<a href="index.html">Home</a>
-
-<a href="about.html">About</a>
-
-<a href="services.html">Services</a>
-
-<a href="web-development.html">Web Development</a>
-
-<a href="work.html">Work</a>
-
-<a href="contact.html" class="nav-cta">
-Let's Talk
-</a>
-
-</nav>
-
-</div>
-
-</header>
+<div id="navbar"></div>
 
 
 <main>
@@ -901,7 +792,7 @@ Let's Talk
 
 <section class="hero">
 
-<div class="container hero-content reveal">
+<div class="work-container hero-content reveal">
 
 <div class="eyebrow">
 01 / SELECTED WORK
@@ -929,7 +820,7 @@ around what the business actually needs.
 
 <section class="section marketing">
 
-<div class="container">
+<div class="work-container">
 
 <div class="section-head reveal">
 
@@ -957,8 +848,6 @@ SEO, local visibility and lead generation.
 <div class="marketing-grid">
 
 
-<!-- LAIMAR -->
-
 <article class="marketing-card reveal">
 
 <div class="card-number">
@@ -976,25 +865,16 @@ digital presence.
 </p>
 
 <div class="service-list">
-
 <span>Google Ads</span>
-
 <span>Meta Ads</span>
-
 <span>GMB</span>
-
 <span>Social Media</span>
-
 <span>SEO</span>
-
 <span>Website Optimisation</span>
-
 </div>
 
 </article>
 
-
-<!-- HERITAGE -->
 
 <article class="marketing-card reveal">
 
@@ -1013,23 +893,15 @@ relevant booking enquiries.
 </p>
 
 <div class="service-list">
-
 <span>Meta Ads</span>
-
 <span>Product Listing</span>
-
 <span>Booking.com</span>
-
 <span>Lead Generation</span>
-
 <span>Google Business Profile</span>
-
 </div>
 
 </article>
 
-
-<!-- ANUP -->
 
 <article class="marketing-card reveal">
 
@@ -1048,23 +920,15 @@ stronger digital presence.
 </p>
 
 <div class="service-list">
-
 <span>Google Ads</span>
-
 <span>Meta Ads</span>
-
 <span>E-commerce</span>
-
 <span>Product Listing</span>
-
 <span>Social Media</span>
-
 </div>
 
 </article>
 
-
-<!-- FORTUNE -->
 
 <article class="marketing-card reveal">
 
@@ -1083,17 +947,11 @@ B2B lead generation through LinkedIn.
 </p>
 
 <div class="service-list">
-
 <span>Website Development</span>
-
 <span>SEO</span>
-
 <span>Social Media</span>
-
 <span>LinkedIn</span>
-
 <span>B2B Lead Generation</span>
-
 </div>
 
 </article>
@@ -1112,7 +970,7 @@ B2B lead generation through LinkedIn.
 
 <section class="section web-development">
 
-<div class="container">
+<div class="work-container">
 
 <div class="section-head reveal">
 
@@ -1139,8 +997,6 @@ each project is structured around its purpose.
 
 <div class="web-grid">
 
-
-<!-- ANUP -->
 
 <article class="web-card reveal">
 
@@ -1179,8 +1035,7 @@ listing and a structured online shopping experience.
 href="https://anupguptastudio.com/"
 target="_blank"
 rel="noopener noreferrer"
-class="web-button"
->
+class="web-button">
 Visit Website ↗
 </a>
 
@@ -1188,8 +1043,6 @@ Visit Website ↗
 
 </article>
 
-
-<!-- FORTUNE -->
 
 <article class="web-card reveal">
 
@@ -1228,8 +1081,7 @@ exhibitions, events and brand activation services.
 href="https://fortuneadvertising.in/"
 target="_blank"
 rel="noopener noreferrer"
-class="web-button"
->
+class="web-button">
 Visit Website ↗
 </a>
 
@@ -1237,8 +1089,6 @@ Visit Website ↗
 
 </article>
 
-
-<!-- TOP HUMAN RESOURCE -->
 
 <article class="web-card reveal">
 
@@ -1277,8 +1127,7 @@ human resource and hiring company.
 href="https://tophumanresource.com/"
 target="_blank"
 rel="noopener noreferrer"
-class="web-button"
->
+class="web-button">
 Visit Website ↗
 </a>
 
@@ -1286,8 +1135,6 @@ Visit Website ↗
 
 </article>
 
-
-<!-- AVNOR -->
 
 <article class="web-card reveal">
 
@@ -1326,8 +1173,7 @@ business communication and digital services.
 href="https://avnor.media/"
 target="_blank"
 rel="noopener noreferrer"
-class="web-button"
->
+class="web-button">
 Visit Website ↗
 </a>
 
@@ -1335,8 +1181,6 @@ Visit Website ↗
 
 </article>
 
-
-<!-- EXCEL -->
 
 <article class="web-card reveal">
 
@@ -1375,8 +1219,7 @@ web development, mobile applications and IT solutions.
 href="https://excelitsolution.com/"
 target="_blank"
 rel="noopener noreferrer"
-class="web-button"
->
+class="web-button">
 Visit Website ↗
 </a>
 
@@ -1384,8 +1227,6 @@ Visit Website ↗
 
 </article>
 
-
-<!-- CPLX -->
 
 <article class="web-card reveal">
 
@@ -1424,8 +1265,7 @@ industries, case studies and brand presentation.
 href="https://cplx.media/"
 target="_blank"
 rel="noopener noreferrer"
-class="web-button"
->
+class="web-button">
 Visit Website ↗
 </a>
 
@@ -1447,7 +1287,7 @@ Visit Website ↗
 
 <section class="section feature">
 
-<div class="container">
+<div class="work-container">
 
 <div class="section-head reveal">
 
@@ -1560,7 +1400,7 @@ products and business information professionally.
 
 <section class="final-cta">
 
-<div class="container">
+<div class="work-container">
 
 <div class="cta-content reveal">
 
@@ -1573,7 +1413,6 @@ Ready to build
 <span>something better?</span>
 </h2>
 
-
 <div class="cta-bottom">
 
 <p>
@@ -1584,8 +1423,7 @@ something clear, professional and built for the business.
 
 <a
 href="contact.html"
-class="cta-button"
->
+class="cta-button">
 Let's Work Together
 <span>→</span>
 </a>
@@ -1606,9 +1444,9 @@ Let's Work Together
      FOOTER
 ===================================================== -->
 
-<footer>
+<footer class="work-footer">
 
-<div class="container footer-inner">
+<div class="work-container footer-inner">
 
 <div class="footer-brand">
 AK × ST
@@ -1630,18 +1468,81 @@ Digital Marketing · Web Development · SEO · Paid Ads
 <script>
 
 /* =====================================================
-   NAV SCROLL
+   LOAD CENTRAL NAVBAR
 ===================================================== */
 
-const nav = document.getElementById("nav");
+fetch("navbar.html")
+.then(function(response){
 
-window.addEventListener("scroll",function(){
-
-    if(window.scrollY > 35){
-        nav.classList.add("scrolled");
-    }else{
-        nav.classList.remove("scrolled");
+    if(!response.ok){
+        throw new Error("Navbar could not be loaded.");
     }
+
+    return response.text();
+
+})
+.then(function(data){
+
+    document.getElementById("navbar").innerHTML = data;
+
+    /*
+       navbar.html contains the mobile menu HTML/CSS.
+       Because scripts inside innerHTML do not execute,
+       initialize the hamburger here.
+    */
+
+    const menuButton =
+        document.getElementById("akstMenuBtn");
+
+    const mobileMenu =
+        document.getElementById("akstMobileMenu");
+
+
+    if(menuButton && mobileMenu){
+
+        menuButton.addEventListener(
+            "click",
+            function(){
+
+                menuButton.classList.toggle("active");
+
+                mobileMenu.classList.toggle("active");
+
+                document.body.classList.toggle(
+                    "akst-menu-open"
+                );
+
+            }
+        );
+
+
+        mobileMenu
+        .querySelectorAll("a")
+        .forEach(function(link){
+
+            link.addEventListener(
+                "click",
+                function(){
+
+                    menuButton.classList.remove("active");
+
+                    mobileMenu.classList.remove("active");
+
+                    document.body.classList.remove(
+                        "akst-menu-open"
+                    );
+
+                }
+            );
+
+        });
+
+    }
+
+})
+.catch(function(error){
+
+    console.error("Navbar loading failed:",error);
 
 });
 
@@ -1677,6 +1578,7 @@ const observer = new IntersectionObserver(
 
 );
 
+
 document
 .querySelectorAll(".reveal")
 .forEach(function(el){
@@ -1699,15 +1601,20 @@ document
     card.addEventListener(
         "touchstart",
         function(){
+
             card.style.transform="translateY(-7px)";
+
         },
         {passive:true}
     );
 
+
     card.addEventListener(
         "touchend",
         function(){
+
             card.style.transform="";
+
         },
         {passive:true}
     );
