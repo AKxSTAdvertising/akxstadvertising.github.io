@@ -15,15 +15,15 @@
 :root{
     --black:#080b12;
     --dark:#0c121c;
-    --white:#fff;
+    --white:#ffffff;
     --lavender:#e7e0f8;
-    --lavender2:#eee9fa;
+    --lavender-light:#f3f0fb;
     --purple:#7c3aed;
     --purple-dark:#6428c7;
     --purple-light:#d8c9ff;
     --lime:#c7ff29;
     --text:#10131a;
-    --muted:#697386;
+    --muted:#687386;
     --line:rgba(15,18,28,.12);
     --max:1460px;
 }
@@ -45,9 +45,20 @@ body{
     overflow-x:hidden;
 }
 
+body.popup-open{
+    overflow:hidden;
+}
+
 a{
     color:inherit;
     text-decoration:none;
+}
+
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
 }
 
 .container{
@@ -56,9 +67,9 @@ a{
 }
 
 
-/* =========================
-   NAV
-========================= */
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
 .nav{
     position:fixed;
@@ -80,8 +91,8 @@ a{
 
 .nav-inner{
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
 }
 
 .logo{
@@ -135,9 +146,9 @@ a{
 }
 
 
-/* =========================
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
 .hero{
     min-height:82vh;
@@ -148,8 +159,8 @@ a{
 
     background:
         radial-gradient(
-            circle at 85% 25%,
-            rgba(124,58,237,.18),
+            circle at 84% 24%,
+            rgba(124,58,237,.17),
             transparent 30%
         ),
         linear-gradient(
@@ -223,9 +234,9 @@ a{
 }
 
 
-/* =========================
-   CONTACT SECTION
-========================= */
+/* =====================================================
+   CONTACT AREA
+===================================================== */
 
 .contact-section{
     padding:125px 0;
@@ -270,22 +281,27 @@ a{
     line-height:1.75;
 }
 
+
+/* =====================================================
+   CONTACT DETAILS
+===================================================== */
+
 .contact-details{
     margin-top:55px;
     display:flex;
     flex-direction:column;
-    gap:22px;
+    gap:20px;
 }
 
 .detail{
     display:flex;
-    align-items:flex-start;
-    gap:18px;
+    align-items:center;
+    gap:17px;
 }
 
 .detail-icon{
-    width:44px;
-    height:44px;
+    width:46px;
+    height:46px;
     flex-shrink:0;
     display:flex;
     align-items:center;
@@ -294,6 +310,7 @@ a{
     background:var(--lavender);
     color:var(--purple);
     font-weight:800;
+    font-size:17px;
 }
 
 .detail-text small{
@@ -306,10 +323,10 @@ a{
     margin-bottom:5px;
 }
 
-.detail-text a,
-.detail-text strong{
+.detail-text a{
     font-size:16px;
     font-weight:700;
+    transition:.25s;
 }
 
 .detail-text a:hover{
@@ -317,15 +334,15 @@ a{
 }
 
 
-/* =========================
+/* =====================================================
    FORM
-========================= */
+===================================================== */
 
 .form-box{
     position:relative;
     padding:45px;
     border-radius:32px;
-    background:var(--lavender2);
+    background:var(--lavender-light);
     border:1px solid rgba(124,58,237,.1);
     overflow:hidden;
 }
@@ -339,6 +356,7 @@ a{
     top:-180px;
     border-radius:50%;
     border:1px solid rgba(124,58,237,.12);
+
     box-shadow:
         0 0 0 50px rgba(124,58,237,.025),
         0 0 0 100px rgba(124,58,237,.018);
@@ -382,7 +400,6 @@ a{
     background:#fff;
     border:1px solid rgba(20,20,30,.09);
     color:var(--text);
-    font-family:"Manrope",sans-serif;
     font-size:14px;
     transition:.3s;
 }
@@ -413,7 +430,6 @@ a{
     border-radius:100px;
     background:var(--black);
     color:#fff;
-    font-family:"Manrope",sans-serif;
     font-size:14px;
     font-weight:800;
     transition:.35s;
@@ -426,9 +442,9 @@ a{
 }
 
 
-/* =========================
-   SERVICES STRIP
-========================= */
+/* =====================================================
+   SERVICES
+===================================================== */
 
 .services-strip{
     padding:90px 0;
@@ -436,8 +452,17 @@ a{
     color:#fff;
 }
 
+.strip-label{
+    font-family:"DM Mono",monospace;
+    color:var(--lime);
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    margin-bottom:22px;
+}
+
 .strip-title{
-    max-width:800px;
+    max-width:850px;
     font-size:clamp(42px,5vw,70px);
     line-height:.95;
     letter-spacing:-.065em;
@@ -482,9 +507,9 @@ a{
 }
 
 
-/* =========================
+/* =====================================================
    FINAL CTA
-========================= */
+===================================================== */
 
 .final-cta{
     position:relative;
@@ -557,6 +582,8 @@ a{
 
 .cta-button{
     flex-shrink:0;
+    border:none;
+    cursor:pointer;
     padding:17px 25px;
     border-radius:100px;
     background:var(--black);
@@ -569,12 +596,178 @@ a{
 .cta-button:hover{
     background:var(--purple);
     transform:translateY(-4px);
+    box-shadow:0 18px 35px rgba(124,58,237,.2);
 }
 
 
-/* =========================
+/* =====================================================
+   POPUP
+===================================================== */
+
+.popup-overlay{
+    position:fixed;
+    inset:0;
+    z-index:5000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+
+    background:rgba(5,8,14,.68);
+    backdrop-filter:blur(13px);
+    -webkit-backdrop-filter:blur(13px);
+
+    opacity:0;
+    visibility:hidden;
+    transition:.3s ease;
+}
+
+.popup-overlay.active{
+    opacity:1;
+    visibility:visible;
+}
+
+.contact-popup{
+    width:min(470px,100%);
+    position:relative;
+    padding:38px;
+    border-radius:30px;
+    background:#fff;
+    box-shadow:0 35px 100px rgba(0,0,0,.25);
+
+    transform:translateY(25px) scale(.96);
+    transition:.35s cubic-bezier(.2,.8,.2,1);
+}
+
+.popup-overlay.active .contact-popup{
+    transform:translateY(0) scale(1);
+}
+
+.popup-close{
+    position:absolute;
+    right:18px;
+    top:18px;
+
+    width:36px;
+    height:36px;
+    border:none;
+    border-radius:50%;
+
+    background:#f0edf7;
+    color:#20232b;
+    cursor:pointer;
+
+    font-size:20px;
+    line-height:36px;
+
+    transition:.25s;
+}
+
+.popup-close:hover{
+    background:var(--purple);
+    color:#fff;
+    transform:rotate(90deg);
+}
+
+.popup-label{
+    font-family:"DM Mono",monospace;
+    color:var(--purple);
+    font-size:11px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+}
+
+.contact-popup h3{
+    margin-top:12px;
+    font-size:34px;
+    line-height:1;
+    letter-spacing:-.06em;
+}
+
+.contact-popup > p{
+    margin-top:14px;
+    color:#687386;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.popup-options{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:25px;
+}
+
+.popup-option{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    width:100%;
+    padding:15px;
+
+    border-radius:17px;
+    border:1px solid rgba(15,18,28,.09);
+    background:#f8f7fb;
+
+    transition:.3s;
+}
+
+.popup-option:hover{
+    background:var(--purple);
+    color:#fff;
+    transform:translateX(5px);
+}
+
+.option-icon{
+    width:45px;
+    height:45px;
+    flex-shrink:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+    background:var(--lavender);
+    color:var(--purple);
+
+    font-size:17px;
+    font-weight:800;
+}
+
+.popup-option:hover .option-icon{
+    background:rgba(255,255,255,.15);
+    color:#fff;
+}
+
+.option-info{
+    text-align:left;
+}
+
+.option-info small{
+    display:block;
+    font-family:"DM Mono",monospace;
+    font-size:9px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    opacity:.6;
+    margin-bottom:4px;
+}
+
+.option-info strong{
+    font-size:14px;
+}
+
+.option-arrow{
+    margin-left:auto;
+    font-size:18px;
+}
+
+
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer{
     padding:30px 0;
@@ -598,9 +791,9 @@ footer{
 }
 
 
-/* =========================
+/* =====================================================
    REVEAL
-========================= */
+===================================================== */
 
 .reveal{
     opacity:0;
@@ -616,9 +809,9 @@ footer{
 }
 
 
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media(max-width:900px){
 
@@ -687,10 +880,19 @@ footer{
         align-items:flex-start;
     }
 
+    .contact-popup{
+        padding:32px 22px;
+    }
+
+    .contact-popup h3{
+        font-size:31px;
+    }
+
     .footer-inner{
         flex-direction:column;
         align-items:flex-start;
     }
+
 }
 
 @media(max-width:520px){
@@ -707,6 +909,10 @@ footer{
         margin-top:35px;
     }
 
+    .contact-popup{
+        border-radius:25px;
+    }
+
 }
 
 </style>
@@ -716,9 +922,9 @@ footer{
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
      NAV
-========================= -->
+===================================================== -->
 
 <header class="nav" id="nav">
 
@@ -754,9 +960,9 @@ Let's Talk
 <main>
 
 
-<!-- =========================
+<!-- =====================================================
      HERO
-========================= -->
+===================================================== -->
 
 <section class="hero">
 
@@ -782,9 +988,9 @@ right digital direction together.
 </section>
 
 
-<!-- =========================
-     CONTACT
-========================= -->
+<!-- =====================================================
+     CONTACT SECTION
+===================================================== -->
 
 <section class="contact-section">
 
@@ -805,15 +1011,16 @@ Have a project
 </h2>
 
 <p class="contact-description">
-Whether you need a new website, a complete digital presence,
-paid advertising, SEO, social media management or a focused
-lead-generation campaign, let's talk about what your business
-actually needs.
+Whether you need a new website, digital marketing, paid
+advertising, SEO, social media management or lead generation,
+let's talk about what your business actually needs.
 </p>
 
 
 <div class="contact-details">
 
+
+<!-- EMAIL -->
 
 <div class="detail">
 
@@ -825,8 +1032,8 @@ actually needs.
 
 <small>Email</small>
 
-<a href="mailto:hello@akxst.com">
-hello@akxst.com
+<a href="mailto:itsshailesh0414@gmail.com">
+itsshailesh0414@gmail.com
 </a>
 
 </div>
@@ -834,38 +1041,46 @@ hello@akxst.com
 </div>
 
 
-<div class="detail">
-
-<div class="detail-icon">
-→
-</div>
-
-<div class="detail-text">
-
-<small>Project Enquiries</small>
-
-<strong>
-Digital Marketing & Web Development
-</strong>
-
-</div>
-
-</div>
-
+<!-- WHATSAPP -->
 
 <div class="detail">
 
 <div class="detail-icon">
-↗
+W
 </div>
 
 <div class="detail-text">
 
-<small>Response</small>
+<small>WhatsApp</small>
 
-<strong>
-Let's discuss your requirement
-</strong>
+<a
+href="https://wa.me/919112573020"
+target="_blank"
+rel="noopener noreferrer"
+>
++91 91125 73020
+</a>
+
+</div>
+
+</div>
+
+
+<!-- CALL -->
+
+<div class="detail">
+
+<div class="detail-icon">
+☎
+</div>
+
+<div class="detail-text">
+
+<small>Call</small>
+
+<a href="tel:+919267967187">
++91 92679 67187
+</a>
 
 </div>
 
@@ -877,7 +1092,9 @@ Let's discuss your requirement
 </div>
 
 
-<!-- FORM -->
+<!-- =====================================================
+     FORM
+===================================================== -->
 
 <div class="form-box reveal">
 
@@ -887,7 +1104,7 @@ Tell us about your project.
 
 <form
 class="form"
-action="mailto:hello@akxst.com"
+action="mailto:itsshailesh0414@gmail.com"
 method="post"
 enctype="text/plain"
 >
@@ -950,37 +1167,21 @@ placeholder="Company name"
 Select a service
 </option>
 
-<option>
-Website Development
-</option>
+<option>Website Development</option>
 
-<option>
-Digital Marketing
-</option>
+<option>Digital Marketing</option>
 
-<option>
-SEO
-</option>
+<option>SEO</option>
 
-<option>
-Google Ads
-</option>
+<option>Google Ads</option>
 
-<option>
-Meta Ads
-</option>
+<option>Meta Ads</option>
 
-<option>
-Social Media Management
-</option>
+<option>Social Media Management</option>
 
-<option>
-B2B Lead Generation
-</option>
+<option>B2B Lead Generation</option>
 
-<option>
-Other
-</option>
+<option>Other</option>
 
 </select>
 
@@ -1019,9 +1220,9 @@ Send Enquiry →
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      SERVICES
-========================= -->
+===================================================== -->
 
 <section class="services-strip">
 
@@ -1029,7 +1230,7 @@ Send Enquiry →
 
 <div class="reveal">
 
-<div class="cta-label">
+<div class="strip-label">
 03 / WHAT WE CAN HELP WITH
 </div>
 
@@ -1103,9 +1304,9 @@ Paid Advertising
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      FINAL CTA
-========================= -->
+===================================================== -->
 
 <section class="final-cta">
 
@@ -1129,12 +1330,13 @@ No complicated process. Just a clear conversation about
 your business, your goals and what needs to happen next.
 </p>
 
-<a
-href="mailto:hello@akxst.com"
+<button
 class="cta-button"
+id="startConversation"
+type="button"
 >
 Start a Conversation →
-</a>
+</button>
 
 </div>
 
@@ -1148,9 +1350,145 @@ Start a Conversation →
 </main>
 
 
-<!-- =========================
+<!-- =====================================================
+     CONTACT POPUP
+===================================================== -->
+
+<div
+class="popup-overlay"
+id="contactPopup"
+>
+
+<div
+class="contact-popup"
+role="dialog"
+aria-modal="true"
+aria-labelledby="popupTitle"
+>
+
+
+<button
+class="popup-close"
+id="popupClose"
+type="button"
+aria-label="Close"
+>
+×
+</button>
+
+
+<div class="popup-label">
+GET IN TOUCH
+</div>
+
+<h3 id="popupTitle">
+How would you like to connect?
+</h3>
+
+<p>
+Choose the easiest way to reach us.
+</p>
+
+
+<div class="popup-options">
+
+
+<!-- EMAIL -->
+
+<a
+class="popup-option"
+href="mailto:itsshailesh0414@gmail.com"
+>
+
+<div class="option-icon">
+@
+</div>
+
+<div class="option-info">
+
+<small>Email</small>
+
+<strong>
+itsshailesh0414@gmail.com
+</strong>
+
+</div>
+
+<div class="option-arrow">
+→
+</div>
+
+</a>
+
+
+<!-- WHATSAPP -->
+
+<a
+class="popup-option"
+href="https://wa.me/919112573020"
+target="_blank"
+rel="noopener noreferrer"
+>
+
+<div class="option-icon">
+W
+</div>
+
+<div class="option-info">
+
+<small>WhatsApp</small>
+
+<strong>
++91 91125 73020
+</strong>
+
+</div>
+
+<div class="option-arrow">
+→
+</div>
+
+</a>
+
+
+<!-- CALL -->
+
+<a
+class="popup-option"
+href="tel:+919267967187"
+>
+
+<div class="option-icon">
+☎
+</div>
+
+<div class="option-info">
+
+<small>Call</small>
+
+<strong>
++91 92679 67187
+</strong>
+
+</div>
+
+<div class="option-arrow">
+→
+</div>
+
+</a>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
 <footer>
 
@@ -1175,22 +1513,30 @@ Digital Marketing · Web Development · SEO · Paid Ads
 
 <script>
 
-/* NAV */
+/* =====================================================
+   NAV SCROLL
+===================================================== */
 
 const nav = document.getElementById("nav");
 
-window.addEventListener("scroll",function(){
+window.addEventListener("scroll", function(){
 
     if(window.scrollY > 35){
+
         nav.classList.add("scrolled");
+
     }else{
+
         nav.classList.remove("scrolled");
+
     }
 
 });
 
 
-/* SCROLL REVEAL */
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
 
 const observer = new IntersectionObserver(
 
@@ -1228,29 +1574,79 @@ document
 });
 
 
-/* TOUCH FEEL */
+/* =====================================================
+   CONTACT POPUP
+===================================================== */
 
-document
-.querySelectorAll(".service-card")
-.forEach(function(card){
+const popup = document.getElementById("contactPopup");
 
-    card.addEventListener(
-        "touchstart",
-        function(){
-            card.style.transform="translateY(-7px)";
-        },
-        {passive:true}
-    );
+const startButton =
+document.getElementById("startConversation");
 
-    card.addEventListener(
-        "touchend",
-        function(){
-            card.style.transform="";
-        },
-        {passive:true}
-    );
+const closeButton =
+document.getElementById("popupClose");
 
-});
+
+function openPopup(){
+
+    popup.classList.add("active");
+
+    document.body.classList.add("popup-open");
+
+}
+
+
+function closePopup(){
+
+    popup.classList.remove("active");
+
+    document.body.classList.remove("popup-open");
+
+}
+
+
+startButton.addEventListener(
+    "click",
+    openPopup
+);
+
+
+closeButton.addEventListener(
+    "click",
+    closePopup
+);
+
+
+/* CLICK OUTSIDE POPUP */
+
+popup.addEventListener(
+    "click",
+    function(event){
+
+        if(event.target === popup){
+
+            closePopup();
+
+        }
+
+    }
+);
+
+
+/* ESCAPE KEY */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closePopup();
+
+        }
+
+    }
+);
 
 </script>
 
