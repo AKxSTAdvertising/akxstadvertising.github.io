@@ -13,7 +13,7 @@
 <style>
 
 /* =========================================================
-   GLOBAL
+   ROOT
 ========================================================= */
 
 :root{
@@ -38,6 +38,11 @@
 
     --max:1460px;
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
     margin:0;
@@ -80,9 +85,7 @@ img{
     position:fixed;
     top:0;
     left:0;
-
     width:100%;
-
     z-index:9999;
 
     padding:22px 0;
@@ -94,7 +97,6 @@ img{
     background:rgba(255,255,255,.88);
 
     backdrop-filter:blur(18px);
-
     -webkit-backdrop-filter:blur(18px);
 
     border-bottom:1px solid rgba(0,0,0,.08);
@@ -111,7 +113,6 @@ img{
 .logo{
     font-size:23px;
     font-weight:800;
-
     letter-spacing:-.06em;
 }
 
@@ -122,7 +123,6 @@ img{
 .nav-links{
     display:flex;
     align-items:center;
-
     gap:30px;
 
     font-size:14px;
@@ -167,7 +167,6 @@ img{
 
 .nav-cta:hover{
     background:var(--purple);
-
     transform:translateY(-2px);
 }
 
@@ -177,15 +176,12 @@ img{
 ========================================================= */
 
 .hero{
-
     min-height:92vh;
 
     display:flex;
-
     align-items:center;
 
     position:relative;
-
     overflow:hidden;
 
     background:
@@ -203,7 +199,6 @@ img{
 }
 
 .hero::before{
-
     content:"";
 
     position:absolute;
@@ -224,16 +219,13 @@ img{
 }
 
 .hero-content{
-
     position:relative;
-
     z-index:2;
 
     padding:155px 0 95px;
 }
 
 .eyebrow{
-
     font-family:"DM Mono",monospace;
 
     font-size:12px;
@@ -248,7 +240,6 @@ img{
 }
 
 .hero h1{
-
     max-width:1100px;
 
     font-size:clamp(55px,7.5vw,112px);
@@ -263,7 +254,6 @@ img{
 }
 
 .hero-description{
-
     max-width:730px;
 
     margin-top:35px;
@@ -294,7 +284,6 @@ img{
 }
 
 .section-head{
-
     display:grid;
 
     grid-template-columns:1fr 1.1fr;
@@ -305,7 +294,6 @@ img{
 }
 
 .kicker{
-
     font-family:"DM Mono",monospace;
 
     font-size:12px;
@@ -324,7 +312,6 @@ img{
 }
 
 .section h2{
-
     font-size:clamp(44px,5.8vw,82px);
 
     line-height:.94;
@@ -333,7 +320,6 @@ img{
 }
 
 .section-intro{
-
     align-self:end;
 
     max-width:680px;
@@ -351,11 +337,10 @@ img{
 
 
 /* =========================================================
-   INTRO STRIP
+   INTRO BOXES
 ========================================================= */
 
 .intro-strip{
-
     display:grid;
 
     grid-template-columns:1fr 1fr;
@@ -364,7 +349,6 @@ img{
 }
 
 .intro-box{
-
     padding:42px;
 
     border-radius:30px;
@@ -377,7 +361,6 @@ img{
 }
 
 .intro-box:hover{
-
     transform:translateY(-8px);
 
     background:var(--purple);
@@ -391,7 +374,6 @@ img{
 }
 
 .intro-box-number{
-
     font-family:"DM Mono",monospace;
 
     color:var(--purple);
@@ -404,7 +386,6 @@ img{
 }
 
 .intro-box h3{
-
     margin-top:70px;
 
     font-size:34px;
@@ -413,7 +394,6 @@ img{
 }
 
 .intro-box p{
-
     margin-top:17px;
 
     color:#687386;
@@ -429,7 +409,7 @@ img{
 
 
 /* =========================================================
-   PROJECT GRID
+   PROJECTS
 ========================================================= */
 
 .projects{
@@ -437,7 +417,6 @@ img{
 }
 
 .project-grid{
-
     display:grid;
 
     grid-template-columns:repeat(2,1fr);
@@ -451,7 +430,6 @@ img{
 ========================================================= */
 
 .project-card{
-
     position:relative;
 
     overflow:hidden;
@@ -468,18 +446,13 @@ img{
 }
 
 .project-card:hover{
-
     transform:translateY(-10px);
 
     box-shadow:
         0 30px 70px rgba(70,50,120,.17);
 }
 
-
-/* IMAGE */
-
 .project-image{
-
     height:360px;
 
     position:relative;
@@ -495,7 +468,6 @@ img{
 }
 
 .project-image::after{
-
     content:"";
 
     position:absolute;
@@ -515,7 +487,6 @@ img{
 }
 
 .project-image img{
-
     width:100%;
     height:100%;
 
@@ -530,17 +501,17 @@ img{
 }
 
 
-/* PLACEHOLDER WHEN IMAGE NOT FOUND */
+/* =========================================================
+   PLACEHOLDER
+========================================================= */
 
 .project-placeholder{
-
     width:100%;
     height:100%;
 
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     position:relative;
@@ -558,7 +529,6 @@ img{
 }
 
 .project-placeholder::before{
-
     content:"";
 
     width:250px;
@@ -576,7 +546,6 @@ img{
 }
 
 .project-placeholder span{
-
     position:relative;
 
     z-index:2;
@@ -593,19 +562,18 @@ img{
 }
 
 
-/* PROJECT CONTENT */
+/* =========================================================
+   PROJECT CONTENT
+========================================================= */
 
 .project-content{
-
     padding:35px 38px 38px;
 }
 
 .project-meta{
-
     display:flex;
 
     justify-content:space-between;
-
     align-items:center;
 
     gap:20px;
@@ -614,7 +582,6 @@ img{
 }
 
 .project-type{
-
     font-family:"DM Mono",monospace;
 
     color:var(--purple);
@@ -627,7 +594,6 @@ img{
 }
 
 .project-number{
-
     font-family:"DM Mono",monospace;
 
     color:#9ba2ad;
@@ -636,7 +602,6 @@ img{
 }
 
 .project-content h3{
-
     font-size:39px;
 
     line-height:1;
@@ -645,7 +610,6 @@ img{
 }
 
 .project-content p{
-
     margin-top:17px;
 
     color:#687386;
@@ -656,7 +620,6 @@ img{
 }
 
 .project-tags{
-
     display:flex;
 
     flex-wrap:wrap;
@@ -667,7 +630,6 @@ img{
 }
 
 .project-tag{
-
     padding:8px 12px;
 
     border-radius:100px;
@@ -682,10 +644,10 @@ img{
 }
 
 .case-btn{
-
     display:inline-flex;
 
     align-items:center;
+    justify-content:center;
 
     gap:8px;
 
@@ -707,7 +669,6 @@ img{
 }
 
 .case-btn:hover{
-
     background:var(--purple);
 
     transform:translateX(4px);
@@ -715,16 +676,14 @@ img{
 
 
 /* =========================================================
-   CASE STUDY DETAIL
+   CASE STUDIES
 ========================================================= */
 
 .case-study-section{
-
     background:#fff;
 }
 
 .case-study{
-
     display:grid;
 
     grid-template-columns:.75fr 1.25fr;
@@ -741,7 +700,6 @@ img{
 }
 
 .case-label{
-
     font-family:"DM Mono",monospace;
 
     color:var(--purple);
@@ -754,7 +712,6 @@ img{
 }
 
 .case-study h3{
-
     margin-top:18px;
 
     font-size:52px;
@@ -765,7 +722,6 @@ img{
 }
 
 .case-study-right p{
-
     color:#5f6a7c;
 
     font-size:17px;
@@ -776,7 +732,6 @@ img{
 }
 
 .case-columns{
-
     display:grid;
 
     grid-template-columns:1fr 1fr;
@@ -785,7 +740,6 @@ img{
 }
 
 .case-column h4{
-
     font-family:"DM Mono",monospace;
 
     color:var(--purple);
@@ -800,12 +754,10 @@ img{
 }
 
 .case-column ul{
-
     list-style:none;
 }
 
 .case-column li{
-
     position:relative;
 
     padding-left:19px;
@@ -820,13 +772,11 @@ img{
 }
 
 .case-column li::before{
-
     content:"";
 
     position:absolute;
 
     left:0;
-
     top:9px;
 
     width:6px;
@@ -839,18 +789,35 @@ img{
 
 
 /* =========================================================
+   MULTIPLE WEBSITE BUTTONS
+========================================================= */
+
+.website-links{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:8px;
+}
+
+.website-links .case-btn{
+    margin-top:0;
+}
+
+
+/* =========================================================
    WEBSITE TYPES
 ========================================================= */
 
 .website-types{
-
     background:var(--dark);
 
     color:#fff;
 }
 
 .type-grid{
-
     display:grid;
 
     grid-template-columns:repeat(3,1fr);
@@ -859,7 +826,6 @@ img{
 }
 
 .type-card{
-
     min-height:290px;
 
     padding:32px;
@@ -874,7 +840,6 @@ img{
 }
 
 .type-card:hover{
-
     transform:translateY(-8px);
 
     background:var(--purple);
@@ -886,7 +851,6 @@ img{
 }
 
 .type-number{
-
     font-family:"DM Mono",monospace;
 
     color:var(--lime);
@@ -895,7 +859,6 @@ img{
 }
 
 .type-card h3{
-
     margin-top:70px;
 
     font-size:29px;
@@ -904,7 +867,6 @@ img{
 }
 
 .type-card p{
-
     margin-top:15px;
 
     color:#949eae;
@@ -924,14 +886,12 @@ img{
 ========================================================= */
 
 .cta{
-
     padding:135px 0;
 
     background:var(--lavender);
 }
 
 .cta-inner{
-
     display:grid;
 
     grid-template-columns:1.35fr 1fr;
@@ -942,7 +902,6 @@ img{
 }
 
 .cta h2{
-
     font-size:clamp(52px,6.8vw,100px);
 
     line-height:.9;
@@ -951,7 +910,6 @@ img{
 }
 
 .cta p{
-
     color:#687386;
 
     font-size:19px;
@@ -962,11 +920,9 @@ img{
 }
 
 .btn{
-
     display:inline-flex;
 
     align-items:center;
-
     justify-content:center;
 
     padding:16px 24px;
@@ -981,14 +937,12 @@ img{
 }
 
 .btn-purple{
-
     background:var(--purple);
 
     color:#fff;
 }
 
 .btn-purple:hover{
-
     background:var(--black);
 
     transform:translateY(-3px);
@@ -1000,7 +954,6 @@ img{
 ========================================================= */
 
 footer{
-
     background:var(--dark);
 
     color:#fff;
@@ -1011,7 +964,6 @@ footer{
 }
 
 .footer-inner{
-
     display:flex;
 
     justify-content:space-between;
@@ -1024,7 +976,6 @@ footer{
 }
 
 .footer-brand{
-
     color:#fff;
 
     font-weight:700;
@@ -1036,7 +987,6 @@ footer{
 ========================================================= */
 
 .reveal{
-
     opacity:0;
 
     transform:translateY(55px);
@@ -1047,7 +997,6 @@ footer{
 }
 
 .reveal.active{
-
     opacity:1;
 
     transform:translateY(0);
@@ -1090,6 +1039,7 @@ footer{
 
     .section-head{
         grid-template-columns:1fr;
+
         gap:30px;
     }
 
@@ -1123,7 +1073,9 @@ footer{
 
     .case-study{
         grid-template-columns:1fr;
+
         gap:35px;
+
         padding:60px 0;
     }
 
@@ -1133,7 +1085,24 @@ footer{
 
     .case-columns{
         grid-template-columns:1fr;
+
         gap:25px;
+    }
+
+    .website-links{
+        flex-direction:column;
+
+        align-items:stretch;
+
+        width:100%;
+    }
+
+    .website-links .case-btn{
+        width:100%;
+
+        margin-top:0;
+
+        justify-content:center;
     }
 
     .type-grid{
@@ -1146,6 +1115,7 @@ footer{
 
     .cta-inner{
         grid-template-columns:1fr;
+
         gap:35px;
     }
 
@@ -1161,6 +1131,7 @@ footer{
 
 </style>
 </head>
+
 
 <body>
 
@@ -1347,9 +1318,7 @@ Here are selected website development projects from our work.
 <div class="project-grid">
 
 
-<!-- =====================================================
-     ANUP GUPTA
-===================================================== -->
+<!-- ANUP GUPTA -->
 
 <article class="project-card reveal">
 
@@ -1408,9 +1377,7 @@ View Case Study →
 </article>
 
 
-<!-- =====================================================
-     FORTUNE
-===================================================== -->
+<!-- FORTUNE -->
 
 <article class="project-card reveal">
 
@@ -1469,9 +1436,7 @@ View Case Study →
 </article>
 
 
-<!-- =====================================================
-     TOP HUMAN RESOURCE
-===================================================== -->
+<!-- TOP HUMAN RESOURCE -->
 
 <article class="project-card reveal">
 
@@ -1530,9 +1495,7 @@ View Case Study →
 </article>
 
 
-<!-- =====================================================
-     UAE PROJECT
-===================================================== -->
+<!-- BUSINESS WEBSITE -->
 
 <article class="project-card reveal">
 
@@ -1541,7 +1504,7 @@ View Case Study →
 <div class="project-placeholder">
 
 <span>
-UAE<br>BUSINESS
+BUSINESS<br>WEBSITES
 </span>
 
 </div>
@@ -1553,7 +1516,7 @@ UAE<br>BUSINESS
 <div class="project-meta">
 
 <span class="project-type">
-BUSINESS WEBSITE / UAE
+BUSINESS / UAE
 </span>
 
 <span class="project-number">
@@ -1563,27 +1526,26 @@ BUSINESS WEBSITE / UAE
 </div>
 
 <h3>
-UAE Business Website
+Business-first websites.
 </h3>
 
 <p>
-A professional business website experience created for
-a UAE-based company, with a focus on clean presentation,
-trust and enquiry generation.
+Professional business websites developed around brand
+identity, services, user experience and business goals.
 </p>
 
 <div class="project-tags">
-
-<span class="project-tag">UAE</span>
 
 <span class="project-tag">Business Website</span>
 
 <span class="project-tag">Responsive</span>
 
+<span class="project-tag">Custom Development</span>
+
 </div>
 
-<a href="#uae-case" class="case-btn">
-View Case Study →
+<a href="#business-case" class="case-btn">
+View Websites →
 </a>
 
 </div>
@@ -1702,7 +1664,12 @@ Experience
 
 </div>
 
-<a href="https://anupguptastudio.com/" target="_blank" class="case-btn">
+<a
+href="https://anupguptastudio.com/"
+target="_blank"
+rel="noopener noreferrer"
+class="case-btn"
+>
 Visit Website ↗
 </a>
 
@@ -1783,7 +1750,12 @@ Digital Structure
 
 </div>
 
-<a href="https://fortuneadvertising.in/" target="_blank" class="case-btn">
+<a
+href="https://fortuneadvertising.in/"
+target="_blank"
+rel="noopener noreferrer"
+class="case-btn"
+>
 Visit Website ↗
 </a>
 
@@ -1863,7 +1835,12 @@ Focus
 
 </div>
 
-<a href="https://tophumanresource.com/" target="_blank" class="case-btn">
+<a
+href="https://tophumanresource.com/"
+target="_blank"
+rel="noopener noreferrer"
+class="case-btn"
+>
 Visit Website ↗
 </a>
 
@@ -1872,14 +1849,16 @@ Visit Website ↗
 </div>
 
 
-<!-- UAE -->
+<!-- =========================================================
+     BUSINESS-FIRST WEB DEVELOPMENT
+========================================================= -->
 
-<div class="case-study reveal" id="uae-case">
+<div class="case-study reveal" id="business-case">
 
 <div>
 
 <div class="case-label">
-04 / UAE PROJECT
+04 / BUSINESS WEBSITE PROJECTS
 </div>
 
 <h3>
@@ -1888,14 +1867,15 @@ Business-first web development.
 
 </div>
 
+
 <div class="case-study-right">
 
 <p>
-Our UAE-based website projects are built around the
-specific business model, target audience and services
-of each company rather than using the same structure
-for every website.
+We build business websites around the company's identity,
+services, audience and digital goals. Below are selected
+websites from our development work.
 </p>
+
 
 <div class="case-columns">
 
@@ -1907,17 +1887,20 @@ Development
 
 <ul>
 
-<li>Business website structure</li>
+<li>Business website development</li>
 
-<li>Responsive development</li>
+<li>Responsive website design</li>
+
+<li>Custom page structures</li>
 
 <li>Service presentation</li>
 
-<li>Lead-focused sections</li>
+<li>Mobile optimisation</li>
 
 </ul>
 
 </div>
+
 
 <div class="case-column">
 
@@ -1927,17 +1910,55 @@ Experience
 
 <ul>
 
+<li>Professional visual presentation</li>
+
 <li>Clear navigation</li>
 
-<li>Professional presentation</li>
+<li>Business-focused layouts</li>
 
-<li>Mobile optimisation</li>
-
-<li>Conversion-focused CTAs</li>
+<li>Conversion-focused sections</li>
 
 </ul>
 
 </div>
+
+</div>
+
+
+<!-- THREE WEBSITE LINKS -->
+
+<div class="website-links">
+
+
+<a
+href="https://avnor.media/"
+target="_blank"
+rel="noopener noreferrer"
+class="case-btn"
+>
+AVNOR Media ↗
+</a>
+
+
+<a
+href="https://excelitsolution.com/"
+target="_blank"
+rel="noopener noreferrer"
+class="case-btn"
+>
+Excel IT Solution ↗
+</a>
+
+
+<a
+href="https://cplx.media/"
+target="_blank"
+rel="noopener noreferrer"
+class="case-btn"
+>
+CPLX Media ↗
+</a>
+
 
 </div>
 
@@ -2121,6 +2142,7 @@ Let's build your next website.
 </h2>
 
 </div>
+
 
 <div class="reveal">
 
