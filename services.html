@@ -12,6 +12,10 @@
 
 <style>
 
+/* =========================================================
+   ROOT
+========================================================= */
+
 :root{
     --black:#080b12;
     --dark:#0c121c;
@@ -34,6 +38,11 @@
     --max:1460px;
 }
 
+
+/* =========================================================
+   RESET
+========================================================= */
+
 *{
     margin:0;
     padding:0;
@@ -51,9 +60,22 @@ body{
     overflow-x:hidden;
 }
 
+body.menu-open{
+    overflow:hidden;
+}
+
 a{
     text-decoration:none;
     color:inherit;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+button{
+    font-family:inherit;
 }
 
 .container{
@@ -61,22 +83,34 @@ a{
     margin:auto;
 }
 
-/* ================= NAV ================= */
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 .nav{
     position:fixed;
     top:0;
     left:0;
     width:100%;
-    z-index:1000;
+    z-index:10000;
+
     padding:22px 0;
-    transition:.35s ease;
+
+    transition:
+        background .35s ease,
+        padding .35s ease,
+        border .35s ease;
 }
 
 .nav.scrolled{
     background:rgba(255,255,255,.87);
+
     backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
     border-bottom:1px solid rgba(0,0,0,.08);
+
     padding:14px 0;
 }
 
@@ -90,16 +124,24 @@ a{
     font-size:23px;
     font-weight:800;
     letter-spacing:-.06em;
+    position:relative;
+    z-index:10002;
 }
 
 .logo span{
     color:var(--purple);
 }
 
+
+/* =========================================================
+   DESKTOP NAV
+========================================================= */
+
 .nav-links{
     display:flex;
     align-items:center;
     gap:30px;
+
     font-size:14px;
     font-weight:600;
 }
@@ -110,12 +152,17 @@ a{
 
 .nav-links a:not(.nav-cta)::after{
     content:"";
+
     position:absolute;
+
     left:0;
     bottom:-7px;
+
     width:0;
     height:2px;
+
     background:var(--purple);
+
     transition:.3s;
 }
 
@@ -125,9 +172,13 @@ a{
 
 .nav-cta{
     padding:12px 20px;
+
     border-radius:100px;
+
     background:var(--black);
+
     color:#fff;
+
     transition:.3s;
 }
 
@@ -136,13 +187,273 @@ a{
     transform:translateY(-2px);
 }
 
-/* ================= HERO ================= */
+
+/* =========================================================
+   HAMBURGER
+========================================================= */
+
+.menu-toggle{
+    display:none;
+
+    width:46px;
+    height:46px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:var(--black);
+
+    cursor:pointer;
+
+    position:relative;
+
+    z-index:10002;
+
+    align-items:center;
+    justify-content:center;
+
+    flex-direction:column;
+
+    gap:5px;
+
+    transition:.3s ease;
+}
+
+.menu-toggle span{
+    display:block;
+
+    width:19px;
+    height:2px;
+
+    border-radius:5px;
+
+    background:#fff;
+
+    transition:
+        transform .3s ease,
+        opacity .25s ease;
+}
+
+.menu-toggle.active{
+    background:var(--purple);
+}
+
+.menu-toggle.active span:first-child{
+    transform:translateY(3.5px) rotate(45deg);
+}
+
+.menu-toggle.active span:last-child{
+    transform:translateY(-3.5px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   MOBILE MENU OVERLAY
+========================================================= */
+
+.mobile-menu{
+    position:fixed;
+
+    inset:0;
+
+    z-index:9999;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    opacity:0;
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
+}
+
+.mobile-menu::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(5,8,15,.66);
+
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+}
+
+.mobile-menu-panel{
+
+    position:absolute;
+
+    top:0;
+    right:0;
+
+    width:min(88%,390px);
+
+    height:100%;
+
+    padding:
+        115px
+        28px
+        35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0b111b,
+            #101827
+        );
+
+    border-left:1px solid rgba(255,255,255,.10);
+
+    box-shadow:
+        -25px 0 70px rgba(0,0,0,.35);
+
+    transform:translateX(100%);
+
+    transition:
+        transform .45s cubic-bezier(.2,.8,.2,1);
+
+    overflow-y:auto;
+}
+
+.mobile-menu.open{
+    visibility:visible;
+
+    pointer-events:auto;
+
+    opacity:1;
+}
+
+.mobile-menu.open .mobile-menu-panel{
+    transform:translateX(0);
+}
+
+.mobile-menu-label{
+    font-family:"DM Mono",monospace;
+
+    color:var(--lime);
+
+    font-size:11px;
+
+    letter-spacing:.16em;
+
+    text-transform:uppercase;
+
+    margin-bottom:30px;
+}
+
+.mobile-links{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+}
+
+.mobile-links a{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:17px 5px;
+
+    color:#fff;
+
+    font-size:25px;
+
+    font-weight:700;
+
+    letter-spacing:-.04em;
+
+    border-bottom:1px solid rgba(255,255,255,.09);
+
+    transition:.3s ease;
+}
+
+.mobile-links a::after{
+    content:"↗";
+
+    font-size:17px;
+
+    color:#8993a3;
+
+    transition:.3s;
+}
+
+.mobile-links a:hover,
+.mobile-links a:active{
+    color:var(--purple-light);
+
+    padding-left:10px;
+}
+
+.mobile-links a:hover::after,
+.mobile-links a:active::after{
+    color:var(--lime);
+
+    transform:translateX(4px);
+}
+
+.mobile-links .mobile-cta{
+
+    margin-top:25px;
+
+    justify-content:center;
+
+    border:0;
+
+    border-radius:100px;
+
+    padding:16px 20px;
+
+    background:var(--purple);
+
+    color:#fff;
+
+    font-size:15px;
+
+    letter-spacing:0;
+}
+
+.mobile-links .mobile-cta::after{
+    display:none;
+}
+
+.mobile-menu-footer{
+
+    margin-top:45px;
+
+    padding-top:20px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    color:#7f8999;
+
+    font-size:12px;
+
+    line-height:1.6;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
     min-height:92vh;
+
     display:flex;
+
     align-items:center;
+
     position:relative;
+
     overflow:hidden;
 
     background:
@@ -181,16 +492,23 @@ a{
 
 .hero-content{
     position:relative;
+
     z-index:2;
+
     padding:155px 0 95px;
 }
 
 .eyebrow{
     font-family:"DM Mono",monospace;
+
     font-size:12px;
+
     color:var(--purple);
+
     letter-spacing:.18em;
+
     text-transform:uppercase;
+
     margin-bottom:25px;
 }
 
@@ -220,7 +538,10 @@ a{
     line-height:1.7;
 }
 
-/* ================= GENERAL ================= */
+
+/* =========================================================
+   GENERAL
+========================================================= */
 
 .section{
     padding:125px 0;
@@ -232,35 +553,52 @@ a{
 
 .section-head{
     display:grid;
+
     grid-template-columns:1fr 1.1fr;
+
     gap:75px;
+
     margin-bottom:75px;
 }
 
 .kicker{
     font-family:"DM Mono",monospace;
+
     font-size:12px;
+
     color:var(--purple);
+
     letter-spacing:.18em;
+
     text-transform:uppercase;
+
     margin-bottom:22px;
 }
 
 .section h2{
     font-size:clamp(44px,5.8vw,82px);
+
     line-height:.94;
+
     letter-spacing:-.065em;
 }
 
 .section-intro{
     align-self:end;
+
     max-width:680px;
+
     color:#5f6a7c;
+
     font-size:20px;
+
     line-height:1.7;
 }
 
-/* ================= MAIN SERVICES ================= */
+
+/* =========================================================
+   MAIN SERVICES
+========================================================= */
 
 .services{
     background:#fff;
@@ -268,7 +606,9 @@ a{
 
 .service-grid{
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
+
     gap:16px;
 }
 
@@ -394,7 +734,10 @@ a{
     transform:translateX(5px);
 }
 
-/* ================= PROCESS ================= */
+
+/* =========================================================
+   PROCESS
+========================================================= */
 
 .process{
     background:var(--lavender);
@@ -454,10 +797,14 @@ a{
     line-height:1.7;
 }
 
-/* ================= DIGITAL MARKETING ================= */
+
+/* =========================================================
+   DIGITAL MARKETING
+========================================================= */
 
 .marketing{
     background:var(--dark);
+
     color:#fff;
 }
 
@@ -534,7 +881,10 @@ a{
     color:#fff;
 }
 
-/* ================= WEBSITE DEVELOPMENT ================= */
+
+/* =========================================================
+   WEBSITE DEVELOPMENT
+========================================================= */
 
 .web-development{
     background:#fff;
@@ -658,7 +1008,10 @@ a{
     width:38%;
 }
 
-/* ================= INDUSTRIES ================= */
+
+/* =========================================================
+   INDUSTRIES
+========================================================= */
 
 .industries{
     background:var(--lavender);
@@ -736,7 +1089,10 @@ a{
     color:#fff;
 }
 
-/* ================= CTA ================= */
+
+/* =========================================================
+   CTA
+========================================================= */
 
 .cta{
 
@@ -812,7 +1168,10 @@ a{
     transform:translateY(-3px);
 }
 
-/* ================= FOOTER ================= */
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
 
@@ -843,7 +1202,10 @@ footer{
     font-weight:700;
 }
 
-/* ================= REVEAL ================= */
+
+/* =========================================================
+   REVEAL
+========================================================= */
 
 .reveal{
 
@@ -863,7 +1225,10 @@ footer{
     transform:none;
 }
 
-/* ================= MOBILE ================= */
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:900px){
 
@@ -871,12 +1236,32 @@ footer{
         width:min(calc(100% - 38px),var(--max));
     }
 
+    /* MOBILE NAV */
+
+    .nav{
+        padding:16px 0;
+    }
+
+    .nav.scrolled{
+        padding:12px 0;
+    }
+
     .nav-links{
         display:none;
     }
 
+    .menu-toggle{
+        display:flex;
+    }
+
+    /* HERO */
+
+    .hero{
+        min-height:82vh;
+    }
+
     .hero-content{
-        padding:130px 0 75px;
+        padding:125px 0 75px;
     }
 
     .hero h1{
@@ -885,7 +1270,11 @@ footer{
 
     .hero-description{
         font-size:17px;
+        line-height:1.65;
+        margin-top:28px;
     }
+
+    /* GENERAL */
 
     .section{
         padding:90px 0;
@@ -894,11 +1283,14 @@ footer{
     .section-head{
         grid-template-columns:1fr;
         gap:30px;
+        margin-bottom:50px;
     }
 
     .section-intro{
         font-size:17px;
     }
+
+    /* SERVICES */
 
     .service-grid{
         grid-template-columns:1fr;
@@ -906,6 +1298,8 @@ footer{
 
     .service-card{
         min-height:340px;
+        padding:30px;
+        border-radius:24px;
     }
 
     .service-card h3{
@@ -913,14 +1307,35 @@ footer{
         font-size:32px;
     }
 
+    .service-card p{
+        font-size:15.5px;
+        line-height:1.65;
+    }
+
+    .service-link{
+        left:30px;
+        right:auto;
+        bottom:28px;
+    }
+
+    /* PROCESS */
+
     .process-item{
         grid-template-columns:55px 1fr;
         gap:14px 20px;
+        padding:30px 0;
     }
 
     .process-item p{
         grid-column:2;
+        font-size:15.5px;
     }
+
+    .process-item h3{
+        font-size:25px;
+    }
+
+    /* MARKETING */
 
     .marketing-grid{
         grid-template-columns:1fr;
@@ -930,21 +1345,43 @@ footer{
         min-height:260px;
     }
 
+    /* WEB */
+
     .web-grid{
         grid-template-columns:1fr;
     }
 
     .web-card{
         min-height:390px;
+        padding:30px;
+        border-radius:24px;
+    }
+
+    .web-card h3{
+        font-size:34px;
+    }
+
+    .web-card p{
+        font-size:15.5px;
     }
 
     .web-code{
         width:220px;
         height:145px;
+        right:18px;
+        bottom:18px;
     }
+
+    /* INDUSTRIES */
 
     .industry-grid{
         grid-template-columns:1fr;
+    }
+
+    /* CTA */
+
+    .cta{
+        padding:100px 0;
     }
 
     .cta-inner{
@@ -956,8 +1393,63 @@ footer{
         font-size:clamp(50px,13vw,76px);
     }
 
+    /* FOOTER */
+
     .footer-inner{
         flex-direction:column;
+        gap:12px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:480px){
+
+    .container{
+        width:calc(100% - 30px);
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    .menu-toggle{
+        width:43px;
+        height:43px;
+    }
+
+    .mobile-menu-panel{
+        width:100%;
+        padding:
+            105px
+            24px
+            30px;
+    }
+
+    .mobile-links a{
+        font-size:23px;
+        padding:16px 3px;
+    }
+
+    .hero h1{
+        font-size:50px;
+    }
+
+    .section h2{
+        font-size:43px;
+    }
+
+    .service-card{
+        min-height:355px;
+    }
+
+    .web-code{
+        width:190px;
+        height:125px;
     }
 
 }
@@ -965,7 +1457,13 @@ footer{
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
 
 <header class="nav" id="nav">
 
@@ -974,6 +1472,7 @@ footer{
 <a href="index.html" class="logo">
 AK <span>×</span> ST
 </a>
+
 
 <nav class="nav-links">
 
@@ -993,15 +1492,87 @@ Let's Talk
 
 </nav>
 
+
+<button
+class="menu-toggle"
+id="menuToggle"
+aria-label="Open menu"
+aria-expanded="false"
+type="button"
+>
+
+<span></span>
+<span></span>
+
+</button>
+
 </div>
 
 </header>
 
 
+<!-- =========================================================
+     MOBILE MENU
+========================================================= -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+<div class="mobile-menu-panel">
+
+<div class="mobile-menu-label">
+AK × ST / MENU
+</div>
+
+<nav class="mobile-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="services.html">
+Services
+</a>
+
+<a href="web-development.html">
+Web Development
+</a>
+
+<a href="work.html">
+Work
+</a>
+
+<a href="contact.html" class="mobile-cta">
+Let's Talk →
+</a>
+
+</nav>
+
+
+<div class="mobile-menu-footer">
+
+Digital Marketing · Web Development · SEO · Paid Ads
+
+<br><br>
+
+© 2026 AK × ST
+
+</div>
+
+</div>
+
+</div>
+
+
 <main>
 
 
-<!-- ================= HERO ================= -->
+<!-- =========================================================
+     HERO
+========================================================= -->
 
 <section class="hero">
 
@@ -1029,7 +1600,9 @@ marketing around one clear objective — growth.
 </section>
 
 
-<!-- ================= SERVICES ================= -->
+<!-- =========================================================
+     SERVICES
+========================================================= -->
 
 <section class="section services">
 
@@ -1204,7 +1777,9 @@ Generate leads →
 </section>
 
 
-<!-- ================= PROCESS ================= -->
+<!-- =========================================================
+     PROCESS
+========================================================= -->
 
 <section class="section process">
 
@@ -1335,7 +1910,9 @@ the experience and make the digital work more effective.
 </section>
 
 
-<!-- ================= MARKETING ================= -->
+<!-- =========================================================
+     DIGITAL MARKETING
+========================================================= -->
 
 <section class="section marketing">
 
@@ -1483,7 +2060,9 @@ campaigns and customer touchpoints.
 </section>
 
 
-<!-- ================= WEB DEVELOPMENT ================= -->
+<!-- =========================================================
+     WEB DEVELOPMENT
+========================================================= -->
 
 <section class="section web-development">
 
@@ -1572,7 +2151,9 @@ and conversion-focused layouts are considered together.
 </section>
 
 
-<!-- ================= INDUSTRIES ================= -->
+<!-- =========================================================
+     INDUSTRIES
+========================================================= -->
 
 <section class="section industries">
 
@@ -1703,7 +2284,9 @@ Local search visibility, websites and digital presence.
 </section>
 
 
-<!-- ================= CTA ================= -->
+<!-- =========================================================
+     CTA
+========================================================= -->
 
 <section class="cta">
 
@@ -1742,6 +2325,10 @@ Start a project →
 </main>
 
 
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
 <footer>
 
 <div class="container footer-inner">
@@ -1765,7 +2352,9 @@ Web Development · Digital Marketing · SEO · Paid Ads
 
 <script>
 
-/* NAV */
+/* =========================================================
+   NAV SCROLL
+========================================================= */
 
 const nav = document.getElementById("nav");
 
@@ -1784,7 +2373,112 @@ window.addEventListener("scroll",()=>{
 });
 
 
-/* SCROLL REVEAL */
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuToggle = document.getElementById("menuToggle");
+const mobileMenu = document.getElementById("mobileMenu");
+
+function openMenu(){
+
+    menuToggle.classList.add("active");
+
+    mobileMenu.classList.add("open");
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        "true"
+    );
+
+    menuToggle.setAttribute(
+        "aria-label",
+        "Close menu"
+    );
+
+    document.body.classList.add("menu-open");
+}
+
+
+function closeMenu(){
+
+    menuToggle.classList.remove("active");
+
+    mobileMenu.classList.remove("open");
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+    menuToggle.setAttribute(
+        "aria-label",
+        "Open menu"
+    );
+
+    document.body.classList.remove("menu-open");
+}
+
+
+menuToggle.addEventListener("click",()=>{
+
+    if(mobileMenu.classList.contains("open")){
+
+        closeMenu();
+
+    }else{
+
+        openMenu();
+
+    }
+
+});
+
+
+/* CLOSE WHEN CLICKING OUTSIDE PANEL */
+
+mobileMenu.addEventListener("click",(event)=>{
+
+    if(event.target === mobileMenu){
+
+        closeMenu();
+
+    }
+
+});
+
+
+/* CLOSE AFTER CLICKING LINK */
+
+document
+.querySelectorAll(".mobile-links a")
+.forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        closeMenu();
+
+    });
+
+});
+
+
+/* ESC KEY */
+
+document.addEventListener("keydown",(event)=>{
+
+    if(event.key === "Escape"){
+
+        closeMenu();
+
+    }
+
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
 
 const observer = new IntersectionObserver(
 
@@ -1813,12 +2507,15 @@ const observer = new IntersectionObserver(
 
 );
 
+
 document
 .querySelectorAll(".reveal")
 .forEach(el=>observer.observe(el));
 
 
-/* MOBILE TOUCH */
+/* =========================================================
+   MOBILE TOUCH
+========================================================= */
 
 document
 .querySelectorAll(
@@ -1828,15 +2525,34 @@ document
 
     card.addEventListener(
         "touchstart",
-        ()=>card.classList.add("touch-active"),
+        ()=>{
+            card.classList.add("touch-active");
+        },
         {passive:true}
     );
 
     card.addEventListener(
         "touchend",
-        ()=>card.classList.remove("touch-active"),
+        ()=>{
+            card.classList.remove("touch-active");
+        },
         {passive:true}
     );
+
+});
+
+
+/* =========================================================
+   RESET MENU ON DESKTOP
+========================================================= */
+
+window.addEventListener("resize",()=>{
+
+    if(window.innerWidth > 900){
+
+        closeMenu();
+
+    }
 
 });
 
