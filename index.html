@@ -1,3134 +1,1255 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>AK × ST Advertising | Development & Marketing</title>
-
-<meta name="description" content="AK × ST Advertising — Development, digital marketing, SEO, paid advertising, web development and creative digital solutions.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Shailesh Tiwari & Aman Kohli — Digital Growth Partners. Performance marketing, SEO, websites, social media and outreach.">
+<title>Shailesh Tiwari × Aman Kohli — Digital Growth Partners</title>
 <style>
+:root{--bg:#05070b;--panel:#0b1018;--panel2:#0f1622;--text:#f6f8fb;--muted:#98a6b8;--line:#1c2838;--accent:#68a7ff;--accent2:#79f0c1;--max:1180px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 0,#10233d 0,transparent 30%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+nav{position:fixed;z-index:50;top:0;left:0;right:0;background:rgba(5,7,11,.72);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:900;letter-spacing:-.03em}.brand span{color:var(--accent)}
+.links{display:flex;gap:25px;color:#b8c4d2;font-size:13px}.links a:hover{color:#fff}.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid #29405c;border-radius:999px;padding:12px 18px;background:#0c1521;font-weight:800;font-size:13px}.btn.primary{background:#fff;color:#05070b;border-color:#fff}
+.hero{min-height:100svh;display:flex;align-items:center;padding:120px 0 70px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:520px;height:520px;border:1px solid #17304e;border-radius:50%;right:-180px;top:20%;box-shadow:0 0 100px rgba(80,150,255,.12)}
+.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent2);font-weight:900}.hero h1{font-size:clamp(54px,8vw,110px);line-height:.88;letter-spacing:-.075em;margin:18px 0 25px;max-width:1000px}
+.hero h1 em{font-style:normal;color:#8aa8c8}.hero p{max-width:720px;color:#aab6c5;font-size:clamp(17px,2vw,22px);line-height:1.55}.actions{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;color:#8fa0b4;font-size:12px;font-weight:900;letter-spacing:.12em;overflow:hidden}.marquee div{white-space:nowrap}
+section{padding:105px 0}.section-head{display:grid;grid-template-columns:.55fr 1.45fr;gap:30px;margin-bottom:45px}.num{color:#607087;font-size:12px;font-weight:900;letter-spacing:.15em}.section-head h2{font-size:clamp(38px,5vw,70px);line-height:.98;letter-spacing:-.055em;margin:0}.section-head p{color:var(--muted);max-width:650px;line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{background:linear-gradient(145deg,#0c121b,#080c12);border:1px solid var(--line);border-radius:20px;padding:25px;min-height:210px}.card small{color:var(--accent);font-weight:900;letter-spacing:.1em}.card h3{font-size:22px;margin:35px 0 10px}.card p{color:var(--muted);line-height:1.6;font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:22px;overflow:hidden}.stat{padding:30px;border-right:1px solid var(--line);background:#080d14}.stat:last-child{border:0}.stat b{display:block;font-size:38px;letter-spacing:-.05em}.stat span{display:block;color:#8393a6;font-size:12px;line-height:1.5;margin-top:8px}
+.cases{display:grid;gap:14px}.case{display:grid;grid-template-columns:.8fr 1.2fr;gap:30px;padding:32px;border:1px solid var(--line);border-radius:22px;background:#080d14}.case .tag{color:var(--accent2);font-size:11px;font-weight:900;letter-spacing:.12em}.case h3{font-size:32px;margin:10px 0}.case p{color:var(--muted);line-height:1.65}.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:18px}.chip{font-size:10px;border:1px solid #26374c;border-radius:999px;padding:7px 10px;color:#b4c0ce}
+.result{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;align-content:start}.result div{padding:22px;border-radius:16px;background:#0e1621;border:1px solid #1c2c40}.result b{display:block;font-size:30px}.result small{color:#91a1b4;line-height:1.5}
+.websites{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.site{padding:25px;border:1px solid var(--line);border-radius:18px;background:#090e15;display:flex;justify-content:space-between;align-items:center}.site b{font-size:18px}.site span{color:var(--accent)}
+.people{display:grid;grid-template-columns:1fr 1fr;gap:14px}.person{padding:32px;border:1px solid var(--line);border-radius:22px;background:#090e15}.person h3{font-size:32px;margin:8px 0}.person .role{color:var(--accent2);font-weight:800}.person p{color:var(--muted);line-height:1.7}
+.cta{padding:60px;border:1px solid #24415f;border-radius:28px;background:radial-gradient(circle at 90% 20%,#14365d,transparent 35%),#09111b}.cta h2{font-size:clamp(42px,6vw,80px);line-height:.95;letter-spacing:-.06em;margin:0 0 20px}.cta p{color:#aebdcb;max-width:650px;line-height:1.6}
+footer{padding:30px 0 50px;color:#65758a;font-size:12px}
+.note{margin-top:16px;color:#65758a;font-size:11px;line-height:1.6}
+.reveal{opacity:0;transform:translateY(22px);transition:.7s ease}.reveal.show{opacity:1;transform:none}
+@media(max-width:800px){.links{display:none}.wrap{width:min(100% - 28px,var(--max))}.hero h1{font-size:clamp(49px,15vw,72px)}section{padding:75px 0}.section-head,.case{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat{border-bottom:1px solid var(--line)}.websites,.people{grid-template-columns:1fr}.result{margin-top:10px}.cta{padding:32px 24px}}
 
-/* =========================================================
-   RESET
-========================================================= */
+/* ===== PORTFOLIO ASSISTANT ===== */
+.portfolio-assistant{position:fixed;z-index:100;right:24px;bottom:24px;width:min(360px,calc(100vw - 28px));padding:22px;border:1px solid #2a425e;border-radius:24px;background:rgba(7,12,19,.96);box-shadow:0 25px 80px rgba(0,0,0,.55),0 0 50px rgba(65,140,255,.10);backdrop-filter:blur(20px);transform:translateY(18px) scale(.97);opacity:0;pointer-events:none;transition:.28s ease}
+.portfolio-assistant.open{transform:none;opacity:1;pointer-events:auto}
+.pa-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:90;opacity:0;pointer-events:none;transition:.25s}
+.pa-backdrop.open{opacity:1;pointer-events:auto}
+.pa-close{position:absolute;right:12px;top:10px;border:0;background:none;color:#91a1b4;font-size:25px;cursor:pointer}
+.pa-orb{width:52px;height:52px;border:1px solid #31577f;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#1b3a5d,#07101a 68%);box-shadow:0 0 28px rgba(90,160,255,.18)}
+.pa-orb span{width:15px;height:15px;border-radius:50%;background:#79f0c1;box-shadow:0 0 18px #79f0c1}
+.pa-name{margin-top:13px;font-size:10px;letter-spacing:.18em;font-weight:900;color:#a8c7e8}
+.pa-status{display:flex;align-items:center;gap:7px;margin-top:5px;color:#6f8195;font-size:11px}
+.pa-status i{width:6px;height:6px;border-radius:50%;background:#79f0c1;box-shadow:0 0 9px #79f0c1}
+.pa-message{margin:17px 0;padding:14px;border:1px solid #1b2a3b;border-radius:14px;background:#0b131d;color:#b8c5d3;font-size:13px;line-height:1.55}
+.pa-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.pa-action{border:1px solid #24384f;background:#0c1520;color:#dce6f0;border-radius:11px;padding:10px 8px;font-size:11px;font-weight:800;cursor:pointer}
+.pa-action.quote{grid-column:1/-1;border-color:#536d4d;background:#101b15;color:#d9f3e6}
+.pa-input-row{display:flex;gap:7px;margin-top:10px}
+.pa-input-row input{min-width:0;flex:1;border:1px solid #24384f;border-radius:11px;background:#080e16;color:#fff;padding:11px 12px;outline:none;font-size:12px}
+.pa-input-row button{width:42px;border:0;border-radius:11px;background:#fff;color:#05070b;font-weight:900;cursor:pointer}
+.pa-mic{width:100%;margin-top:8px;border:1px solid #203449;background:#0a121c;color:#9db0c4;border-radius:11px;padding:9px;font-size:11px;cursor:pointer}
+.pa-mic.listening{border-color:#79f0c1;color:#dffbef}
+.pa-launch{position:fixed;right:24px;bottom:24px;z-index:80;border:1px solid #2d4966;border-radius:999px;background:rgba(7,12,19,.94);color:#eaf1f8;padding:12px 17px;display:flex;align-items:center;gap:9px;font-size:12px;font-weight:900;box-shadow:0 12px 40px rgba(0,0,0,.35);cursor:pointer;backdrop-filter:blur(15px)}
+.pa-launch-dot{width:8px;height:8px;border-radius:50%;background:#79f0c1;box-shadow:0 0 12px #79f0c1}
+@media(max-width:600px){.portfolio-assistant{right:14px;bottom:14px;width:calc(100vw - 28px);padding:18px}.pa-launch{right:14px;bottom:14px}}
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+
+/* ===== CONTACT SUPPORT ===== */
+.contact-overlay{position:fixed;inset:0;z-index:150;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(0,0,0,.62);backdrop-filter:blur(10px);opacity:0;visibility:hidden;pointer-events:none;transition:.22s ease}
+.contact-overlay.open{opacity:1;visibility:visible;pointer-events:auto}
+.contact-modal{position:relative;width:min(470px,100%);padding:30px;border:1px solid #2b425c;border-radius:25px;background:#080e16;box-shadow:0 30px 100px rgba(0,0,0,.65);transform:translateY(15px) scale(.98);transition:.22s ease}
+.contact-overlay.open .contact-modal{transform:none}
+.contact-close{position:absolute;right:13px;top:9px;width:35px;height:35px;border:0;background:transparent;color:#91a1b4;font-size:27px;cursor:pointer}
+.contact-kicker{font-size:10px;letter-spacing:.2em;font-weight:900;color:#79f0c1}
+.contact-modal h3{font-size:30px;line-height:1.05;letter-spacing:-.04em;margin:11px 35px 10px 0}
+.contact-modal>p{margin:0 0 20px;color:#8798ab;font-size:13px;line-height:1.55}
+.contact-options{display:grid;gap:9px}
+.contact-option{display:grid;grid-template-columns:44px 1fr 28px;align-items:center;gap:12px;padding:13px;border:1px solid #21344a;border-radius:14px;background:#0b141f;transition:.18s ease}
+.contact-option:hover{border-color:#557da7;transform:translateY(-1px)}
+.contact-icon{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:#132238;color:#cfe2f5;font-weight:900;font-size:12px}
+.contact-option b{display:block;font-size:13px;color:#eef4fa}
+.contact-option small{display:block;margin-top:3px;color:#8193a8;font-size:11px}
+.contact-arrow{text-align:right;color:#78a9d9;font-size:18px}
+@media(max-width:600px){.contact-modal{padding:24px 18px;border-radius:20px}.contact-modal h3{font-size:26px}.contact-option{grid-template-columns:40px 1fr 24px}.contact-icon{width:38px;height:38px}}
+
+
+/* ===== CINEMATIC DEPTH + TOUCH FINAL ===== */
+body{background:#030509!important;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(circle at var(--mx,50%) var(--my,30%),rgba(67,131,213,.16),transparent 28%),linear-gradient(#030509,#050912)}
+body:after{content:"";position:fixed;left:-35%;right:-35%;bottom:-48%;height:105%;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(111,173,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(111,173,255,.09) 1px,transparent 1px);background-size:70px 70px;transform:perspective(700px) rotateX(67deg);transform-origin:center bottom;mask-image:linear-gradient(to top,#000,transparent 88%)}
+section,.hero{perspective:1200px;transform-style:preserve-3d}
+section>.wrap,.hero>.wrap{transform-style:preserve-3d;will-change:transform;transition:transform .12s linear,opacity .12s linear}
+.card,.case,.site,.person,.stat,.cta{position:relative;transform-style:preserve-3d;will-change:transform;transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease!important;overflow:hidden}
+.card:after,.case:after,.site:after,.person:after,.stat:after,.cta:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at var(--cx,50%) var(--cy,50%),rgba(112,173,255,.20),transparent 34%);opacity:0;transition:opacity .18s}
+.card:hover:after,.case:hover:after,.site:hover:after,.person:hover:after,.stat:hover:after,.cta:hover:after{opacity:1}
+.card:hover,.case:hover,.site:hover,.person:hover,.stat:hover,.cta:hover{border-color:rgba(112,173,255,.46)!important;box-shadow:0 28px 70px rgba(0,0,0,.42),0 0 28px rgba(80,150,255,.08)!important}
+.touch-down{transform:scale(.975)!important}
+.depth-progress{position:fixed;right:7px;top:78px;bottom:78px;width:1px;background:rgba(255,255,255,.08);z-index:45}.depth-progress i{display:block;width:1px;height:0;background:#70adff;box-shadow:0 0 8px #70adff}
+@media(max-width:800px){.depth-progress{display:none}.card,.case,.site,.person,.stat,.cta{transition:transform .12s ease!important}}
+
+
+/* ===== INDIVIDUAL PORTFOLIO UPGRADE ===== */
+body{font-size:17px}.links,.btn{font-size:15px}.eyebrow{font-size:14px}.section-head p{font-size:18px}.card p,.person p,.case p{font-size:16px}.chip{font-size:12px}.person{cursor:pointer}.person h3{font-size:38px}.person:before{content:"VIEW PORTFOLIO ↗";position:absolute;right:24px;top:24px;font-size:11px;letter-spacing:.12em;color:#79f0c1;font-weight:900}.portfolio-page{position:fixed;inset:0;z-index:300;background:radial-gradient(circle at 85% 10%,#102b4b,transparent 30%),#030509;overflow:auto;opacity:0;visibility:hidden;transform:scale(.985);transition:.3s ease}.portfolio-page.open{opacity:1;visibility:visible;transform:none}.portfolio-shell{width:min(1180px,calc(100% - 40px));margin:auto;padding:90px 0}.portfolio-back{position:fixed;top:24px;left:24px;z-index:320}.portfolio-hero{min-height:62vh;display:flex;align-items:center;position:relative}.portfolio-hero h1{font-size:clamp(58px,9vw,120px);line-height:.85;letter-spacing:-.075em;margin:16px 0}.portfolio-hero p{max-width:760px;color:#aab6c5;font-size:21px;line-height:1.6}.portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:34px}.portfolio-panel{padding:30px;border:1px solid #1c2838;border-radius:24px;background:linear-gradient(145deg,#0d1520,#070b11);transform-style:preserve-3d;transition:.2s}.portfolio-panel:hover{transform:perspective(900px) rotateX(2deg) rotateY(-2deg) translateY(-4px);border-color:#456c98;box-shadow:0 30px 80px rgba(0,0,0,.45)}.portfolio-panel h2{font-size:30px;margin:6px 0 16px}.portfolio-panel h3{font-size:21px;margin:20px 0 7px}.portfolio-panel p,.portfolio-panel li{color:#9eacbd;line-height:1.7}.portfolio-panel ul{padding-left:20px}.skill-cloud{display:flex;gap:9px;flex-wrap:wrap}.skill-cloud span{padding:10px 13px;border:1px solid #29405c;border-radius:999px;background:#0c1521;font-weight:800;font-size:13px}.metric-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:25px 0}.metric-strip div{padding:20px;border:1px solid #1c2c40;border-radius:18px;background:#0b121c}.metric-strip b{display:block;font-size:25px}.metric-strip small{color:#8393a6}.portfolio-placeholder{min-height:70vh;display:grid;place-items:center;text-align:center}.portfolio-placeholder h1{font-size:clamp(48px,8vw,100px);margin:0}.portfolio-placeholder p{color:#98a6b8;font-size:19px}.work-cta{box-shadow:0 0 0 0 rgba(121,240,193,.25);transition:.2s}.work-cta:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 12px 40px rgba(121,240,193,.14);border-color:#79f0c1}.team-hint{display:block;margin-top:14px;color:#79f0c1;font-size:12px;font-weight:900;letter-spacing:.1em}@media(max-width:800px){body{font-size:16px}.portfolio-grid,.metric-strip{grid-template-columns:1fr}.portfolio-shell{width:calc(100% - 28px);padding-top:80px}.portfolio-hero p{font-size:18px}.person:before{position:static;display:block;margin-bottom:10px}}
+
+/* ===== RELIABLE TEAM PORTFOLIO INTERACTION ===== */
+.person[data-portfolio]{position:relative;cursor:pointer;touch-action:manipulation;user-select:none;will-change:transform,box-shadow;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;background:linear-gradient(145deg,#0b121b,#070b11)}
+.person[data-portfolio]:hover{transform:translateY(-8px) scale(1.012)!important;border-color:#5b86b5;box-shadow:0 24px 70px rgba(0,0,0,.45),0 0 0 1px rgba(121,240,193,.10) inset}
+.person[data-portfolio]:active,.person[data-portfolio].touch-down{transform:translateY(-2px) scale(.985)!important}
+.person[data-portfolio]:focus-visible{outline:2px solid #79f0c1;outline-offset:5px}
+.portfolio-page{pointer-events:none}
+.portfolio-page.open{pointer-events:auto}
+.portfolio-back{cursor:pointer;touch-action:manipulation}
+@media(max-width:800px){.person[data-portfolio]:active{transform:scale(.975)!important}.team-hint{font-size:13px}}
+
+/* === NO-JS RELIABLE NAVIGATION / PORTFOLIO / CONTACT === */
+.portfolio-page:target{opacity:1!important;visibility:visible!important;transform:none!important;pointer-events:auto!important}
+.contact-overlay:target{opacity:1!important;visibility:visible!important;pointer-events:auto!important}
+.person-link{display:block;color:inherit;text-decoration:none;border-radius:22px}
+.person-link:active .person{transform:scale(.985)!important}
+.contact-close-link{position:absolute;right:13px;top:9px;width:35px;height:35px;display:grid;place-items:center;color:#91a1b4;font-size:27px;text-decoration:none;z-index:3}
+
+/* ===== USER REQUESTED VISUAL + INTERACTION PASS ===== */
+:root{--ice:#a9c3df;--ice2:#dbe4ee;--navyGlow:rgba(29,74,125,.62)}
+body{font-size:19px}
+.links{font-size:16px;gap:14px}.btn{font-size:16px;padding:14px 21px}
+.eyebrow{font-size:15px;color:var(--ice);letter-spacing:.16em}.num{font-size:15px;color:#d5d9df}
+.section-head p{font-size:20px}.card p,.person p,.case p{font-size:18px}.card h3{font-size:25px}.case h3{font-size:36px}.site b{font-size:21px}.stat span{font-size:14px}.chip{font-size:13px}
+.person .role,.case .tag{color:var(--ice)}
+.person:before,.team-hint{display:none!important;content:none!important}
+.person-link{position:relative;display:block;border-radius:24px;transition:transform .2s ease,filter .2s ease}
+.person-link .person{min-height:100%;border-color:#24364a;background:linear-gradient(145deg,#0d1621,#080d14);box-shadow:0 14px 40px rgba(0,0,0,.18);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
+.person-link:hover .person,.person-link:focus-visible .person{transform:translateY(-10px) scale(1.018)!important;border-color:#7e9fc3;background:linear-gradient(145deg,#111d2b,#09111a);box-shadow:0 26px 70px rgba(0,0,0,.48),0 0 34px rgba(60,108,164,.22),inset 0 0 0 1px rgba(169,195,223,.08)}
+.person-link:hover .person h3,.person-link:focus-visible .person h3{transform:translateX(6px)}
+.person h3{transition:transform .2s ease;font-size:42px}
+.name-lockup{display:inline-flex;align-items:baseline;line-height:.9;letter-spacing:.015em;text-transform:uppercase;white-space:nowrap}
+.name-lockup .initial{font-size:1.28em;line-height:.8}.name-lockup .rest{font-size:.78em;letter-spacing:.045em}
+.portfolio-hero .name-lockup{display:flex;flex-wrap:wrap;max-width:1000px;font-size:clamp(62px,9vw,122px);font-weight:900;letter-spacing:-.035em;white-space:normal;gap:.18em .32em}
+.portfolio-hero .name-lockup .word{white-space:nowrap}.portfolio-hero .name-lockup .initial{font-size:1.15em}.portfolio-hero .name-lockup .rest{font-size:.72em}.portfolio-hero .surname{color:var(--ice)}
+.portfolio-hero p{font-size:23px}.portfolio-panel p,.portfolio-panel li{font-size:17px}.portfolio-panel h2{font-size:34px}.portfolio-panel h3{font-size:23px}.skill-cloud span{font-size:14px}.metric-strip small{font-size:14px}
+.links a{position:relative;padding:10px 16px;border:1px solid transparent;border-radius:999px;transition:.22s ease}
+.links a:hover{color:#fff;border-color:#304b69;background:#0b1420;box-shadow:0 0 22px rgba(39,83,132,.26)}
+.links a.active{color:#f4f7fb;border-color:#496987;background:#0d1723;box-shadow:0 0 0 1px rgba(89,127,168,.15) inset,0 0 26px var(--navyGlow)}
+.portfolio-page{background:radial-gradient(circle at 85% 10%,#11263e,transparent 31%),#04070b}
+.portfolio-panel{border-color:#24364a;background:linear-gradient(145deg,#101923,#080d13)}
+@media(max-width:800px){body{font-size:18px}.section-head p{font-size:18px}.card p,.person p,.case p{font-size:17px}.person h3{font-size:36px}.portfolio-hero p{font-size:19px}}
+
+
+/* ===== Readability + stats + navigation refinement ===== */
+body{font-size:21px}
+.nav{height:82px}
+.links{font-size:18px;gap:18px;transform:translateX(5%)}
+.links a{padding:14px 23px;border:2px solid transparent;border-radius:999px;font-weight:700}
+.links a:hover{border-color:#1b3048;background:#0a111b;box-shadow:0 0 0 1px rgba(12,31,54,.9) inset,0 0 30px rgba(15,48,86,.42)}
+.links a.active{border:2px solid #152a43;background:#09111c;box-shadow:0 0 0 2px rgba(7,19,34,.92) inset,0 0 36px rgba(15,49,91,.62),0 0 72px rgba(8,29,55,.30);padding:15px 25px}
+.btn{font-size:18px;padding:15px 23px}
+.eyebrow{font-size:17px}
+.hero p{font-size:clamp(20px,2vw,25px)}
+.marquee{font-size:15px}
+.num{font-size:18px;color:#d9dde3}
+.section-head h2{font-size:clamp(42px,5vw,74px)}
+.section-head p{font-size:22px;line-height:1.65}
+.card small{font-size:15px}.card h3{font-size:28px}.card p{font-size:20px;line-height:1.7}
+.stat{padding:34px 30px}.stat b{font-size:42px}.stat span{font-size:18px;line-height:1.55;margin-top:10px}
+.note{font-size:15px;line-height:1.65;margin-top:18px}
+.case .tag{font-size:14px}.case h3{font-size:39px}.case p{font-size:20px}.chip{font-size:15px;padding:8px 12px}
+.result b{font-size:34px}.result small{font-size:16px;line-height:1.55}
+.site b{font-size:23px}.site span{font-size:18px}
+.person .role{font-size:18px}.person p{font-size:20px}
+.cta p{font-size:21px}.cta .btn{font-size:18px}
+footer{font-size:15px}
+.stats-head{margin-bottom:34px}
+.stats-head h2{font-size:clamp(40px,4.5vw,66px)}
+.portfolio-hero p{font-size:25px}.portfolio-panel p,.portfolio-panel li{font-size:19px}.portfolio-panel h2{font-size:37px}.portfolio-panel h3{font-size:25px}.skill-cloud span{font-size:16px}.metric-strip small{font-size:16px}
+.contact-modal p{font-size:18px}.contact-option b{font-size:16px}.contact-option small{font-size:14px}
+@media(max-width:800px){body{font-size:19px}.nav{height:72px}.links{transform:none}.section-head p{font-size:19px}.card p,.person p,.case p{font-size:18px}.stat span{font-size:17px}.note{font-size:14px}.portfolio-hero p{font-size:20px}.portfolio-panel p,.portfolio-panel li{font-size:17px}}
+
+/* ===== FINAL interaction / readability pass ===== */
+:root{--bodyText:#d7dde6;--softText:#c4ccd7;--deepNavy:#0b2748}
+body,.section-head p,.card p,.person p,.case p,.portfolio-panel p,.portfolio-panel li,.portfolio-hero p,.cta p,.contact-modal p{color:var(--bodyText)!important}
+.stat span,.result small,.metric-strip small,.portfolio-placeholder p,.note{color:var(--softText)!important}
+.marquee{position:relative;overflow:hidden}
+.marquee div{display:inline-block;min-width:max-content;padding-left:100%;animation:marqueeRTL 24s linear infinite;will-change:transform}
+.marquee:hover div{animation-play-state:paused}
+@keyframes marqueeRTL{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+.pa-message{color:#e4e9ef!important;font-size:16px!important;line-height:1.55}
+.pa-input-row input{font-size:16px!important;color:#f0f3f7!important}
+.portfolio-panel{color:#eef2f6}
+@media (prefers-reduced-motion:reduce){.marquee div{animation:none;padding-left:0}}
+</style>
+
+
+
+<style id="global-page-zoom-85">
+@media (min-width: 769px) {
+  html {
+    zoom: 0.85;
+  }
+}
+</style>
+
+
+<style id="seamless-marquee-fix">
+.seamless-marquee {
+  width: 100%;
+  overflow: hidden !important;
+  white-space: nowrap;
+}
+.seamless-marquee .marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: seamlessTicker 24s linear infinite !important;
+}
+.seamless-marquee .marquee-copy {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  padding-right: 3rem;
+}
+@keyframes seamlessTicker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+</style>
+
+
+<style id="ping-pong-ticker-final">
+/* Keep the complete skills line visible and make it swing left ↔ right.
+   It reaches each side and reverses instead of disappearing off-screen. */
+.seamless-marquee {
+  overflow: hidden !important;
+  width: 100%;
 }
 
-html{
-    scroll-behavior:smooth;
+.seamless-marquee .marquee-track {
+  width: 100% !important;
+  min-width: 100% !important;
+  display: block !important;
+  animation: none !important;
+  transform: none !important;
 }
 
-body{
-    margin:0;
-    background:#08070d;
-    color:#eeeaff;
-    font-family:"DM Sans",Arial,sans-serif;
-    overflow-x:hidden;
+.seamless-marquee .marquee-copy {
+  display: none !important;
 }
 
-body.loading{
-    overflow:hidden;
+.seamless-marquee .marquee-copy:first-child {
+  display: block !important;
+  width: max-content !important;
+  max-width: none !important;
+  padding-right: 0 !important;
+  white-space: nowrap !important;
+  position: relative;
+  left: 0;
+  will-change: transform;
+  animation: tickerPingPong 12s ease-in-out infinite alternate !important;
 }
 
-a{
-    color:inherit;
-    text-decoration:none;
+/* Move only as far as needed for the right edge of the content to meet
+   the right edge of the viewport, then return. No full disappearance. */
+@keyframes tickerPingPong {
+  0%, 5% {
+    transform: translateX(0);
+  }
+  95%, 100% {
+    transform: translateX(min(0px, calc(100vw - 100%)));
+  }
 }
+</style>
 
-button{
-    font-family:inherit;
+
+<style id="ping-pong-variable-override">
+@keyframes tickerPingPong {
+  0%, 6%   { transform: translateX(0); }
+  94%, 100% { transform: translateX(calc(-1 * var(--ticker-travel, 0px))); }
 }
+</style>
 
-img{
-    display:block;
+
+
+
+<style id="animated-hero-logo">
+.hero .wrap{
+  position:relative !important;
+}
+.hero-brand-visual{
+  position:absolute;
+  right:1.5%;
+  top:50%;
+  transform:translateY(-50%);
+  width:42%;
+  height:78%;
+  min-height:360px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+  perspective:1000px;
+}
+.hero-brand-glow{
+  position:absolute;
+  width:58%;
+  aspect-ratio:1;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(123,164,211,.18) 0%, rgba(27,68,116,.08) 42%, transparent 72%);
+  filter:blur(8px);
+  animation:heroGlow 3.8s ease-in-out infinite;
+}
+.hero-brand-mark{
+  position:relative;
+  z-index:3;
+  display:flex;
+  align-items:center;
+  gap:.16em;
+  font-size:clamp(54px,6vw,112px);
+  line-height:1;
+  font-weight:900;
+  letter-spacing:-.075em;
+  color:#e5e9ef;
+  text-shadow:0 14px 42px rgba(0,0,0,.55), 0 0 32px rgba(96,145,201,.12);
+  transform-style:preserve-3d;
+  animation:heroMarkFloat 5s ease-in-out infinite;
+}
+.hero-brand-mark b{
+  font-size:.62em;
+  font-weight:900;
+  color:#86a8cf;
+  margin:0 .08em;
+  text-shadow:0 0 28px rgba(86,137,195,.42);
+  animation:xPulse 2.4s ease-in-out infinite;
+}
+.hero-brand-orbit{
+  position:absolute;
+  border:1px solid rgba(70,116,170,.35);
+  border-radius:50%;
+  transform-style:preserve-3d;
+}
+.orbit-one{
+  width:78%;
+  aspect-ratio:1;
+  animation:orbitOne 11s linear infinite;
+}
+.orbit-two{
+  width:58%;
+  aspect-ratio:1;
+  border-color:rgba(142,174,211,.20);
+  animation:orbitTwo 8s linear infinite reverse;
+}
+.hero-brand-visual:after{
+  content:"";
+  position:absolute;
+  width:68%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(126,165,210,.65),transparent);
+  animation:scanLine 4s ease-in-out infinite;
+}
+@keyframes heroMarkFloat{
+  0%,100%{transform:translateY(0) rotateX(0deg) rotateY(-4deg) scale(1)}
+  50%{transform:translateY(-12px) rotateX(2deg) rotateY(5deg) scale(1.025)}
+}
+@keyframes xPulse{
+  0%,100%{transform:scale(1);opacity:.78}
+  50%{transform:scale(1.16);opacity:1}
+}
+@keyframes heroGlow{
+  0%,100%{transform:scale(.92);opacity:.58}
+  50%{transform:scale(1.12);opacity:1}
+}
+@keyframes orbitOne{
+  from{transform:rotateZ(0deg) rotateX(68deg) rotateY(10deg)}
+  to{transform:rotateZ(360deg) rotateX(68deg) rotateY(10deg)}
+}
+@keyframes orbitTwo{
+  from{transform:rotateZ(0deg) rotateX(72deg) rotateY(-18deg)}
+  to{transform:rotateZ(360deg) rotateX(72deg) rotateY(-18deg)}
+}
+@keyframes scanLine{
+  0%,100%{transform:translateY(-120px);opacity:.15}
+  50%{transform:translateY(120px);opacity:.7}
+}
+@media (max-width:1000px){
+  .hero-brand-visual{
+    position:relative;
+    right:auto;
+    top:auto;
+    transform:none;
     width:100%;
+    height:310px;
+    min-height:310px;
+    margin-top:30px;
+  }
 }
+@media (prefers-reduced-motion:reduce){
+  .hero-brand-mark,.hero-brand-mark b,.hero-brand-glow,.hero-brand-orbit,.hero-brand-visual:after{
+    animation:none !important;
+  }
+}
+</style>
 
 
-/* =========================================================
-   VARIABLES
-========================================================= */
-
+<style id="akst-final-visual-pass">
 :root{
-
-    --black:#08070d;
-    --black2:#0e0c14;
-
-    --purple:#d6c5ff;
-    --purple2:#bda3ff;
-    --purple3:#9575dc;
-
-    --white:#f5f1ff;
-
-    --grey:#97919f;
-
-    --line:rgba(214,197,255,.15);
-
-}
-
-
-/* =========================================================
-   INTRO LOADER
-========================================================= */
-
-#ak-loader{
-
-    position:fixed;
-
-    inset:0;
-
-    width:100%;
-    height:100%;
-
-    z-index:999999;
-
-    overflow:hidden;
-
-    background:#08070d;
-
-    color:var(--purple);
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    isolation:isolate;
-
-}
-
-
-/* MAIN BACKGROUND GLOW */
-
-#ak-loader::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:650px;
-    height:650px;
-
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(195,169,255,.13) 0%,
-            rgba(160,130,230,.06) 35%,
-            transparent 70%
-        );
-
-    filter:blur(15px);
-
-    pointer-events:none;
-
-}
-
-
-/* =========================================================
-   LARGE BACKGROUND CIRCLES
-========================================================= */
-
-.loader-orbit{
-
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-50%);
-
-    border-radius:50%;
-
-    border:1px solid rgba(214,197,255,.13);
-
-    pointer-events:none;
-
-}
-
-
-.orbit-1{
-
-    width:430px;
-    height:430px;
-
-    animation:
-        orbitClockwise
-        18s
-        linear
-        infinite;
-
-}
-
-
-.orbit-2{
-
-    width:560px;
-    height:560px;
-
-    border-color:
-        rgba(214,197,255,.08);
-
-    animation:
-        orbitReverse
-        26s
-        linear
-        infinite;
-
-}
-
-
-.orbit-3{
-
-    width:720px;
-    height:720px;
-
-    border-color:
-        rgba(214,197,255,.045);
-
-    animation:
-        orbitClockwise
-        35s
-        linear
-        infinite;
-
-}
-
-
-/* =========================================================
-   INNER RINGS
-========================================================= */
-
-.loader-ring{
-
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-50%);
-
-    border-radius:50%;
-
-    pointer-events:none;
-
-}
-
-
-.ring-main{
-
-    width:315px;
-    height:315px;
-
-    border:
-        1px solid
-        rgba(216,198,255,.8);
-
-    box-shadow:
-
-        0 0 15px
-        rgba(205,181,255,.15),
-
-        0 0 45px
-        rgba(190,160,255,.07);
-
-    animation:
-        ringClockwise
-        11s
-        linear
-        infinite;
-
-}
-
-
-.ring-second{
-
-    width:355px;
-    height:355px;
-
-    border:
-        1px dashed
-        rgba(214,197,255,.25);
-
-    animation:
-        ringReverse
-        16s
-        linear
-        infinite;
-
-}
-
-
-/* =========================================================
-   CENTER CONTENT
-========================================================= */
-
-.loader-center{
-
-    position:relative;
-
-    z-index:30;
-
-    text-align:center;
-
-    opacity:0;
-
-    transform:
-        translateY(15px)
-        scale(.94);
-
-    animation:
-        centerReveal
-        1.2s
-        cubic-bezier(.2,.8,.2,1)
-        .25s
-        forwards;
-
-}
-
-
-.loader-brand{
-
-    font-family:
-        "Manrope",
-        sans-serif;
-
-    font-size:
-        clamp(55px,8vw,115px);
-
-    font-weight:700;
-
-    line-height:.82;
-
-    letter-spacing:-.09em;
-
-    color:#d8c9ff;
-
-    text-shadow:
-
-        0 0 18px
-        rgba(210,190,255,.20),
-
-        0 0 55px
-        rgba(180,150,255,.09);
-
-}
-
-
-.loader-brand span{
-
-    font-weight:300;
-
-    opacity:.7;
-
-    margin:0 5px;
-
-}
-
-
-.loader-subtitle{
-
-    margin-top:25px;
-
-    font-size:10px;
-
-    font-weight:500;
-
-    letter-spacing:.25em;
-
-    text-transform:uppercase;
-
-    color:
-        rgba(216,201,255,.70);
-
-}
-
-
-.loader-subtitle i{
-
-    display:inline-block;
-
-    width:4px;
-    height:4px;
-
-    border-radius:50%;
-
-    background:#d3c0ff;
-
-    margin:
-        0 9px;
-
-    vertical-align:middle;
-
-    box-shadow:
-        0 0 9px
-        rgba(210,190,255,.8);
-
-}
-
-
-/* =========================================================
-   DIAMONDS
-========================================================= */
-
-.loader-diamond{
-
-    position:absolute;
-
-    width:9px;
-    height:9px;
-
-    border:
-        1px solid
-        rgba(214,197,255,.82);
-
-    transform:rotate(45deg);
-
-    box-shadow:
-        0 0 13px
-        rgba(201,179,255,.22);
-
-    z-index:10;
-
-}
-
-
-.diamond-1{
-
-    left:calc(50% - 205px);
-    top:calc(50% - 150px);
-
-    animation:
-        diamondOne
-        4.5s
-        ease-in-out
-        infinite;
-
-}
-
-
-.diamond-2{
-
-    left:calc(50% + 185px);
-    top:calc(50% - 100px);
-
-    animation:
-        diamondTwo
-        5.5s
-        ease-in-out
-        infinite;
-
-}
-
-
-.diamond-3{
-
-    left:calc(50% + 125px);
-    top:calc(50% + 165px);
-
-    animation:
-        diamondOne
-        6s
-        ease-in-out
-        infinite;
-
-}
-
-
-.diamond-4{
-
-    left:calc(50% - 175px);
-    top:calc(50% + 130px);
-
-    animation:
-        diamondTwo
-        5s
-        ease-in-out
-        infinite;
-
-}
-
-
-/* =========================================================
-   LOADING BAR
-========================================================= */
-
-.loader-progress{
-
-    position:absolute;
-
-    left:50%;
-    bottom:58px;
-
-    width:170px;
-    height:1px;
-
-    transform:
-        translateX(-50%);
-
-    background:
-        rgba(214,197,255,.12);
-
-}
-
-
-.loader-progress-bar{
-
-    width:0%;
-
-    height:100%;
-
-    background:#d5c3ff;
-
-    box-shadow:
-        0 0 12px
-        rgba(210,192,255,.75);
-
-}
-
-
-.loader-percent{
-
-    position:absolute;
-
-    right:30px;
-    bottom:26px;
-
-    font-size:9px;
-
-    letter-spacing:.15em;
-
-    color:
-        rgba(214,197,255,.45);
-
-}
-
-
-/* =========================================================
-   LOADER EXIT
-========================================================= */
-
-#ak-loader.finished{
-
-    pointer-events:none;
-
-    animation:
-        loaderExit
-        1.1s
-        cubic-bezier(.76,0,.24,1)
-        forwards;
-
-}
-
-
-@keyframes loaderExit{
-
-    0%{
-
-        opacity:1;
-
-        transform:
-            scale(1);
-
-    }
-
-    100%{
-
-        opacity:0;
-
-        transform:
-            scale(1.025);
-
-        visibility:hidden;
-
-    }
-
-}
-
-
-/* =========================================================
-   LOADER ANIMATIONS
-========================================================= */
-
-@keyframes orbitClockwise{
-
-    from{
-
-        transform:
-            translate(-50%,-50%)
-            rotate(0deg);
-
-    }
-
-    to{
-
-        transform:
-            translate(-50%,-50%)
-            rotate(360deg);
-
-    }
-
-}
-
-
-@keyframes orbitReverse{
-
-    from{
-
-        transform:
-            translate(-50%,-50%)
-            rotate(360deg);
-
-    }
-
-    to{
-
-        transform:
-            translate(-50%,-50%)
-            rotate(0deg);
-
-    }
-
-}
-
-
-@keyframes ringClockwise{
-
-    from{
-
-        transform:
-            translate(-50%,-50%)
-            rotate(0deg);
-
-    }
-
-    to{
-
-        transform:
-            translate(-50%,-50%)
-            rotate(360deg);
-
-    }
-
-}
-
-
-@keyframes ringReverse{
-
-    from{
-
-        transform:
-            translate(-50%,-50%)
-            rotate(360deg);
-
-    }
-
-    to{
-
-        transform:
-            translate(-50%,-50%)
-            rotate(0deg);
-
-    }
-
-}
-
-
-@keyframes centerReveal{
-
-    0%{
-
-        opacity:0;
-
-        transform:
-            translateY(15px)
-            scale(.88);
-
-        filter:blur(8px);
-
-    }
-
-    100%{
-
-        opacity:1;
-
-        transform:
-            translateY(0)
-            scale(1);
-
-        filter:blur(0);
-
-    }
-
-}
-
-
-@keyframes diamondOne{
-
-    0%,100%{
-
-        transform:
-            rotate(45deg)
-            translate(0,0);
-
-    }
-
-    50%{
-
-        transform:
-            rotate(135deg)
-            translate(12px,-10px);
-
-    }
-
-}
-
-
-@keyframes diamondTwo{
-
-    0%,100%{
-
-        transform:
-            rotate(45deg)
-            translate(0,0);
-
-    }
-
-    50%{
-
-        transform:
-            rotate(-45deg)
-            translate(-12px,10px);
-
-    }
-
-}
-
-
-/* =========================================================
-   MAIN NAVIGATION
-========================================================= */
-
-.nav{
-
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    width:100%;
-
-    z-index:5000;
-
-    padding:
-        23px 4vw;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(8,7,13,.8),
-            transparent
-        );
-
-    backdrop-filter:
-        blur(3px);
-
-}
-
-
-.logo{
-
-    font-family:
-        "Manrope",
-        sans-serif;
-
-    font-size:20px;
-
-    font-weight:800;
-
-    letter-spacing:-.07em;
-
-}
-
-
-.logo span{
-
-    font-weight:300;
-
-    opacity:.65;
-
-}
-
-
-.nav-links{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:34px;
-
-    font-size:11px;
-
-    font-weight:600;
-
-    letter-spacing:.10em;
-
-}
-
-
-.nav-links a{
-
-    position:relative;
-
-    text-transform:uppercase;
-
-}
-
-
-.nav-links a::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    bottom:-6px;
-
-    width:0;
-    height:1px;
-
-    background:
-        var(--purple);
-
-    transition:
-        width .3s ease;
-
-}
-
-
-.nav-links a:hover::after{
-
-    width:100%;
-
-}
-
-
-.nav-contact{
-
-    border:
-        1px solid
-        rgba(214,197,255,.45);
-
-    border-radius:50px;
-
-    padding:
-        11px 18px;
-
-    transition:.3s ease;
-
-}
-
-
-.nav-contact:hover{
-
-    background:
-        var(--purple);
-
-    color:#09070d;
-
-}
-
-
-/* =========================================================
-   MOBILE BUTTON
-========================================================= */
-
-.menu-btn{
-
-    display:none;
-
-    width:43px;
-    height:43px;
-
-    border:
-        1px solid
-        rgba(214,197,255,.35);
-
-    border-radius:50%;
-
-    background:transparent;
-
-    cursor:pointer;
-
-}
-
-
-.menu-btn span{
-
-    display:block;
-
-    width:17px;
-    height:1px;
-
-    background:
-        var(--purple);
-
-    margin:4px auto;
-
-}
-
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-.mobile-menu{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:4500;
-
-    background:#0b0910;
-
-    color:#eeeaff;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    padding:10vw;
-
-    transform:
-        translateY(-100%);
-
-    transition:
-        transform .65s
-        cubic-bezier(.77,0,.18,1);
-
-}
-
-
-.mobile-menu.active{
-
-    transform:
-        translateY(0);
-
-}
-
-
-.mobile-menu a{
-
-    font-family:
-        "Manrope",
-        sans-serif;
-
-    font-size:
-        12vw;
-
-    line-height:1;
-
-    font-weight:700;
-
-    letter-spacing:-.07em;
-
-    margin:9px 0;
-
-}
-
-
-.mobile-menu small{
-
-    position:absolute;
-
-    left:10vw;
-    bottom:30px;
-
-    font-size:9px;
-
-    letter-spacing:.12em;
-
-    color:#77717e;
-
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero{
-
-    min-height:100vh;
-
-    padding:
-        150px 4vw 60px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:space-between;
-
-}
-
-
-.hero-top{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-start;
-
-    font-size:10px;
-
-    text-transform:uppercase;
-
-    letter-spacing:.13em;
-
-    color:#8e8895;
-
-}
-
-
-.hero-location{
-
-    line-height:1.6;
-
-}
-
-
-.hero-year{
-
-    text-align:right;
-
-}
-
-
-.hero-title{
-
-    margin-top:8vh;
-
-}
-
-
-.hero-title h1{
-
-    font-family:
-        "Manrope",
-        sans-serif;
-
-    font-size:
-        clamp(72px,11vw,175px);
-
-    line-height:.83;
-
-    letter-spacing:-.09em;
-
-    font-weight:700;
-
-}
-
-
-.hero-title h1 em{
-
-    font-style:normal;
-
-    color:
-        var(--purple);
-
-}
-
-
-.hero-bottom{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-end;
-
-    margin-top:12vh;
-
-}
-
-
-.hero-description{
-
-    max-width:390px;
-
-    font-size:14px;
-
-    line-height:1.6;
-
-    color:#9c96a3;
-
-}
-
-
-.scroll-note{
-
-    font-size:9px;
-
-    text-transform:uppercase;
-
-    letter-spacing:.15em;
-
-    color:#88818f;
-
-}
-
-
-/* =========================================================
-   INTRO
-========================================================= */
-
-.intro{
-
-    padding:
-        150px 4vw;
-
-    border-top:
-        1px solid var(--line);
-
-}
-
-
-.intro-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        1fr 2fr;
-
-    gap:8vw;
-
-}
-
-
-.section-label{
-
-    font-size:9px;
-
-    text-transform:uppercase;
-
-    letter-spacing:.16em;
-
-    color:#8b8591;
-
-}
-
-
-.intro-text{
-
-    font-family:
-        "Manrope",
-        sans-serif;
-
-    font-size:
-        clamp(35px,5vw,75px);
-
-    line-height:.98;
-
-    letter-spacing:-.065em;
-
-    font-weight:600;
-
-}
-
-
-.intro-text span{
-
-    color:#69636f;
-
-}
-
-
-/* =========================================================
-   WORK
-========================================================= */
-
-.work{
-
-    padding:
-        100px 4vw 160px;
-
-}
-
-
-.work-header{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-end;
-
-    margin-bottom:80px;
-
-}
-
-
-.work-heading{
-
-    font-family:
-        "Manrope",
-        sans-serif;
-
-    font-size:
-        clamp(70px,12vw,170px);
-
-    line-height:.8;
-
-    letter-spacing:-.09em;
-
-    font-weight:700;
-
-}
-
-
-.work-count{
-
-    font-size:9px;
-
-    text-transform:uppercase;
-
-    letter-spacing:.13em;
-
-    color:#817a88;
-
-}
-
-
-.project{
-
-    border-top:
-        1px solid var(--line);
-
-    padding:
-        25px 0 90px;
-
-    display:grid;
-
-    grid-template-columns:
-        1fr 1.6fr;
-
-    gap:5vw;
-
-}
-
-
-.project-info{
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:space-between;
-
-    min-height:500px;
-
-}
-
-
-.project-number{
-
-    font-size:9px;
-
-    color:#78727f;
-
-}
-
-
-.project-title{
-
-    font-family:
-        "Manrope",
-        sans-serif;
-
-    font-size:
-        clamp(40px,5vw,75px);
-
-    line-height:.9;
-
-    letter-spacing:-.07em;
-
-    font-weight:700;
-
-}
-
-
-.project-details{
-
-    font-size:11px;
-
-    line-height:1.8;
-
-    color:#85808b;
-
-}
-
-
-.project-image{
-
-    position:relative;
-
-    overflow:hidden;
-
-    background:#15121b;
-
-    aspect-ratio:
-        1.35 / 1;
-
-}
-
-
-.project-image::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(150,115,220,.12),
-            transparent 50%
-        );
-
-    pointer-events:none;
-
-}
-
-
-.project-image img{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    opacity:.78;
-
-    transition:
-        transform .8s
-        cubic-bezier(.2,.7,.2,1);
-
-}
-
-
-.project:hover
-.project-image img{
-
-    transform:
-        scale(1.045);
-
-}
-
-
-.project-tag{
-
-    position:absolute;
-
-    left:18px;
-    bottom:18px;
-
-    z-index:5;
-
-    background:
-        rgba(12,10,16,.72);
-
-    backdrop-filter:
-        blur(10px);
-
-    border:
-        1px solid
-        rgba(214,197,255,.2);
-
-    padding:
-        9px 13px;
-
-    font-size:8px;
-
-    text-transform:uppercase;
-
-    letter-spacing:.1em;
-
-    color:#d7cbeb;
-
-}
-
-
-/* =========================================================
-   MARQUEE
-========================================================= */
-
-.marquee{
-
-    overflow:hidden;
-
-    white-space:nowrap;
-
-    border-top:
-        1px solid var(--line);
-
-    border-bottom:
-        1px solid var(--line);
-
-    padding:28px 0;
-
-}
-
-
-.marquee-track{
-
-    display:inline-block;
-
-    animation:
-        marquee
-        24s
-        linear
-        infinite;
-
-}
-
-
-.marquee span{
-
-    font-family:
-        "Manrope",
-        sans-serif;
-
-    font-size:
-        clamp(35px,5vw,70px);
-
-    letter-spacing:-.06em;
-
-    margin-right:55px;
-
-}
-
-
-.marquee span:nth-child(even){
-
-    color:
-        var(--purple);
-
-}
-
-
-@keyframes marquee{
-
-    from{
-
-        transform:
-            translateX(0);
-
-    }
-
-    to{
-
-        transform:
-            translateX(-50%);
-
-    }
-
-}
-
-
-/* =========================================================
-   SERVICES
-========================================================= */
-
-.services{
-
-    background:
-        #0d0b12;
-
-    padding:
-        140px 4vw;
-
-}
-
-
-.services-top{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    margin-bottom:100px;
-
-}
-
-
-.services-title{
-
-    font-family:
-        "Manrope",
-        sans-serif;
-
-    font-size:
-        clamp(65px,11vw,155px);
-
-    line-height:.82;
-
-    letter-spacing:-.085em;
-
-    font-weight:700;
-
-}
-
-
-.services-intro{
-
-    max-width:280px;
-
-    font-size:12px;
-
-    line-height:1.7;
-
-    color:#85808c;
-
-}
-
-
-.service-list{
-
-    border-top:
-        1px solid var(--line);
-
-}
-
-
-.service{
-
-    display:grid;
-
-    grid-template-columns:
-        80px 1fr 30px;
-
-    align-items:center;
-
-    border-bottom:
-        1px solid var(--line);
-
-    padding:
-        28px 0;
-
-    transition:
-        .3s ease;
-
-}
-
-
-.service:hover{
-
-    padding-left:15px;
-
-    padding-right:15px;
-
-    background:
-        rgba(214,197,255,.025);
-
-}
-
-
-.service-no{
-
-    color:#605a66;
-
-    font-size:10px;
-
-}
-
-
-.service-name{
-
-    font-family:
-        "Manrope",
-        sans-serif;
-
-    font-size:
-        clamp(27px,3.5vw,50px);
-
-    letter-spacing:-.05em;
-
-}
-
-
-.service-arrow{
-
-    color:
-        var(--purple);
-
-    font-size:20px;
-
-}
-
-
-/* =========================================================
-   ABOUT
-========================================================= */
-
-.about{
-
-    padding:
-        150px 4vw;
-
-}
-
-
-.about-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        1fr 2fr;
-
-    gap:8vw;
-
-}
-
-
-.about-text{
-
-    font-family:
-        "Manrope",
-        sans-serif;
-
-    font-size:
-        clamp(35px,5vw,75px);
-
-    line-height:.95;
-
-    letter-spacing:-.07em;
-
-}
-
-
-.about-text strong{
-
-    color:
-        var(--purple);
-
-}
-
-
-.about-copy{
-
-    max-width:600px;
-
-    font-size:14px;
-
-    line-height:1.8;
-
-    color:#89838f;
-
-}
-
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
-.contact{
-
-    min-height:80vh;
-
-    background:
-        #d6c5ff;
-
-    color:#0c0a10;
-
-    padding:
-        110px 4vw 50px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:space-between;
-
-}
-
-
-.contact-label{
-
-    font-size:9px;
-
-    text-transform:uppercase;
-
-    letter-spacing:.16em;
-
-}
-
-
-.contact-heading{
-
-    font-family:
-        "Manrope",
-        sans-serif;
-
-    font-size:
-        clamp(70px,13vw,190px);
-
-    line-height:.78;
-
-    letter-spacing:-.09em;
-
-    font-weight:700;
-
-}
-
-
-.contact-heading span{
-
-    display:block;
-
-}
-
-
-.contact-bottom{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-end;
-
-}
-
-
-.contact-link{
-
-    font-family:
-        "Manrope",
-        sans-serif;
-
-    font-size:
-        clamp(20px,2.5vw,35px);
-
-    border-bottom:
-        1px solid #111;
-
-    padding-bottom:6px;
-
-}
-
-
-.contact-email{
-
-    font-size:10px;
-
-    text-align:right;
-
-    line-height:1.8;
-
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer{
-
-    background:#08070d;
-
-    color:#eeeaff;
-
-    padding:
-        35px 4vw;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-}
-
-
-.footer-logo{
-
-    font-family:
-        "Manrope",
-        sans-serif;
-
-    font-size:18px;
-
-    font-weight:700;
-
-    letter-spacing:-.05em;
-
-}
-
-
-.footer-copy{
-
-    font-size:8px;
-
-    color:#65606c;
-
-    text-transform:uppercase;
-
-    letter-spacing:.1em;
-
-}
-
-
-/* =========================================================
-   REVEAL
-========================================================= */
-
-.reveal{
-
-    opacity:0;
-
-    transform:
-        translateY(40px);
-
-    transition:
-        opacity .9s ease,
-        transform .9s
-        cubic-bezier(.2,.7,.2,1);
-
-}
-
-
-.reveal.visible{
-
-    opacity:1;
-
-    transform:
-        translateY(0);
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
+  --accent:#a855f7!important;
+  --accent2:#c084fc!important;
+  --purple:#a855f7;
+  --purple-soft:#d8b4fe;
+  --white:#ffffff;
+  --text:#f7f5fb;
+  --muted:#b6afc2;
+  --line:rgba(168,85,247,.20);
+}
+body{
+  background:
+    radial-gradient(circle at 82% 0%,rgba(168,85,247,.13),transparent 28%),
+    radial-gradient(circle at 8% 45%,rgba(168,85,247,.07),transparent 24%),
+    #050508!important;
+  color:var(--white)!important;
+}
+/* balanced typography: headings reduced, supporting copy increased */
+.hero h1{
+  font-size:clamp(50px,7vw,88px)!important;
+  line-height:.91!important;
+  max-width:850px!important;
+  margin:18px 0 24px!important;
+}
+.hero p{
+  max-width:760px!important;
+  font-size:clamp(17px,1.45vw,21px)!important;
+  line-height:1.65!important;
+  color:#d2cdd9!important;
+}
+.eyebrow{color:var(--purple-soft)!important;font-size:13px!important;letter-spacing:.17em!important}
+.section-head{grid-template-columns:.42fr 1.58fr!important;gap:38px!important;margin-bottom:48px!important}
+.section-head h2{
+  font-size:clamp(38px,4.6vw,64px)!important;
+  line-height:1.02!important;
+  letter-spacing:-.055em!important;
+}
+.section-head p,.card p,.case p,.person p,.cta p{
+  font-size:17px!important;
+  line-height:1.7!important;
+  color:#c5bfcc!important;
+}
+.card h3{font-size:24px!important;margin:30px 0 10px!important}
+.card{border-color:rgba(168,85,247,.16)!important;background:linear-gradient(145deg,#100d16,#09090d)!important}
+.card small,.case .tag,.person .role{color:var(--purple-soft)!important}
+.case h3{font-size:32px!important}
+.case{border-color:rgba(168,85,247,.17)!important;background:linear-gradient(145deg,#100d16,#09090d)!important}
+.chip{border-color:rgba(168,85,247,.24)!important;color:#ded7e7!important;background:rgba(168,85,247,.04)}
+.stats{border-color:rgba(168,85,247,.18)!important}
+.stat{background:#0b090e!important;border-color:rgba(168,85,247,.14)!important}
+.stat b{font-size:38px!important;color:#fff}
+.stat span{font-size:15px!important;color:#bdb5c7!important}
+.site{border-color:rgba(168,85,247,.18)!important;background:#0b090e!important}
+.site span{color:var(--purple-soft)!important}
+.person{border-color:rgba(168,85,247,.18)!important;background:linear-gradient(145deg,#100d16,#09090d)!important}
+.person h3{font-size:36px!important}
+.person-link:hover .person,.person-link:focus-visible .person{border-color:#b56cf7!important;box-shadow:0 24px 70px rgba(0,0,0,.5),0 0 34px rgba(168,85,247,.18)!important}
+.cta{border-color:rgba(168,85,247,.3)!important;background:radial-gradient(circle at 88% 15%,rgba(168,85,247,.18),transparent 35%),#0b090f!important}
+.cta h2{font-size:clamp(40px,5.5vw,72px)!important}
+.btn.primary{background:#fff!important;color:#09070c!important;border-color:#fff!important}
+.btn{border-color:rgba(168,85,247,.35)!important;background:#100c15!important;color:#fff!important}
+.work-cta:hover{border-color:#c084fc!important;box-shadow:0 12px 40px rgba(168,85,247,.22)!important}
+.links a:hover,.links a.active{border-color:rgba(168,85,247,.5)!important;background:rgba(168,85,247,.08)!important;box-shadow:0 0 26px rgba(168,85,247,.16)!important}
+.brand span{color:var(--purple)!important}
+.marquee{border-color:rgba(168,85,247,.16)!important;color:#c8bfd1!important}
+.depth-progress i{background:var(--purple)!important;box-shadow:0 0 12px rgba(168,85,247,.7)!important}
+
+/* SOCIAL BUTTONS */
+.ak-socials{display:flex;gap:10px;align-items:center;margin-top:18px}
+.ak-social{
+  width:50px;height:50px;border-radius:7px;background:#a855f7;color:#fff;
+  display:grid;place-items:center;border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 8px 28px rgba(168,85,247,.20);transition:transform .2s ease,background .2s ease,box-shadow .2s ease;
+}
+.ak-social:hover{transform:translateY(-3px);background:#b56cf7;box-shadow:0 14px 34px rgba(168,85,247,.32)}
+.ak-social svg{width:25px;height:25px;fill:#fff}
+
+/* FALLING BOX SECTION */
+.ak-fall-section{padding:120px 0 135px;overflow:hidden;position:relative}
+.ak-fall-head{display:grid;grid-template-columns:.42fr 1.58fr;gap:38px;margin-bottom:55px}
+.ak-fall-kicker{font-size:12px;letter-spacing:.17em;font-weight:900;color:#d8b4fe}
+.ak-fall-head h2{font-size:clamp(40px,5vw,68px);line-height:1;letter-spacing:-.06em;margin:0 0 14px}
+.ak-fall-head p{max-width:720px;margin:0;color:#c5bfcc;font-size:17px;line-height:1.7}
+.ak-fall-stage{position:relative;min-height:510px;border:1px solid rgba(168,85,247,.16);border-radius:28px;background:radial-gradient(circle at 50% 15%,rgba(168,85,247,.10),transparent 35%),#09080d;overflow:hidden;padding:28px}
+.ak-fall-stage:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(168,85,247,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(168,85,247,.035) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,#000,transparent 95%);pointer-events:none}
+.ak-fall-grid{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:end;min-height:450px}
+.ak-fall-box{position:relative;min-height:190px;padding:22px;border:1px solid rgba(168,85,247,.24);border-radius:18px;background:linear-gradient(145deg,rgba(25,16,33,.96),rgba(9,8,13,.98));box-shadow:0 20px 45px rgba(0,0,0,.35);opacity:0;transform:translate3d(var(--sx,0),-420px,0) rotate(var(--rot,-5deg)) scale(.92);transform-origin:center bottom;transition:transform .95s cubic-bezier(.2,.85,.2,1),opacity .5s ease,border-color .3s ease,box-shadow .3s ease}
+.ak-fall-box:after{content:"";position:absolute;left:18px;right:18px;bottom:-7px;height:14px;background:rgba(168,85,247,.12);filter:blur(12px);opacity:.0;transition:.4s ease}
+.ak-fall-box.is-dropped{opacity:1;transform:translate3d(0,0,0) rotate(0) scale(1)}
+.ak-fall-box.is-dropped:after{opacity:1}
+.ak-fall-box:hover{transform:translateY(-8px)!important;border-color:rgba(192,132,252,.65);box-shadow:0 28px 60px rgba(0,0,0,.45),0 0 32px rgba(168,85,247,.12)}
+.ak-fall-box small{display:block;color:#d8b4fe;font-size:10px;font-weight:900;letter-spacing:.15em;margin-bottom:28px}
+.ak-fall-box b{display:block;font-size:25px;letter-spacing:-.04em;margin-bottom:9px;color:#fff}
+.ak-fall-box span{display:block;color:#aaa2b4;font-size:14px;line-height:1.55}
+.ak-fall-box:nth-child(1){--sx:-80px;--rot:-9deg}
+.ak-fall-box:nth-child(2){--sx:65px;--rot:7deg}
+.ak-fall-box:nth-child(3){--sx:-55px;--rot:5deg}
+.ak-fall-box:nth-child(4){--sx:90px;--rot:-7deg}
+.ak-fall-box:nth-child(5){--sx:-65px;--rot:8deg}
+.ak-fall-box:nth-child(6){--sx:70px;--rot:-6deg}
+.ak-fall-box:nth-child(7){--sx:-45px;--rot:-5deg}
+.ak-fall-box:nth-child(8){--sx:60px;--rot:7deg}
+.ak-fall-box:nth-child(1).is-dropped{transition-delay:.05s}.ak-fall-box:nth-child(2).is-dropped{transition-delay:.14s}.ak-fall-box:nth-child(3).is-dropped{transition-delay:.23s}.ak-fall-box:nth-child(4).is-dropped{transition-delay:.32s}.ak-fall-box:nth-child(5).is-dropped{transition-delay:.41s}.ak-fall-box:nth-child(6).is-dropped{transition-delay:.50s}.ak-fall-box:nth-child(7).is-dropped{transition-delay:.59s}.ak-fall-box:nth-child(8).is-dropped{transition-delay:.68s}
+
+/* Footer/social balance */
+footer{padding:36px 0 48px!important;border-top:1px solid rgba(168,85,247,.12)}
+.ak-footer-inner{display:flex;justify-content:space-between;align-items:center;gap:25px}
 @media(max-width:800px){
-
-    .nav{
-
-        padding:
-            18px 5vw;
-
-    }
-
-
-    .nav-links{
-
-        display:none;
-
-    }
-
-
-    .menu-btn{
-
-        display:block;
-
-    }
-
-
-    .hero{
-
-        padding:
-            125px 5vw 45px;
-
-        min-height:100svh;
-
-    }
-
-
-    .hero-top{
-
-        font-size:8px;
-
-    }
-
-
-    .hero-title{
-
-        margin-top:15vh;
-
-    }
-
-
-    .hero-title h1{
-
-        font-size:18vw;
-
-        line-height:.84;
-
-    }
-
-
-    .hero-bottom{
-
-        display:block;
-
-        margin-top:10vh;
-
-    }
-
-
-    .hero-description{
-
-        max-width:320px;
-
-        font-size:12px;
-
-    }
-
-
-    .scroll-note{
-
-        margin-top:35px;
-
-    }
-
-
-    .intro,
-    .about{
-
-        padding:
-            100px 5vw;
-
-    }
-
-
-    .intro-grid,
-    .about-grid{
-
-        grid-template-columns:1fr;
-
-        gap:50px;
-
-    }
-
-
-    .intro-text,
-    .about-text{
-
-        font-size:12vw;
-
-    }
-
-
-    .work{
-
-        padding:
-            80px 5vw 110px;
-
-    }
-
-
-    .work-header{
-
-        margin-bottom:60px;
-
-    }
-
-
-    .work-heading{
-
-        font-size:22vw;
-
-    }
-
-
-    .project{
-
-        grid-template-columns:1fr;
-
-        gap:35px;
-
-        padding-bottom:70px;
-
-    }
-
-
-    .project-info{
-
-        min-height:350px;
-
-    }
-
-
-    .project-title{
-
-        font-size:13vw;
-
-    }
-
-
-    .project-image{
-
-        aspect-ratio:1/1.05;
-
-    }
-
-
-    .services{
-
-        padding:
-            100px 5vw;
-
-    }
-
-
-    .services-top{
-
-        display:block;
-
-        margin-bottom:70px;
-
-    }
-
-
-    .services-title{
-
-        font-size:20vw;
-
-    }
-
-
-    .services-intro{
-
-        margin-top:35px;
-
-    }
-
-
-    .service{
-
-        grid-template-columns:
-            45px 1fr 20px;
-
-        padding:
-            22px 0;
-
-    }
-
-
-    .service-name{
-
-        font-size:7vw;
-
-    }
-
-
-    .marquee span{
-
-        font-size:11vw;
-
-    }
-
-
-    .contact{
-
-        min-height:75svh;
-
-        padding:
-            90px 5vw 35px;
-
-    }
-
-
-    .contact-heading{
-
-        font-size:20vw;
-
-    }
-
-
-    .contact-bottom{
-
-        display:block;
-
-    }
-
-
-    .contact-email{
-
-        text-align:left;
-
-        margin-top:35px;
-
-    }
-
-
-    footer{
-
-        padding:
-            28px 5vw;
-
-    }
-
-
-    .footer-copy{
-
-        font-size:7px;
-
-    }
-
-
-    /* MOBILE LOADER */
-
-    .orbit-1{
-
-        width:290px;
-        height:290px;
-
-    }
-
-
-    .orbit-2{
-
-        width:390px;
-        height:390px;
-
-    }
-
-
-    .orbit-3{
-
-        width:510px;
-        height:510px;
-
-    }
-
-
-    .ring-main{
-
-        width:220px;
-        height:220px;
-
-    }
-
-
-    .ring-second{
-
-        width:250px;
-        height:250px;
-
-    }
-
-
-    .loader-brand{
-
-        font-size:18vw;
-
-    }
-
-
-    .loader-subtitle{
-
-        font-size:7px;
-
-        letter-spacing:.18em;
-
-    }
-
-
-    .loader-progress{
-
-        width:130px;
-
-        bottom:48px;
-
-    }
-
-
-    .loader-percent{
-
-        right:18px;
-
-        bottom:20px;
-
-    }
-
-
-    .diamond-1{
-
-        left:
-            calc(50% - 140px);
-
-        top:
-            calc(50% - 120px);
-
-    }
-
-
-    .diamond-2{
-
-        left:
-            calc(50% + 120px);
-
-        top:
-            calc(50% - 80px);
-
-    }
-
-
-    .diamond-3{
-
-        left:
-            calc(50% + 85px);
-
-        top:
-            calc(50% + 120px);
-
-    }
-
-
-    .diamond-4{
-
-        left:
-            calc(50% - 120px);
-
-        top:
-            calc(50% + 100px);
-
-    }
-
+  .hero h1{font-size:clamp(48px,14vw,70px)!important}
+  .hero p{font-size:17px!important}
+  .section-head,.ak-fall-head{grid-template-columns:1fr!important;gap:16px!important}
+  .section-head h2,.ak-fall-head h2{font-size:clamp(36px,10vw,52px)!important}
+  .section-head p,.card p,.case p,.person p,.cta p{font-size:16px!important}
+  .card h3{font-size:22px!important}.case h3{font-size:29px!important}.person h3{font-size:31px!important}
+  .ak-fall-section{padding:90px 0 100px}.ak-fall-stage{min-height:auto;padding:18px}.ak-fall-grid{grid-template-columns:1fr 1fr;min-height:0;gap:10px}.ak-fall-box{min-height:170px;padding:18px}.ak-fall-box b{font-size:20px}.ak-fall-box span{font-size:12px}
+  .ak-footer-inner{flex-direction:column;align-items:flex-start}.ak-social{width:46px;height:46px}
 }
-
+@media(max-width:480px){.ak-fall-grid{grid-template-columns:1fr}.ak-fall-box{min-height:145px}}
+@media(prefers-reduced-motion:reduce){.ak-fall-box{transition:opacity .3s ease!important;transform:none!important}.ak-fall-box.is-dropped{transform:none!important}}
 </style>
 
 </head>
+<body><div class="depth-progress"><i id="depthBar"></i></div>
+<nav><div class="wrap nav"><a class="brand" href="#">ST <span>×</span> AK</a><div class="links"><a href="#services">Services</a><a href="#work">Work</a><a href="#websites">Websites</a><a href="#team">Team</a></div><a class="btn work-cta" href="#contact-popup">Work With Us ↗</a></div></nav>
+
+<header class="hero"><div class="wrap">
+<div class="hero-brand-visual" aria-label="ST x AK">
+  <div class="hero-brand-orbit orbit-one"></div>
+  <div class="hero-brand-orbit orbit-two"></div>
+  <div class="hero-brand-glow"></div>
+  <div class="hero-brand-mark">
+    <span>ST</span><b>×</b><span>AK</span>
+  </div>
+</div>
+
+<div class="eyebrow">Shailesh Tiwari × Aman Kohli · Digital Growth Partners</div>
+<h1>We Build.<br>Market. <em>Grow.</em></h1>
+<p>End-to-end digital execution for businesses that want more than visibility — from high-performing websites and search presence to paid acquisition, social media and direct outreach.</p>
+<div class="actions"><a class="btn primary" href="#work">Explore Our Work ↘</a><a class="btn" href="#services">What We Do</a></div>
+</div></header>
 
 
-<body class="loading">
-
-
-<!-- =========================================================
-     INTRO LOADER
-========================================================= -->
-
-<div id="ak-loader">
-
-    <div class="loader-orbit orbit-1"></div>
-    <div class="loader-orbit orbit-2"></div>
-    <div class="loader-orbit orbit-3"></div>
-
-    <div class="loader-ring ring-main"></div>
-    <div class="loader-ring ring-second"></div>
-
-
-    <div class="loader-diamond diamond-1"></div>
-    <div class="loader-diamond diamond-2"></div>
-    <div class="loader-diamond diamond-3"></div>
-    <div class="loader-diamond diamond-4"></div>
-
-
-    <div class="loader-center">
-
-        <div class="loader-brand">
-            AK <span>×</span> ST
-        </div>
-
-        <div class="loader-subtitle">
-            DEVELOPMENT
-            <i></i>
-            MARKETING
-        </div>
-
-    </div>
-
-
-    <div class="loader-progress">
-
-        <div
-            class="loader-progress-bar"
-            id="loaderProgress">
-        </div>
-
-    </div>
-
-
-    <div class="loader-percent">
-
-        <span id="loaderPercent">0</span>%
-
-    </div>
-
+<div class="marquee seamless-marquee">
+  <div class="marquee-track">
+    <div class="marquee-copy">GOOGLE ADS &nbsp; · &nbsp; META ADS &nbsp; · &nbsp; SEO &nbsp; · &nbsp; WEBSITE DEVELOPMENT &nbsp; · &nbsp; SOCIAL MEDIA &nbsp; · &nbsp; GOOGLE BUSINESS PROFILE &nbsp; · &nbsp; LINKEDIN OUTREACH &nbsp; · &nbsp; PINTEREST &nbsp; · &nbsp; YOUTUBE OPTIMIZATION</div>
+    <div class="marquee-copy" aria-hidden="true">GOOGLE ADS &nbsp; · &nbsp; META ADS &nbsp; · &nbsp; SEO &nbsp; · &nbsp; WEBSITE DEVELOPMENT &nbsp; · &nbsp; SOCIAL MEDIA &nbsp; · &nbsp; GOOGLE BUSINESS PROFILE &nbsp; · &nbsp; LINKEDIN OUTREACH &nbsp; · &nbsp; PINTEREST &nbsp; · &nbsp; YOUTUBE OPTIMIZATION</div>
+  </div>
 </div>
 
 
-<!-- =========================================================
-     NAVIGATION
-========================================================= -->
+<section id="services"><div class="wrap">
+<div class="section-head reveal"><div class="num">01 / CAPABILITIES</div><div><h2>Complete digital growth, under one team.</h2><p>We connect acquisition, search, social, web and direct outreach so businesses do not have to coordinate separate specialists for every digital channel.</p></div></div>
+<div class="grid">
+<div class="card reveal"><small>PERFORMANCE</small><h3>Google & Meta Ads</h3><p>Campaign strategy, lead generation, targeting, optimization, remarketing and ongoing performance management.</p></div>
+<div class="card reveal"><small>SEARCH</small><h3>SEO & Local Search</h3><p>On-page, off-page and technical SEO, keyword optimization, local SEO and Google Business Profile management.</p></div>
+<div class="card reveal"><small>WEB</small><h3>Website Development</h3><p>Website design and development, maintenance, product listings, page layouts and conversion-focused improvements.</p></div>
+<div class="card reveal"><small>SOCIAL</small><h3>Social Media</h3><p>Platform management, Meta, Pinterest and YouTube channel optimization with brand-focused digital execution.</p></div>
+<div class="card reveal"><small>B2B</small><h3>LinkedIn & Outreach</h3><p>LinkedIn marketing, direct prospect approaches, brand awareness, email outreach, client discussions and lead nurturing.</p></div>
+<div class="card reveal"><small>HOSPITALITY</small><h3>Booking Growth</h3><p>Hotel and banquet lead generation, booking-platform presence, digital listings and hospitality-focused campaigns.</p></div>
+</div>
+</div></section>
 
-<header class="nav">
+<section id="stats"><div class="wrap">
+<div class="section-head stats-head reveal"><div class="num">02 / STATS</div><div><h2>Performance at a glance.</h2><p>Selected campaign and website performance figures across the projects we have worked on.</p></div></div>
+<div class="stats reveal">
+<div class="stat"><b>25–30</b><span>Approx. daily Meta enquiries<br>Heritage Holiday Homes*</span></div>
+<div class="stat"><b>7–8</b><span>Approx. daily Google enquiries<br>Anup Gupta Studio*</span></div>
+<div class="stat"><b>3–4</b><span>Approx. confirmed bookings/week<br>via Booking.com for Heritage*</span></div>
+<div class="stat"><b>5+</b><span>Website development & management projects showcased</span></div>
+</div>
+<div class="note">*Performance figures are approximate, based on campaign-period observations and recollection. Enquiries are not equivalent to confirmed sales or bookings.</div>
+</div></section>
 
-    <a href="#top" class="logo">
-        AK <span>×</span> ST
-    </a>
+<!-- ===== FALLING BOXES / SCROLL REVEAL ===== -->
+<section class="ak-fall-section" id="process">
+  <div class="wrap">
+    <div class="ak-fall-head">
+      <div class="ak-fall-kicker">06 / HOW WE BUILD</div>
+      <div>
+        <h2>Ideas fall into place. Then they move.</h2>
+        <p>Every project connects strategy, creative, development and marketing. Scroll into this section and watch the building blocks drop into position.</p>
+      </div>
+    </div>
+    <div class="ak-fall-stage" id="fallingStage">
+      <div class="ak-fall-grid">
+        <div class="ak-fall-box"><small>01 / DISCOVER</small><b>Strategy</b><span>Understand the business, audience, offer and growth target.</span></div>
+        <div class="ak-fall-box"><small>02 / PLAN</small><b>Positioning</b><span>Turn the opportunity into a clear digital direction.</span></div>
+        <div class="ak-fall-box"><small>03 / DESIGN</small><b>Creative</b><span>Build visual systems that make the brand memorable.</span></div>
+        <div class="ak-fall-box"><small>04 / BUILD</small><b>Development</b><span>Responsive websites and digital experiences built to perform.</span></div>
+        <div class="ak-fall-box"><small>05 / REACH</small><b>Paid Media</b><span>Google and Meta campaigns focused on meaningful enquiries.</span></div>
+        <div class="ak-fall-box"><small>06 / GROW</small><b>SEO</b><span>Search visibility, content structure and continuous optimisation.</span></div>
+        <div class="ak-fall-box"><small>07 / ENGAGE</small><b>Social</b><span>Consistent communication across the channels that matter.</span></div>
+        <div class="ak-fall-box"><small>08 / SCALE</small><b>Analytics</b><span>Measure what works, improve it and keep the growth moving.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work"><div class="wrap">
+<div class="section-head reveal"><div class="num">03 / SELECTED WORK</div><div><h2>Execution across hospitality, fashion and technology.</h2><p>Selected engagements spanning paid acquisition, SEO, websites, social media, local presence and direct outreach.</p></div></div>
+<div class="cases">
+<article class="case reveal"><div><div class="tag">HOSPITALITY · KOCHI</div><h3>Laimar Hotels</h3><p>Managed the hotel's digital presence with Google Ads for banquet and booking enquiries, SEO optimization, social media management and requirement-based Meta recruitment campaigns.</p><div class="chips"><span class="chip">Google Ads</span><span class="chip">SEO</span><span class="chip">Social Media</span><span class="chip">Meta Hiring</span></div></div><div class="result"><div><b>10–15</b><small>Approx. Google booking/banquet enquiries per week*</small></div><div><b>₹7K</b><small>Approx. weekly campaign budget referenced during management*</small></div></div></article>
+
+<article class="case reveal"><div><div class="tag">HOSPITALITY · GOA</div><h3>Heritage Holiday Homes</h3><p>Worked on Meta lead generation, booking-platform presence and social media management to support accommodation enquiries and bookings.</p><div class="chips"><span class="chip">Meta Ads</span><span class="chip">Booking Platforms</span><span class="chip">Social Media</span></div></div><div class="result"><div><b>25–30</b><small>Approx. Meta enquiries per day*</small></div><div><b>3–4</b><small>Approx. confirmed Booking.com bookings per week*</small></div></div></article>
+
+<article class="case reveal"><div><div class="tag">FASHION / CREATIVE</div><h3>Anup Gupta Studio</h3><p>Website maintenance and development, product listings and layouts, plus Google and Meta advertising and ongoing digital presence management.</p><div class="chips"><span class="chip">Website</span><span class="chip">Google Ads</span><span class="chip">Meta Ads</span><span class="chip">Social</span><span class="chip">Google Business</span></div></div><div class="result"><div><b>7–8</b><small>Approx. Google enquiries per day depending on requirements*</small></div><div><b>~31</b><small>Approx. Meta enquiries per day*</small></div></div></article>
+
+<article class="case reveal"><div><div class="tag">B2B / DIGITAL</div><h3>Hyper Cloud Digital Solution</h3><p>Search engine optimization work focused on strengthening organic visibility and the site's search foundation.</p><div class="chips"><span class="chip">SEO</span><span class="chip">Search Optimization</span></div></div><div class="result"><div><b>SEO</b><small>End-to-end search optimization engagement</small></div><div><b>Organic</b><small>Search visibility focused execution</small></div></div></article>
+
+<article class="case reveal"><div><div class="tag">ADVERTISING / B2B</div><h3>Fortune Advertising</h3><p>Supported organic lead generation through Google Business Profile, social media, LinkedIn and email outreach, including direct prospect interaction, client discussions and meetings.</p><div class="chips"><span class="chip">GMB</span><span class="chip">LinkedIn</span><span class="chip">Email Outreach</span><span class="chip">Social Media</span><span class="chip">Client Handling</span></div></div><div class="result"><div><b>360°</b><small>Organic digital presence and outreach</small></div><div><b>B2B</b><small>Direct lead and client interaction workflow</small></div></div></article>
+</div>
+</div></section>
+
+<section id="websites"><div class="wrap">
+<div class="section-head reveal"><div class="num">04 / WEB DEVELOPMENT</div><div><h2>Web experiences we've built and managed.</h2><p>Live project examples covering development, layout implementation and ongoing website work.</p></div></div>
+<div class="websites">
+<a class="site reveal" target="_blank" rel="noopener" href="https://cplx.media/"><b>CPLX Media</b><span>Visit ↗</span></a>
+<a class="site reveal" target="_blank" rel="noopener" href="https://excelitsolution.com/"><b>Excel IT Solution</b><span>Visit ↗</span></a>
+<a class="site reveal" target="_blank" rel="noopener" href="https://avnor.media/"><b>AVNOR.MEDIA</b><span>Visit ↗</span></a>
+<a class="site reveal" target="_blank" rel="noopener" href="https://fortuneadvertising.in/"><b>Fortune Advertising</b><span>Visit ↗</span></a>
+<a class="site reveal" target="_blank" rel="noopener" href="https://www.anupguptastudio.com/"><b>Anup Gupta Studio</b><span>Visit ↗</span></a>
+</div>
+</div></section>
+
+<section id="team"><div class="wrap">
+<div class="section-head reveal"><div class="num">05 / TEAM</div><div><h2>Strategy meets execution.</h2><p>A two-person digital team covering technical growth, paid acquisition, social platforms and client-facing execution.</p></div></div>
+<div class="people">
+<a class="person-link" href="#portfolio-shailesh"><div class="person reveal"><div class="role">DIGITAL MARKETING & GROWTH</div><h3 class="name-lockup" aria-label="Shailesh Tiwari"><span class="initial">S</span><span class="rest">HAILESH&nbsp;</span><span class="initial">T</span><span class="rest">IWARI</span></h3><p><b>B.Tech in Computer Science — specialization in Artificial Intelligence & Machine Learning.</b></p><p>End-to-end digital marketing handling across Google Ads, Meta Ads, SEO, website work, social media, Google Business Profile, LinkedIn outreach, lead generation, optimization and client coordination.</p></div></a>
+<a class="person-link" href="#portfolio-aman"><div class="person reveal"><div class="role">MARKETING · SOCIAL MEDIA · BRAND COMMUNICATION</div><h3 class="name-lockup" aria-label="Aman Kohli"><span class="initial">A</span><span class="rest">MAN&nbsp;</span><span class="initial">K</span><span class="rest">OHLI</span></h3><p><b>4+ years across marketing, social media, customer support & business development.</b></p><p>Assistant Marketing Manager with experience across BTL/OOH activations, social media operations, client relations, market research, campaign reporting and cross-functional coordination.</p></div></a>
+</div>
+</div></section>
+
+<section id="contact"><div class="wrap"><div class="cta reveal">
+<div class="eyebrow">LET'S BUILD GROWTH</div><h2>Need one team for your complete digital presence?</h2><p>From building the website to bringing traffic, generating enquiries, improving search visibility and managing the brand's digital presence — we handle the complete growth cycle.</p>
+<div class="actions"><a class="btn primary" href="#contact-popup">Start a Conversation ↗</a><a class="btn" href="#work">Review Our Work</a></div>
+<div class="note">Replace YOUR_EMAIL_HERE with the email address you want clients to use.</div>
+</div></div></section>
 
 
-    <nav class="nav-links">
-
-        <a href="#work">
-            WORK
-        </a>
-
-        <a href="#services">
-            SERVICES
-        </a>
-
-        <a href="#about">
-            ABOUT
-        </a>
-
-        <a href="#contact" class="nav-contact">
-            GET IN TOUCH
-        </a>
-
-    </nav>
-
-
-    <button
-        class="menu-btn"
-        id="menuButton"
-        aria-label="Open menu">
-
-        <span></span>
-        <span></span>
-
-    </button>
-
-</header>
+<div class="pa-backdrop" id="paBackdrop" aria-hidden="true"></div>
+<aside class="portfolio-assistant" id="portfolioAssistant" aria-label="Portfolio Assistant">
+  <button class="pa-close" id="paClose" aria-label="Close assistant">×</button>
+  <div class="pa-orb"><span></span></div>
+  <div class="pa-name">PORTFOLIO ASSISTANT</div>
+  <div class="pa-status"><i></i><span id="paStatus">Ready to explore</span></div>
+  <div class="pa-message" id="paMessage">Type or say a section number (01–05), a heading, or ask for a portfolio.</div>
+  <div class="pa-actions">
+    <button class="pa-action" data-command="services">Services</button>
+    <button class="pa-action" data-command="work">Our Work</button>
+    <button class="pa-action" data-command="websites">Websites</button>
+    <button class="pa-action" data-command="team">Team</button><button class="pa-action" data-command="portfolio">Portfolio</button>
+  </div>
+  <div class="pa-input-row">
+    <input id="paInput" type="text" placeholder="Ask the assistant…" autocomplete="off">
+    <button id="paSend" aria-label="Send">↗</button>
+  </div>
+  <button class="pa-mic" id="paMic">🎙 <span>Talk to the assistant</span></button>
+</aside>
+<button class="pa-launch" id="paLaunch" aria-label="Open portfolio assistant">
+  <span class="pa-launch-dot"></span><span>Ask Assistant</span>
+</button>
 
 
-<!-- =========================================================
-     MOBILE MENU
-========================================================= -->
-
-<div class="mobile-menu" id="mobileMenu">
-
-    <a href="#work">WORK</a>
-
-    <a href="#services">SERVICES</a>
-
-    <a href="#about">ABOUT</a>
-
-    <a href="#contact">CONTACT</a>
-
-    <small>
-        AK × ST ADVERTISING — DEVELOPMENT & MARKETING
-    </small>
-
+<!-- CONTACT SUPPORT POPUP -->
+<div class="contact-overlay" id="contact-popup" aria-hidden="true">
+  <div class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <a class="contact-close-link" href="#contact" aria-label="Close contact options">×</a>
+    <div class="contact-kicker">CONTACT SUPPORT</div>
+    <h3 id="contactTitle">How would you like to connect?</h3>
+    <p>Choose WhatsApp, email or call. The selected action opens directly on your device.</p>
+    <div class="contact-options">
+      <a class="contact-option" href="https://wa.me/919112573020" target="_blank" rel="noopener">
+        <span class="contact-icon">WA</span>
+        <span><b>WhatsApp</b><small>+91 91125 73020</small></span>
+        <span class="contact-arrow">↗</span>
+      </a>
+      <a class="contact-option" href="mailto:itsshailesh0414@gmail.com">
+        <span class="contact-icon">@</span>
+        <span><b>Email</b><small>itsshailesh0414@gmail.com</small></span>
+        <span class="contact-arrow">↗</span>
+      </a>
+      <a class="contact-option" href="tel:+919267967187">
+        <span class="contact-icon">☎</span>
+        <span><b>Call</b><small>+91 92679 67187</small></span>
+        <span class="contact-arrow">↗</span>
+      </a>
+    </div>
+  </div>
 </div>
 
 
-<!-- =========================================================
-     MAIN
-========================================================= -->
-
-<main id="top">
-
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<section class="hero">
-
-    <div class="hero-top">
-
-        <div class="hero-location">
-
-            DEVELOPMENT<br>
-            DIGITAL MARKETING<br>
-            INDIA
-
-        </div>
-
-
-        <div class="hero-year">
-
-            EST. 2026<br>
-            AK × ST
-
-        </div>
-
-    </div>
-
-
-    <div class="hero-title reveal">
-
-        <h1>
-
-            WE BUILD<br>
-
-            <em>DIGITAL</em><br>
-
-            MOMENTUM.
-
-        </h1>
-
-    </div>
-
-
-    <div class="hero-bottom">
-
-        <div class="hero-description">
-
-            AK × ST Advertising is a digital development
-            and marketing company focused on building
-            strong digital experiences and measurable
-            growth for ambitious brands.
-
-        </div>
-
-
-        <div class="scroll-note">
-
-            ↓ SCROLL TO EXPLORE
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     INTRO
-========================================================= -->
-
-<section class="intro reveal">
-
-    <div class="intro-grid">
-
-        <div class="section-label">
-
-            01 — WHO WE ARE
-
-        </div>
-
-
-        <div class="intro-text">
-
-            We combine
-            <span>
-                creativity, technology
-                and marketing
-            </span>
-            to help brands build
-            a stronger digital presence.
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     WORK
-========================================================= -->
-
-<section class="work" id="work">
-
-
-    <div class="work-header reveal">
-
-        <h2 class="work-heading">
-
-            WORK
-
-        </h2>
-
-
-        <div class="work-count">
-
-            SELECTED PROJECTS<br>
-            2025 — 2026
-
-        </div>
-
-    </div>
-
-
-    <!-- PROJECT 01 -->
-
-    <article class="project reveal">
-
-        <div class="project-info">
-
-            <div class="project-number">
-
-                01 / WEB DEVELOPMENT
-
-            </div>
-
-
-            <h3 class="project-title">
-
-                Digital<br>
-                Experiences
-
-            </h3>
-
-
-            <div class="project-details">
-
-                Website design & development<br>
-                UI / UX<br>
-                Responsive development<br>
-                Performance optimisation
-
-            </div>
-
-        </div>
-
-
-        <div class="project-image">
-
-            <img
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80"
-                alt="Web development project">
-
-            <div class="project-tag">
-
-                WEB DEVELOPMENT
-
-            </div>
-
-        </div>
-
-    </article>
-
-
-    <!-- PROJECT 02 -->
-
-    <article class="project reveal">
-
-        <div class="project-info">
-
-            <div class="project-number">
-
-                02 / DIGITAL MARKETING
-
-            </div>
-
-
-            <h3 class="project-title">
-
-                Growth<br>
-                Systems
-
-            </h3>
-
-
-            <div class="project-details">
-
-                SEO strategy<br>
-                Google Ads<br>
-                Meta Ads<br>
-                Analytics & optimisation
-
-            </div>
-
-        </div>
-
-
-        <div class="project-image">
-
-            <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80"
-                alt="Digital marketing analytics">
-
-            <div class="project-tag">
-
-                DIGITAL MARKETING
-
-            </div>
-
-        </div>
-
-    </article>
-
-
-    <!-- PROJECT 03 -->
-
-    <article class="project reveal">
-
-        <div class="project-info">
-
-            <div class="project-number">
-
-                03 / BRAND GROWTH
-
-            </div>
-
-
-            <h3 class="project-title">
-
-                Brands<br>
-                That Move
-
-            </h3>
-
-
-            <div class="project-details">
-
-                Social media<br>
-                Content strategy<br>
-                Paid campaigns<br>
-                Brand visibility
-
-            </div>
-
-        </div>
-
-
-        <div class="project-image">
-
-            <img
-                src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1600&q=80"
-                alt="Branding project">
-
-            <div class="project-tag">
-
-                BRAND GROWTH
-
-            </div>
-
-        </div>
-
-    </article>
-
-</section>
-
-
-<!-- =========================================================
-     MARQUEE
-========================================================= -->
-
-<div class="marquee">
-
-    <div class="marquee-track">
-
-        <span>STRATEGY</span>
-        <span>CREATIVE</span>
-        <span>DEVELOPMENT</span>
-        <span>MARKETING</span>
-
-        <span>STRATEGY</span>
-        <span>CREATIVE</span>
-        <span>DEVELOPMENT</span>
-        <span>MARKETING</span>
-
-    </div>
-
-</div>
-
-
-<!-- =========================================================
-     SERVICES
-========================================================= -->
-
-<section class="services" id="services">
-
-
-    <div class="services-top reveal">
-
-        <h2 class="services-title">
-
-            WHAT<br>
-            WE DO
-
-        </h2>
-
-
-        <div class="services-intro">
-
-            From digital experiences to
-            performance marketing, we work
-            across the complete digital journey.
-
-        </div>
-
-    </div>
-
-
-    <div class="service-list">
-
-
-        <div class="service reveal">
-
-            <div class="service-no">
-                01
-            </div>
-
-            <div class="service-name">
-                Web Development
-            </div>
-
-            <div class="service-arrow">
-                ↗
-            </div>
-
-        </div>
-
-
-        <div class="service reveal">
-
-            <div class="service-no">
-                02
-            </div>
-
-            <div class="service-name">
-                Digital Marketing
-            </div>
-
-            <div class="service-arrow">
-                ↗
-            </div>
-
-        </div>
-
-
-        <div class="service reveal">
-
-            <div class="service-no">
-                03
-            </div>
-
-            <div class="service-name">
-                SEO & Search
-            </div>
-
-            <div class="service-arrow">
-                ↗
-            </div>
-
-        </div>
-
-
-        <div class="service reveal">
-
-            <div class="service-no">
-                04
-            </div>
-
-            <div class="service-name">
-                Google & Meta Ads
-            </div>
-
-            <div class="service-arrow">
-                ↗
-            </div>
-
-        </div>
-
-
-        <div class="service reveal">
-
-            <div class="service-no">
-                05
-            </div>
-
-            <div class="service-name">
-                Social Media
-            </div>
-
-            <div class="service-arrow">
-                ↗
-            </div>
-
-        </div>
-
-
-        <div class="service reveal">
-
-            <div class="service-no">
-                06
-            </div>
-
-            <div class="service-name">
-                Brand Growth
-            </div>
-
-            <div class="service-arrow">
-                ↗
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     ABOUT
-========================================================= -->
-
-<section class="about" id="about">
-
-
-    <div class="about-grid reveal">
-
-
-        <div class="section-label">
-
-            02 — ABOUT AK × ST
-
-        </div>
-
-
-        <div>
-
-
-            <div class="about-text">
-
-                Small team.<br>
-
-                Big
-                <strong>
-                    digital
-                </strong>
-                ambition.
-
-            </div>
-
-
-            <br><br>
-
-
-            <div class="about-copy">
-
-                AK × ST Advertising brings together
-                development and digital marketing to
-                help businesses build stronger digital
-                identities.
-
-                <br><br>
-
-                From websites and SEO to paid media,
-                social media and digital strategy, we
-                focus on clean execution and measurable
-                business outcomes.
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     CONTACT
-========================================================= -->
-
-<section class="contact" id="contact">
-
-
-    <div class="contact-label">
-
-        03 — START A PROJECT
-
-    </div>
-
-
-    <div class="contact-heading">
-
-        <span>
-            LET'S
-        </span>
-
-        <span>
-            TALK.
-        </span>
-
-    </div>
-
-
-    <div class="contact-bottom">
-
-
-        <a
-            href="mailto:hello@akxstadvertising.com"
-            class="contact-link">
-
-            hello@akxstadvertising.com ↗
-
-        </a>
-
-
-        <div class="contact-email">
-
-            DEVELOPMENT<br>
-            DIGITAL MARKETING<br>
-            INDIA
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-</main>
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer>
-
-    <div class="footer-logo">
-
-        AK × ST Advertising
-
-    </div>
-
-
-    <div class="footer-copy">
-
-        © 2026 AK × ST Advertising.
-        All rights reserved.
-
-    </div>
-
-</footer>
-
-
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
-
+<!-- HIDDEN INDIVIDUAL PORTFOLIOS -->
+<section class="portfolio-page" id="portfolio-shailesh" aria-hidden="true">
+<a class="btn portfolio-back" href="#team">← Back to Team</a><div class="portfolio-shell">
+<div class="portfolio-hero"><div><div class="eyebrow">INDIVIDUAL PORTFOLIO · DIGITAL MARKETING</div><h1 class="name-lockup" aria-label="Shailesh Tiwari"><span class="word"><span class="initial">S</span><span class="rest">HAILESH</span></span><span class="word surname"><span class="initial">T</span><span class="rest">IWARI</span></span></h1><p>Results-driven digital marketing professional focused on SEO, paid acquisition, social media, website optimization and lead conversion — combining campaign execution with client-facing delivery.</p><div class="actions"><a class="btn primary work-cta" href="#contact-popup">Work With Shailesh ↗</a><a class="btn" href="mailto:itsshailesh0414@gmail.com">Email</a></div></div></div>
+<div class="metric-strip"><div><b>Google + Meta</b><small>Paid campaign execution & optimization</small></div><div><b>SEO</b><small>Keyword research, on-page & link building</small></div><div><b>WordPress</b><small>Website pages, optimization & maintenance</small></div></div>
+<div class="portfolio-grid">
+<div class="portfolio-panel"><div class="eyebrow">CURRENT ROLE</div><h2>Anup Gupta Studio</h2><p><b>Digital Marketing & Growth</b></p><ul><li>Managing digital marketing and growth initiatives for the brand.</li><li>Website optimization, product presentation and ongoing digital improvements.</li><li>Social media, performance marketing and online brand visibility.</li><li>Supporting lead generation, campaign execution and digital growth strategy.</li></ul></div>
+<div class="portfolio-panel"><div class="eyebrow">PREVIOUS EXPERIENCE</div><h2>Fortune BTL Advertising Pvt. Ltd.</h2><p><b>Former Digital Marketing Executive</b></p><ul><li>Managed and optimized website content, performance, user experience and search visibility.</li><li>Created and updated WordPress website pages and supported web development work.</li><li>Planned and published social media content and supported digital campaigns and lead generation.</li><li>Worked on on-page SEO, keyword optimization, analytics and coordination with design/content teams.</li></ul></div>
+<div class="portfolio-panel"><div class="eyebrow">EXPERIENCE</div><h2>Hyper Cloud Digital Marketing</h2><p><b>Paid Marketing & SEO Specialist · Mar 2025 — Feb 2026</b></p><ul><li>Managed Google Ads, Meta Ads and LinkedIn paid campaigns.</li><li>Executed keyword research, on-page SEO and link building.</li><li>Used Google Analytics and SEO tools to improve campaign ROI.</li><li>Handled client requirements, reporting, social media and creative coordination.</li></ul></div>
+<div class="portfolio-panel"><div class="eyebrow">CORE STACK</div><h2>Growth toolkit.</h2><div class="skill-cloud"><span>Google Ads</span><span>Meta Ads</span><span>LinkedIn Ads</span><span>SEO</span><span>Google Analytics</span><span>WordPress</span><span>Social Media</span><span>Lead Generation</span><span>Client Handling</span><span>Website Optimization</span></div></div>
+<div class="portfolio-panel"><div class="eyebrow">EDUCATION</div><h2>Computer Science + AI/ML.</h2><h3>Buddha Institute of Technology</h3><p>B.Tech in Computer Science, specialization in Artificial Intelligence & Machine Learning · 2022–2026.</p><h3>Working style</h3><p>Communication, teamwork, client relationship management, leadership, time management and target-focused execution.</p></div>
+</div></div></section>
+<section class="portfolio-page" id="portfolio-aman" aria-hidden="true">
+<a class="btn portfolio-back" href="#team">← Back to Team</a><div class="portfolio-shell">
+<div class="portfolio-hero"><div><div class="eyebrow">INDIVIDUAL PORTFOLIO · MARKETING & BRAND COMMUNICATION</div><h1 class="name-lockup" aria-label="Aman Kohli"><span class="word"><span class="initial">A</span><span class="rest">MAN</span></span><span class="word surname"><span class="initial">K</span><span class="rest">OHLI</span></span></h1><p>Marketing and client-relations professional with 4+ years of experience spanning social media operations, BTL/OOH brand activation, customer engagement, market research, reporting and cross-functional campaign coordination.</p><div class="actions"><a class="btn primary work-cta" href="#contact-popup">Work With Aman ↗</a><a class="btn" href="mailto:amankohli300@gmail.com">Email</a></div></div></div>
+<div class="metric-strip"><div><b>4+ Years</b><small>Marketing, social media, customer support & business development</small></div><div><b>BTL + OOH</b><small>Brand activation & campaign coordination</small></div><div><b>German B2.2</b><small>Multilingual client communication</small></div></div>
+<div class="portfolio-grid">
+<div class="portfolio-panel"><div class="eyebrow">CURRENT ROLE</div><h2>Fortune BTL Advertising Pvt. Ltd.</h2><p><b>Assistant Marketing Manager · May 2026 — Present</b></p><ul><li>Supports planning and execution of BTL, OOH and brand activation campaigns.</li><li>Coordinates creative, production and operations teams for campaign delivery.</li><li>Conducts market research and competitor analysis and prepares client presentations, proposals and performance reports.</li><li>Manages client communication, campaign updates, timelines and performance insights.</li></ul></div>
+<div class="portfolio-panel"><div class="eyebrow">SOCIAL MEDIA</div><h2>New Sethi Garments</h2><p><b>Social Media Manager · Apr 2025 — Mar 2026</b></p><ul><li>Managed day-to-day Instagram, Facebook and LinkedIn activity.</li><li>Handled DMs, comments, customer queries and brand communication.</li><li>Created, scheduled and coordinated content while monitoring analytics, engagement and reach.</li><li>Supported lead generation and coordinated campaigns with sales, operations and marketing teams.</li></ul></div>
+<div class="portfolio-panel"><div class="eyebrow">CLIENT EXPERIENCE</div><h2>Vihaan Global Services + SMC International</h2><p><b>Customer Support & Business Development</b></p><ul><li>Supported international clients through calls and emails and maintained CRM/customer records.</li><li>Trained new employees on CRM tools and used English and basic German in customer interactions.</li><li>Handled pre- and post-sales communication for technology products and maintained sales databases.</li></ul></div>
+<div class="portfolio-panel"><div class="eyebrow">CORE STACK</div><h2>Marketing toolkit.</h2><div class="skill-cloud"><span>Social Media</span><span>Digital Marketing</span><span>BTL / OOH</span><span>Brand Activation</span><span>Market Research</span><span>Competitor Analysis</span><span>CRM</span><span>Client Relations</span><span>Campaign Reporting</span><span>Presentations</span></div></div>
+<div class="portfolio-panel"><div class="eyebrow">EDUCATION & LANGUAGES</div><h2>Tourism + Digital Marketing.</h2><h3>IGNOU University</h3><p>Bachelor in Tourism · 2019–2020.</p><h3>Simplilearn</h3><p>Digital Marketing Specialist · Pursuing.</p><h3>Languages</h3><p>German — B2.2 (Max Mueller Bhavan certified) · English — Fluent · Hindi — Native · Spanish — Beginner.</p></div>
+</div></div></section>
+<footer><div class="wrap ak-footer-inner"><div>© <span id="year"></span> Shailesh Tiwari × Aman Kohli. Digital Growth Partners.</div><div class="ak-socials" aria-label="Social links"><a class="ak-social" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 3.2A2.2 2.2 0 1 1 5.2 7.6 2.2 2.2 0 0 1 5.2 3.2ZM3.4 9h3.6v11.6H3.4V9Zm5.8 0h3.45v1.58h.05c.48-.91 1.65-1.87 3.4-1.87 3.63 0 4.3 2.39 4.3 5.49v6.4h-3.6v-5.67c0-1.35-.03-3.08-1.88-3.08-1.88 0-2.17 1.47-2.17 2.98v5.77H9.2V9Z"/></svg></a><a class="ak-social" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 2.7h9.6A4.5 4.5 0 0 1 21.3 7.2v9.6a4.5 4.5 0 0 1-4.5 4.5H7.2a4.5 4.5 0 0 1-4.5-4.5V7.2a4.5 4.5 0 0 1 4.5-4.5Zm0 1.9A2.6 2.6 0 0 0 4.6 7.2v9.6a2.6 2.6 0 0 0 2.6 2.6h9.6a2.6 2.6 0 0 0 2.6-2.6V7.2a2.6 2.6 0 0 0-2.6-2.6H7.2Zm4.8 2.9a4.6 4.6 0 1 1 0 9.2 4.6 4.6 0 0 1 0-9.2Zm0 1.9a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4Zm4.9-2.8a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z"/></svg></a></div></div></footer>
 <script>
-
-/* =========================================================
-   LOADER
-========================================================= */
-
 (function(){
+  var y=document.getElementById('year'); if(y)y.textContent=new Date().getFullYear();
+  document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('show');});
+  var bar=document.getElementById('depthBar');
+  function upd(){if(!bar)return;var m=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);bar.style.height=((window.scrollY/m)*100)+'%';}
+  window.addEventListener('scroll',upd,{passive:true}); upd();
 
-    const loader =
-        document.getElementById("ak-loader");
+  var navLinks=[].slice.call(document.querySelectorAll('.links a[href^="#"]'));
+  var sections=navLinks.map(function(a){return document.querySelector(a.getAttribute('href'));}).filter(Boolean);
+  function setActiveNav(){var marker=window.scrollY+Math.max(110,window.innerHeight*.28),active=null;sections.forEach(function(sec){if(sec.offsetTop<=marker)active=sec.id;});navLinks.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+active);});}
+  window.addEventListener('scroll',setActiveNav,{passive:true}); setActiveNav();
 
-    const percent =
-        document.getElementById("loaderPercent");
+  var assistant=document.getElementById('portfolioAssistant'),backdrop=document.getElementById('paBackdrop'),launch=document.getElementById('paLaunch'),close=document.getElementById('paClose'),msg=document.getElementById('paMessage'),status=document.getElementById('paStatus'),input=document.getElementById('paInput'),send=document.getElementById('paSend'),mic=document.getElementById('paMic');
+  var waitingForPortfolioName=false;
+  function openAssistant(){assistant.classList.add('open');backdrop.classList.add('open');backdrop.setAttribute('aria-hidden','false');setTimeout(function(){if(input)input.focus();},120)}
+  function closeAssistant(){assistant.classList.remove('open');backdrop.classList.remove('open');backdrop.setAttribute('aria-hidden','true')}
+  if(launch)launch.addEventListener('click',openAssistant); if(close)close.addEventListener('click',closeAssistant); if(backdrop)backdrop.addEventListener('click',closeAssistant);
+  function say(text){if(msg)msg.textContent=text;if('speechSynthesis' in window){try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(text);u.rate=.97;u.volume=.85;speechSynthesis.speak(u)}catch(e){}}}
+  function go(id,label){var el=document.getElementById(id);if(!el)return false;location.hash='#'+id;if(id.indexOf('portfolio-')!==0)setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'start'})},20);say('Opening '+label+'.');waitingForPortfolioName=false;return true}
+  var routes={
+    '01':['services','Capabilities'],'1':['services','Capabilities'],'services':['services','Capabilities'],'service':['services','Capabilities'],'capabilities':['services','Capabilities'],'capability':['services','Capabilities'],'what we do':['services','Capabilities'],
+    '02':['stats','Stats'],'2':['stats','Stats'],'stats':['stats','Stats'],'statistics':['stats','Stats'],'performance at a glance':['stats','Stats'],
+    '03':['work','Selected Work'],'3':['work','Selected Work'],'work':['work','Selected Work'],'our work':['work','Selected Work'],'selected work':['work','Selected Work'],'projects':['work','Selected Work'],
+    '04':['websites','Web Development'],'4':['websites','Web Development'],'websites':['websites','Web Development'],'website':['websites','Web Development'],'web development':['websites','Web Development'],
+    '05':['team','Team'],'5':['team','Team'],'team':['team','Team'],'our team':['team','Team'],'strategy meets execution':['team','Team']
+  };
+  function normalize(v){return (v||'').toLowerCase().trim().replace(/[?.!,]/g,'').replace(/\s+/g,' ')}
+  function handle(raw){var q=normalize(raw);if(!q)return;
+    if(q==='portfolio'||q==='portfolios'||q==='individual portfolio'||q==='show portfolio'||q==='open portfolio'){waitingForPortfolioName=true;say('Whose portfolio would you like to see — Shailesh or Aman?');return}
+    if(q.indexOf('shailesh')>-1){go('portfolio-shailesh','Shailesh Tiwari portfolio');return}
+    if(q.indexOf('aman')>-1){go('portfolio-aman','Aman Kohli portfolio');return}
+    if(waitingForPortfolioName){say('Please say Shailesh or Aman.');return}
+    if(routes[q]){go(routes[q][0],routes[q][1]);return}
+    var keys=Object.keys(routes);for(var i=0;i<keys.length;i++){if(q.indexOf(keys[i])>-1 && keys[i].length>2){go(routes[keys[i]][0],routes[keys[i]][1]);return}}
+    say('I can open 01 Capabilities, 02 Stats, 03 Selected Work, 04 Web Development, 05 Team, or an individual portfolio.');
+  }
+  document.querySelectorAll('.pa-action').forEach(function(b){b.addEventListener('click',function(){handle(b.getAttribute('data-command'))})});
+  if(send)send.addEventListener('click',function(){handle(input.value);input.value=''}); if(input)input.addEventListener('keydown',function(e){if(e.key==='Enter'){handle(input.value);input.value=''}});
+  var SR=window.SpeechRecognition||window.webkitSpeechRecognition,rec=null;
+  if(SR&&mic){rec=new SR();rec.lang='en-IN';rec.interimResults=false;rec.maxAlternatives=1;rec.onstart=function(){status.textContent='Listening…';mic.classList.add('listening')};rec.onend=function(){status.textContent='Ready to explore';mic.classList.remove('listening')};rec.onerror=function(){status.textContent='Voice unavailable — type instead'};rec.onresult=function(e){var t=e.results[0][0].transcript;input.value=t;handle(t)};mic.addEventListener('click',function(){try{rec.start()}catch(e){}})} else if(mic){mic.addEventListener('click',function(){say('Voice control is not available in this browser. Please type your command.')})}
 
-    const progress =
-        document.getElementById("loaderProgress");
-
-    let value = 0;
-
-
-    const loading = setInterval(function(){
-
-        if(value < 90){
-
-            value += Math.random() * 2.8;
-
-            if(value > 90){
-                value = 90;
-            }
-
-            percent.textContent =
-                Math.floor(value);
-
-            progress.style.width =
-                value + "%";
-
-        }
-
-    },70);
-
-
-    window.addEventListener("load",function(){
-
-        clearInterval(loading);
-
-        let finalValue = value;
-
-
-        const finish =
-            setInterval(function(){
-
-                finalValue += 2.5;
-
-
-                if(finalValue >= 100){
-
-                    finalValue = 100;
-
-                    clearInterval(finish);
-
-
-                    percent.textContent =
-                        "100";
-
-                    progress.style.width =
-                        "100%";
-
-
-                    setTimeout(function(){
-
-                        loader.classList.add(
-                            "finished"
-                        );
-
-                        document.body.classList.remove(
-                            "loading"
-                        );
-
-                    },550);
-
-
-                }else{
-
-                    percent.textContent =
-                        Math.floor(finalValue);
-
-                    progress.style.width =
-                        finalValue + "%";
-
-                }
-
-            },25);
-
-    });
-
+  var team=document.getElementById('team'),teamTimer=null,spoken=false;
+  function teamCue(){if(spoken)return;spoken=true;say('Click on the name to check the portfolio.');}
+  if(team&&'IntersectionObserver'in window){new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting&&e.intersectionRatio>=.35){clearTimeout(teamTimer);teamTimer=setTimeout(teamCue,300)}else clearTimeout(teamTimer)})},{threshold:[.35]}).observe(team)}
+  window.addEventListener('hashchange',function(){setActiveNav()});
 })();
-
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-const menuButton =
-    document.getElementById("menuButton");
-
-const mobileMenu =
-    document.getElementById("mobileMenu");
-
-
-menuButton.addEventListener(
-    "click",
-    function(){
-
-        mobileMenu.classList.toggle(
-            "active"
-        );
-
-    }
-);
-
-
-document.querySelectorAll(
-    ".mobile-menu a"
-).forEach(function(link){
-
-    link.addEventListener(
-        "click",
-        function(){
-
-            mobileMenu.classList.remove(
-                "active"
-            );
-
-        }
-    );
-
-});
-
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-const revealElements =
-    document.querySelectorAll(".reveal");
-
-
-const revealObserver =
-    new IntersectionObserver(
-
-        function(entries){
-
-            entries.forEach(function(entry){
-
-                if(entry.isIntersecting){
-
-                    entry.target.classList.add(
-                        "visible"
-                    );
-
-                    revealObserver.unobserve(
-                        entry.target
-                    );
-
-                }
-
-            });
-
-        },
-
-        {
-            threshold:.12
-        }
-
-    );
-
-
-revealElements.forEach(function(element){
-
-    revealObserver.observe(element);
-
-});
-
-
 </script>
 
+<style id="ticker-visible-hard-fix">
+.seamless-marquee{
+  display:block !important;
+  position:relative !important;
+  width:100% !important;
+  min-height:64px !important;
+  overflow:hidden !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+.seamless-marquee .marquee-track{
+  display:block !important;
+  position:relative !important;
+  width:100% !important;
+  min-height:64px !important;
+  animation:none !important;
+  transform:none !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+.seamless-marquee .marquee-copy{
+  display:none !important;
+}
+.seamless-marquee .marquee-copy:first-child{
+  display:inline-block !important;
+  position:absolute !important;
+  top:50% !important;
+  left:0 !important;
+  width:max-content !important;
+  white-space:nowrap !important;
+  transform:translate(0,-50%) !important;
+  animation:none !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  color:#d8dee9 !important;
+  z-index:5 !important;
+  padding:0 18px !important;
+}
+</style>
+
+
+
+
+<style id="final-logo-and-ticker-patch">
+/* HERO LOGO: shifted left; continuously blends out and returns */
+.hero-brand-visual{
+  right:8% !important;
+}
+.hero-brand-mark{
+  animation: heroLogoBlendCycle 6s ease-in-out infinite !important;
+}
+.hero-brand-glow{
+  animation: heroGlowBlendCycle 6s ease-in-out infinite !important;
+}
+@keyframes heroLogoBlendCycle{
+  0%{
+    opacity:0;
+    filter:blur(16px);
+    transform:translateX(70px) translateY(8px) rotateY(-12deg) scale(.88);
+  }
+  22%{
+    opacity:1;
+    filter:blur(0);
+    transform:translateX(0) translateY(0) rotateY(-4deg) scale(1);
+  }
+  68%{
+    opacity:1;
+    filter:blur(0);
+    transform:translateX(-14px) translateY(-8px) rotateY(4deg) scale(1.025);
+  }
+  100%{
+    opacity:0;
+    filter:blur(18px);
+    transform:translateX(-85px) translateY(4px) rotateY(10deg) scale(.9);
+  }
+}
+@keyframes heroGlowBlendCycle{
+  0%,100%{opacity:.05;transform:scale(.72)}
+  30%,70%{opacity:1;transform:scale(1.12)}
+}
+
+/* TICKER: one continuous line, always moving and reversing at both edges */
+.seamless-marquee{
+  display:block !important;
+  position:relative !important;
+  width:100% !important;
+  height:68px !important;
+  min-height:68px !important;
+  overflow:hidden !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+.seamless-marquee .marquee-track{
+  display:block !important;
+  position:relative !important;
+  width:100% !important;
+  height:100% !important;
+  min-height:68px !important;
+  animation:none !important;
+  transform:none !important;
+}
+.seamless-marquee .marquee-copy{
+  display:none !important;
+}
+.seamless-marquee .marquee-copy:first-child{
+  display:block !important;
+  position:absolute !important;
+  top:50% !important;
+  left:0 !important;
+  width:max-content !important;
+  white-space:nowrap !important;
+  padding:0 20px !important;
+  margin:0 !important;
+  color:#dbe1e9 !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  animation:none !important;
+  transform:translate3d(0,-50%,0) !important;
+  will-change:transform;
+  z-index:10 !important;
+}
+</style>
+
+<script id="final-moving-ticker">
+(function(){
+  let tickerRAF = 0;
+  function startTicker(){
+    const viewport = document.querySelector('.seamless-marquee');
+    const line = viewport && viewport.querySelector('.marquee-copy:first-child');
+    if(!viewport || !line) return;
+
+    if(tickerRAF) cancelAnimationFrame(tickerRAF);
+
+    let x = 0;
+    let direction = -1;
+    let previous = performance.now();
+    const speed = 72; // pixels per second
+
+    function animate(now){
+      const dt = Math.min((now - previous) / 1000, 0.05);
+      previous = now;
+      const travel = Math.max(0, line.scrollWidth - viewport.clientWidth);
+
+      if(travel > 0){
+        x += direction * speed * dt;
+        if(x <= -travel){
+          x = -travel;
+          direction = 1;
+        } else if(x >= 0){
+          x = 0;
+          direction = -1;
+        }
+      } else {
+        x = 0;
+      }
+
+      line.style.setProperty(
+        'transform',
+        'translate3d(' + x.toFixed(2) + 'px,-50%,0)',
+        'important'
+      );
+      tickerRAF = requestAnimationFrame(animate);
+    }
+    tickerRAF = requestAnimationFrame(animate);
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', startTicker, {once:true});
+  } else {
+    startTicker();
+  }
+  window.addEventListener('load', startTicker);
+  window.addEventListener('resize', startTicker);
+})();
+</script>
+
+
+<style id="hero-logo-left-right-blend-final">
+/* ST × AK continuously travels BOTH directions:
+   center/visible -> left/blend -> center/visible -> right/blend -> repeat */
+.hero-brand-visual{
+  right:8% !important;
+  overflow:visible !important;
+}
+.hero-brand-mark{
+  animation: heroLogoBothSides 9s ease-in-out infinite !important;
+  will-change:transform,opacity,filter;
+}
+.hero-brand-glow{
+  animation: heroGlowBothSides 9s ease-in-out infinite !important;
+}
+@keyframes heroLogoBothSides{
+  0%{
+    opacity:1;
+    filter:blur(0);
+    transform:translateX(0) translateY(0) rotateY(0deg) scale(1);
+  }
+  22%{
+    opacity:.06;
+    filter:blur(18px);
+    transform:translateX(-150px) translateY(2px) rotateY(12deg) scale(.90);
+  }
+  45%{
+    opacity:1;
+    filter:blur(0);
+    transform:translateX(0) translateY(-8px) rotateY(0deg) scale(1.025);
+  }
+  68%{
+    opacity:.06;
+    filter:blur(18px);
+    transform:translateX(150px) translateY(2px) rotateY(-12deg) scale(.90);
+  }
+  90%,100%{
+    opacity:1;
+    filter:blur(0);
+    transform:translateX(0) translateY(0) rotateY(0deg) scale(1);
+  }
+}
+@keyframes heroGlowBothSides{
+  0%,45%,90%,100%{opacity:1;transform:scale(1.08)}
+  22%,68%{opacity:.08;transform:scale(.78)}
+}
+</style>
+
+
+<style id="hero-logo-right-start-larger">
+/* Bigger logo, positioned on the RIGHT first, then continuous left/right blend animation */
+.hero-brand-visual{
+  right:2.5% !important;
+  width:46% !important;
+}
+.hero-brand-mark{
+  font-size:clamp(68px,7.2vw,132px) !important;
+  animation:heroLogoRightFirst 10s ease-in-out infinite !important;
+}
+.hero-brand-glow{
+  width:64% !important;
+  animation:heroGlowRightFirst 10s ease-in-out infinite !important;
+}
+@keyframes heroLogoRightFirst{
+  /* Start on the right and clearly visible */
+  0%,10%{
+    opacity:1;
+    filter:blur(0);
+    transform:translateX(105px) translateY(0) rotateY(-3deg) scale(1);
+  }
+  /* Travel toward center */
+  28%{
+    opacity:1;
+    filter:blur(0);
+    transform:translateX(0) translateY(-8px) rotateY(0deg) scale(1.025);
+  }
+  /* Blend out on left */
+  48%{
+    opacity:.06;
+    filter:blur(18px);
+    transform:translateX(-155px) translateY(2px) rotateY(12deg) scale(.91);
+  }
+  /* Return through center */
+  68%{
+    opacity:1;
+    filter:blur(0);
+    transform:translateX(0) translateY(-8px) rotateY(0deg) scale(1.025);
+  }
+  /* Blend toward right */
+  88%{
+    opacity:.12;
+    filter:blur(15px);
+    transform:translateX(155px) translateY(2px) rotateY(-12deg) scale(.93);
+  }
+  /* Reset visibly on right */
+  100%{
+    opacity:1;
+    filter:blur(0);
+    transform:translateX(105px) translateY(0) rotateY(-3deg) scale(1);
+  }
+}
+@keyframes heroGlowRightFirst{
+  0%,10%,28%,68%,100%{opacity:1;transform:scale(1.12)}
+  48%{opacity:.06;transform:scale(.76)}
+  88%{opacity:.12;transform:scale(.82)}
+}
+</style>
+
+
+<style id="logo-static-then-animate">
+/* Start exactly at the right-side hero position, crisp and still.
+   Hold there first, then begin the left/right blend cycle. */
+.hero-brand-visual{
+  right:2.5% !important;
+  width:46% !important;
+}
+.hero-brand-mark{
+  font-size:clamp(68px,7.2vw,132px) !important;
+  animation:logoStaticThenMove 12s ease-in-out infinite !important;
+}
+.hero-brand-glow{
+  animation:logoGlowStaticThenMove 12s ease-in-out infinite !important;
+}
+@keyframes logoStaticThenMove{
+  /* First ~2.4 sec: no animation, fully visible on the RIGHT */
+  0%,20%{
+    opacity:1;
+    filter:blur(0);
+    transform:translateX(105px) translateY(0) rotateY(0deg) scale(1);
+  }
+  /* Then animation starts from that exact position */
+  36%{
+    opacity:1;
+    filter:blur(0);
+    transform:translateX(0) translateY(-7px) rotateY(0deg) scale(1.02);
+  }
+  52%{
+    opacity:.07;
+    filter:blur(18px);
+    transform:translateX(-155px) translateY(0) rotateY(12deg) scale(.91);
+  }
+  68%{
+    opacity:1;
+    filter:blur(0);
+    transform:translateX(0) translateY(-7px) rotateY(0deg) scale(1.02);
+  }
+  84%{
+    opacity:.10;
+    filter:blur(17px);
+    transform:translateX(155px) translateY(0) rotateY(-12deg) scale(.92);
+  }
+  100%{
+    opacity:1;
+    filter:blur(0);
+    transform:translateX(105px) translateY(0) rotateY(0deg) scale(1);
+  }
+}
+@keyframes logoGlowStaticThenMove{
+  0%,20%,36%,68%,100%{opacity:1;transform:scale(1.12)}
+  52%{opacity:.07;transform:scale(.76)}
+  84%{opacity:.10;transform:scale(.80)}
+}
+</style>
+
+
+<style id="static-hero-logo-final">
+.hero-brand-mark,
+.hero-brand-glow,
+.hero-brand-orbit,
+.hero-brand-visual::after {
+  animation: none !important;
+}
+.hero-brand-mark {
+  opacity: 1 !important;
+  filter: none !important;
+  transform: translateX(105px) translateY(0) rotateY(0deg) scale(1) !important;
+}
+.hero-brand-glow {
+  opacity: .75 !important;
+  transform: scale(1.05) !important;
+}
+</style>
+
+
+<style id="hero-logo-more-right">
+.hero-brand-visual {
+  right: -2.5% !important;
+}
+.hero-brand-mark {
+  transform: translateX(135px) translateY(0) rotateY(0deg) scale(1) !important;
+}
+</style>
+
+
+<style id="restore-same-logo-animation">
+/* Keep the new farther-right position, restore the same animation cycle */
+.hero-brand-visual{
+  right:-2.5% !important;
+}
+.hero-brand-mark{
+  animation:logoRightAnimatedAgain 12s ease-in-out infinite !important;
+}
+.hero-brand-glow{
+  animation:logoGlowAnimatedAgain 12s ease-in-out infinite !important;
+}
+.hero-brand-orbit{
+  animation:orbitOne 11s linear infinite !important;
+}
+.orbit-two{
+  animation:orbitTwo 8s linear infinite reverse !important;
+}
+.hero-brand-visual::after{
+  animation:scanLine 4s ease-in-out infinite !important;
+}
+@keyframes logoRightAnimatedAgain{
+  0%,20%{
+    opacity:1;
+    filter:blur(0);
+    transform:translateX(135px) translateY(0) rotateY(0deg) scale(1);
+  }
+  36%{
+    opacity:1;
+    filter:blur(0);
+    transform:translateX(20px) translateY(-7px) rotateY(0deg) scale(1.02);
+  }
+  52%{
+    opacity:.07;
+    filter:blur(18px);
+    transform:translateX(-145px) translateY(0) rotateY(12deg) scale(.91);
+  }
+  68%{
+    opacity:1;
+    filter:blur(0);
+    transform:translateX(20px) translateY(-7px) rotateY(0deg) scale(1.02);
+  }
+  84%{
+    opacity:.10;
+    filter:blur(17px);
+    transform:translateX(175px) translateY(0) rotateY(-12deg) scale(.92);
+  }
+  100%{
+    opacity:1;
+    filter:blur(0);
+    transform:translateX(135px) translateY(0) rotateY(0deg) scale(1);
+  }
+}
+@keyframes logoGlowAnimatedAgain{
+  0%,20%,36%,68%,100%{opacity:1;transform:scale(1.12)}
+  52%{opacity:.07;transform:scale(.76)}
+  84%{opacity:.10;transform:scale(.80)}
+}
+</style>
+
+
+<style id="logo-1-5sec-hold-then-animate">
+/* 10s total cycle: first 1.5s (15%) perfectly still at the exact right position */
+.hero-brand-visual{
+  right:-2.5% !important;
+}
+.hero-brand-mark{
+  animation:logoHold15ThenAnimate 10s ease-in-out infinite !important;
+}
+.hero-brand-glow{
+  animation:logoGlowHold15ThenAnimate 10s ease-in-out infinite !important;
+}
+@keyframes logoHold15ThenAnimate{
+  0%,15%{
+    opacity:1;
+    filter:blur(0);
+    transform:translateX(135px) translateY(0) rotateY(0deg) scale(1);
+  }
+  32%{
+    opacity:1;
+    filter:blur(0);
+    transform:translateX(20px) translateY(-7px) rotateY(0deg) scale(1.02);
+  }
+  49%{
+    opacity:.07;
+    filter:blur(18px);
+    transform:translateX(-145px) translateY(0) rotateY(12deg) scale(.91);
+  }
+  66%{
+    opacity:1;
+    filter:blur(0);
+    transform:translateX(20px) translateY(-7px) rotateY(0deg) scale(1.02);
+  }
+  83%{
+    opacity:.10;
+    filter:blur(17px);
+    transform:translateX(175px) translateY(0) rotateY(-12deg) scale(.92);
+  }
+  100%{
+    opacity:1;
+    filter:blur(0);
+    transform:translateX(135px) translateY(0) rotateY(0deg) scale(1);
+  }
+}
+@keyframes logoGlowHold15ThenAnimate{
+  0%,15%,32%,66%,100%{opacity:1;transform:scale(1.12)}
+  49%{opacity:.07;transform:scale(.76)}
+  83%{opacity:.10;transform:scale(.80)}
+}
+</style>
+
+
+<script>
+/* Falling boxes: trigger when the section enters the viewport. */
+(function(){
+  var stage=document.getElementById('fallingStage');
+  if(!stage) return;
+  var boxes=[].slice.call(stage.querySelectorAll('.ak-fall-box'));
+  function drop(){ boxes.forEach(function(box){ box.classList.add('is-dropped'); }); }
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){ drop(); return; }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ drop(); io.unobserve(entry.target); }
+      });
+    },{threshold:.22});
+    io.observe(stage);
+  }else{ drop(); }
+})();
+</script>
 
 </body>
 </html>
