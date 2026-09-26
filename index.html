@@ -1,25 +1,2263 @@
-<!-- =====================================================
-     AK × ST — PREMIUM INTRO LOADER
-===================================================== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AK × ST Advertising | Development & Marketing</title>
+
+<meta name="description" content="AK × ST Advertising — Development, digital marketing, SEO, paid advertising, web development and creative digital solutions.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:#08070d;
+    color:#eeeaff;
+    font-family:"DM Sans",Arial,sans-serif;
+    overflow-x:hidden;
+}
+
+body.loading{
+    overflow:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font-family:inherit;
+}
+
+img{
+    display:block;
+    width:100%;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root{
+
+    --black:#08070d;
+    --black2:#0e0c14;
+
+    --purple:#d6c5ff;
+    --purple2:#bda3ff;
+    --purple3:#9575dc;
+
+    --white:#f5f1ff;
+
+    --grey:#97919f;
+
+    --line:rgba(214,197,255,.15);
+
+}
+
+
+/* =========================================================
+   INTRO LOADER
+========================================================= */
+
+#ak-loader{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    z-index:999999;
+
+    overflow:hidden;
+
+    background:#08070d;
+
+    color:var(--purple);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    isolation:isolate;
+
+}
+
+
+/* MAIN BACKGROUND GLOW */
+
+#ak-loader::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:650px;
+    height:650px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(195,169,255,.13) 0%,
+            rgba(160,130,230,.06) 35%,
+            transparent 70%
+        );
+
+    filter:blur(15px);
+
+    pointer-events:none;
+
+}
+
+
+/* =========================================================
+   LARGE BACKGROUND CIRCLES
+========================================================= */
+
+.loader-orbit{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    border:1px solid rgba(214,197,255,.13);
+
+    pointer-events:none;
+
+}
+
+
+.orbit-1{
+
+    width:430px;
+    height:430px;
+
+    animation:
+        orbitClockwise
+        18s
+        linear
+        infinite;
+
+}
+
+
+.orbit-2{
+
+    width:560px;
+    height:560px;
+
+    border-color:
+        rgba(214,197,255,.08);
+
+    animation:
+        orbitReverse
+        26s
+        linear
+        infinite;
+
+}
+
+
+.orbit-3{
+
+    width:720px;
+    height:720px;
+
+    border-color:
+        rgba(214,197,255,.045);
+
+    animation:
+        orbitClockwise
+        35s
+        linear
+        infinite;
+
+}
+
+
+/* =========================================================
+   INNER RINGS
+========================================================= */
+
+.loader-ring{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+}
+
+
+.ring-main{
+
+    width:315px;
+    height:315px;
+
+    border:
+        1px solid
+        rgba(216,198,255,.8);
+
+    box-shadow:
+
+        0 0 15px
+        rgba(205,181,255,.15),
+
+        0 0 45px
+        rgba(190,160,255,.07);
+
+    animation:
+        ringClockwise
+        11s
+        linear
+        infinite;
+
+}
+
+
+.ring-second{
+
+    width:355px;
+    height:355px;
+
+    border:
+        1px dashed
+        rgba(214,197,255,.25);
+
+    animation:
+        ringReverse
+        16s
+        linear
+        infinite;
+
+}
+
+
+/* =========================================================
+   CENTER CONTENT
+========================================================= */
+
+.loader-center{
+
+    position:relative;
+
+    z-index:30;
+
+    text-align:center;
+
+    opacity:0;
+
+    transform:
+        translateY(15px)
+        scale(.94);
+
+    animation:
+        centerReveal
+        1.2s
+        cubic-bezier(.2,.8,.2,1)
+        .25s
+        forwards;
+
+}
+
+
+.loader-brand{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:
+        clamp(55px,8vw,115px);
+
+    font-weight:700;
+
+    line-height:.82;
+
+    letter-spacing:-.09em;
+
+    color:#d8c9ff;
+
+    text-shadow:
+
+        0 0 18px
+        rgba(210,190,255,.20),
+
+        0 0 55px
+        rgba(180,150,255,.09);
+
+}
+
+
+.loader-brand span{
+
+    font-weight:300;
+
+    opacity:.7;
+
+    margin:0 5px;
+
+}
+
+
+.loader-subtitle{
+
+    margin-top:25px;
+
+    font-size:10px;
+
+    font-weight:500;
+
+    letter-spacing:.25em;
+
+    text-transform:uppercase;
+
+    color:
+        rgba(216,201,255,.70);
+
+}
+
+
+.loader-subtitle i{
+
+    display:inline-block;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:#d3c0ff;
+
+    margin:
+        0 9px;
+
+    vertical-align:middle;
+
+    box-shadow:
+        0 0 9px
+        rgba(210,190,255,.8);
+
+}
+
+
+/* =========================================================
+   DIAMONDS
+========================================================= */
+
+.loader-diamond{
+
+    position:absolute;
+
+    width:9px;
+    height:9px;
+
+    border:
+        1px solid
+        rgba(214,197,255,.82);
+
+    transform:rotate(45deg);
+
+    box-shadow:
+        0 0 13px
+        rgba(201,179,255,.22);
+
+    z-index:10;
+
+}
+
+
+.diamond-1{
+
+    left:calc(50% - 205px);
+    top:calc(50% - 150px);
+
+    animation:
+        diamondOne
+        4.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+.diamond-2{
+
+    left:calc(50% + 185px);
+    top:calc(50% - 100px);
+
+    animation:
+        diamondTwo
+        5.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+.diamond-3{
+
+    left:calc(50% + 125px);
+    top:calc(50% + 165px);
+
+    animation:
+        diamondOne
+        6s
+        ease-in-out
+        infinite;
+
+}
+
+
+.diamond-4{
+
+    left:calc(50% - 175px);
+    top:calc(50% + 130px);
+
+    animation:
+        diamondTwo
+        5s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================================
+   LOADING BAR
+========================================================= */
+
+.loader-progress{
+
+    position:absolute;
+
+    left:50%;
+    bottom:58px;
+
+    width:170px;
+    height:1px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        rgba(214,197,255,.12);
+
+}
+
+
+.loader-progress-bar{
+
+    width:0%;
+
+    height:100%;
+
+    background:#d5c3ff;
+
+    box-shadow:
+        0 0 12px
+        rgba(210,192,255,.75);
+
+}
+
+
+.loader-percent{
+
+    position:absolute;
+
+    right:30px;
+    bottom:26px;
+
+    font-size:9px;
+
+    letter-spacing:.15em;
+
+    color:
+        rgba(214,197,255,.45);
+
+}
+
+
+/* =========================================================
+   LOADER EXIT
+========================================================= */
+
+#ak-loader.finished{
+
+    pointer-events:none;
+
+    animation:
+        loaderExit
+        1.1s
+        cubic-bezier(.76,0,.24,1)
+        forwards;
+
+}
+
+
+@keyframes loaderExit{
+
+    0%{
+
+        opacity:1;
+
+        transform:
+            scale(1);
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+            scale(1.025);
+
+        visibility:hidden;
+
+    }
+
+}
+
+
+/* =========================================================
+   LOADER ANIMATIONS
+========================================================= */
+
+@keyframes orbitClockwise{
+
+    from{
+
+        transform:
+            translate(-50%,-50%)
+            rotate(0deg);
+
+    }
+
+    to{
+
+        transform:
+            translate(-50%,-50%)
+            rotate(360deg);
+
+    }
+
+}
+
+
+@keyframes orbitReverse{
+
+    from{
+
+        transform:
+            translate(-50%,-50%)
+            rotate(360deg);
+
+    }
+
+    to{
+
+        transform:
+            translate(-50%,-50%)
+            rotate(0deg);
+
+    }
+
+}
+
+
+@keyframes ringClockwise{
+
+    from{
+
+        transform:
+            translate(-50%,-50%)
+            rotate(0deg);
+
+    }
+
+    to{
+
+        transform:
+            translate(-50%,-50%)
+            rotate(360deg);
+
+    }
+
+}
+
+
+@keyframes ringReverse{
+
+    from{
+
+        transform:
+            translate(-50%,-50%)
+            rotate(360deg);
+
+    }
+
+    to{
+
+        transform:
+            translate(-50%,-50%)
+            rotate(0deg);
+
+    }
+
+}
+
+
+@keyframes centerReveal{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            translateY(15px)
+            scale(.88);
+
+        filter:blur(8px);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter:blur(0);
+
+    }
+
+}
+
+
+@keyframes diamondOne{
+
+    0%,100%{
+
+        transform:
+            rotate(45deg)
+            translate(0,0);
+
+    }
+
+    50%{
+
+        transform:
+            rotate(135deg)
+            translate(12px,-10px);
+
+    }
+
+}
+
+
+@keyframes diamondTwo{
+
+    0%,100%{
+
+        transform:
+            rotate(45deg)
+            translate(0,0);
+
+    }
+
+    50%{
+
+        transform:
+            rotate(-45deg)
+            translate(-12px,10px);
+
+    }
+
+}
+
+
+/* =========================================================
+   MAIN NAVIGATION
+========================================================= */
+
+.nav{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    z-index:5000;
+
+    padding:
+        23px 4vw;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(8,7,13,.8),
+            transparent
+        );
+
+    backdrop-filter:
+        blur(3px);
+
+}
+
+
+.logo{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:20px;
+
+    font-weight:800;
+
+    letter-spacing:-.07em;
+
+}
+
+
+.logo span{
+
+    font-weight:300;
+
+    opacity:.65;
+
+}
+
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:34px;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    letter-spacing:.10em;
+
+}
+
+
+.nav-links a{
+
+    position:relative;
+
+    text-transform:uppercase;
+
+}
+
+
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-6px;
+
+    width:0;
+    height:1px;
+
+    background:
+        var(--purple);
+
+    transition:
+        width .3s ease;
+
+}
+
+
+.nav-links a:hover::after{
+
+    width:100%;
+
+}
+
+
+.nav-contact{
+
+    border:
+        1px solid
+        rgba(214,197,255,.45);
+
+    border-radius:50px;
+
+    padding:
+        11px 18px;
+
+    transition:.3s ease;
+
+}
+
+
+.nav-contact:hover{
+
+    background:
+        var(--purple);
+
+    color:#09070d;
+
+}
+
+
+/* =========================================================
+   MOBILE BUTTON
+========================================================= */
+
+.menu-btn{
+
+    display:none;
+
+    width:43px;
+    height:43px;
+
+    border:
+        1px solid
+        rgba(214,197,255,.35);
+
+    border-radius:50%;
+
+    background:transparent;
+
+    cursor:pointer;
+
+}
+
+
+.menu-btn span{
+
+    display:block;
+
+    width:17px;
+    height:1px;
+
+    background:
+        var(--purple);
+
+    margin:4px auto;
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:4500;
+
+    background:#0b0910;
+
+    color:#eeeaff;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    padding:10vw;
+
+    transform:
+        translateY(-100%);
+
+    transition:
+        transform .65s
+        cubic-bezier(.77,0,.18,1);
+
+}
+
+
+.mobile-menu.active{
+
+    transform:
+        translateY(0);
+
+}
+
+
+.mobile-menu a{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:
+        12vw;
+
+    line-height:1;
+
+    font-weight:700;
+
+    letter-spacing:-.07em;
+
+    margin:9px 0;
+
+}
+
+
+.mobile-menu small{
+
+    position:absolute;
+
+    left:10vw;
+    bottom:30px;
+
+    font-size:9px;
+
+    letter-spacing:.12em;
+
+    color:#77717e;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    min-height:100vh;
+
+    padding:
+        150px 4vw 60px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+}
+
+
+.hero-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.13em;
+
+    color:#8e8895;
+
+}
+
+
+.hero-location{
+
+    line-height:1.6;
+
+}
+
+
+.hero-year{
+
+    text-align:right;
+
+}
+
+
+.hero-title{
+
+    margin-top:8vh;
+
+}
+
+
+.hero-title h1{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:
+        clamp(72px,11vw,175px);
+
+    line-height:.83;
+
+    letter-spacing:-.09em;
+
+    font-weight:700;
+
+}
+
+
+.hero-title h1 em{
+
+    font-style:normal;
+
+    color:
+        var(--purple);
+
+}
+
+
+.hero-bottom{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    margin-top:12vh;
+
+}
+
+
+.hero-description{
+
+    max-width:390px;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+    color:#9c96a3;
+
+}
+
+
+.scroll-note{
+
+    font-size:9px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.15em;
+
+    color:#88818f;
+
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro{
+
+    padding:
+        150px 4vw;
+
+    border-top:
+        1px solid var(--line);
+
+}
+
+
+.intro-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 2fr;
+
+    gap:8vw;
+
+}
+
+
+.section-label{
+
+    font-size:9px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.16em;
+
+    color:#8b8591;
+
+}
+
+
+.intro-text{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:
+        clamp(35px,5vw,75px);
+
+    line-height:.98;
+
+    letter-spacing:-.065em;
+
+    font-weight:600;
+
+}
+
+
+.intro-text span{
+
+    color:#69636f;
+
+}
+
+
+/* =========================================================
+   WORK
+========================================================= */
+
+.work{
+
+    padding:
+        100px 4vw 160px;
+
+}
+
+
+.work-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    margin-bottom:80px;
+
+}
+
+
+.work-heading{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:
+        clamp(70px,12vw,170px);
+
+    line-height:.8;
+
+    letter-spacing:-.09em;
+
+    font-weight:700;
+
+}
+
+
+.work-count{
+
+    font-size:9px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.13em;
+
+    color:#817a88;
+
+}
+
+
+.project{
+
+    border-top:
+        1px solid var(--line);
+
+    padding:
+        25px 0 90px;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1.6fr;
+
+    gap:5vw;
+
+}
+
+
+.project-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    min-height:500px;
+
+}
+
+
+.project-number{
+
+    font-size:9px;
+
+    color:#78727f;
+
+}
+
+
+.project-title{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:
+        clamp(40px,5vw,75px);
+
+    line-height:.9;
+
+    letter-spacing:-.07em;
+
+    font-weight:700;
+
+}
+
+
+.project-details{
+
+    font-size:11px;
+
+    line-height:1.8;
+
+    color:#85808b;
+
+}
+
+
+.project-image{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#15121b;
+
+    aspect-ratio:
+        1.35 / 1;
+
+}
+
+
+.project-image::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(150,115,220,.12),
+            transparent 50%
+        );
+
+    pointer-events:none;
+
+}
+
+
+.project-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    opacity:.78;
+
+    transition:
+        transform .8s
+        cubic-bezier(.2,.7,.2,1);
+
+}
+
+
+.project:hover
+.project-image img{
+
+    transform:
+        scale(1.045);
+
+}
+
+
+.project-tag{
+
+    position:absolute;
+
+    left:18px;
+    bottom:18px;
+
+    z-index:5;
+
+    background:
+        rgba(12,10,16,.72);
+
+    backdrop-filter:
+        blur(10px);
+
+    border:
+        1px solid
+        rgba(214,197,255,.2);
+
+    padding:
+        9px 13px;
+
+    font-size:8px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.1em;
+
+    color:#d7cbeb;
+
+}
+
+
+/* =========================================================
+   MARQUEE
+========================================================= */
+
+.marquee{
+
+    overflow:hidden;
+
+    white-space:nowrap;
+
+    border-top:
+        1px solid var(--line);
+
+    border-bottom:
+        1px solid var(--line);
+
+    padding:28px 0;
+
+}
+
+
+.marquee-track{
+
+    display:inline-block;
+
+    animation:
+        marquee
+        24s
+        linear
+        infinite;
+
+}
+
+
+.marquee span{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:
+        clamp(35px,5vw,70px);
+
+    letter-spacing:-.06em;
+
+    margin-right:55px;
+
+}
+
+
+.marquee span:nth-child(even){
+
+    color:
+        var(--purple);
+
+}
+
+
+@keyframes marquee{
+
+    from{
+
+        transform:
+            translateX(0);
+
+    }
+
+    to{
+
+        transform:
+            translateX(-50%);
+
+    }
+
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services{
+
+    background:
+        #0d0b12;
+
+    padding:
+        140px 4vw;
+
+}
+
+
+.services-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:100px;
+
+}
+
+
+.services-title{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:
+        clamp(65px,11vw,155px);
+
+    line-height:.82;
+
+    letter-spacing:-.085em;
+
+    font-weight:700;
+
+}
+
+
+.services-intro{
+
+    max-width:280px;
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    color:#85808c;
+
+}
+
+
+.service-list{
+
+    border-top:
+        1px solid var(--line);
+
+}
+
+
+.service{
+
+    display:grid;
+
+    grid-template-columns:
+        80px 1fr 30px;
+
+    align-items:center;
+
+    border-bottom:
+        1px solid var(--line);
+
+    padding:
+        28px 0;
+
+    transition:
+        .3s ease;
+
+}
+
+
+.service:hover{
+
+    padding-left:15px;
+
+    padding-right:15px;
+
+    background:
+        rgba(214,197,255,.025);
+
+}
+
+
+.service-no{
+
+    color:#605a66;
+
+    font-size:10px;
+
+}
+
+
+.service-name{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:
+        clamp(27px,3.5vw,50px);
+
+    letter-spacing:-.05em;
+
+}
+
+
+.service-arrow{
+
+    color:
+        var(--purple);
+
+    font-size:20px;
+
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about{
+
+    padding:
+        150px 4vw;
+
+}
+
+
+.about-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 2fr;
+
+    gap:8vw;
+
+}
+
+
+.about-text{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:
+        clamp(35px,5vw,75px);
+
+    line-height:.95;
+
+    letter-spacing:-.07em;
+
+}
+
+
+.about-text strong{
+
+    color:
+        var(--purple);
+
+}
+
+
+.about-copy{
+
+    max-width:600px;
+
+    font-size:14px;
+
+    line-height:1.8;
+
+    color:#89838f;
+
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact{
+
+    min-height:80vh;
+
+    background:
+        #d6c5ff;
+
+    color:#0c0a10;
+
+    padding:
+        110px 4vw 50px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+}
+
+
+.contact-label{
+
+    font-size:9px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.16em;
+
+}
+
+
+.contact-heading{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:
+        clamp(70px,13vw,190px);
+
+    line-height:.78;
+
+    letter-spacing:-.09em;
+
+    font-weight:700;
+
+}
+
+
+.contact-heading span{
+
+    display:block;
+
+}
+
+
+.contact-bottom{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+}
+
+
+.contact-link{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:
+        clamp(20px,2.5vw,35px);
+
+    border-bottom:
+        1px solid #111;
+
+    padding-bottom:6px;
+
+}
+
+
+.contact-email{
+
+    font-size:10px;
+
+    text-align:right;
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    background:#08070d;
+
+    color:#eeeaff;
+
+    padding:
+        35px 4vw;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+.footer-logo{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    letter-spacing:-.05em;
+
+}
+
+
+.footer-copy{
+
+    font-size:8px;
+
+    color:#65606c;
+
+    text-transform:uppercase;
+
+    letter-spacing:.1em;
+
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:
+        translateY(40px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s
+        cubic-bezier(.2,.7,.2,1);
+
+}
+
+
+.reveal.visible{
+
+    opacity:1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:800px){
+
+    .nav{
+
+        padding:
+            18px 5vw;
+
+    }
+
+
+    .nav-links{
+
+        display:none;
+
+    }
+
+
+    .menu-btn{
+
+        display:block;
+
+    }
+
+
+    .hero{
+
+        padding:
+            125px 5vw 45px;
+
+        min-height:100svh;
+
+    }
+
+
+    .hero-top{
+
+        font-size:8px;
+
+    }
+
+
+    .hero-title{
+
+        margin-top:15vh;
+
+    }
+
+
+    .hero-title h1{
+
+        font-size:18vw;
+
+        line-height:.84;
+
+    }
+
+
+    .hero-bottom{
+
+        display:block;
+
+        margin-top:10vh;
+
+    }
+
+
+    .hero-description{
+
+        max-width:320px;
+
+        font-size:12px;
+
+    }
+
+
+    .scroll-note{
+
+        margin-top:35px;
+
+    }
+
+
+    .intro,
+    .about{
+
+        padding:
+            100px 5vw;
+
+    }
+
+
+    .intro-grid,
+    .about-grid{
+
+        grid-template-columns:1fr;
+
+        gap:50px;
+
+    }
+
+
+    .intro-text,
+    .about-text{
+
+        font-size:12vw;
+
+    }
+
+
+    .work{
+
+        padding:
+            80px 5vw 110px;
+
+    }
+
+
+    .work-header{
+
+        margin-bottom:60px;
+
+    }
+
+
+    .work-heading{
+
+        font-size:22vw;
+
+    }
+
+
+    .project{
+
+        grid-template-columns:1fr;
+
+        gap:35px;
+
+        padding-bottom:70px;
+
+    }
+
+
+    .project-info{
+
+        min-height:350px;
+
+    }
+
+
+    .project-title{
+
+        font-size:13vw;
+
+    }
+
+
+    .project-image{
+
+        aspect-ratio:1/1.05;
+
+    }
+
+
+    .services{
+
+        padding:
+            100px 5vw;
+
+    }
+
+
+    .services-top{
+
+        display:block;
+
+        margin-bottom:70px;
+
+    }
+
+
+    .services-title{
+
+        font-size:20vw;
+
+    }
+
+
+    .services-intro{
+
+        margin-top:35px;
+
+    }
+
+
+    .service{
+
+        grid-template-columns:
+            45px 1fr 20px;
+
+        padding:
+            22px 0;
+
+    }
+
+
+    .service-name{
+
+        font-size:7vw;
+
+    }
+
+
+    .marquee span{
+
+        font-size:11vw;
+
+    }
+
+
+    .contact{
+
+        min-height:75svh;
+
+        padding:
+            90px 5vw 35px;
+
+    }
+
+
+    .contact-heading{
+
+        font-size:20vw;
+
+    }
+
+
+    .contact-bottom{
+
+        display:block;
+
+    }
+
+
+    .contact-email{
+
+        text-align:left;
+
+        margin-top:35px;
+
+    }
+
+
+    footer{
+
+        padding:
+            28px 5vw;
+
+    }
+
+
+    .footer-copy{
+
+        font-size:7px;
+
+    }
+
+
+    /* MOBILE LOADER */
+
+    .orbit-1{
+
+        width:290px;
+        height:290px;
+
+    }
+
+
+    .orbit-2{
+
+        width:390px;
+        height:390px;
+
+    }
+
+
+    .orbit-3{
+
+        width:510px;
+        height:510px;
+
+    }
+
+
+    .ring-main{
+
+        width:220px;
+        height:220px;
+
+    }
+
+
+    .ring-second{
+
+        width:250px;
+        height:250px;
+
+    }
+
+
+    .loader-brand{
+
+        font-size:18vw;
+
+    }
+
+
+    .loader-subtitle{
+
+        font-size:7px;
+
+        letter-spacing:.18em;
+
+    }
+
+
+    .loader-progress{
+
+        width:130px;
+
+        bottom:48px;
+
+    }
+
+
+    .loader-percent{
+
+        right:18px;
+
+        bottom:20px;
+
+    }
+
+
+    .diamond-1{
+
+        left:
+            calc(50% - 140px);
+
+        top:
+            calc(50% - 120px);
+
+    }
+
+
+    .diamond-2{
+
+        left:
+            calc(50% + 120px);
+
+        top:
+            calc(50% - 80px);
+
+    }
+
+
+    .diamond-3{
+
+        left:
+            calc(50% + 85px);
+
+        top:
+            calc(50% + 120px);
+
+    }
+
+
+    .diamond-4{
+
+        left:
+            calc(50% - 120px);
+
+        top:
+            calc(50% + 100px);
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body class="loading">
+
+
+<!-- =========================================================
+     INTRO LOADER
+========================================================= -->
 
 <div id="ak-loader">
 
-    <!-- Rotating background geometry -->
     <div class="loader-orbit orbit-1"></div>
     <div class="loader-orbit orbit-2"></div>
     <div class="loader-orbit orbit-3"></div>
 
-    <!-- Purple rotating ring -->
     <div class="loader-ring ring-main"></div>
     <div class="loader-ring ring-second"></div>
 
-    <!-- Diamond shapes -->
+
     <div class="loader-diamond diamond-1"></div>
     <div class="loader-diamond diamond-2"></div>
     <div class="loader-diamond diamond-3"></div>
     <div class="loader-diamond diamond-4"></div>
 
-    <!-- Center -->
+
     <div class="loader-center">
 
         <div class="loader-brand">
@@ -27,18 +2265,870 @@
         </div>
 
         <div class="loader-subtitle">
-            DEVELOPMENT <i></i> MARKETING
+            DEVELOPMENT
+            <i></i>
+            MARKETING
         </div>
 
     </div>
 
-    <!-- Loading line -->
+
     <div class="loader-progress">
-        <div class="loader-progress-bar"></div>
+
+        <div
+            class="loader-progress-bar"
+            id="loaderProgress">
+        </div>
+
     </div>
 
+
     <div class="loader-percent">
+
         <span id="loaderPercent">0</span>%
+
     </div>
 
 </div>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="nav">
+
+    <a href="#top" class="logo">
+        AK <span>×</span> ST
+    </a>
+
+
+    <nav class="nav-links">
+
+        <a href="#work">
+            WORK
+        </a>
+
+        <a href="#services">
+            SERVICES
+        </a>
+
+        <a href="#about">
+            ABOUT
+        </a>
+
+        <a href="#contact" class="nav-contact">
+            GET IN TOUCH
+        </a>
+
+    </nav>
+
+
+    <button
+        class="menu-btn"
+        id="menuButton"
+        aria-label="Open menu">
+
+        <span></span>
+        <span></span>
+
+    </button>
+
+</header>
+
+
+<!-- =========================================================
+     MOBILE MENU
+========================================================= -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <a href="#work">WORK</a>
+
+    <a href="#services">SERVICES</a>
+
+    <a href="#about">ABOUT</a>
+
+    <a href="#contact">CONTACT</a>
+
+    <small>
+        AK × ST ADVERTISING — DEVELOPMENT & MARKETING
+    </small>
+
+</div>
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main id="top">
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-top">
+
+        <div class="hero-location">
+
+            DEVELOPMENT<br>
+            DIGITAL MARKETING<br>
+            INDIA
+
+        </div>
+
+
+        <div class="hero-year">
+
+            EST. 2026<br>
+            AK × ST
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-title reveal">
+
+        <h1>
+
+            WE BUILD<br>
+
+            <em>DIGITAL</em><br>
+
+            MOMENTUM.
+
+        </h1>
+
+    </div>
+
+
+    <div class="hero-bottom">
+
+        <div class="hero-description">
+
+            AK × ST Advertising is a digital development
+            and marketing company focused on building
+            strong digital experiences and measurable
+            growth for ambitious brands.
+
+        </div>
+
+
+        <div class="scroll-note">
+
+            ↓ SCROLL TO EXPLORE
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     INTRO
+========================================================= -->
+
+<section class="intro reveal">
+
+    <div class="intro-grid">
+
+        <div class="section-label">
+
+            01 — WHO WE ARE
+
+        </div>
+
+
+        <div class="intro-text">
+
+            We combine
+            <span>
+                creativity, technology
+                and marketing
+            </span>
+            to help brands build
+            a stronger digital presence.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     WORK
+========================================================= -->
+
+<section class="work" id="work">
+
+
+    <div class="work-header reveal">
+
+        <h2 class="work-heading">
+
+            WORK
+
+        </h2>
+
+
+        <div class="work-count">
+
+            SELECTED PROJECTS<br>
+            2025 — 2026
+
+        </div>
+
+    </div>
+
+
+    <!-- PROJECT 01 -->
+
+    <article class="project reveal">
+
+        <div class="project-info">
+
+            <div class="project-number">
+
+                01 / WEB DEVELOPMENT
+
+            </div>
+
+
+            <h3 class="project-title">
+
+                Digital<br>
+                Experiences
+
+            </h3>
+
+
+            <div class="project-details">
+
+                Website design & development<br>
+                UI / UX<br>
+                Responsive development<br>
+                Performance optimisation
+
+            </div>
+
+        </div>
+
+
+        <div class="project-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80"
+                alt="Web development project">
+
+            <div class="project-tag">
+
+                WEB DEVELOPMENT
+
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <!-- PROJECT 02 -->
+
+    <article class="project reveal">
+
+        <div class="project-info">
+
+            <div class="project-number">
+
+                02 / DIGITAL MARKETING
+
+            </div>
+
+
+            <h3 class="project-title">
+
+                Growth<br>
+                Systems
+
+            </h3>
+
+
+            <div class="project-details">
+
+                SEO strategy<br>
+                Google Ads<br>
+                Meta Ads<br>
+                Analytics & optimisation
+
+            </div>
+
+        </div>
+
+
+        <div class="project-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80"
+                alt="Digital marketing analytics">
+
+            <div class="project-tag">
+
+                DIGITAL MARKETING
+
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <!-- PROJECT 03 -->
+
+    <article class="project reveal">
+
+        <div class="project-info">
+
+            <div class="project-number">
+
+                03 / BRAND GROWTH
+
+            </div>
+
+
+            <h3 class="project-title">
+
+                Brands<br>
+                That Move
+
+            </h3>
+
+
+            <div class="project-details">
+
+                Social media<br>
+                Content strategy<br>
+                Paid campaigns<br>
+                Brand visibility
+
+            </div>
+
+        </div>
+
+
+        <div class="project-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1600&q=80"
+                alt="Branding project">
+
+            <div class="project-tag">
+
+                BRAND GROWTH
+
+            </div>
+
+        </div>
+
+    </article>
+
+</section>
+
+
+<!-- =========================================================
+     MARQUEE
+========================================================= -->
+
+<div class="marquee">
+
+    <div class="marquee-track">
+
+        <span>STRATEGY</span>
+        <span>CREATIVE</span>
+        <span>DEVELOPMENT</span>
+        <span>MARKETING</span>
+
+        <span>STRATEGY</span>
+        <span>CREATIVE</span>
+        <span>DEVELOPMENT</span>
+        <span>MARKETING</span>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+
+<section class="services" id="services">
+
+
+    <div class="services-top reveal">
+
+        <h2 class="services-title">
+
+            WHAT<br>
+            WE DO
+
+        </h2>
+
+
+        <div class="services-intro">
+
+            From digital experiences to
+            performance marketing, we work
+            across the complete digital journey.
+
+        </div>
+
+    </div>
+
+
+    <div class="service-list">
+
+
+        <div class="service reveal">
+
+            <div class="service-no">
+                01
+            </div>
+
+            <div class="service-name">
+                Web Development
+            </div>
+
+            <div class="service-arrow">
+                ↗
+            </div>
+
+        </div>
+
+
+        <div class="service reveal">
+
+            <div class="service-no">
+                02
+            </div>
+
+            <div class="service-name">
+                Digital Marketing
+            </div>
+
+            <div class="service-arrow">
+                ↗
+            </div>
+
+        </div>
+
+
+        <div class="service reveal">
+
+            <div class="service-no">
+                03
+            </div>
+
+            <div class="service-name">
+                SEO & Search
+            </div>
+
+            <div class="service-arrow">
+                ↗
+            </div>
+
+        </div>
+
+
+        <div class="service reveal">
+
+            <div class="service-no">
+                04
+            </div>
+
+            <div class="service-name">
+                Google & Meta Ads
+            </div>
+
+            <div class="service-arrow">
+                ↗
+            </div>
+
+        </div>
+
+
+        <div class="service reveal">
+
+            <div class="service-no">
+                05
+            </div>
+
+            <div class="service-name">
+                Social Media
+            </div>
+
+            <div class="service-arrow">
+                ↗
+            </div>
+
+        </div>
+
+
+        <div class="service reveal">
+
+            <div class="service-no">
+                06
+            </div>
+
+            <div class="service-name">
+                Brand Growth
+            </div>
+
+            <div class="service-arrow">
+                ↗
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section class="about" id="about">
+
+
+    <div class="about-grid reveal">
+
+
+        <div class="section-label">
+
+            02 — ABOUT AK × ST
+
+        </div>
+
+
+        <div>
+
+
+            <div class="about-text">
+
+                Small team.<br>
+
+                Big
+                <strong>
+                    digital
+                </strong>
+                ambition.
+
+            </div>
+
+
+            <br><br>
+
+
+            <div class="about-copy">
+
+                AK × ST Advertising brings together
+                development and digital marketing to
+                help businesses build stronger digital
+                identities.
+
+                <br><br>
+
+                From websites and SEO to paid media,
+                social media and digital strategy, we
+                focus on clean execution and measurable
+                business outcomes.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section class="contact" id="contact">
+
+
+    <div class="contact-label">
+
+        03 — START A PROJECT
+
+    </div>
+
+
+    <div class="contact-heading">
+
+        <span>
+            LET'S
+        </span>
+
+        <span>
+            TALK.
+        </span>
+
+    </div>
+
+
+    <div class="contact-bottom">
+
+
+        <a
+            href="mailto:hello@akxstadvertising.com"
+            class="contact-link">
+
+            hello@akxstadvertising.com ↗
+
+        </a>
+
+
+        <div class="contact-email">
+
+            DEVELOPMENT<br>
+            DIGITAL MARKETING<br>
+            INDIA
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="footer-logo">
+
+        AK × ST Advertising
+
+    </div>
+
+
+    <div class="footer-copy">
+
+        © 2026 AK × ST Advertising.
+        All rights reserved.
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+(function(){
+
+    const loader =
+        document.getElementById("ak-loader");
+
+    const percent =
+        document.getElementById("loaderPercent");
+
+    const progress =
+        document.getElementById("loaderProgress");
+
+    let value = 0;
+
+
+    const loading = setInterval(function(){
+
+        if(value < 90){
+
+            value += Math.random() * 2.8;
+
+            if(value > 90){
+                value = 90;
+            }
+
+            percent.textContent =
+                Math.floor(value);
+
+            progress.style.width =
+                value + "%";
+
+        }
+
+    },70);
+
+
+    window.addEventListener("load",function(){
+
+        clearInterval(loading);
+
+        let finalValue = value;
+
+
+        const finish =
+            setInterval(function(){
+
+                finalValue += 2.5;
+
+
+                if(finalValue >= 100){
+
+                    finalValue = 100;
+
+                    clearInterval(finish);
+
+
+                    percent.textContent =
+                        "100";
+
+                    progress.style.width =
+                        "100%";
+
+
+                    setTimeout(function(){
+
+                        loader.classList.add(
+                            "finished"
+                        );
+
+                        document.body.classList.remove(
+                            "loading"
+                        );
+
+                    },550);
+
+
+                }else{
+
+                    percent.textContent =
+                        Math.floor(finalValue);
+
+                    progress.style.width =
+                        finalValue + "%";
+
+                }
+
+            },25);
+
+    });
+
+})();
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuButton =
+    document.getElementById("menuButton");
+
+const mobileMenu =
+    document.getElementById("mobileMenu");
+
+
+menuButton.addEventListener(
+    "click",
+    function(){
+
+        mobileMenu.classList.toggle(
+            "active"
+        );
+
+    }
+);
+
+
+document.querySelectorAll(
+    ".mobile-menu a"
+).forEach(function(link){
+
+    link.addEventListener(
+        "click",
+        function(){
+
+            mobileMenu.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const revealObserver =
+    new IntersectionObserver(
+
+        function(entries){
+
+            entries.forEach(function(entry){
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add(
+                        "visible"
+                    );
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:.12
+        }
+
+    );
+
+
+revealElements.forEach(function(element){
+
+    revealObserver.observe(element);
+
+});
+
+
+</script>
+
+
+</body>
+</html>
