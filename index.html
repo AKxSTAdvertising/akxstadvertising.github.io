@@ -4,33 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AK × ST Advertising | Digital Marketing & Website Development</title>
-
-<meta name="description"
-content="AK × ST Advertising delivers digital marketing, website development, SEO, paid advertising, social media and B2B lead generation solutions for ambitious businesses.">
+<title>AK × ST — Digital Marketing & Web Development</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
-/* =========================================================
-   AK × ST ADVERTISING
-   PREMIUM AGENCY WEBSITE
-   ========================================================= */
-
 :root{
-    --black:#0b0b0d;
-    --black2:#111114;
-    --white:#f7f7f4;
-    --muted:#a8a8ad;
-    --purple:#c8b5ff;
-    --purple-dark:#a68be9;
-    --line:rgba(255,255,255,.13);
-    --soft:rgba(255,255,255,.045);
-    --max:1280px;
+    --black:#080b12;
+    --dark:#0c121c;
+    --white:#ffffff;
+
+    /* Light background — slightly darker lavender */
+    --light:#e7e0f8;
+    --light2:#eee9fa;
+
+    --purple:#7c3aed;
+    --purple-dark:#6428c7;
+    --purple-light:#cbb9ff;
+
+    --green:#c7ff29;
+
+    --text:#11131a;
+    --muted:#687386;
+
+    --border:rgba(20,20,30,.13);
+
+    --max:1460px;
 }
 
 *{
@@ -44,62 +46,53 @@ html{
 }
 
 body{
-    background:var(--black);
-    color:var(--white);
-    font-family:"DM Sans",sans-serif;
+    font-family:"Manrope",sans-serif;
+    color:var(--text);
+    background:#fff;
     overflow-x:hidden;
 }
 
-body:before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    opacity:.035;
-    background-image:
-        linear-gradient(rgba(255,255,255,.8) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.8) 1px,transparent 1px);
-    background-size:80px 80px;
-    mask-image:linear-gradient(to bottom,#000,transparent 90%);
-}
-
 a{
-    color:inherit;
     text-decoration:none;
+    color:inherit;
 }
 
 .container{
-    width:min(var(--max),calc(100% - 50px));
+    width:min(calc(100% - 90px),var(--max));
     margin:auto;
 }
 
-/* =========================================================
+/* =====================================================
    NAVIGATION
-   ========================================================= */
+===================================================== */
 
-.navbar{
+.nav{
     position:fixed;
     top:0;
     left:0;
     width:100%;
     z-index:1000;
-    background:rgba(11,11,13,.72);
+    padding:22px 0;
+    transition:.35s ease;
+}
+
+.nav.scrolled{
+    background:rgba(255,255,255,.86);
     backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(255,255,255,.08);
+    padding:14px 0;
+    border-bottom:1px solid rgba(0,0,0,.08);
 }
 
 .nav-inner{
-    height:78px;
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
 }
 
 .logo{
-    font-family:"Manrope",sans-serif;
-    font-size:22px;
+    font-size:23px;
     font-weight:800;
-    letter-spacing:-1px;
+    letter-spacing:-.06em;
 }
 
 .logo span{
@@ -110,827 +103,1056 @@ a{
     display:flex;
     align-items:center;
     gap:30px;
+    font-size:14px;
+    font-weight:600;
 }
 
 .nav-links a{
-    font-size:13px;
-    color:#d7d7db;
-    transition:.25s ease;
+    position:relative;
 }
 
-.nav-links a:hover{
-    color:var(--purple);
+.nav-links a:not(.nav-cta)::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-7px;
+    width:0;
+    height:2px;
+    background:var(--purple);
+    transition:.3s;
+}
+
+.nav-links a:hover::after{
+    width:100%;
 }
 
 .nav-cta{
-    border:1px solid rgba(200,181,255,.45);
-    padding:11px 17px;
-    border-radius:30px;
-    color:var(--purple)!important;
+    background:var(--black);
+    color:#fff;
+    padding:12px 20px;
+    border-radius:100px;
+    transition:.3s;
 }
 
-.mobile-btn{
-    display:none;
-    background:none;
-    border:1px solid var(--line);
-    color:white;
-    padding:10px 14px;
-    border-radius:10px;
+.nav-cta:hover{
+    background:var(--purple);
+    transform:translateY(-2px);
 }
 
-/* =========================================================
+/* =====================================================
    HERO
-   ========================================================= */
+===================================================== */
 
 .hero{
     min-height:100vh;
-    position:relative;
     display:flex;
     align-items:center;
+    position:relative;
     overflow:hidden;
-    padding:150px 0 100px;
+
+    background:
+        radial-gradient(
+            circle at 83% 28%,
+            rgba(124,58,237,.12),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #fff 0%,
+            #faf9ff 55%,
+            var(--light) 100%
+        );
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+
+    width:600px;
+    height:600px;
+
+    right:-240px;
+    top:8%;
+
+    border-radius:50%;
+
+    border:1px solid rgba(124,58,237,.18);
+
+    box-shadow:
+        0 0 0 80px rgba(124,58,237,.025),
+        0 0 0 160px rgba(124,58,237,.015);
 }
 
 .hero-content{
-    width:70%;
+    padding:145px 0 100px;
+    max-width:1100px;
     position:relative;
-    z-index:5;
+    z-index:2;
 }
 
 .eyebrow{
+    font-family:"DM Mono",monospace;
+    font-size:12px;
     color:var(--purple);
-    font-size:11px;
-    font-weight:700;
-    letter-spacing:3px;
+    letter-spacing:.18em;
     text-transform:uppercase;
-    margin-bottom:24px;
+    margin-bottom:25px;
 }
 
 .hero h1{
-    font-family:"Manrope",sans-serif;
-    font-size:clamp(58px,8.8vw,128px);
-    line-height:.88;
-    letter-spacing:-7px;
-    max-width:1050px;
-    margin-bottom:35px;
+    font-size:clamp(52px,7.5vw,112px);
+    line-height:.92;
+    letter-spacing:-.075em;
+    max-width:1100px;
 }
 
 .hero h1 span{
     color:var(--purple);
 }
 
-.hero-description{
-    max-width:700px;
+.hero-copy{
+    margin-top:34px;
+    max-width:690px;
     font-size:20px;
-    line-height:1.65;
-    color:#bdbdc3;
+    line-height:1.7;
+    color:#596477;
 }
 
-.hero-buttons{
+.hero-actions{
     display:flex;
-    gap:12px;
-    margin-top:35px;
-    flex-wrap:wrap;
+    gap:14px;
+    margin-top:40px;
 }
 
 .btn{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    padding:15px 22px;
-    border-radius:50px;
-    border:1px solid var(--line);
-    font-size:13px;
-    font-weight:600;
+
+    padding:16px 24px;
+
+    border-radius:100px;
+
+    font-size:14px;
+    font-weight:700;
+
     transition:.3s ease;
 }
 
-.btn-primary{
+.btn-dark{
+    background:var(--black);
+    color:#fff;
+}
+
+.btn-dark:hover{
     background:var(--purple);
-    color:#111;
-    border-color:var(--purple);
-}
-
-.btn-secondary{
-    background:rgba(255,255,255,.04);
-}
-
-.btn:hover{
     transform:translateY(-3px);
 }
 
-.hero-visual{
-    position:absolute;
-    width:600px;
-    height:600px;
-    right:-90px;
-    top:50%;
-    transform:translateY(-50%);
+.btn-light{
+    background:#fff;
+    border:1px solid #d1d5dd;
 }
 
-.orbit{
-    position:absolute;
-    inset:0;
-    border:1px solid rgba(200,181,255,.18);
-    border-radius:50%;
-    animation:rotate 25s linear infinite;
-}
-
-.orbit.two{
-    inset:80px;
-    transform:rotate(50deg);
-    border-color:rgba(200,181,255,.13);
-    animation-duration:18s;
-}
-
-.orbit.three{
-    inset:160px;
-    transform:rotate(-30deg);
-    border-color:rgba(200,181,255,.17);
-    animation-duration:14s;
-}
-
-.orbit-dot{
-    position:absolute;
-    width:13px;
-    height:13px;
-    background:var(--purple);
-    border-radius:50%;
-    box-shadow:0 0 35px 12px rgba(200,181,255,.3);
-    top:18%;
-    left:16%;
-}
-
-.hero-circle{
-    position:absolute;
-    width:190px;
-    height:190px;
-    border-radius:50%;
-    border:1px solid rgba(200,181,255,.3);
-    top:205px;
-    left:205px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-}
-
-.hero-circle span{
-    font-family:Manrope;
-    font-size:15px;
-    line-height:1.25;
-    font-weight:700;
+.btn-light:hover{
     color:var(--purple);
+    border-color:var(--purple);
+    transform:translateY(-3px);
 }
 
-.diamond{
-    position:absolute;
-    width:85px;
-    height:85px;
-    border:1px solid rgba(200,181,255,.4);
-    transform:rotate(45deg);
-    right:10%;
-    bottom:13%;
-    animation:float 5s ease-in-out infinite;
-}
-
-@keyframes rotate{
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-@keyframes float{
-    50%{
-        transform:rotate(45deg) translateY(-15px);
-    }
-}
-
-/* =========================================================
-   MARQUEE
-   ========================================================= */
-
-.marquee{
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    overflow:hidden;
-    white-space:nowrap;
-    padding:22px 0;
-}
-
-.marquee-track{
-    display:inline-flex;
-    gap:55px;
-    animation:marquee 25s linear infinite;
-}
-
-.marquee span{
-    font-family:Manrope;
-    font-size:18px;
-    font-weight:700;
-    color:#b7b7bc;
-}
-
-.marquee span:nth-child(even){
-    color:var(--purple);
-}
-
-@keyframes marquee{
-    to{
-        transform:translateX(-50%);
-    }
-}
-
-/* =========================================================
-   SECTION
-   ========================================================= */
+/* =====================================================
+   GENERAL SECTION
+===================================================== */
 
 .section{
-    padding:130px 0;
+    padding:120px 0;
 }
 
 .section-light{
-    background:#f5f4f1;
-    color:#111;
+    background:var(--light);
 }
 
-.section-label{
+.section-head{
+    display:grid;
+    grid-template-columns:1fr 1.1fr;
+    gap:70px;
+    margin-bottom:70px;
+}
+
+.kicker{
+    font-family:"DM Mono",monospace;
+    font-size:12px;
     color:var(--purple);
-    font-size:11px;
-    letter-spacing:3px;
+    letter-spacing:.18em;
     text-transform:uppercase;
-    font-weight:700;
-    margin-bottom:20px;
+    margin-bottom:22px;
 }
 
-.section-light .section-label{
-    color:#7357b7;
-}
-
-.section-heading{
-    font-family:Manrope;
-    font-size:clamp(44px,6vw,82px);
+.section h2{
+    font-size:clamp(43px,5.8vw,80px);
     line-height:.95;
-    letter-spacing:-4px;
-    max-width:900px;
-    margin-bottom:30px;
+    letter-spacing:-.065em;
 }
 
-.section-text{
-    max-width:760px;
-    color:var(--muted);
+.section-intro{
+    align-self:end;
+    max-width:660px;
+
+    color:#5e697b;
+
+    font-size:20px;
+    line-height:1.7;
+}
+
+/* =====================================================
+   CIRCULAR WORKFLOW
+   THIS IS THE IMPORTANT SECTION
+===================================================== */
+
+.workflow{
+    background:var(--dark);
+    color:#fff;
+
+    padding:135px 0 145px;
+
+    overflow:hidden;
+}
+
+.workflow-head{
+    display:grid;
+    grid-template-columns:1fr 1.1fr;
+
+    gap:70px;
+
+    margin-bottom:85px;
+}
+
+.workflow-head h2{
+    font-size:clamp(45px,5.8vw,80px);
+    line-height:.94;
+    letter-spacing:-.065em;
+}
+
+.workflow-head p{
+    align-self:end;
+
+    color:#9da7b7;
+
+    font-size:20px;
+    line-height:1.7;
+
+    max-width:670px;
+}
+
+/* CIRCLE CONTAINER */
+
+.workflow-track{
+    position:relative;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    gap:28px;
+
+    align-items:center;
+}
+
+/* CONNECTING LINE */
+
+.workflow-track::before{
+    content:"";
+
+    position:absolute;
+
+    left:9%;
+    right:9%;
+
+    top:50%;
+
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(199,255,41,.8) 10%,
+            rgba(199,255,41,.8) 90%,
+            transparent
+        );
+
+    z-index:0;
+}
+
+/* MOVING DOT */
+
+.workflow-track::after{
+    content:"";
+
+    position:absolute;
+
+    top:calc(50% - 5px);
+    left:10%;
+
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    background:var(--green);
+
+    box-shadow:
+        0 0 15px var(--green),
+        0 0 30px rgba(199,255,41,.6);
+
+    animation:
+        moveDot 7s linear infinite;
+
+    z-index:1;
+}
+
+@keyframes moveDot{
+
+    0%{
+        left:9%;
+        opacity:0;
+    }
+
+    8%{
+        opacity:1;
+    }
+
+    92%{
+        opacity:1;
+    }
+
+    100%{
+        left:91%;
+        opacity:0;
+    }
+
+}
+
+/* CIRCLE */
+
+.workflow-card{
+
+    width:100%;
+    aspect-ratio:1;
+
+    border-radius:50%;
+
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:35px;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #18212d,
+            #080d15 70%
+        );
+
+    border:1px solid rgba(255,255,255,.25);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.35);
+
+    transition:
+        transform .45s ease,
+        border-color .45s ease,
+        box-shadow .45s ease,
+        background .45s ease;
+}
+
+/* TOUCH / HOVER EXACT FEEL */
+
+.workflow-card:hover{
+
+    transform:
+        translateY(-12px)
+        scale(1.04);
+
+    border-color:var(--green);
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #202c39,
+            #090f17 70%
+        );
+
+    box-shadow:
+        0 0 0 7px rgba(199,255,41,.05),
+        0 0 45px rgba(199,255,41,.14),
+        0 28px 60px rgba(0,0,0,.5);
+}
+
+.workflow-number{
+    margin-top:13px;
+
+    color:var(--green);
+
+    font-family:"DM Mono",monospace;
+
+    font-size:14px;
+
+    letter-spacing:.15em;
+}
+
+.workflow-title{
+    font-family:"DM Mono",monospace;
+
     font-size:18px;
-    line-height:1.75;
+
+    font-weight:500;
+
+    letter-spacing:.03em;
+
+    text-transform:uppercase;
 }
 
-.section-light .section-text{
-    color:#626267;
-}
-
-/* =========================================================
-   PROCESS
-   ========================================================= */
+/* =====================================================
+   PROCESS SECTION
+===================================================== */
 
 .process{
-    margin-top:65px;
+    background:var(--light);
+}
+
+.process-list{
+    border-top:1px solid var(--border);
 }
 
 .process-item{
+
     display:grid;
-    grid-template-columns:80px 1fr 1.2fr;
+
+    grid-template-columns:90px 1fr 1.5fr;
+
     gap:30px;
-    align-items:start;
-    padding:30px 0;
-    border-top:1px solid var(--line);
+
+    align-items:center;
+
+    padding:40px 0;
+
+    border-bottom:1px solid var(--border);
+
+    transition:.35s;
 }
 
-.process-item:last-child{
-    border-bottom:1px solid var(--line);
+.process-item:hover{
+
+    padding-left:20px;
+    padding-right:20px;
+
+    background:rgba(255,255,255,.32);
 }
 
 .process-number{
+    font-family:"DM Mono",monospace;
+
+    font-size:14px;
+
     color:var(--purple);
-    font-size:12px;
-    letter-spacing:2px;
 }
 
 .process-title{
-    font-family:Manrope;
-    font-size:28px;
+    font-size:29px;
+    letter-spacing:-.04em;
 }
 
-.process-description{
-    color:var(--muted);
+.process-content{
+    color:#687386;
+
+    font-size:18px;
+
     line-height:1.7;
 }
 
-/* =========================================================
-   SERVICES
-   ========================================================= */
+/* =====================================================
+   DIGITAL MARKETING
+===================================================== */
+
+.services{
+    background:#fff;
+}
 
 .services-grid{
-    margin-top:60px;
+
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
-    gap:1px;
-    background:var(--line);
-    border:1px solid var(--line);
+
+    border:1px solid var(--border);
+
+    border-radius:28px;
+
+    overflow:hidden;
 }
 
 .service{
-    background:var(--black);
+
+    min-height:330px;
+
     padding:42px;
-    min-height:270px;
+
+    background:#fff;
+
+    border-right:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+
     position:relative;
-    transition:.35s ease;
+
+    transition:
+        background .4s ease,
+        color .4s ease,
+        transform .4s ease,
+        box-shadow .4s ease;
 }
 
+.service:nth-child(2n){
+    border-right:0;
+}
+
+.service:nth-last-child(-n+2){
+    border-bottom:0;
+}
+
+/* Hover stays as existing style */
 .service:hover{
-    background:#131116;
+
+    background:var(--purple);
+
+    color:#fff;
+
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 20px 50px rgba(124,58,237,.18);
+
 }
 
 .service-number{
+
     color:var(--purple);
-    font-size:11px;
-    letter-spacing:2px;
+
+    font-family:"DM Mono",monospace;
+
+    font-size:14px;
+
+    margin-bottom:85px;
+
+}
+
+.service:hover .service-number{
+    color:#dfd2ff;
 }
 
 .service h3{
-    font-family:Manrope;
-    font-size:32px;
-    margin:45px 0 15px;
+
+    font-size:30px;
+
+    letter-spacing:-.04em;
+
+    margin-bottom:15px;
+
 }
 
 .service p{
-    color:var(--muted);
-    line-height:1.7;
-    max-width:500px;
+
+    color:#687386;
+
+    font-size:17px;
+
+    line-height:1.65;
+
+    max-width:600px;
+
 }
 
-.service-arrow{
-    position:absolute;
-    right:35px;
-    top:35px;
-    font-size:22px;
-    color:var(--purple);
+.service:hover p{
+    color:#fff;
 }
 
-/* =========================================================
-   WHY
-   ========================================================= */
-
-.why-grid{
-    margin-top:60px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-}
-
-.why-card{
-    border:1px solid var(--line);
-    padding:30px;
-    min-height:280px;
-    background:rgba(255,255,255,.025);
-}
-
-.why-number{
-    color:var(--purple);
-    font-size:12px;
-}
-
-.why-card h3{
-    font-family:Manrope;
-    font-size:24px;
-    margin:60px 0 15px;
-}
-
-.why-card p{
-    color:var(--muted);
-    line-height:1.7;
-}
-
-/* =========================================================
+/* =====================================================
    INDUSTRIES
-   ========================================================= */
+===================================================== */
+
+.industries{
+
+    background:
+        linear-gradient(
+            135deg,
+            #e9e2f8,
+            #e3dcf4
+        );
+
+}
 
 .industry-grid{
-    margin-top:55px;
+
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
-    gap:18px;
+
+    gap:14px;
+
 }
 
 .industry{
-    border:1px solid #d8d7d3;
-    padding:35px;
-    min-height:210px;
-    background:#fff;
-    transition:.3s ease;
+
+    min-height:235px;
+
+    padding:30px;
+
+    border-radius:24px;
+
+    background:rgba(255,255,255,.55);
+
+    border:1px solid rgba(124,58,237,.18);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    transition:
+        background .4s ease,
+        color .4s ease,
+        transform .4s ease,
+        box-shadow .4s ease;
+
 }
 
-.industry:hover{
-    background:#eeeae4;
-    transform:translateY(-5px);
-}
+.industry small{
 
-.industry-number{
-    font-size:11px;
-    color:#8068b8;
-    letter-spacing:2px;
+    font-family:"DM Mono",monospace;
+
+    font-size:12px;
+
+    color:var(--purple);
+
 }
 
 .industry h3{
-    font-family:Manrope;
-    font-size:26px;
-    margin:45px 0 12px;
+
+    font-size:28px;
+
+    letter-spacing:-.045em;
+
 }
 
 .industry p{
-    color:#777;
-    line-height:1.6;
+
+    color:#697386;
+
+    font-size:16px;
+
+    line-height:1.55;
+
 }
 
-/* =========================================================
-   PROJECTS
-   ========================================================= */
+/* Touch / hover purple state */
 
-.projects-grid{
-    margin-top:55px;
+.industry:hover{
+
+    background:var(--purple);
+
+    color:#fff;
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 22px 50px rgba(82,43,153,.22);
+
+}
+
+.industry:hover small,
+.industry:hover p{
+    color:#fff;
+}
+
+/* =====================================================
+   PROJECTS
+===================================================== */
+
+.projects{
+    background:#fff;
+}
+
+.project-grid{
+
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
-    gap:22px;
+
+    gap:18px;
+
 }
 
 .project{
-    border:1px solid var(--line);
-    overflow:hidden;
-    background:var(--soft);
-    border-radius:4px;
+
+    min-height:390px;
+
+    padding:38px;
+
+    border-radius:26px;
+
+    background:#f4f4f6;
+
+    border:1px solid #dedfe4;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    transition:.45s;
+
 }
 
-.project-image{
-    height:330px;
-    overflow:hidden;
-    background:#17151b;
+.project:hover{
+
+    background:var(--purple);
+
+    color:#fff;
+
+    border-color:var(--purple);
+
+    transform:translateY(-8px);
+
 }
 
-.project-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:.5s ease;
-}
+.project-tag{
 
-.project:hover img{
-    transform:scale(1.04);
-}
-
-.project-content{
-    padding:28px;
-}
-
-.project-meta{
     color:var(--purple);
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:2px;
+
+    font-family:"DM Mono",monospace;
+
+    font-size:12px;
+
+}
+
+.project:hover .project-tag{
+    color:#dfd2ff;
 }
 
 .project h3{
-    font-family:Manrope;
-    font-size:30px;
-    margin:12px 0;
+
+    font-size:37px;
+
+    letter-spacing:-.05em;
+
+    margin:18px 0;
+
 }
 
 .project p{
-    color:var(--muted);
-    line-height:1.7;
+
+    color:#687386;
+
+    font-size:17px;
+
+    line-height:1.6;
+
+}
+
+.project:hover p{
+    color:#fff;
 }
 
 .project-link{
-    display:inline-block;
-    margin-top:20px;
-    color:var(--purple);
+
+    font-weight:700;
+
+    margin-top:28px;
+
+}
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.cta{
+
+    background:var(--dark);
+
+    color:#fff;
+
+    padding:135px 0;
+
+}
+
+.cta-inner{
+
+    display:grid;
+
+    grid-template-columns:1.4fr 1fr;
+
+    gap:70px;
+
+    align-items:end;
+
+}
+
+.cta h2{
+
+    font-size:clamp(50px,6.8vw,100px);
+
+    line-height:.9;
+
+    letter-spacing:-.07em;
+
+}
+
+.cta p{
+
+    color:#a4adbb;
+
+    font-size:19px;
+
+    line-height:1.7;
+
+    margin-bottom:30px;
+
+}
+
+.cta .btn{
+
+    background:var(--purple);
+
+    color:#fff;
+
+}
+
+.cta .btn:hover{
+
+    background:#fff;
+
+    color:var(--black);
+
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    background:var(--dark);
+
+    color:#fff;
+
+    border-top:1px solid rgba(255,255,255,.1);
+
+    padding:30px 0;
+
+}
+
+.footer-inner{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    color:#8f99a8;
+
     font-size:13px;
+
+}
+
+.footer-brand{
+    color:#fff;
     font-weight:700;
 }
 
-/* =========================================================
-   CTA
-   ========================================================= */
+/* =====================================================
+   SCROLL ANIMATION
+===================================================== */
 
-.final-cta{
-    padding:150px 0;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(50px);
+
+    transition:
+        opacity .75s ease,
+        transform .75s cubic-bezier(.2,.8,.2,1);
+
 }
 
-.final-cta:before{
-    content:"";
-    position:absolute;
-    width:500px;
-    height:500px;
-    border:1px solid rgba(200,181,255,.12);
-    border-radius:50%;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
+.reveal.active{
+
+    opacity:1;
+
+    transform:none;
+
 }
 
-.final-cta-content{
-    position:relative;
-    z-index:2;
-}
-
-.final-cta h2{
-    font-family:Manrope;
-    font-size:clamp(48px,7vw,95px);
-    line-height:.92;
-    letter-spacing:-5px;
-    max-width:900px;
-    margin:20px auto 30px;
-}
-
-.final-cta h2 span{
-    color:var(--purple);
-}
-
-.final-cta p{
-    max-width:650px;
-    margin:auto;
-    color:var(--muted);
-    font-size:18px;
-    line-height:1.7;
-}
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-footer{
-    border-top:1px solid var(--line);
-    padding:50px 0;
-}
-
-.footer-grid{
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr;
-    gap:40px;
-}
-
-.footer-logo{
-    font-family:Manrope;
-    font-size:25px;
-    font-weight:800;
-}
-
-.footer-logo span{
-    color:var(--purple);
-}
-
-.footer-description{
-    max-width:400px;
-    color:var(--muted);
-    line-height:1.7;
-    margin-top:15px;
-}
-
-.footer-title{
-    font-size:12px;
-    color:var(--purple);
-    letter-spacing:2px;
-    text-transform:uppercase;
-    margin-bottom:18px;
-}
-
-.footer-links{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-}
-
-.footer-links a{
-    color:#aaa;
-    font-size:13px;
-}
-
-.copyright{
-    border-top:1px solid var(--line);
-    margin-top:45px;
-    padding-top:25px;
-    color:#777;
-    font-size:12px;
-    display:flex;
-    justify-content:space-between;
-}
-
-/* =========================================================
+/* =====================================================
    MOBILE
-   ========================================================= */
+===================================================== */
 
 @media(max-width:900px){
 
     .container{
-        width:calc(100% - 32px);
+        width:min(calc(100% - 38px),var(--max));
     }
 
     .nav-links{
         display:none;
-        position:absolute;
-        top:78px;
-        left:15px;
-        right:15px;
-        padding:20px;
-        background:#111114;
-        border:1px solid var(--line);
-        border-radius:16px;
-        flex-direction:column;
-        align-items:stretch;
-        gap:18px;
-    }
-
-    .nav-links.active{
-        display:flex;
-    }
-
-    .mobile-btn{
-        display:block;
-    }
-
-    .hero{
-        padding-top:140px;
     }
 
     .hero-content{
-        width:100%;
+        padding:130px 0 80px;
     }
 
     .hero h1{
-        font-size:58px;
-        letter-spacing:-4px;
+        font-size:clamp(48px,13vw,78px);
     }
 
-    .hero-description{
+    .hero-copy{
         font-size:17px;
     }
-
-    .hero-visual{
-        opacity:.35;
-        width:450px;
-        height:450px;
-        right:-230px;
-    }
-
-    .process-item{
-        grid-template-columns:45px 1fr;
-        gap:15px;
-    }
-
-    .process-description{
-        grid-column:2;
-    }
-
-    .services-grid{
-        grid-template-columns:1fr;
-    }
-
-    .why-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .industry-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .projects-grid{
-        grid-template-columns:1fr;
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .footer-grid > div:first-child{
-        grid-column:1/-1;
-    }
-
-    .copyright{
-        flex-direction:column;
-        gap:10px;
-    }
-}
-
-@media(max-width:600px){
 
     .section{
         padding:90px 0;
     }
 
-    .hero h1{
-        font-size:48px;
+    .section-head,
+    .workflow-head,
+    .cta-inner{
+        grid-template-columns:1fr;
+        gap:30px;
     }
 
-    .section-heading{
-        font-size:45px;
-        letter-spacing:-2.5px;
+    .section-intro,
+    .workflow-head p{
+        font-size:17px;
     }
 
-    .hero-visual{
+    /* circles become 2 x 2 */
+    .workflow-track{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:25px;
+
+    }
+
+    .workflow-track::before,
+    .workflow-track::after{
         display:none;
     }
 
-    .why-grid,
-    .industry-grid{
+    .workflow-card{
+        padding:20px;
+    }
+
+    .workflow-title{
+        font-size:14px;
+    }
+
+    .process-item{
+
+        grid-template-columns:55px 1fr;
+
+        gap:12px 18px;
+
+    }
+
+    .process-content{
+
+        grid-column:2;
+
+        font-size:16px;
+
+    }
+
+    .process-title{
+        font-size:25px;
+    }
+
+    .services-grid,
+    .project-grid{
         grid-template-columns:1fr;
     }
 
     .service{
-        padding:30px;
+
+        border-right:0!important;
+
+        border-bottom:1px solid var(--border)!important;
+
+        min-height:280px;
+
     }
 
-    .service h3{
-        font-size:27px;
+    .service:last-child{
+        border-bottom:0!important;
     }
 
-    .project-image{
-        height:230px;
-    }
-
-    .final-cta{
-        padding:100px 0;
-    }
-
-    .final-cta h2{
-        font-size:50px;
-        letter-spacing:-3px;
-    }
-
-    .footer-grid{
+    .industry-grid{
         grid-template-columns:1fr;
     }
 
-    .footer-grid > div:first-child{
-        grid-column:auto;
+    .project{
+        min-height:330px;
     }
+
+    .cta h2{
+        font-size:clamp(48px,13vw,76px);
+    }
+
+    .footer-inner{
+        flex-direction:column;
+    }
+
 }
 
-
-/* FINAL VISUAL REFINEMENT */
-@media (min-width:901px){body{zoom:.90}.navbar{width:111.111%}.hero{min-height:111.111vh}}
-/* light areas 10% darker */
-.section-light{background:#deddda}
-.industry{background:#e6e5e2}
-/* headings reduced 15% */
-.hero h1{font-size:clamp(49px,7.48vw,109px)}
-.section-heading{font-size:clamp(37px,5.1vw,70px)}
-.final-cta h2{font-size:clamp(41px,5.95vw,81px)}
-.service h3{font-size:27px}.why-card h3{font-size:20px}.industry h3{font-size:22px}.project h3{font-size:26px}
-/* light cards: touch/hover state */
-.industry,.why-card{transition:background .30s ease,color .30s ease,border-color .30s ease,transform .30s ease,box-shadow .30s ease}
-.industry:hover,.industry:active,.industry:focus-within,.why-card:hover,.why-card:active,.why-card:focus-within{background:var(--purple);color:#fff;border-color:var(--purple);transform:translateY(-5px);box-shadow:0 18px 45px rgba(115,87,183,.22)}
-.industry:hover .industry-number,.industry:active .industry-number,.industry:focus-within .industry-number,.industry:hover p,.industry:active p,.industry:focus-within p,.why-card:hover .why-number,.why-card:active .why-number,.why-card:focus-within .why-number,.why-card:hover p,.why-card:active p,.why-card:focus-within p{color:#fff}
-@media(max-width:900px){.hero h1{font-size:49px}.section-heading{font-size:38px}.service h3{font-size:27px}.why-card h3{font-size:20px}.industry h3{font-size:22px}.project h3{font-size:26px}.final-cta h2{font-size:43px}}
-@media(max-width:600px){.hero h1{font-size:41px}.section-heading{font-size:38px}.final-cta h2{font-size:43px}}
 </style>
 </head>
 
 <body>
 
-<!-- ======================================================
-     NAVIGATION
-     ====================================================== -->
-
-<header class="navbar">
+<header class="nav" id="nav">
 
 <div class="container nav-inner">
 
 <a href="index.html" class="logo">
-    AK <span>×</span> ST
+AK <span>×</span> ST
 </a>
 
-<button class="mobile-btn" id="mobileBtn">
-    MENU
-</button>
-
-<nav class="nav-links" id="navLinks">
+<nav class="nav-links">
 
 <a href="index.html">Home</a>
 
-<a href="about.html">About Us</a>
+<a href="about.html">About</a>
 
-<a href="services.html">Marketing</a>
+<a href="services.html">Services</a>
 
-<a href="web-development.html">
-    Website Development
-</a>
+<a href="web-development.html">Web Development</a>
 
-<a href="work.html">
-    Projects
-</a>
+<a href="work.html">Work</a>
 
 <a href="contact.html" class="nav-cta">
-    Discuss Your Project ↗
+Let's Talk
 </a>
 
 </nav>
@@ -940,206 +1162,135 @@ footer{
 </header>
 
 
-<!-- ======================================================
+<main>
+
+<!-- =====================================================
      HERO
-     ====================================================== -->
+===================================================== -->
 
 <section class="hero">
 
-<div class="container">
-
-<div class="hero-content">
+<div class="container hero-content reveal">
 
 <div class="eyebrow">
-AK × ST ADVERTISING
+Digital marketing × web development
 </div>
 
 <h1>
-Build the
-<strong>presence</strong><br>
-your business
-<span>deserves.</span>
+Build a digital presence that
+<span>works.</span>
 </h1>
 
-<p class="hero-description">
-We help ambitious businesses build stronger digital
-presence through strategic marketing, professional
-website development and focused lead generation.
+<p class="hero-copy">
+
+We bring website development, digital marketing, SEO,
+paid advertising and social media together to create
+a clear digital journey from first click to enquiry.
+
 </p>
 
-<div class="hero-buttons">
+<div class="hero-actions">
 
-<a href="contact.html"
-class="btn btn-primary">
-Discuss Your Project →
+<a href="contact.html" class="btn btn-dark">
+Start a project
 </a>
 
-<a href="work.html"
-class="btn btn-secondary">
-Explore Our Work ↗
+<a href="work.html" class="btn btn-light">
+View our work
 </a>
 
 </div>
 
 </div>
-
-</div>
-
-
-<div class="hero-visual">
-
-<div class="orbit">
-<span class="orbit-dot"></span>
-</div>
-
-<div class="orbit two"></div>
-
-<div class="orbit three"></div>
-
-<div class="hero-circle">
-<span>
-DIGITAL<br>
-MARKETING<br>
-×<br>
-WEB
-</span>
-</div>
-
-</div>
-
-<div class="diamond"></div>
 
 </section>
 
 
-<!-- ======================================================
-     MARQUEE
-     ====================================================== -->
+<!-- =====================================================
+     CIRCULAR SECTION
+===================================================== -->
 
-<div class="marquee">
-
-<div class="marquee-track">
-
-<span>WEB DEVELOPMENT</span>
-<span>✦</span>
-<span>DIGITAL MARKETING</span>
-<span>✦</span>
-<span>SEO</span>
-<span>✦</span>
-<span>GOOGLE ADS</span>
-<span>✦</span>
-<span>META ADS</span>
-<span>✦</span>
-<span>B2B LEAD GENERATION</span>
-<span>✦</span>
-
-<span>WEB DEVELOPMENT</span>
-<span>✦</span>
-<span>DIGITAL MARKETING</span>
-<span>✦</span>
-<span>SEO</span>
-<span>✦</span>
-<span>GOOGLE ADS</span>
-<span>✦</span>
-<span>META ADS</span>
-<span>✦</span>
-<span>B2B LEAD GENERATION</span>
-
-</div>
-
-</div>
-
-
-<!-- ======================================================
-     WHAT WE DO
-     ====================================================== -->
-
-<section class="section section-light">
+<section class="workflow">
 
 <div class="container">
 
-<div class="section-label">
+<div class="workflow-head reveal">
+
+<div>
+
+<div class="eyebrow" style="color:var(--green)">
 01 / WHAT WE DO
 </div>
 
-<h2 class="section-heading">
-Digital work built around
-real business goals.
+<h2>
+Digital work built around real business goals.
 </h2>
 
-<p class="section-text">
-A strong digital presence is more than a website or
-a collection of advertisements. We bring strategy,
-development and marketing together to create a
-consistent customer journey from discovery to enquiry.
+</div>
+
+<p>
+
+A strong digital presence is more than a website or a collection
+of advertisements. We bring strategy, development and marketing
+together to create a consistent customer journey from discovery
+to enquiry.
+
 </p>
 
+</div>
 
-<div class="process">
 
-<div class="process-item">
+<div class="workflow-track">
 
-<div class="process-number">01</div>
+<!-- ONLY HEADINGS INSIDE CIRCLES -->
 
-<div class="process-title">
+<div class="workflow-card reveal">
+
+<div class="workflow-title">
 Understand
 </div>
 
-<div class="process-description">
-We understand your business, audience, offering,
-market position and the outcome you want from
-your digital presence.
+<div class="workflow-number">
+01
 </div>
 
 </div>
 
 
-<div class="process-item">
+<div class="workflow-card reveal">
 
-<div class="process-number">02</div>
-
-<div class="process-title">
+<div class="workflow-title">
 Strategise
 </div>
 
-<div class="process-description">
-We identify the right mix of website development,
-SEO, paid advertising, social media and lead
-generation for the project.
+<div class="workflow-number">
+02
 </div>
 
 </div>
 
 
-<div class="process-item">
+<div class="workflow-card reveal">
 
-<div class="process-number">03</div>
-
-<div class="process-title">
+<div class="workflow-title">
 Create
 </div>
 
-<div class="process-description">
-From website interfaces to campaign assets and
-content direction, we create digital experiences
-designed to communicate clearly.
+<div class="workflow-number">
+03
 </div>
 
 </div>
 
 
-<div class="process-item">
+<div class="workflow-card reveal">
 
-<div class="process-number">04</div>
-
-<div class="process-title">
+<div class="workflow-title">
 Optimise
 </div>
 
-<div class="process-description">
-We continue improving the digital experience,
-campaign direction and online visibility as the
-business evolves.
+<div class="workflow-number">
+04
 </div>
 
 </div>
@@ -1151,76 +1302,168 @@ business evolves.
 </section>
 
 
-<!-- ======================================================
-     SERVICES
-     ====================================================== -->
+<!-- =====================================================
+     PROCESS
+===================================================== -->
 
-<section class="section">
+<section class="section process section-light">
 
 <div class="container">
 
-<div class="section-label">
-02 / OUR EXPERTISE
+<div class="section-head reveal">
+
+<div>
+
+<div class="kicker">
+02 / HOW WE WORK
 </div>
 
-<h2 class="section-heading">
-Digital marketing,
-without the noise.
+<h2>
+From first click to customer.
 </h2>
 
-<p class="section-text">
-Focused services designed around what your business
-actually needs—not a one-size-fits-all package.
+</div>
+
+<p class="section-intro">
+
+Every part of the digital experience should have a job —
+attract, communicate, convert and improve.
+
 </p>
+
+</div>
+
+
+<div class="process-list">
+
+
+<div class="process-item reveal">
+
+<div class="process-number">
+01
+</div>
+
+<div class="process-title">
+Attract
+</div>
+
+<div class="process-content">
+
+Reach the right audience through search,
+social media, paid advertising and focused
+digital campaigns.
+
+</div>
+
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-number">
+02
+</div>
+
+<div class="process-title">
+Engage
+</div>
+
+<div class="process-content">
+
+Use clear messaging, useful content and a strong
+digital presence to turn attention into genuine interest.
+
+</div>
+
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-number">
+03
+</div>
+
+<div class="process-title">
+Convert
+</div>
+
+<div class="process-content">
+
+Build landing pages, websites and enquiry journeys
+that make it easier for prospects to take action.
+
+</div>
+
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-number">
+04
+</div>
+
+<div class="process-title">
+Improve
+</div>
+
+<div class="process-content">
+
+Measure performance, identify opportunities and keep
+improving the experience and campaign direction.
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     DIGITAL MARKETING
+===================================================== -->
+
+<section class="section services">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div>
+
+<div class="kicker">
+03 / DIGITAL MARKETING
+</div>
+
+<h2>
+Digital marketing, without the noise.
+</h2>
+
+</div>
+
+<p class="section-intro">
+
+Focused digital activity built around visibility,
+qualified enquiries and measurable business growth.
+
+</p>
+
+</div>
 
 
 <div class="services-grid">
 
 
-<div class="service">
+<article class="service reveal">
 
 <div class="service-number">
-01 / MARKETING
-</div>
-
-<h3>
-Google Ads
-</h3>
-
-<p>
-Search campaigns designed around relevant intent,
-business objectives and qualified enquiries.
-</p>
-
-<div class="service-arrow">↗</div>
-
-</div>
-
-
-<div class="service">
-
-<div class="service-number">
-02 / MARKETING
-</div>
-
-<h3>
-Meta Ads
-</h3>
-
-<p>
-Campaigns for lead generation, hiring, awareness,
-products and customer acquisition across Meta platforms.
-</p>
-
-<div class="service-arrow">↗</div>
-
-</div>
-
-
-<div class="service">
-
-<div class="service-number">
-03 / ORGANIC
+01
 </div>
 
 <h3>
@@ -1228,20 +1471,53 @@ SEO
 </h3>
 
 <p>
-Keyword research, on-page optimisation, content
-direction and technical improvements for stronger
-organic visibility.
+Keyword research, on-page optimisation, technical
+improvements, content direction and search visibility.
 </p>
 
-<div class="service-arrow">↗</div>
-
-</div>
+</article>
 
 
-<div class="service">
+<article class="service reveal">
 
 <div class="service-number">
-04 / SOCIAL
+02
+</div>
+
+<h3>
+Google Ads
+</h3>
+
+<p>
+Search and paid campaigns designed around relevant
+intent, enquiries, lead generation and measurable outcomes.
+</p>
+
+</article>
+
+
+<article class="service reveal">
+
+<div class="service-number">
+03
+</div>
+
+<h3>
+Meta Ads
+</h3>
+
+<p>
+Audience-focused campaigns for awareness, product promotion,
+enquiries and conversion-focused growth.
+</p>
+
+</article>
+
+
+<article class="service reveal">
+
+<div class="service-number">
+04
 </div>
 
 <h3>
@@ -1249,153 +1525,47 @@ Social Media
 </h3>
 
 <p>
-Professional social presence through content,
-publishing, platform management and consistent
-brand communication.
+Content planning, social media handling, creative direction
+and consistent brand communication.
 </p>
 
-<div class="service-arrow">↗</div>
-
-</div>
+</article>
 
 
-<div class="service">
+<article class="service reveal">
 
 <div class="service-number">
-05 / WEB
+05
 </div>
 
 <h3>
-Website Development
+B2B Lead Generation
 </h3>
 
 <p>
-Corporate, e-commerce, hospitality, technology,
-recruitment and B2B websites designed around
-the business.
+Digital outreach and campaign systems designed to connect
+businesses with relevant prospects.
 </p>
 
-<div class="service-arrow">↗</div>
-
-</div>
+</article>
 
 
-<div class="service">
+<article class="service reveal">
 
 <div class="service-number">
-06 / B2B
+06
 </div>
 
 <h3>
-Lead Generation
+Digital Branding
 </h3>
 
 <p>
-Digital acquisition and LinkedIn-led B2B outreach
-focused on creating relevant business opportunities.
+A consistent online identity across websites, campaigns,
+social platforms and customer touchpoints.
 </p>
 
-<div class="service-arrow">↗</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ======================================================
-     WHY CHOOSE US
-     ====================================================== -->
-
-<section class="section section-light">
-
-<div class="container">
-
-<div class="section-label">
-03 / WHY AK × ST
-</div>
-
-<h2 class="section-heading">
-Focused on building
-the right digital presence.
-</h2>
-
-<div class="why-grid">
-
-
-<div class="why-card">
-
-<div class="why-number">
-01
-</div>
-
-<h3>
-Business First
-</h3>
-
-<p>
-Every website, campaign and digital activity
-starts with the business objective.
-</p>
-
-</div>
-
-
-<div class="why-card">
-
-<div class="why-number">
-02
-</div>
-
-<h3>
-Integrated Thinking
-</h3>
-
-<p>
-Marketing and website development work together
-instead of operating as disconnected services.
-</p>
-
-</div>
-
-
-<div class="why-card">
-
-<div class="why-number">
-03
-</div>
-
-<h3>
-Relevant Execution
-</h3>
-
-<p>
-We choose the platforms, channels and digital
-activities that make sense for the audience.
-</p>
-
-</div>
-
-
-<div class="why-card">
-
-<div class="why-number">
-04
-</div>
-
-<h3>
-End-to-End Support
-</h3>
-
-<p>
-From planning and development to campaigns,
-social presence and optimisation.
-</p>
-
-</div>
+</article>
 
 
 </div>
@@ -1405,139 +1575,129 @@ social presence and optimisation.
 </section>
 
 
-<!-- ======================================================
+<!-- =====================================================
      INDUSTRIES
-     ====================================================== -->
+===================================================== -->
 
-<section class="section section-light">
+<section class="section industries">
 
 <div class="container">
 
-<div class="section-label">
+<div class="section-head reveal">
+
+<div>
+
+<div class="kicker">
 04 / INDUSTRIES
 </div>
 
-<h2 class="section-heading">
-Digital solutions across
-different industries.
+<h2>
+Digital solutions across different industries.
 </h2>
 
-<p class="section-text">
-Every industry has a different customer journey.
-Our approach changes according to the business,
-market and audience.
+</div>
+
+<p class="section-intro">
+
+Digital solutions adapted to the audience, offer
+and growth goals of each business.
+
 </p>
+
+</div>
 
 
 <div class="industry-grid">
 
 
-<div class="industry">
+<article class="industry reveal">
 
-<div class="industry-number">
-01 / INDUSTRY
-</div>
+<small>01</small>
 
 <h3>
 Hospitality
 </h3>
 
 <p>
-Hotels, holiday homes, hospitality businesses
-and enquiry-driven services.
+Digital visibility, enquiries, bookings and brand communication.
 </p>
 
-</div>
+</article>
 
 
-<div class="industry">
+<article class="industry reveal">
 
-<div class="industry-number">
-02 / INDUSTRY
-</div>
+<small>02</small>
 
 <h3>
-Fashion & E-commerce
+Real Estate
 </h3>
 
 <p>
-Online stores, product catalogues, fashion brands
-and e-commerce businesses.
+Lead generation, landing pages, paid campaigns and digital presence.
 </p>
 
-</div>
+</article>
 
 
-<div class="industry">
+<article class="industry reveal">
 
-<div class="industry-number">
-03 / INDUSTRY
-</div>
+<small>03</small>
 
 <h3>
-Technology
+E-commerce
 </h3>
 
 <p>
-Software, IT solutions and technology-led
-businesses.
+Product listings, website experiences, paid media and conversion support.
 </p>
 
-</div>
+</article>
 
 
-<div class="industry">
+<article class="industry reveal">
 
-<div class="industry-number">
-04 / INDUSTRY
-</div>
-
-<h3>
-HR & Recruitment
-</h3>
-
-<p>
-Hiring consultancies and recruitment businesses
-that need a stronger digital presence.
-</p>
-
-</div>
-
-
-<div class="industry">
-
-<div class="industry-number">
-05 / INDUSTRY
-</div>
-
-<h3>
-Advertising & BTL
-</h3>
-
-<p>
-Advertising, brand activation, BTL, OOH and
-corporate marketing businesses.
-</p>
-
-</div>
-
-
-<div class="industry">
-
-<div class="industry-number">
-06 / INDUSTRY
-</div>
+<small>04</small>
 
 <h3>
 Professional Services
 </h3>
 
 <p>
-Businesses that need credibility, visibility and
-a clear digital customer journey.
+Authority-led websites, SEO and enquiry-focused digital journeys.
 </p>
 
-</div>
+</article>
+
+
+<article class="industry reveal">
+
+<small>05</small>
+
+<h3>
+Recruitment
+</h3>
+
+<p>
+Digital campaigns, lead generation, websites and candidate acquisition.
+</p>
+
+</article>
+
+
+<article class="industry reveal">
+
+<small>06</small>
+
+<h3>
+Local Businesses
+</h3>
+
+<p>
+Google Business, social media, website optimisation and local visibility.
+</p>
+
+</article>
 
 
 </div>
@@ -1547,151 +1707,47 @@ a clear digital customer journey.
 </section>
 
 
-<!-- ======================================================
-     SELECTED WORK
-     ====================================================== -->
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
 
-<section class="section">
+<section class="section projects">
 
 <div class="container">
 
-<div class="section-label">
+<div class="section-head reveal">
+
+<div>
+
+<div class="kicker">
 05 / SELECTED WORK
 </div>
 
-<h2 class="section-heading">
-Different businesses.
-Different challenges.
+<h2>
+Work created for real business needs.
 </h2>
 
-<p class="section-text">
-Our work spans marketing and website development
-across multiple industries and business models.
+</div>
+
+<p class="section-intro">
+
+Website development and marketing work across hospitality,
+e-commerce, advertising and UAE-based businesses.
+
 </p>
 
-
-<div class="projects-grid">
-
-
-<div class="project">
-
-<div class="project-image">
-
-<img
-src="https://s0.wp.com/mshots/v1/https%3A%2F%2Flaimarhotels.com%2F?w=1400"
-alt="Laimar Hotels website">
-
-</div>
-
-<div class="project-content">
-
-<div class="project-meta">
-UAE · HOSPITALITY
-</div>
-
-<h3>
-Laimar Hotels
-</h3>
-
-<p>
-Google Ads for banquet enquiries, Meta Ads for
-hiring, Google Business Profile, social media,
-website optimisation and SEO.
-</p>
-
-<a href="work.html" class="project-link">
-VIEW CASE STUDY →
-</a>
-
-</div>
-
 </div>
 
 
-<div class="project">
-
-<div class="project-image">
-
-<img
-src="https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.heritageholidayhomes.com%2F?w=1400"
-alt="Heritage Holiday Homes website">
-
-</div>
-
-<div class="project-content">
-
-<div class="project-meta">
-UAE · HOSPITALITY
-</div>
-
-<h3>
-Heritage Holiday Homes
-</h3>
-
-<p>
-Meta Ads, property listing, Booking.com presence,
-lead generation and Google Business Profile
-management.
-</p>
-
-<a href="work.html" class="project-link">
-VIEW CASE STUDY →
-</a>
-
-</div>
-
-</div>
+<div class="project-grid">
 
 
-<div class="project">
+<article class="project reveal">
 
-<div class="project-image">
+<div>
 
-<img
-src="https://s0.wp.com/mshots/v1/https%3A%2F%2Fanupguptastudio.com%2F?w=1400"
-alt="Anup Gupta Studio website">
-
-</div>
-
-<div class="project-content">
-
-<div class="project-meta">
-INDIA · FASHION / E-COMMERCE
-</div>
-
-<h3>
-Anup Gupta Studio
-</h3>
-
-<p>
-Complete e-commerce website development,
-product listing, Google Ads, Meta Ads and
-social media handling.
-</p>
-
-<a href="work.html" class="project-link">
-VIEW CASE STUDY →
-</a>
-
-</div>
-
-</div>
-
-
-<div class="project">
-
-<div class="project-image">
-
-<img
-src="https://s0.wp.com/mshots/v1/https%3A%2F%2Ffortuneadvertising.in%2F?w=1400"
-alt="Fortune BTL Advertising website">
-
-</div>
-
-<div class="project-content">
-
-<div class="project-meta">
-INDIA · B2B ADVERTISING
+<div class="project-tag">
+WEB DEVELOPMENT + DIGITAL MARKETING
 </div>
 
 <h3>
@@ -1699,18 +1755,95 @@ Fortune BTL Advertising
 </h3>
 
 <p>
-Website development, website optimisation,
-social media handling and LinkedIn-led B2B
-customer acquisition.
+Website development, optimisation, social media handling
+and B2B digital lead generation.
 </p>
 
-<a href="work.html" class="project-link">
-VIEW CASE STUDY →
+</div>
+
+<a href="fortune-btl.html" class="project-link">
+More details →
 </a>
 
+</article>
+
+
+<article class="project reveal">
+
+<div>
+
+<div class="project-tag">
+WEB DEVELOPMENT + PAID MARKETING
 </div>
 
+<h3>
+Anup Gupta Studio
+</h3>
+
+<p>
+E-commerce website development, product listing,
+social media handling and Google Ads.
+</p>
+
 </div>
+
+<a href="anup-gupta-studio.html" class="project-link">
+More details →
+</a>
+
+</article>
+
+
+<article class="project reveal">
+
+<div>
+
+<div class="project-tag">
+DIGITAL MARKETING
+</div>
+
+<h3>
+Heritage Holiday Homes
+</h3>
+
+<p>
+Meta Ads, Booking.com lead generation, product listing
+and Google Business profile management.
+</p>
+
+</div>
+
+<a href="heritage-holiday-homes.html" class="project-link">
+More details →
+</a>
+
+</article>
+
+
+<article class="project reveal">
+
+<div>
+
+<div class="project-tag">
+RECRUITMENT + DIGITAL
+</div>
+
+<h3>
+Top Human Resource
+</h3>
+
+<p>
+Digital presence and hiring-focused website work
+for a UAE-based recruitment business.
+</p>
+
+</div>
+
+<a href="work.html" class="project-link">
+More details →
+</a>
+
+</article>
 
 
 </div>
@@ -1720,45 +1853,37 @@ VIEW CASE STUDY →
 </section>
 
 
-<!-- ======================================================
-     FINAL CTA
-     ====================================================== -->
+<!-- =====================================================
+     CTA
+===================================================== -->
 
-<section class="final-cta">
+<section class="cta">
 
-<div class="container">
+<div class="container cta-inner">
 
-<div class="final-cta-content">
+<div class="reveal">
 
-<div class="section-label">
-06 / START A CONVERSATION
+<div class="eyebrow" style="color:var(--green)">
+06 / LET'S BUILD
 </div>
 
 <h2>
-Have a project
-<span>in mind?</span>
+Ready to build something that works?
 </h2>
 
+</div>
+
+
+<div class="reveal">
+
 <p>
-Tell us what you are building, what you want to improve,
-or where your business needs more digital visibility.
-Let's discuss the right direction for your project.
+Tell us what you are building, what needs improving,
+or where you want to grow.
 </p>
 
-<div class="hero-buttons"
-style="justify-content:center;">
-
-<a href="contact.html"
-class="btn btn-primary">
-Discuss Your Project →
+<a href="contact.html" class="btn">
+Start a project →
 </a>
-
-<a href="work.html"
-class="btn btn-secondary">
-Explore Our Work ↗
-</a>
-
-</div>
 
 </div>
 
@@ -1766,94 +1891,23 @@ Explore Our Work ↗
 
 </section>
 
+</main>
 
-<!-- ======================================================
-     FOOTER
-     ====================================================== -->
 
 <footer>
 
-<div class="container">
+<div class="container footer-inner">
 
-<div class="footer-grid">
+<div class="footer-brand">
+AK × ST Advertising
+</div>
 
 <div>
-
-<div class="footer-logo">
-AK <span>×</span> ST Advertising
+Web Development · Digital Marketing · SEO · Paid Ads · Growth
 </div>
-
-<p class="footer-description">
-Digital marketing and website development for
-businesses looking to build a stronger,
-more credible digital presence.
-</p>
-
-</div>
-
 
 <div>
-
-<div class="footer-title">
-Explore
-</div>
-
-<div class="footer-links">
-
-<a href="about.html">
-About Us
-</a>
-
-<a href="services.html">
-Marketing
-</a>
-
-<a href="web-development.html">
-Website Development
-</a>
-
-<a href="work.html">
-Projects
-</a>
-
-</div>
-
-</div>
-
-
-<div>
-
-<div class="footer-title">
-Start
-</div>
-
-<div class="footer-links">
-
-<a href="contact.html">
-Discuss Your Project
-</a>
-
-<a href="mailto:hello@akxstadvertising.com">
-Email Us
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="copyright">
-
-<span>
-© 2026 AK × ST Advertising. All rights reserved.
-</span>
-
-<span>
-Digital Marketing · Website Development
-</span>
-
+© 2026
 </div>
 
 </div>
@@ -1863,31 +1917,83 @@ Digital Marketing · Website Development
 
 <script>
 
-const mobileBtn =
-document.getElementById("mobileBtn");
+/* NAV SCROLL */
 
-const navLinks =
-document.getElementById("navLinks");
+const nav = document.getElementById("nav");
 
-mobileBtn.addEventListener("click",function(){
+window.addEventListener("scroll",function(){
 
-navLinks.classList.toggle("active");
+    if(window.scrollY > 30){
 
-});
+        nav.classList.add("scrolled");
 
-document.querySelectorAll(".nav-links a")
-.forEach(link=>{
+    }else{
 
-link.addEventListener("click",()=>{
+        nav.classList.remove("scrolled");
 
-navLinks.classList.remove("active");
+    }
 
 });
+
+
+/* SCROLL REVEAL */
+
+const observer = new IntersectionObserver(
+
+(entries)=>{
+
+    entries.forEach((entry,index)=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.style.transitionDelay =
+                Math.min(index,5) * 70 + "ms";
+
+            entry.target.classList.add("active");
+
+            observer.unobserve(entry.target);
+
+        }
+
+    });
+
+},
+
+{
+    threshold:.12
+}
+
+);
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(element=>observer.observe(element));
+
+
+/* TOUCH FEEL FOR MOBILE */
+
+document
+.querySelectorAll(
+    ".workflow-card,.service,.industry,.project"
+)
+.forEach(card=>{
+
+    card.addEventListener("touchstart",function(){
+
+        this.classList.add("touch-active");
+
+    },{passive:true});
+
+    card.addEventListener("touchend",function(){
+
+        this.classList.remove("touch-active");
+
+    },{passive:true});
 
 });
 
 </script>
-
 
 </body>
 </html>
