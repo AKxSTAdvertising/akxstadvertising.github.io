@@ -1,0 +1,2776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- =========================
+       SEO
+  ========================== -->
+  <title>AK × ST Advertising | Web Development & Digital Marketing</title>
+
+  <meta name="description"
+        content="AK × ST Advertising helps businesses grow through website development, digital marketing, SEO, Google Ads, Meta Ads, social media, B2B lead generation and digital branding.">
+
+  <meta name="keywords"
+        content="AK ST Advertising, web development, digital marketing, SEO, Google Ads, Meta Ads, social media marketing, website development, B2B lead generation, digital branding">
+
+  <meta name="author" content="AK × ST Advertising">
+
+  <meta name="robots" content="index, follow">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#111111">
+
+  <!-- Open Graph -->
+  <meta property="og:title"
+        content="AK × ST Advertising | Web Development & Digital Marketing">
+
+  <meta property="og:description"
+        content="Web development, digital marketing, SEO, paid advertising and digital growth solutions.">
+
+  <meta property="og:type" content="website">
+
+  <!-- Change this after custom domain is connected -->
+  <link rel="canonical"
+        href="https://akxstadvertising.github.io/">
+
+  <!-- =========================
+       FONTS
+  ========================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+  <style>
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+      background:#f2f0eb;
+    }
+
+    body{
+      font-family:"Manrope",sans-serif;
+      background:#f2f0eb;
+      color:#111;
+      overflow-x:hidden;
+      line-height:1.5;
+    }
+
+    body.menu-open{
+      overflow:hidden;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    button{
+      font:inherit;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    ::selection{
+      background:#111;
+      color:#f2f0eb;
+    }
+
+
+    /* =========================================================
+       VARIABLES
+    ========================================================= */
+
+    :root{
+      --bg:#f2f0eb;
+      --paper:#ebe9e3;
+      --black:#111111;
+      --muted:#696862;
+      --line:rgba(17,17,17,.16);
+      --accent:#ff5a1f;
+      --white:#ffffff;
+
+      --container:min(1380px, calc(100% - 80px));
+    }
+
+
+    /* =========================================================
+       GLOBAL
+    ========================================================= */
+
+    .container{
+      width:var(--container);
+      margin:0 auto;
+    }
+
+    .mono{
+      font-family:"DM Mono",monospace;
+    }
+
+    .eyebrow{
+      font-family:"DM Mono",monospace;
+      font-size:11px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:#666;
+    }
+
+    .orange{
+      color:var(--accent);
+    }
+
+
+    /* =========================================================
+       PAGE LOADER
+    ========================================================= */
+
+    .loader{
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      background:#111;
+      color:#f2f0eb;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:
+        opacity .7s ease,
+        visibility .7s ease;
+    }
+
+    .loader.hide{
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+    }
+
+    .loader-inner{
+      width:min(520px,calc(100% - 40px));
+    }
+
+    .loader-top{
+      display:flex;
+      justify-content:space-between;
+      font-family:"DM Mono",monospace;
+      font-size:11px;
+      letter-spacing:.12em;
+      margin-bottom:15px;
+    }
+
+    .loader-line{
+      height:1px;
+      background:rgba(255,255,255,.2);
+      overflow:hidden;
+    }
+
+    .loader-progress{
+      width:0%;
+      height:100%;
+      background:#fff;
+      animation:loadBar 1.2s ease forwards;
+    }
+
+    @keyframes loadBar{
+      to{width:100%}
+    }
+
+
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+
+    .nav{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:1000;
+      padding:22px 0;
+      transition:
+        background .35s ease,
+        padding .35s ease,
+        transform .35s ease;
+    }
+
+    .nav.scrolled{
+      background:rgba(242,240,235,.9);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--line);
+      padding:15px 0;
+    }
+
+    .nav-inner{
+      width:var(--container);
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      font-weight:800;
+      font-size:19px;
+      letter-spacing:-.05em;
+    }
+
+    .brand-x{
+      color:var(--accent);
+      font-size:15px;
+    }
+
+    .desktop-nav{
+      display:flex;
+      align-items:center;
+      gap:35px;
+    }
+
+    .desktop-nav a{
+      font-family:"DM Mono",monospace;
+      font-size:11px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      position:relative;
+    }
+
+    .desktop-nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-6px;
+      width:0;
+      height:1px;
+      background:var(--black);
+      transition:width .3s ease;
+    }
+
+    .desktop-nav a:hover::after{
+      width:100%;
+    }
+
+    .nav-contact{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-family:"DM Mono",monospace;
+      font-size:11px;
+      text-transform:uppercase;
+      border:1px solid var(--black);
+      padding:11px 15px;
+      transition:
+        background .25s ease,
+        color .25s ease;
+    }
+
+    .nav-contact:hover{
+      background:var(--black);
+      color:var(--white);
+    }
+
+    .menu-button{
+      display:none;
+      border:0;
+      background:none;
+      cursor:pointer;
+      width:42px;
+      height:42px;
+      position:relative;
+      z-index:1100;
+    }
+
+    .menu-button span{
+      position:absolute;
+      width:23px;
+      height:1px;
+      background:var(--black);
+      left:9px;
+      transition:.3s ease;
+    }
+
+    .menu-button span:nth-child(1){
+      top:16px;
+    }
+
+    .menu-button span:nth-child(2){
+      top:24px;
+    }
+
+    .menu-button.active span:nth-child(1){
+      transform:rotate(45deg);
+      top:20px;
+    }
+
+    .menu-button.active span:nth-child(2){
+      transform:rotate(-45deg);
+      top:20px;
+    }
+
+
+    /* =========================================================
+       MOBILE MENU
+    ========================================================= */
+
+    .mobile-menu{
+      position:fixed;
+      inset:0;
+      z-index:1050;
+      background:#111;
+      color:#f2f0eb;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      padding:40px;
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(-15px);
+      transition:
+        opacity .35s ease,
+        visibility .35s ease,
+        transform .35s ease;
+    }
+
+    .mobile-menu.open{
+      opacity:1;
+      visibility:visible;
+      transform:none;
+    }
+
+    .mobile-menu-links{
+      display:flex;
+      flex-direction:column;
+      gap:7px;
+    }
+
+    .mobile-menu-links a{
+      font-size:clamp(42px,12vw,82px);
+      line-height:.98;
+      font-weight:700;
+      letter-spacing:-.07em;
+    }
+
+    .mobile-menu-links a span{
+      color:var(--accent);
+    }
+
+    .mobile-menu-bottom{
+      position:absolute;
+      bottom:35px;
+      left:40px;
+      right:40px;
+      display:flex;
+      justify-content:space-between;
+      font-family:"DM Mono",monospace;
+      font-size:10px;
+      text-transform:uppercase;
+      color:#999;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:flex-end;
+      padding:170px 0 75px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      width:100%;
+    }
+
+    .hero-meta{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:45px;
+      border-top:1px solid var(--line);
+      padding-top:13px;
+    }
+
+    .hero-meta-right{
+      text-align:right;
+    }
+
+    .hero h1{
+      font-size:clamp(76px,12vw,190px);
+      line-height:.82;
+      letter-spacing:-.085em;
+      font-weight:700;
+      max-width:1300px;
+    }
+
+    .hero h1 .outline{
+      color:transparent;
+      -webkit-text-stroke:1.5px var(--black);
+    }
+
+    .hero h1 .orange-word{
+      color:var(--accent);
+    }
+
+    .hero-bottom{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:80px;
+      margin-top:75px;
+      align-items:end;
+    }
+
+    .hero-description{
+      font-size:18px;
+      line-height:1.55;
+      max-width:620px;
+      color:#35342f;
+    }
+
+    .hero-description strong{
+      color:#111;
+    }
+
+    .hero-cta-row{
+      display:flex;
+      justify-content:flex-end;
+      gap:10px;
+    }
+
+    .button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:15px;
+      min-height:50px;
+      padding:0 20px;
+      border:1px solid var(--black);
+      font-family:"DM Mono",monospace;
+      font-size:10px;
+      letter-spacing:.07em;
+      text-transform:uppercase;
+      transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
+    }
+
+    .button:hover{
+      background:var(--black);
+      color:#fff;
+      transform:translateY(-2px);
+    }
+
+    .button.primary{
+      background:var(--black);
+      color:#fff;
+    }
+
+    .button.primary:hover{
+      background:var(--accent);
+      border-color:var(--accent);
+    }
+
+    .hero-scroll{
+      position:absolute;
+      right:40px;
+      bottom:35px;
+      writing-mode:vertical-rl;
+      font-family:"DM Mono",monospace;
+      font-size:9px;
+      letter-spacing:.15em;
+      text-transform:uppercase;
+      color:#777;
+    }
+
+
+    /* =========================================================
+       MARQUEE
+    ========================================================= */
+
+    .marquee{
+      overflow:hidden;
+      background:var(--black);
+      color:#fff;
+      border-top:1px solid var(--black);
+      border-bottom:1px solid var(--black);
+    }
+
+    .marquee-track{
+      display:flex;
+      width:max-content;
+      animation:marquee 25s linear infinite;
+    }
+
+    .marquee-item{
+      display:flex;
+      align-items:center;
+      gap:35px;
+      padding:18px 25px;
+      font-size:13px;
+      font-family:"DM Mono",monospace;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
+
+    .marquee-dot{
+      width:6px;
+      height:6px;
+      background:var(--accent);
+      border-radius:50%;
+    }
+
+    @keyframes marquee{
+      from{transform:translateX(0)}
+      to{transform:translateX(-50%)}
+    }
+
+
+    /* =========================================================
+       SECTION
+    ========================================================= */
+
+    section{
+      padding:145px 0;
+    }
+
+    .section-header{
+      display:grid;
+      grid-template-columns:180px 1fr;
+      gap:60px;
+      margin-bottom:85px;
+      border-top:1px solid var(--line);
+      padding-top:15px;
+    }
+
+    .section-number{
+      font-family:"DM Mono",monospace;
+      font-size:11px;
+      color:#777;
+    }
+
+    .section-title{
+      font-size:clamp(48px,7vw,105px);
+      line-height:.9;
+      letter-spacing:-.07em;
+      max-width:1050px;
+    }
+
+    .section-intro{
+      max-width:620px;
+      font-size:17px;
+      color:#55544f;
+      margin-top:30px;
+      line-height:1.6;
+    }
+
+
+    /* =========================================================
+       SERVICES
+    ========================================================= */
+
+    .services{
+      border-top:1px solid var(--line);
+    }
+
+    .service{
+      display:grid;
+      grid-template-columns:100px 1fr 300px 30px;
+      gap:30px;
+      align-items:center;
+      padding:28px 0;
+      border-bottom:1px solid var(--line);
+      transition:
+        padding .35s ease,
+        background .35s ease;
+    }
+
+    .service:hover{
+      padding-left:18px;
+      padding-right:18px;
+      background:#e8e5df;
+    }
+
+    .service-number{
+      font-family:"DM Mono",monospace;
+      color:#888;
+      font-size:11px;
+    }
+
+    .service h3{
+      font-size:clamp(27px,3.2vw,48px);
+      letter-spacing:-.05em;
+      font-weight:600;
+    }
+
+    .service p{
+      font-size:13px;
+      color:#666;
+      line-height:1.55;
+    }
+
+    .service-arrow{
+      font-size:24px;
+      transition:transform .3s ease;
+    }
+
+    .service:hover .service-arrow{
+      transform:translateX(5px);
+      color:var(--accent);
+    }
+
+
+    /* =========================================================
+       WORK
+    ========================================================= */
+
+    #work{
+      background:#111;
+      color:#f2f0eb;
+    }
+
+    #work .section-header{
+      border-color:rgba(255,255,255,.18);
+    }
+
+    #work .section-number,
+    #work .section-intro{
+      color:#9a9994;
+    }
+
+    .work-list{
+      border-top:1px solid rgba(255,255,255,.18);
+    }
+
+    .work-card{
+      position:relative;
+      display:grid;
+      grid-template-columns:80px 1fr 360px;
+      gap:35px;
+      padding:70px 0;
+      border-bottom:1px solid rgba(255,255,255,.18);
+      overflow:hidden;
+      transition:padding .45s ease;
+    }
+
+    .work-card:hover{
+      padding-left:25px;
+      padding-right:25px;
+    }
+
+    .work-number{
+      font-family:"DM Mono",monospace;
+      color:#777;
+      font-size:11px;
+      padding-top:7px;
+    }
+
+    .work-main{
+      position:relative;
+      z-index:2;
+    }
+
+    .work-tag{
+      font-family:"DM Mono",monospace;
+      font-size:10px;
+      letter-spacing:.12em;
+      color:#999;
+      text-transform:uppercase;
+      margin-bottom:17px;
+    }
+
+    .work-title{
+      font-size:clamp(50px,7vw,105px);
+      line-height:.85;
+      letter-spacing:-.075em;
+      font-weight:600;
+      transition:color .3s ease;
+    }
+
+    .work-card:hover .work-title{
+      color:var(--accent);
+    }
+
+    .work-description{
+      max-width:600px;
+      color:#999;
+      font-size:14px;
+      line-height:1.65;
+      margin-top:30px;
+    }
+
+    .work-side{
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:35px;
+      min-height:210px;
+      position:relative;
+      z-index:2;
+    }
+
+    .work-side-top{
+      display:flex;
+      flex-wrap:wrap;
+      gap:7px;
+    }
+
+    .chip{
+      border:1px solid rgba(255,255,255,.2);
+      padding:7px 9px;
+      font-family:"DM Mono",monospace;
+      font-size:9px;
+      color:#aaa;
+      text-transform:uppercase;
+    }
+
+    .work-link{
+      font-family:"DM Mono",monospace;
+      font-size:10px;
+      text-transform:uppercase;
+      display:flex;
+      justify-content:space-between;
+      border-bottom:1px solid rgba(255,255,255,.3);
+      padding-bottom:10px;
+    }
+
+    .work-visual{
+      position:absolute;
+      width:390px;
+      height:250px;
+      right:170px;
+      top:50%;
+      transform:translateY(-50%) rotate(-4deg) scale(.85);
+      opacity:0;
+      pointer-events:none;
+      background:
+        linear-gradient(135deg,#242424,#121212);
+      border:1px solid rgba(255,255,255,.15);
+      transition:
+        opacity .45s ease,
+        transform .55s cubic-bezier(.2,.8,.2,1);
+      z-index:1;
+    }
+
+    .work-card:hover .work-visual{
+      opacity:1;
+      transform:translateY(-50%) rotate(-4deg) scale(1);
+    }
+
+    .visual-inner{
+      width:100%;
+      height:100%;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      padding:20px;
+      background:
+        radial-gradient(circle at 70% 30%,rgba(255,90,31,.45),transparent 35%),
+        linear-gradient(145deg,#222,#111);
+    }
+
+    .visual-logo{
+      font-size:34px;
+      font-weight:800;
+      letter-spacing:-.06em;
+    }
+
+    .visual-index{
+      font-family:"DM Mono",monospace;
+      font-size:10px;
+      color:#999;
+    }
+
+
+    /* =========================================================
+       WEBSITE SHOWCASE
+    ========================================================= */
+
+    #websites{
+      background:#e7e4dd;
+    }
+
+    .website-list{
+      border-top:1px solid var(--line);
+    }
+
+    .website{
+      display:grid;
+      grid-template-columns:80px 1fr auto;
+      align-items:center;
+      gap:30px;
+      border-bottom:1px solid var(--line);
+      padding:28px 0;
+      transition:
+        padding .3s ease,
+        background .3s ease;
+    }
+
+    .website:hover{
+      padding-left:18px;
+      padding-right:18px;
+      background:#dedbd4;
+    }
+
+    .website-num{
+      font-family:"DM Mono",monospace;
+      font-size:10px;
+      color:#888;
+    }
+
+    .website-name{
+      font-size:clamp(26px,4vw,55px);
+      letter-spacing:-.06em;
+    }
+
+    .website-type{
+      font-family:"DM Mono",monospace;
+      font-size:10px;
+      color:#777;
+      text-transform:uppercase;
+    }
+
+
+    /* =========================================================
+       ABOUT / TEAM
+    ========================================================= */
+
+    .team-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      border-top:1px solid var(--line);
+    }
+
+    .person{
+      padding:50px 45px 50px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .person + .person{
+      border-left:1px solid var(--line);
+      padding-left:45px;
+    }
+
+    .person-role{
+      font-family:"DM Mono",monospace;
+      font-size:10px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#777;
+      margin-bottom:30px;
+    }
+
+    .person-name{
+      font-size:clamp(55px,7vw,100px);
+      line-height:.82;
+      letter-spacing:-.08em;
+      margin-bottom:40px;
+    }
+
+    .person-name span{
+      display:block;
+    }
+
+    .person-bio{
+      color:#555;
+      max-width:520px;
+      font-size:15px;
+      line-height:1.7;
+    }
+
+    .person-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:7px;
+      margin-top:30px;
+    }
+
+    .person-tag{
+      border:1px solid var(--line);
+      padding:8px 10px;
+      font-family:"DM Mono",monospace;
+      font-size:9px;
+      text-transform:uppercase;
+    }
+
+
+    /* =========================================================
+       STATS
+    ========================================================= */
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+
+    .stat{
+      padding:45px 25px 45px 0;
+    }
+
+    .stat + .stat{
+      border-left:1px solid var(--line);
+      padding-left:25px;
+    }
+
+    .stat-number{
+      font-size:clamp(42px,5vw,75px);
+      line-height:1;
+      letter-spacing:-.07em;
+    }
+
+    .stat-label{
+      font-family:"DM Mono",monospace;
+      font-size:10px;
+      color:#777;
+      text-transform:uppercase;
+      margin-top:13px;
+    }
+
+
+    /* =========================================================
+       CONTACT
+    ========================================================= */
+
+    .contact-section{
+      background:var(--accent);
+      color:#111;
+    }
+
+    .contact-section .section-header{
+      border-color:rgba(17,17,17,.25);
+    }
+
+    .contact-title{
+      font-size:clamp(65px,10vw,150px);
+      line-height:.82;
+      letter-spacing:-.09em;
+      max-width:1150px;
+    }
+
+    .contact-bottom{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:50px;
+      margin-top:70px;
+    }
+
+    .contact-copy{
+      max-width:550px;
+      font-size:16px;
+      line-height:1.6;
+    }
+
+    .contact-links{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap:10px;
+    }
+
+    .contact-links a{
+      font-size:18px;
+      font-weight:600;
+      border-bottom:1px solid #111;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer{
+      background:#111;
+      color:#f2f0eb;
+      padding:35px 0;
+    }
+
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:30px;
+    }
+
+    .footer-brand{
+      font-weight:700;
+      font-size:18px;
+      letter-spacing:-.04em;
+    }
+
+    .footer-copy{
+      font-family:"DM Mono",monospace;
+      font-size:9px;
+      color:#777;
+      text-transform:uppercase;
+    }
+
+    .footer-top{
+      font-family:"DM Mono",monospace;
+      font-size:9px;
+      text-transform:uppercase;
+      color:#aaa;
+    }
+
+
+    /* =========================================================
+       REVEAL
+    ========================================================= */
+
+    .reveal{
+      opacity:0;
+      transform:translateY(35px);
+      transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .reveal.visible{
+      opacity:1;
+      transform:none;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media(max-width:1050px){
+
+      :root{
+        --container:min(100% - 44px, 1380px);
+      }
+
+      .desktop-nav,
+      .nav-contact{
+        display:none;
+      }
+
+      .menu-button{
+        display:block;
+      }
+
+      .hero{
+        padding-top:150px;
+      }
+
+      .hero-bottom{
+        grid-template-columns:1fr;
+        gap:35px;
+      }
+
+      .hero-cta-row{
+        justify-content:flex-start;
+      }
+
+      .section-header{
+        grid-template-columns:120px 1fr;
+        gap:30px;
+      }
+
+      .service{
+        grid-template-columns:60px 1fr 220px 25px;
+      }
+
+      .work-card{
+        grid-template-columns:60px 1fr;
+      }
+
+      .work-side{
+        grid-column:2;
+        min-height:auto;
+        flex-direction:row;
+        align-items:flex-end;
+      }
+
+      .work-visual{
+        right:30px;
+      }
+
+      .website{
+        grid-template-columns:60px 1fr auto;
+      }
+
+    }
+
+
+    @media(max-width:700px){
+
+      :root{
+        --container:calc(100% - 30px);
+      }
+
+      .nav{
+        padding:17px 0;
+      }
+
+      .brand{
+        font-size:17px;
+      }
+
+      .hero{
+        min-height:100svh;
+        padding:125px 0 50px;
+        align-items:center;
+      }
+
+      .hero-meta{
+        margin-bottom:35px;
+      }
+
+      .hero-meta-right{
+        display:none;
+      }
+
+      .hero h1{
+        font-size:clamp(61px,18vw,105px);
+      }
+
+      .hero-bottom{
+        margin-top:45px;
+      }
+
+      .hero-description{
+        font-size:15px;
+      }
+
+      .hero-cta-row{
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .button{
+        width:100%;
+      }
+
+      .hero-scroll{
+        display:none;
+      }
+
+      section{
+        padding:95px 0;
+      }
+
+      .section-header{
+        grid-template-columns:1fr;
+        gap:25px;
+        margin-bottom:55px;
+      }
+
+      .section-title{
+        font-size:clamp(46px,14vw,75px);
+      }
+
+      .section-intro{
+        font-size:15px;
+      }
+
+      .service{
+        grid-template-columns:35px 1fr 20px;
+        gap:14px;
+        padding:25px 0;
+      }
+
+      .service p{
+        grid-column:2;
+        grid-row:2;
+      }
+
+      .service h3{
+        font-size:30px;
+      }
+
+      .service-arrow{
+        grid-column:3;
+        grid-row:1;
+      }
+
+      .work-card{
+        grid-template-columns:35px 1fr;
+        gap:14px;
+        padding:50px 0;
+      }
+
+      .work-title{
+        font-size:clamp(48px,14vw,75px);
+      }
+
+      .work-description{
+        font-size:13px;
+      }
+
+      .work-side{
+        grid-column:2;
+        flex-direction:column;
+        align-items:stretch;
+        gap:30px;
+      }
+
+      .work-visual{
+        display:none;
+      }
+
+      .website{
+        grid-template-columns:35px 1fr;
+        gap:15px;
+        padding:25px 0;
+      }
+
+      .website-type{
+        grid-column:2;
+      }
+
+      .website-name{
+        font-size:31px;
+      }
+
+      .team-grid{
+        grid-template-columns:1fr;
+      }
+
+      .person{
+        padding:40px 0;
+      }
+
+      .person + .person{
+        border-left:0;
+        padding-left:0;
+      }
+
+      .person-name{
+        font-size:clamp(55px,16vw,85px);
+      }
+
+      .stats{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .stat{
+        padding:30px 15px 30px 0;
+      }
+
+      .stat:nth-child(3){
+        border-left:0;
+        padding-left:0;
+        border-top:1px solid var(--line);
+      }
+
+      .stat:nth-child(4){
+        border-top:1px solid var(--line);
+      }
+
+      .stat + .stat{
+        padding-left:15px;
+      }
+
+      .contact-title{
+        font-size:clamp(60px,17vw,100px);
+      }
+
+      .contact-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .contact-links{
+        align-items:flex-start;
+      }
+
+      .footer-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .mobile-menu{
+        padding:30px;
+      }
+
+      .mobile-menu-bottom{
+        left:30px;
+        right:30px;
+      }
+
+    }
+
+
+    /* =========================================================
+       REDUCED MOTION
+    ========================================================= */
+
+    @media(prefers-reduced-motion:reduce){
+
+      *,
+      *::before,
+      *::after{
+        scroll-behavior:auto !important;
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+      }
+
+      .reveal{
+        opacity:1;
+        transform:none;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- =======================================================
+       LOADER
+  ======================================================== -->
+
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-top">
+        <span>AK × ST</span>
+        <span>Loading</span>
+      </div>
+
+      <div class="loader-line">
+        <div class="loader-progress"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =======================================================
+       MOBILE MENU
+  ======================================================== -->
+
+  <div class="mobile-menu" id="mobileMenu">
+
+    <div class="mobile-menu-links">
+
+      <a href="#work">
+        Work<span>.</span>
+      </a>
+
+      <a href="#services">
+        Services<span>.</span>
+      </a>
+
+      <a href="#websites">
+        Websites<span>.</span>
+      </a>
+
+      <a href="#team">
+        Team<span>.</span>
+      </a>
+
+      <a href="#contact">
+        Contact<span>.</span>
+      </a>
+
+    </div>
+
+    <div class="mobile-menu-bottom">
+      <span>AK × ST Advertising</span>
+      <span>Digital Growth</span>
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       NAVIGATION
+  ======================================================== -->
+
+  <nav class="nav" id="nav">
+
+    <div class="nav-inner">
+
+      <a href="#" class="brand" aria-label="AK ST Advertising Home">
+        AK <span class="brand-x">×</span> ST
+      </a>
+
+      <div class="desktop-nav">
+
+        <a href="#work">Work</a>
+
+        <a href="#services">Services</a>
+
+        <a href="#websites">Websites</a>
+
+        <a href="#team">Team</a>
+
+      </div>
+
+      <a href="#contact" class="nav-contact">
+        Start a project ↗
+      </a>
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Open menu"
+        aria-expanded="false">
+
+        <span></span>
+        <span></span>
+
+      </button>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
+
+  <header class="hero" id="top">
+
+    <div class="container">
+
+      <div class="hero-grid">
+
+        <div class="hero-meta">
+
+          <div class="eyebrow">
+            Shailesh Tiwari × Aman Kohli
+          </div>
+
+          <div class="hero-meta-right eyebrow">
+            Digital Growth / Web / Marketing
+          </div>
+
+        </div>
+
+
+        <h1>
+
+          We build.
+          <br>
+
+          <span class="outline">Market.</span>
+
+          <br>
+
+          <span class="orange-word">Grow.</span>
+
+        </h1>
+
+
+        <div class="hero-bottom">
+
+          <p class="hero-description">
+
+            <strong>AK × ST Advertising</strong> is a digital growth
+            partnership focused on building better websites,
+            stronger digital presence and measurable marketing
+            campaigns.
+
+            <br><br>
+
+            From <strong>website development and SEO</strong> to
+            <strong>Google Ads, Meta Ads, social media and B2B
+            lead generation</strong> — we bring the digital pieces
+            together.
+
+          </p>
+
+
+          <div class="hero-cta-row">
+
+            <a href="#work" class="button primary">
+              Explore our work ↘
+            </a>
+
+            <a href="#services" class="button">
+              What we do
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="hero-scroll">
+      Scroll to explore ↓
+    </div>
+
+  </header>
+
+
+  <!-- =======================================================
+       MARQUEE
+  ======================================================== -->
+
+  <div class="marquee">
+
+    <div class="marquee-track">
+
+      <div class="marquee-item">
+        Web Development
+        <span class="marquee-dot"></span>
+      </div>
+
+      <div class="marquee-item">
+        Digital Marketing
+        <span class="marquee-dot"></span>
+      </div>
+
+      <div class="marquee-item">
+        SEO
+        <span class="marquee-dot"></span>
+      </div>
+
+      <div class="marquee-item">
+        Google Ads
+        <span class="marquee-dot"></span>
+      </div>
+
+      <div class="marquee-item">
+        Meta Ads
+        <span class="marquee-dot"></span>
+      </div>
+
+      <div class="marquee-item">
+        B2B Lead Generation
+        <span class="marquee-dot"></span>
+      </div>
+
+      <div class="marquee-item">
+        Social Media
+        <span class="marquee-dot"></span>
+      </div>
+
+      <!-- Duplicate for seamless loop -->
+
+      <div class="marquee-item">
+        Web Development
+        <span class="marquee-dot"></span>
+      </div>
+
+      <div class="marquee-item">
+        Digital Marketing
+        <span class="marquee-dot"></span>
+      </div>
+
+      <div class="marquee-item">
+        SEO
+        <span class="marquee-dot"></span>
+      </div>
+
+      <div class="marquee-item">
+        Google Ads
+        <span class="marquee-dot"></span>
+      </div>
+
+      <div class="marquee-item">
+        Meta Ads
+        <span class="marquee-dot"></span>
+      </div>
+
+      <div class="marquee-item">
+        B2B Lead Generation
+        <span class="marquee-dot"></span>
+      </div>
+
+      <div class="marquee-item">
+        Social Media
+        <span class="marquee-dot"></span>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       SERVICES
+  ======================================================== -->
+
+  <section id="services">
+
+    <div class="container">
+
+      <div class="section-header reveal">
+
+        <div class="section-number">
+          01 / CAPABILITIES
+        </div>
+
+        <div>
+
+          <h2 class="section-title">
+            Everything your digital presence needs.
+          </h2>
+
+          <p class="section-intro">
+            We combine web development, performance marketing,
+            search visibility and digital communication into one
+            connected growth system.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="services">
+
+        <a href="#contact" class="service reveal">
+
+          <div class="service-number">01</div>
+
+          <h3>Website Development</h3>
+
+          <p>
+            Responsive business websites, landing pages,
+            WordPress projects and conversion-focused web
+            experiences.
+          </p>
+
+          <div class="service-arrow">↗</div>
+
+        </a>
+
+
+        <a href="#contact" class="service reveal">
+
+          <div class="service-number">02</div>
+
+          <h3>Digital Marketing</h3>
+
+          <p>
+            Digital strategy and execution designed around
+            visibility, traffic, enquiries and growth.
+          </p>
+
+          <div class="service-arrow">↗</div>
+
+        </a>
+
+
+        <a href="#contact" class="service reveal">
+
+          <div class="service-number">03</div>
+
+          <h3>SEO</h3>
+
+          <p>
+            Keyword research, on-page optimization, technical
+            improvements and link-building strategies.
+          </p>
+
+          <div class="service-arrow">↗</div>
+
+        </a>
+
+
+        <a href="#contact" class="service reveal">
+
+          <div class="service-number">04</div>
+
+          <h3>Google & Meta Ads</h3>
+
+          <p>
+            Paid acquisition campaigns, audience targeting,
+            optimization and performance analysis.
+          </p>
+
+          <div class="service-arrow">↗</div>
+
+        </a>
+
+
+        <a href="#contact" class="service reveal">
+
+          <div class="service-number">05</div>
+
+          <h3>Social Media</h3>
+
+          <p>
+            Social media planning, content direction, brand
+            communication and ongoing digital presence.
+          </p>
+
+          <div class="service-arrow">↗</div>
+
+        </a>
+
+
+        <a href="#contact" class="service reveal">
+
+          <div class="service-number">06</div>
+
+          <h3>B2B Lead Generation</h3>
+
+          <p>
+            LinkedIn, email outreach, prospect research and
+            direct client communication workflows.
+          </p>
+
+          <div class="service-arrow">↗</div>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       WORK
+  ======================================================== -->
+
+  <section id="work">
+
+    <div class="container">
+
+      <div class="section-header reveal">
+
+        <div class="section-number">
+          02 / SELECTED WORK
+        </div>
+
+        <div>
+
+          <h2 class="section-title">
+            Work that connects strategy with execution.
+          </h2>
+
+          <p class="section-intro">
+            A selection of marketing, growth and digital projects
+            across hospitality, advertising, creative and
+            technology-focused businesses.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="work-list">
+
+
+        <!-- WORK 01 -->
+
+        <article class="work-card reveal">
+
+          <div class="work-number">
+            01
+          </div>
+
+          <div class="work-main">
+
+            <div class="work-tag">
+              Hospitality / Digital Growth
+            </div>
+
+            <h3 class="work-title">
+              Laimar<br>Hotels
+            </h3>
+
+            <p class="work-description">
+              Digital marketing and growth work for a hospitality
+              brand, combining paid campaigns, social presence,
+              search visibility and digital communication.
+            </p>
+
+          </div>
+
+          <div class="work-side">
+
+            <div class="work-side-top">
+
+              <span class="chip">Google Ads</span>
+              <span class="chip">Meta Ads</span>
+              <span class="chip">SEO</span>
+              <span class="chip">Social</span>
+
+            </div>
+
+            <div class="work-link">
+              <span>Hospitality</span>
+              <span>↗</span>
+            </div>
+
+          </div>
+
+          <div class="work-visual">
+
+            <div class="visual-inner">
+
+              <div class="visual-logo">
+                LAIMAR
+              </div>
+
+              <div class="visual-index">
+                01 / 06
+              </div>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- WORK 02 -->
+
+        <article class="work-card reveal">
+
+          <div class="work-number">
+            02
+          </div>
+
+          <div class="work-main">
+
+            <div class="work-tag">
+              Hospitality / Digital Marketing
+            </div>
+
+            <h3 class="work-title">
+              Heritage<br>Holiday Homes
+            </h3>
+
+            <p class="work-description">
+              Digital presence and marketing support for a
+              hospitality-focused business, with attention to
+              social media, online visibility and customer reach.
+            </p>
+
+          </div>
+
+          <div class="work-side">
+
+            <div class="work-side-top">
+
+              <span class="chip">Marketing</span>
+              <span class="chip">Social Media</span>
+              <span class="chip">Growth</span>
+
+            </div>
+
+            <div class="work-link">
+              <span>Hospitality</span>
+              <span>↗</span>
+            </div>
+
+          </div>
+
+          <div class="work-visual">
+
+            <div class="visual-inner">
+
+              <div class="visual-logo">
+                HERITAGE
+              </div>
+
+              <div class="visual-index">
+                02 / 06
+              </div>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- WORK 03 -->
+
+        <article class="work-card reveal">
+
+          <div class="work-number">
+            03
+          </div>
+
+          <div class="work-main">
+
+            <div class="work-tag">
+              Creative / Digital Marketing
+            </div>
+
+            <h3 class="work-title">
+              Anup Gupta<br>Studio
+            </h3>
+
+            <p class="work-description">
+              Managing digital marketing and growth initiatives
+              including website optimization, product
+              presentation, social media, performance marketing
+              and digital brand visibility.
+            </p>
+
+          </div>
+
+          <div class="work-side">
+
+            <div class="work-side-top">
+
+              <span class="chip">Google Ads</span>
+              <span class="chip">Meta Ads</span>
+              <span class="chip">Website</span>
+              <span class="chip">Social</span>
+
+            </div>
+
+            <div class="work-link">
+              <span>Creative Brand</span>
+              <span>↗</span>
+            </div>
+
+          </div>
+
+          <div class="work-visual">
+
+            <div class="visual-inner">
+
+              <div class="visual-logo">
+                AGS
+              </div>
+
+              <div class="visual-index">
+                03 / 06
+              </div>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- WORK 04 -->
+
+        <article class="work-card reveal">
+
+          <div class="work-number">
+            04
+          </div>
+
+          <div class="work-main">
+
+            <div class="work-tag">
+              Marketing / SEO / Paid Media
+            </div>
+
+            <h3 class="work-title">
+              Hyper Cloud
+            </h3>
+
+            <p class="work-description">
+              Paid Marketing & SEO experience covering Google Ads,
+              Meta Ads, LinkedIn campaigns, keyword research,
+              on-page optimization, analytics and performance
+              reporting.
+            </p>
+
+          </div>
+
+          <div class="work-side">
+
+            <div class="work-side-top">
+
+              <span class="chip">Google Ads</span>
+              <span class="chip">Meta Ads</span>
+              <span class="chip">LinkedIn</span>
+              <span class="chip">SEO</span>
+
+            </div>
+
+            <div class="work-link">
+              <span>Digital Marketing</span>
+              <span>↗</span>
+            </div>
+
+          </div>
+
+          <div class="work-visual">
+
+            <div class="visual-inner">
+
+              <div class="visual-logo">
+                HC
+              </div>
+
+              <div class="visual-index">
+                04 / 06
+              </div>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- WORK 05 -->
+
+        <article class="work-card reveal">
+
+          <div class="work-number">
+            05
+          </div>
+
+          <div class="work-main">
+
+            <div class="work-tag">
+              Advertising / B2B
+            </div>
+
+            <h3 class="work-title">
+              Fortune<br>Advertising
+            </h3>
+
+            <p class="work-description">
+              Supported organic lead generation through Google
+              Business Profile, social media, LinkedIn and email
+              outreach, including direct prospect interaction,
+              client discussions and meetings.
+            </p>
+
+          </div>
+
+          <div class="work-side">
+
+            <div class="work-side-top">
+
+              <span class="chip">GMB</span>
+              <span class="chip">LinkedIn</span>
+              <span class="chip">Email</span>
+              <span class="chip">Social</span>
+
+            </div>
+
+            <div class="work-link">
+              <span>B2B Growth</span>
+              <span>↗</span>
+            </div>
+
+          </div>
+
+          <div class="work-visual">
+
+            <div class="visual-inner">
+
+              <div class="visual-logo">
+                FORTUNE
+              </div>
+
+              <div class="visual-index">
+                05 / 06
+              </div>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- WORK 06 -->
+
+        <article class="work-card reveal">
+
+          <div class="work-number">
+            06
+          </div>
+
+          <div class="work-main">
+
+            <div class="work-tag">
+              Web Development
+            </div>
+
+            <h3 class="work-title">
+              Digital<br>Experiences
+            </h3>
+
+            <p class="work-description">
+              Website development and digital implementation
+              across business, technology, media and creative
+              brands.
+            </p>
+
+          </div>
+
+          <div class="work-side">
+
+            <div class="work-side-top">
+
+              <span class="chip">UI</span>
+              <span class="chip">WordPress</span>
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+
+            </div>
+
+            <div class="work-link">
+              <span>Web Development</span>
+              <span>↗</span>
+            </div>
+
+          </div>
+
+          <div class="work-visual">
+
+            <div class="visual-inner">
+
+              <div class="visual-logo">
+                WEB
+              </div>
+
+              <div class="visual-index">
+                06 / 06
+              </div>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       STATS
+  ======================================================== -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-header reveal">
+
+        <div class="section-number">
+          03 / APPROACH
+        </div>
+
+        <div>
+
+          <h2 class="section-title">
+            Small team.<br>
+            Complete execution.
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="stats reveal">
+
+        <div class="stat">
+
+          <div class="stat-number">
+            360°
+          </div>
+
+          <div class="stat-label">
+            Digital Execution
+          </div>
+
+        </div>
+
+
+        <div class="stat">
+
+          <div class="stat-number">
+            SEO
+          </div>
+
+          <div class="stat-label">
+            Organic Growth
+          </div>
+
+        </div>
+
+
+        <div class="stat">
+
+          <div class="stat-number">
+            PPC
+          </div>
+
+          <div class="stat-label">
+            Paid Acquisition
+          </div>
+
+        </div>
+
+
+        <div class="stat">
+
+          <div class="stat-number">
+            B2B
+          </div>
+
+          <div class="stat-label">
+            Lead Generation
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       WEBSITES
+  ======================================================== -->
+
+  <section id="websites">
+
+    <div class="container">
+
+      <div class="section-header reveal">
+
+        <div class="section-number">
+          04 / WEB DEVELOPMENT
+        </div>
+
+        <div>
+
+          <h2 class="section-title">
+            Websites we've built<br>
+            and worked on.
+          </h2>
+
+          <p class="section-intro">
+            Selected website projects covering development,
+            design implementation, optimization and ongoing
+            digital work.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="website-list">
+
+        <a
+          class="website reveal"
+          href="https://cplx.media/"
+          target="_blank"
+          rel="noopener">
+
+          <span class="website-num">01</span>
+
+          <span class="website-name">
+            CPLX Media
+          </span>
+
+          <span class="website-type">
+            Media / Website ↗
+          </span>
+
+        </a>
+
+
+        <a
+          class="website reveal"
+          href="https://excelitsolution.com/"
+          target="_blank"
+          rel="noopener">
+
+          <span class="website-num">02</span>
+
+          <span class="website-name">
+            Excel IT Solution
+          </span>
+
+          <span class="website-type">
+            Technology / Website ↗
+          </span>
+
+        </a>
+
+
+        <a
+          class="website reveal"
+          href="https://avnor.media/"
+          target="_blank"
+          rel="noopener">
+
+          <span class="website-num">03</span>
+
+          <span class="website-name">
+            AVNOR.MEDIA
+          </span>
+
+          <span class="website-type">
+            Media / Website ↗
+          </span>
+
+        </a>
+
+
+        <a
+          class="website reveal"
+          href="https://fortuneadvertising.in/"
+          target="_blank"
+          rel="noopener">
+
+          <span class="website-num">04</span>
+
+          <span class="website-name">
+            Fortune Advertising
+          </span>
+
+          <span class="website-type">
+            Advertising / Website ↗
+          </span>
+
+        </a>
+
+
+        <a
+          class="website reveal"
+          href="https://www.anupguptastudio.com/"
+          target="_blank"
+          rel="noopener">
+
+          <span class="website-num">05</span>
+
+          <span class="website-name">
+            Anup Gupta Studio
+          </span>
+
+          <span class="website-type">
+            Creative / Website ↗
+          </span>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       TEAM
+  ======================================================== -->
+
+  <section id="team">
+
+    <div class="container">
+
+      <div class="section-header reveal">
+
+        <div class="section-number">
+          05 / TEAM
+        </div>
+
+        <div>
+
+          <h2 class="section-title">
+            Strategy meets execution.
+          </h2>
+
+          <p class="section-intro">
+            Two complementary skill sets working across
+            technology, marketing, social media, paid acquisition
+            and business development.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="team-grid">
+
+
+        <!-- SHAILESH -->
+
+        <article class="person reveal">
+
+          <div class="person-role">
+            Digital Marketing / Growth
+          </div>
+
+          <h3 class="person-name">
+            <span>Shailesh</span>
+            <span>Tiwari</span>
+          </h3>
+
+          <p class="person-bio">
+
+            Digital marketing professional focused on SEO,
+            paid acquisition, social media, website optimization,
+            lead generation and digital growth.
+
+            <br><br>
+
+            B.Tech in Computer Science with specialization in
+            Artificial Intelligence & Machine Learning.
+
+          </p>
+
+
+          <div class="person-tags">
+
+            <span class="person-tag">Google Ads</span>
+            <span class="person-tag">Meta Ads</span>
+            <span class="person-tag">SEO</span>
+            <span class="person-tag">Web</span>
+            <span class="person-tag">B2B</span>
+
+          </div>
+
+        </article>
+
+
+        <!-- AMAN -->
+
+        <article class="person reveal">
+
+          <div class="person-role">
+            Marketing / Social / Brand Communication
+          </div>
+
+          <h3 class="person-name">
+            <span>Aman</span>
+            <span>Kohli</span>
+          </h3>
+
+          <p class="person-bio">
+
+            Marketing and business development professional with
+            experience across social media, customer support,
+            BTL/OOH activations, client relations, market research,
+            campaign reporting and cross-functional coordination.
+
+          </p>
+
+
+          <div class="person-tags">
+
+            <span class="person-tag">Marketing</span>
+            <span class="person-tag">Social</span>
+            <span class="person-tag">Branding</span>
+            <span class="person-tag">Client Relations</span>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       CONTACT
+  ======================================================== -->
+
+  <section class="contact-section" id="contact">
+
+    <div class="container">
+
+      <div class="section-header reveal">
+
+        <div class="section-number">
+          06 / CONTACT
+        </div>
+
+        <div class="eyebrow">
+          Let's build something better
+        </div>
+
+      </div>
+
+
+      <h2 class="contact-title reveal">
+        Have a project<br>
+        in mind?
+      </h2>
+
+
+      <div class="contact-bottom reveal">
+
+        <p class="contact-copy">
+
+          Need a website, stronger search visibility,
+          paid campaigns, social media growth or a complete
+          digital presence?
+
+          <br><br>
+
+          Let's talk about what you're building.
+
+        </p>
+
+
+        <div class="contact-links">
+
+          <a href="mailto:itsshailesh0414@gmail.com">
+            itsshailesh0414@gmail.com ↗
+          </a>
+
+          <a href="tel:+919267967187">
+            +91 92679 67187 ↗
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          AK <span class="orange">×</span> ST Advertising
+        </div>
+
+        <div class="footer-copy">
+          © 2026 AK × ST Advertising
+        </div>
+
+        <a href="#top" class="footer-top">
+          Back to top ↑
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
+  <script>
+
+    /* =========================================================
+       LOADER
+    ========================================================= */
+
+    window.addEventListener("load", function(){
+
+      setTimeout(function(){
+
+        document
+          .getElementById("loader")
+          .classList.add("hide");
+
+      }, 900);
+
+    });
+
+
+    /* =========================================================
+       NAV SCROLL
+    ========================================================= */
+
+    const nav = document.getElementById("nav");
+
+    function updateNav(){
+
+      if(window.scrollY > 40){
+
+        nav.classList.add("scrolled");
+
+      }else{
+
+        nav.classList.remove("scrolled");
+
+      }
+
+    }
+
+    window.addEventListener("scroll", updateNav);
+
+    updateNav();
+
+
+    /* =========================================================
+       MOBILE MENU
+    ========================================================= */
+
+    const menuButton =
+      document.getElementById("menuButton");
+
+    const mobileMenu =
+      document.getElementById("mobileMenu");
+
+    const mobileLinks =
+      document.querySelectorAll(".mobile-menu-links a");
+
+
+    function closeMenu(){
+
+      menuButton.classList.remove("active");
+
+      mobileMenu.classList.remove("open");
+
+      document.body.classList.remove("menu-open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+    }
+
+
+    menuButton.addEventListener("click", function(){
+
+      const isOpen =
+        mobileMenu.classList.contains("open");
+
+
+      if(isOpen){
+
+        closeMenu();
+
+      }else{
+
+        menuButton.classList.add("active");
+
+        mobileMenu.classList.add("open");
+
+        document.body.classList.add("menu-open");
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          "true"
+        );
+
+      }
+
+    });
+
+
+    mobileLinks.forEach(function(link){
+
+      link.addEventListener("click", function(){
+
+        closeMenu();
+
+      });
+
+    });
+
+
+    /* =========================================================
+       REVEAL ON SCROLL
+    ========================================================= */
+
+    const revealItems =
+      document.querySelectorAll(".reveal");
+
+
+    const revealObserver =
+      new IntersectionObserver(
+
+        function(entries){
+
+          entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+
+              entry.target.classList.add("visible");
+
+              revealObserver.unobserve(
+                entry.target
+              );
+
+            }
+
+          });
+
+        },
+
+        {
+          threshold:.12
+        }
+
+      );
+
+
+    revealItems.forEach(function(item){
+
+      revealObserver.observe(item);
+
+    });
+
+
+    /* =========================================================
+       ESCAPE CLOSE MENU
+    ========================================================= */
+
+    document.addEventListener("keydown", function(e){
+
+      if(e.key === "Escape"){
+
+        closeMenu();
+
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
